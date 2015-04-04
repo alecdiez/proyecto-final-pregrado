@@ -19,11 +19,18 @@
 				<h1>Ingrese un número del 1 al 10</h1>
 			</div>
 			Ingrese el Número:<input type="text" style="text-align: right"
-				name="numero">&nbsp;&nbsp;&nbsp; <br> <br> <input
+				name="numero" onKeyPress="return soloNumeros(event)">&nbsp;&nbsp;&nbsp; <br> <br> <input
 				type="submit" value="Mostrar Tabla entera">
 
 		</form>
 
 	</div>
 </body>
+<script type="text/javascript">
+	// Solo permite ingresar numeros.
+	function soloNumeros(e) {
+		var key = window.Event ? e.which : e.keyCode
+		return (key >= 48 && key <= 57)
+	}
+</script>
 </html>
