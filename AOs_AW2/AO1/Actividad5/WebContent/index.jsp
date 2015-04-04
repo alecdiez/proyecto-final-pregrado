@@ -4,25 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Actividad 4</title>
+<title>Actividad 5</title>
 </head>
 <body>
 	<div align="center">
-		<h1>AO1 - Actividad N° 4</h1>
+		<h1>AO1 - Actividad N°</h1>
 	</div>
 	<br>
-	<img alt="Enunciado" src="actividad4.jpg">
+	<img alt="Enunciado" src="actividad5.jpg">
 	<div align="center">
 
 		<form name="form1" id="form1" action="Resultado.jsp" method="post">
 			<div align="center">
-				<h1>Ingrese una Frase:</h1>
+				<h1>Ingrese una Parrafo:</h1>
 			</div>
-			<input type="text" style="text-align: left" size="100" name="frase"
-				id="frase">
-			 <input type="submit" value="Mostrar Resultados">
+			<input type="text" style="text-align: left" size="100" name="parrafo"
+				id="parrafo"><br>
+			<div align="center">
+				<h1>Ingrese una Letra o Palabra a Buscar:</h1>
+			</div>
+			<input type="text" style="text-align: left" size="20" name="buscar"
+				id="buscar"><br>
+			<br> <input type="submit" value="Mostrar Resultados">
 		</form>
-
 	</div>
 </body>
 </html>
