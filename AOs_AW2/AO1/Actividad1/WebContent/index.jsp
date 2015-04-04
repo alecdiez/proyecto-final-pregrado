@@ -20,9 +20,11 @@
 				<h1>Ingrese los numeros a calcular</h1>
 			</div>
 			Ingrese el Primer Número:<input type="text" style="text-align: right"
-				name="numero1">&nbsp;&nbsp;&nbsp; Ingrese el Segundo Número:<input
-				type="text" style="text-align: right" name="numero2"> <br>
-			<br> <input type="radio" name="operacion" value="suma" checked>Sumar&nbsp;&nbsp;
+				name="numero1" onKeyPress="return soloNumeros(event)">&nbsp;&nbsp;&nbsp;
+			Ingrese el Segundo Número:<input type="text"
+				style="text-align: right" name="numero2"
+				onKeyPress="return soloNumeros(event)"> <br> <br>
+			<input type="radio" name="operacion" value="suma" checked>Sumar&nbsp;&nbsp;
 			<input type="radio" name="operacion" value="resta">Restar&nbsp;&nbsp;
 			<input type="radio" name="operacion" value="multiplica">Multiplicar&nbsp;&nbsp;
 			<input type="radio" name="operacion" value="divide">Dividir&nbsp;&nbsp;
@@ -34,4 +36,11 @@
 	</div>
 
 </body>
+<script type="text/javascript">
+	// Solo permite ingresar numeros.
+	function soloNumeros(e) {
+		var key = window.Event ? e.which : e.keyCode
+		return (key >= 48 && key <= 57)
+	}
+</script>
 </html>
