@@ -25,7 +25,7 @@
 					<th>Descripcion del Producto</th>
 					<th>Precio Unitario</th>
 					<th>Cantidad</th>
-					<th>Bonificacion</th>
+					<th>Bonificacion (%)</th>
 				</thead>
 				<tbody>
 					<c:forEach var="i" begin="0" end="9">
@@ -60,14 +60,17 @@
 	}
 
 	function enviaTabla() {
-		var filas = new Array(10);
-		for (i = 0; i < 9; i++) {
+		var filas = new Array();
+		for (i = 0; i < 10; i++) {
 
 			var des = document.getElementById("des" + i).value;
 			var pre = document.getElementById("pre" + i).value;
 			var cant = document.getElementById("cant" + i).value;
 			var bon = document.getElementById("bon" + i).value;
-			filas[i] = des + "_" + pre + "_" + cant + "_" + bon;
+
+			if (des != "" & pre != "" & cant != "" & bon != "") {
+				filas[i] = des + "-" + pre + "-" + cant + "-" + bon;
+			}
 		}
 
 		var input = document.createElement("INPUT");
@@ -75,7 +78,11 @@
 		input.value = filas;
 		input.name = "filas";
 		form1.appendChild(input);
-		document.getElementById("form1").submit();
+		if (filas.length >= 1) {
+			document.getElementById("form1").submit();
+		} else {
+			alert('Recuerde llenar todos los valores!!');
+		}
 	}
 </script>
 </html>
