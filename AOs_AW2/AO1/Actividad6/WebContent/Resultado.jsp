@@ -156,7 +156,7 @@
 		if (letraMayor.length == 2) {
 			letraMayor = letraMayor.replace(" ", "");
 		}
-		alert(letraMayor.length);
+		
 		document.getElementById(letraMayor + 'let').innerHTML = "MAYOR";
 
 	}
