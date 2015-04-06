@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Actividad 9</title>
+</head>
+<body>
+	<div align="center">
+		<h1>AO1 - Actividad N° 9</h1>
+	</div>
+	<br>
+	<img alt="Enunciado" src="actividad9.jpg">
+	<div align="center">
+		<form name="form1" id="form1" action="Resultado.jsp" method="post">
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Descripción</th>
+						<th>Datos a Ingresar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td align="right">Apellido:</td>
+						<td><input type="text" style="text-align: left" name="ape"
+							id="ape"></td>
+					</tr>
+					<tr>
+						<td align="right">Nombre:</td>
+						<td><input type="text" style="text-align: left" name="nom"
+							id="nom"></td>
+					</tr>
+					<tr>
+						<td align="right">Edad</td>
+						<td><input type="text" style="text-align: left" name="edad"
+							id="edad" onKeyPress="return soloNumeros(event)"></td>
+					</tr>
+					<tr>
+						<td align="right">Profesión</td>
+						<td><input type="text" style="text-align: left" name="pro"
+							id="pro"></td>
+					</tr>
+					<tr>
+						<td align="right">Correo Electrónico</td>
+						<td><input type="text" style="text-align: left" name="email"
+							id="email"></td>
+					</tr>
+					<tr></tr>
+				</tbody>
+			</table><br>
+			<b>Señales sus Intereses:</b>
+            <input type="radio" name="pol" value="politica">Politica&nbsp;&nbsp;
+			<input type="radio" name="eco" value="economia">Economia&nbsp;&nbsp;
+			<input type="radio" name="poli" value="policiales">Policiales&nbsp;&nbsp;
+			<input type="radio" name="esp" value="espectaculos">Espectaculos&nbsp;&nbsp;
+			<div align="center">
+				<br> <input type="button" value="Mostrar Resultados"
+					onclick="enviaForm()">
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	// Solo permite ingresar numeros.
+	function soloNumeros(e) {
+		var key = window.Event ? e.which : e.keyCode
+		return (key >= 48 && key <= 57)
+	}
+
+	function enviaForm() {
+		var ape = document.getElementById('ape').value;
+		var nom = document.getElementById('nom').value;
+		var edad = document.getElementById('edad').value;
+		var pro = document.getElementById('pro').value;
+		var email = document.getElementById('email').value;
+
+		if (ape != ""& nom!=""&edad!=""&pro!=""&email!="") {
+			form1.submit();
+		} else {
+			alert('Recuerde Completar Todos los Datos!!!');
+		}
+
+	}
+</script>
+</html>
