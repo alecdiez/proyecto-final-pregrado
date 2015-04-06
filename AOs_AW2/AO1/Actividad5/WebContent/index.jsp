@@ -16,7 +16,7 @@
 
 		<form name="form1" id="form1" action="Resultado.jsp" method="post">
 			<div align="center">
-				<h1>Ingrese una Parrafo:</h1>
+				<h1>Ingrese un Parrafo:</h1>
 			</div>
 			<input type="text" style="text-align: left" size="100" name="parrafo"
 				id="parrafo"><br>
