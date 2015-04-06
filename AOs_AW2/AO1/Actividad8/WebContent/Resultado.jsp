@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Resultado Actividad 7</title>
+<title>Resultado Actividad 8</title>
 </head>
 <%
 	String numero = request.getParameter("numero");
@@ -15,7 +15,7 @@
 	<c:set var="numero" value="<%=Integer.parseInt(numero)%>" />
 	<c:set var="existe" value="NOexiste" />
 	<div align="center">
-		<h1>Resultado - Actividad N° 7</h1>
+		<h1>Resultado - Actividad N° 8</h1>
 	</div>
 	<br>
 	<form action="index.html">
