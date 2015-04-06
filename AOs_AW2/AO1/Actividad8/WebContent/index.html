@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Actividad</title>
+</head>
+<body>
+	<div align="center">
+		<h1>AO1 - Actividad N° 8</h1>
+	</div>
+	<br>
+	<img alt="Enunciado" src="actividad8.jpg">
+	<div align="center">
+		<form name="form1" id="form1" action="Resultado.jsp" method="post">
+			<div align="center">
+				<h1>Ingrese un Número:</h1>
+			</div>
+			<input type="text" style="text-align: left" name="numero" id="numero"
+				onKeyPress="return soloNumeros(event)"><br>
+			<div align="center">
+				<br> <input type="button" value="Mostrar Resultados"
+					onclick="enviaNumero()">
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+	// Solo permite ingresar numeros.
+	function soloNumeros(e) {
+		var key = window.Event ? e.which : e.keyCode
+		return (key >= 48 && key <= 57)
+	}
+
+	function enviaNumero() {
+		var num = document.getElementById('numero').value;
+
+		if (num != "") {
+			form1.submit();
+		} else {
+			alert('Recuerde ingresar un numero!!!');
+		}
+
+	}
+</script>
+</html>
