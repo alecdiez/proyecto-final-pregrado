@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Resultado Actividad 3</title>
 </head>
 <%
 	String filas = request.getParameter("filas");
@@ -17,7 +17,16 @@
 	</div>
 	<br>
 	<form action="index.jsp">
-		<div align="center">
+			<div align="center">
+							<table name="tablaResultado" id="tabRes"  border=2>
+				<thead>
+					<th>Descripcion del Producto"</th>
+					<th>Precio Unitario</th>
+					<th>Cantidad</th>
+					<th>Bonificacion/unidad ($)</th>
+					<th>Subtotal</th>
+					<th>IVA/Unidad</th>
+				</thead>
 			<%
 				for (int i = 0; i < fila.length; i++) {
 					String datos[] = fila[i].split("-");
@@ -32,15 +41,26 @@
 			<c:set var="bon" value="<%=Double.parseDouble(bon)%>" />
 
 			<h3>
-				<c:out value="El Producto \" ${des}\" tiene un precio
-					de $ ${pre}, con un Subtotal
-					de $ ${(pre*cant)-(pre*cant)*(bon/100)} y un iva de $ ${((pre*cant)-(pre*cant)*(bon/100))*(21/100)}" />
+
+				<tbody>
+				
+						<tr><td><div align="center"><c:out value="${des}"> </c:out></div> </td>
+						<td><div align="center"><c:out value="${pre}"> </c:out></div> </td>
+						<td><div align="center"><c:out value="${cant}"></c:out></div></td>
+						<td><div align="center"><c:out value="${bon*pre/100}"></c:out></div></td>
+						<td><div align="center"><c:out value="${((pre-(bon*pre/100))*cant)}"></div></c:out></td>
+						<td><div align="center"><c:out value="${((pre-(bon*pre/100))*(0.21))}"></c:out></div></td>
+						</tr>
+					
+						
 			</h3>
 
 			<c:set var="suma" value="${suma+((pre*cant)-(pre*cant)*(bon/100))}" />
 			<%
 				}
 			%>
+			</tbody>
+						</table>
 
 			<h1>
 				<c:out value="El total a facturar es : $${suma}" />
