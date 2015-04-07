@@ -1,0 +1,22 @@
+import java.io.*;
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
+
+
+public class RaizTag extends BodyTagSupport{
+	
+		
+	public int doAfterBody() throws JspException {
+		try{
+			BodyContent bc = getBodyContent();
+			int cuerpo = Integuer.parseInt(bc.getString());
+			JspWriter out = bc.getEnclosingWriter();
+			if(cuerpo!=null){
+				out.print("Raíz cuadrada de "+cuerpo+"= "+Math.sqrt(cuerpo));
+			}
+		}catch (IOException e){
+			throw new JspException("Error: IOException"+e.getMessage());
+		}
+		return SKIP_BODY;
+	}
+}
