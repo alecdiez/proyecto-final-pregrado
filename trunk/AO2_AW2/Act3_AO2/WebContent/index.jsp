@@ -17,11 +17,13 @@
 				while (ingreso != 'FIN') {
 					var nombre = prompt('Ingrese un Nombre:', '');
 					ingreso = nombre.toUpperCase();
-					cont++;
+					if (nombre.length != 0) {
+						cont++;
+					}
 				}
 
-				document.write('La cantidad de Nombres ingresados es : ' + cont
-						+ '<br>');
+				document.write('La cantidad de Nombres ingresados es : '
+						+ (cont - 1) + '<br>');
 			</script>
 		</h2>
 	</div>
