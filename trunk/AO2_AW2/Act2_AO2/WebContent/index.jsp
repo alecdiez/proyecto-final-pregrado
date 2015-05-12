@@ -44,5 +44,7 @@
 				document.write('Letras Minusculas ingresadas ='
 						+ cantMinusculas + '<br>');
 			</script>
+		</h2>
+	</div>
 </body>
 </html>
