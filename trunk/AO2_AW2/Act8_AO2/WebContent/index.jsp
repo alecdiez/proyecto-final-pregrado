@@ -17,7 +17,7 @@
 				type="checkbox" id="Futbol" value="Futbol">Futbol&nbsp;&nbsp;&nbsp;
 			<input type="checkbox" id="Basquet" value="Bsquet">Basquet&nbsp;&nbsp;&nbsp;
 			<input type="checkbox" id="Tenis" value="Tenis">Tenis&nbsp;&nbsp;&nbsp;
-			<input type="button" onClick="mostrar()" value="Mostrar Presupuesto">
+			<input type="button" onClick="mostrar()" value="Mostrar">
 
 		</div>
 	</form>
