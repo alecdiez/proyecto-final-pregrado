@@ -11,23 +11,35 @@
 	<img alt="actividad10" src="act10.jpg">
 	<form name="form1" action="index.jsp">
 		<div align="center">
-
-			<script type="text/javascript">
-			
-			
-				function mayor(array) {
-
-					var mayor = 0;
-					for (var i = 0; i < array.length; i++) {
-						if (array[i] > mayor) {
-							mayor = array[i];
-						}
+			<h2>
+				<script type="text/javascript">
+					var ingreso;
+					var cont = 0;
+					var enteros = [];
+					while (ingreso != 'FIN') {
+						var nombre = prompt(
+								'Ingrese un Número entero, para finalizar ingrese FIN:',
+								'');
+						enteros[cont] = ingreso;
+						ingreso = nombre.toUpperCase();
+						cont++;
 					}
+					document
+							.write('El mayor valor de los numeros ingresados es..... : '
+									+ mayor(enteros));
+					function mayor(array) {
 
-					return mayor;
-				}
-			</script>
+						var mayor = 0;
+						for (var i = 0; i < array.length; i++) {
+							if (parseInt(array[i]) > mayor) {
+								mayor = array[i];
+							}
+						}
 
+						return mayor;
+					}
+				</script>
+			</h2>
 		</div>
 
 	</form>
