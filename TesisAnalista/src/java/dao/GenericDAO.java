@@ -3,19 +3,13 @@ package dao;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
 import org.hibernate.Session;
-
 import java.io.Serializable;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 public abstract class GenericDAO<E extends Serializable, PK extends Serializable> {
 
-   
     @SuppressWarnings("unchecked")
     protected Class<E> getType() {
         ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
@@ -38,6 +32,16 @@ public abstract class GenericDAO<E extends Serializable, PK extends Serializable
         Session session = getHibernateSession();
         Transaction transaction = session.beginTransaction();
         List<E> objects = session.createQuery("from " + type.getCanonicalName()).list();
+        transaction.commit();
+        return objects;
+    }
+
+    
+    public List<E> getByColumn(String ColumnName, String row) {
+        Class<E> type = this.getType();        
+        Session session = getHibernateSession();
+        Transaction transaction = session.beginTransaction();
+        List<E> objects = session.createQuery("FROM "+type.getName()+ " E WHERE E."+ColumnName+"="+row+"").list();        
         transaction.commit();
         return objects;
     }
