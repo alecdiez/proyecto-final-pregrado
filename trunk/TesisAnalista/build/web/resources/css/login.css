@@ -10,9 +10,10 @@ and open the template in the editor.
 
 .classLogin{
     font-family:  monospace; 
-    font-size: 45px;
+    font-size: 30px;
     font-style:  oblique; 
     font-weight:  bold; 
-    color: red;
+    color: blue;
     font: monospace;
+    text-align: center;
 }
