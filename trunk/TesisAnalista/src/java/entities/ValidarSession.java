@@ -17,7 +17,7 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 
 public class ValidarSession extends GenericDAO<ValidarSession, Long> implements Serializable {
-    
+
     private String usuario;
     private String pass;
     private String validacion;
@@ -45,21 +45,36 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
     public void setPass(String pass) {
         this.pass = pass;
     }
-    
 
-    public void valSession() {
-        
-        Persona per= new Persona();
-        per.setNombre("ale");
-        per.setApellido("sosa");
-        per.setUsuario(this.getUsuario());
-        per.setPass(this.getPass());
-        per.setDni(27921909L);
-        (new PersonaDAO()).save(per);
-        
-        List<Persona> persona = (new PersonaDAO()).getAll();
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Welcome " + persona.get(0)+" lalalala"));
+    public void valSession() throws NoSuchFieldException {
+
+        /*Persona per= new Persona();
+         per.setNombre("ale");
+         per.setApellido("sosa");
+         per.setUsuario(this.getUsuario());
+         per.setPass(this.getPass());
+         per.setDni(27921909L);
+         (new PersonaDAO()).save(per);*/
+        List<Persona> persona = (new PersonaDAO()).getByColumn("usuario", this.getUsuario());
+
+        if (!persona.isEmpty()) {
+            String userToCompare = persona.get(0).getUsuario();
+            String passToCompare = persona.get(0).getPass();
+
+            if (userToCompare.equals(this.getUsuario()) && passToCompare.equals(this.getPass())) {
+                this.setValidacion("VALIDADO");
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage(this.getValidacion()));
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null,
+                        new FacesMessage("RECUERDE INGRESAR DATOS VÁLIDOS!!!"));
+            }
+
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage("RECUERDE INGRESAR UN USUARIO VÁLIDO!!!"));
+        }
+
         (new PersonaDAO()).closeSessionFactory();
     }
 }

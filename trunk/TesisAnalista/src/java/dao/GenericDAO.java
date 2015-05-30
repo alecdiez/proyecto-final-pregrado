@@ -5,6 +5,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import org.hibernate.Session;
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
 
@@ -36,12 +37,19 @@ public abstract class GenericDAO<E extends Serializable, PK extends Serializable
         return objects;
     }
 
-    
-    public List<E> getByColumn(String ColumnName, String row) {
-        Class<E> type = this.getType();        
+    public List<E> getByColumn(String ColumnName, String row) throws NoSuchFieldException {
+        Class<E> type = this.getType();
         Session session = getHibernateSession();
+        Field[] field = type.getDeclaredFields();
+        int position = 0;
+        for (int i = 0; i < field.length; i++) {
+            if (field[i].getName().equals(ColumnName)) {
+                position = i;
+            }
+        }
         Transaction transaction = session.beginTransaction();
-        List<E> objects = session.createQuery("FROM "+type.getName()+ " E WHERE E."+ColumnName+"="+row+"").list();        
+        String query = "FROM " + type.getCanonicalName() + "  WHERE " + field[position].getName() + " = '" + row + "'";
+        List<E> objects = session.createQuery(query).list();
         transaction.commit();
         return objects;
     }
