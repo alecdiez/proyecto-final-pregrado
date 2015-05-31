@@ -1,0 +1,35 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+#{valses.consultaEstadoValidacion()}
+    <h:form>
+        <div align="right">           
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <h:panelGrid id="grid" cellpadding="5" columns="2" style="margin-bottom:10px">
+                                <f:facet name="header">
+                                    <p:messages id="msgs" />
+                                </f:facet>                
+                            </h:panelGrid>
+                        </th>
+                        <th>
+                            <p:commandLink id="ajax" actionListener="#{valses.logOut()}" style="font-size: small">
+                                <h:outputText value="Cerrar Sesion" />
+                            </p:commandLink>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </h:form>
+
+</ui:composition>
+
+
+
+

@@ -6,11 +6,13 @@ package entities;
 
 import dao.GenericDAO;
 import dao.PersonaDAO;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "valses")
@@ -46,15 +48,9 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
         this.pass = pass;
     }
 
-    public void valSession() throws NoSuchFieldException {
+    public void valSession() throws NoSuchFieldException, IOException {
 
-        /*Persona per= new Persona();
-         per.setNombre("ale");
-         per.setApellido("sosa");
-         per.setUsuario(this.getUsuario());
-         per.setPass(this.getPass());
-         per.setDni(27921909L);
-         (new PersonaDAO()).save(per);*/
+        FacesContext fc = FacesContext.getCurrentInstance();
         List<Persona> persona = (new PersonaDAO()).getByColumn("usuario", this.getUsuario());
 
         if (!persona.isEmpty()) {
@@ -63,18 +59,56 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
 
             if (userToCompare.equals(this.getUsuario()) && passToCompare.equals(this.getPass())) {
                 this.setValidacion("VALIDADO");
-                FacesContext.getCurrentInstance().addMessage(null,
-                        new FacesMessage(this.getValidacion()));
+                String url = "default.xhtml";
+                ExternalContext ec = fc.getExternalContext();
+                try {
+                    ec.redirect(url);
+                } catch (IOException ex) {
+
+                }
             } else {
-                FacesContext.getCurrentInstance().addMessage(null,
+                fc.addMessage(null,
                         new FacesMessage("RECUERDE INGRESAR DATOS VÁLIDOS!!!"));
             }
 
         } else {
-            FacesContext.getCurrentInstance().addMessage(null,
+            fc.addMessage(null,
                     new FacesMessage("RECUERDE INGRESAR UN USUARIO VÁLIDO!!!"));
         }
 
         (new PersonaDAO()).closeSessionFactory();
+    }
+
+    public void consultaEstadoValidacion() {
+        FacesContext fc = FacesContext.getCurrentInstance();
+        int l=this.getValidacion().length();
+        if (this.getValidacion() != null && !this.getValidacion().isEmpty()) {
+            if (this.getValidacion().equals("VALIDADO")) {
+                fc.addMessage(null, new FacesMessage("Bienvenido: " + this.getUsuario()));
+
+            }
+        } else {
+            ExternalContext ec = fc.getExternalContext();
+            String url = "index.xhtml";
+            try {
+                ec.redirect(url);
+
+            } catch (IOException ex) {
+
+            }
+        }
+    }
+
+    public void logOut() {
+        this.setValidacion("");
+        this.setUsuario("");
+        this.setPass("");
+        FacesContext fc = FacesContext.getCurrentInstance();
+        ExternalContext ec = fc.getExternalContext();
+        String url = "index.xhtml";
+        try {
+            ec.redirect(url);
+        } catch (IOException ex) {
+        }
     }
 }
