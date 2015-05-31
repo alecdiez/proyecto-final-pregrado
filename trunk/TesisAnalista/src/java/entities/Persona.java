@@ -4,6 +4,7 @@
  */
 package entities;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,6 +23,7 @@ public class Persona implements Serializable {
     private String nombre;
     private String apellido;
     private Long dni;
+    private String privilegio;   
     
     public Persona() {
         
@@ -39,6 +41,7 @@ public class Persona implements Serializable {
     }
     
     @Column(name = "per_usuario")
+    @NotNull
     public String getUsuario() {
         return usuario;
     }
@@ -48,6 +51,7 @@ public class Persona implements Serializable {
     }
    
     @Column(name = "per_pass")
+    @NotNull
     public String getPass() {
         return pass;
     }
@@ -58,6 +62,7 @@ public class Persona implements Serializable {
 
     
     @Column(name = "per_nombre")
+    @NotNull
     public String getNombre() {
         return nombre;
     }
@@ -67,6 +72,7 @@ public class Persona implements Serializable {
     }
    
     @Column(name = "per_ape")
+    @NotNull
     public String getApellido() {
         return apellido;
     }
@@ -76,6 +82,7 @@ public class Persona implements Serializable {
     }
 
     @Column(name = "per_dni")
+    @NotNull
     public Long getDni() {
         return dni;
     }
@@ -86,7 +93,8 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", usuario=" + usuario + ", pass=" + pass + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + '}';
+        return "Persona{" + "id=" + id + ", usuario=" + usuario + ", pass=" + pass + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", privilegio=" + privilegio + '}';
     }
+
     
 }

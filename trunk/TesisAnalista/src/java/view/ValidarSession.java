@@ -21,6 +21,7 @@ import javax.faces.context.FacesContext;
 
 public class ValidarSession extends GenericDAO<ValidarSession, Long> implements Serializable {
 
+    private Long personaId;
     private String usuario;
     private String pass;
     private String validacion;
@@ -48,6 +49,20 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
     public void setPass(String pass) {
         this.pass = pass;
     }
+
+    public Long getPersonaId() {
+        return personaId;
+    }
+
+    public void setPersonaId(Long usuarioId) {
+        this.personaId = usuarioId;
+    }
+
+    @Override
+    public String toString() {
+        return "ValidarSession{" + "usuarioId=" + personaId + ", usuario=" + usuario + ", pass=" + pass + ", validacion=" + validacion + '}';
+    }
+    
 
     public void valSession() throws NoSuchFieldException, IOException {
 
@@ -82,7 +97,7 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
 
     public void consultaEstadoValidacion() {
         FacesContext fc = FacesContext.getCurrentInstance();
-        int l=this.getValidacion().length();
+        int l = this.getValidacion().length();
         if (this.getValidacion() != null && !this.getValidacion().isEmpty()) {
             if (this.getValidacion().equals("VALIDADO")) {
                 fc.addMessage(null, new FacesMessage("Bienvenido: " + this.getUsuario()));
@@ -101,6 +116,7 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
     }
 
     public void logOut() {
+        this.setPersonaId(0L);
         this.setValidacion("");
         this.setUsuario("");
         this.setPass("");

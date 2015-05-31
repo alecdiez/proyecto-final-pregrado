@@ -3,27 +3,27 @@
     xmlns:f="http://java.sun.com/jsf/core"
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
-#{valses.consultaEstadoValidacion()}
+    xmlns:p="http://primefaces.org/ui" >
+    #{valses.consultaEstadoValidacion()}
     <h:form>
         <div align="right">           
             <table>
-                <thead>
+                <tbody>
                     <tr>
-                        <th>
-                            <h:panelGrid id="grid" cellpadding="5" columns="2" style="margin-bottom:10px">
+                        <td>
+                            <h:panelGrid id="grid">
                                 <f:facet name="header">
                                     <p:messages id="msgs" />
-                                </f:facet>                
+                                </f:facet> 
                             </h:panelGrid>
-                        </th>
-                        <th>
+                        </td>
+                        <td>
                             <p:commandLink id="ajax" actionListener="#{valses.logOut()}" style="font-size: small">
-                                <h:outputText value="Cerrar Sesion" />
+                                <h:outputText value="Cerrar Sesión" />
                             </p:commandLink>
-                        </th>
+                        </td>
                     </tr>
-                </thead>
+                </tbody>
             </table>
         </div>
     </h:form>
