@@ -2,10 +2,11 @@
  * Cliente.java
  *
  */
-package entities;
+package view;
 
 import dao.GenericDAO;
 import dao.PersonaDAO;
+import entities.Persona;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
