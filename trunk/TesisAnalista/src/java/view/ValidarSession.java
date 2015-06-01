@@ -54,8 +54,8 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
         return personaId;
     }
 
-    public void setPersonaId(Long usuarioId) {
-        this.personaId = usuarioId;
+    public void setPersonaId(Long personaId) {
+        this.personaId = personaId;
     }
 
     @Override
@@ -68,6 +68,7 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
 
         FacesContext fc = FacesContext.getCurrentInstance();
         List<Persona> persona = (new PersonaDAO()).getByColumn("usuario", this.getUsuario());
+        this.setPersonaId(persona.get(0).getId());
 
         if (!persona.isEmpty()) {
             String userToCompare = persona.get(0).getUsuario();
