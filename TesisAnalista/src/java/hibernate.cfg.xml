@@ -42,6 +42,7 @@
                 
                
                 <mapping class="entities.Persona"/>
+                <mapping class="entities.Privilegios"/>
                 
 
              

@@ -5,15 +5,18 @@
  */
 package entities;
 
+import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,8 +27,8 @@ import javax.persistence.Table;
 @Table(name = "privilegios")
 public class Privilegios implements Serializable {
 
-    private Long id;
-    private Persona persona;
+    private Long privilegioId;
+    private Persona f_persona;
     private String privilegio;
 
     public Privilegios() {
@@ -34,24 +37,30 @@ public class Privilegios implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "privilegio_id")
-    public Long getId() {
-        return id;
+    @NotNull
+    public Long getPrivilegioId() {
+        return privilegioId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPrivilegioId(Long id) {
+        this.privilegioId = id;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "f_persona")
-    public Persona getPersona() {
-        return persona;
+    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinTable(name="persona",
+            joinColumns = @JoinColumn(name="f_privilegios"),
+            inverseJoinColumns = @JoinColumn(name="per_id"))
+    @NotNull
+    public Persona getF_persona() {
+        return f_persona;
     }
 
-    public void setPersona(Persona persona) {
-        this.persona = persona;
+    public void setF_persona(Persona f_persona) {
+        this.f_persona = f_persona;
     }
 
+    @Column(name = "privilegio")
+    @NotNull
     public String getPrivilegio() {
         return privilegio;
     }

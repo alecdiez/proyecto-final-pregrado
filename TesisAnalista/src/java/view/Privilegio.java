@@ -22,14 +22,24 @@ import javax.faces.bean.SessionScoped;
 public class Privilegio {
 
     public boolean tieneAcceso(Long personaId, String seccion) throws NoSuchFieldException {
-        
+
+        if (seccion.equals("altaPersona")) {
+            Persona persona = (new PersonaDAO()).getById(personaId);
+            Privilegios pri = new Privilegios();
+            pri.setF_persona(persona);
+            pri.setPrivilegio("altaPersona");
+            (new PrivilegiosDAO()).save(pri);
+        }
+
         List<Privilegios> privilegios = (new PrivilegiosDAO()).getByColumn("f_persona", String.valueOf(personaId));
-        for(Privilegios o:privilegios){
-            if(o.getPrivilegio().equals("seccion")){
-                return true;           
+        boolean validado = false;
+        for (Privilegios o : privilegios) {
+            if (o.getPrivilegio().equals(seccion)) {
+                validado = true;
             }
         }
-        return false;
+        (new PrivilegiosDAO()).closeSessionFactory();
+        return validado;
     }
 
 }
