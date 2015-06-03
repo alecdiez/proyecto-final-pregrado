@@ -5,7 +5,6 @@
  */
 package entities;
 
-import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -38,8 +37,7 @@ public class Privilegios implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "privilegio_id")
-    @NotNull
+    @Column(name = "privilegio_id")    
     public Long getPrivilegioId() {
         return privilegioId;
     }
@@ -49,8 +47,7 @@ public class Privilegios implements Serializable {
     }
     
 
-    @Column(name = "privilegio")
-    @NotNull
+    @Column(name = "privilegio")    
     public String getPrivilegio() {
         return privilegio;
     }
