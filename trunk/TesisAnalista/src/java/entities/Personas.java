@@ -4,7 +4,6 @@
  */
 package entities;
 
-import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -43,8 +42,7 @@ public class Personas implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "per_usuario")
-    @NotNull
+    @Column(name = "per_usuario")    
     public String getUsuario() {
         return usuario;
     }
@@ -53,8 +51,7 @@ public class Personas implements Serializable {
         this.usuario = usuario;
     }
 
-    @Column(name = "per_pass")
-    @NotNull
+    @Column(name = "per_pass")    
     public String getPass() {
         return pass;
     }
@@ -63,8 +60,7 @@ public class Personas implements Serializable {
         this.pass = pass;
     }
 
-    @Column(name = "per_nombre")
-    @NotNull
+    @Column(name = "per_nombre")    
     public String getNombre() {
         return nombre;
     }
@@ -73,8 +69,7 @@ public class Personas implements Serializable {
         this.nombre = nombre;
     }
 
-    @Column(name = "per_ape")
-    @NotNull
+    @Column(name = "per_ape")    
     public String getApellido() {
         return apellido;
     }
@@ -84,8 +79,7 @@ public class Personas implements Serializable {
     }
 
     @Column(name = "per_dni")
-    @NotNull
-    public Long getDni() {
+        public Long getDni() {
         return dni;
     }
 
