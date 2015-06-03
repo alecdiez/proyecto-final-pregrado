@@ -7,6 +7,7 @@ package entities;
 
 import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,11 +27,13 @@ import javax.persistence.Table;
 @Table(name = "privilegios")
 public class Privilegios implements Serializable {
 
-    private Long privilegioId;
-    private Persona f_persona;
+    private Long privilegioId;       
     private String privilegio;
+    private List<Personas> persona;  
+   
 
     public Privilegios() {
+       
     }
 
     @Id
@@ -45,19 +47,7 @@ public class Privilegios implements Serializable {
     public void setPrivilegioId(Long id) {
         this.privilegioId = id;
     }
-
-    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinTable(name="persona",
-            joinColumns = @JoinColumn(name="f_privilegios"),
-            inverseJoinColumns = @JoinColumn(name="per_id"))
-    @NotNull
-    public Persona getF_persona() {
-        return f_persona;
-    }
-
-    public void setF_persona(Persona f_persona) {
-        this.f_persona = f_persona;
-    }
+    
 
     @Column(name = "privilegio")
     @NotNull
@@ -67,6 +57,24 @@ public class Privilegios implements Serializable {
 
     public void setPrivilegio(String privilegio) {
         this.privilegio = privilegio;
+    }    
+
+    
+    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
+    @JoinColumn(name="f_privilegio")
+    public List<Personas> getPersona() {
+        return persona;
     }
+
+    public void setPersona(List<Personas> persona) {
+        this.persona = persona;
+    }
+    
+   
+    
+    
+    
+    
+   
 
 }

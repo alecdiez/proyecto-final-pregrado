@@ -5,12 +5,12 @@
  */
 package dao;
 
-import entities.Persona;
+import entities.Personas;
 
 /**
  *
  * @author Alejandro
  */
-public class PersonaDAO extends GenericDAO<Persona, Long> {
+public class PersonaDAO extends GenericDAO<Personas, Long> {
     
 }
