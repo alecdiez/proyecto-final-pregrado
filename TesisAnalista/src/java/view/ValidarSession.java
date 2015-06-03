@@ -6,7 +6,7 @@ package view;
 
 import dao.GenericDAO;
 import dao.PersonaDAO;
-import entities.Persona;
+import entities.Personas;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -67,7 +67,7 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
     public void valSession() throws NoSuchFieldException, IOException {
 
         FacesContext fc = FacesContext.getCurrentInstance();
-        List<Persona> persona = (new PersonaDAO()).getByColumn("usuario", this.getUsuario());
+        List<Personas> persona = (new PersonaDAO()).getByColumn("usuario", this.getUsuario());
         this.setPersonaId(persona.get(0).getId());
 
         if (!persona.isEmpty()) {

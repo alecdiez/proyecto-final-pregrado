@@ -41,7 +41,7 @@
                 <!--property name="hbm2ddl.auto">create-drop</property-->               
                 
                
-                <mapping class="entities.Persona"/>
+                <mapping class="entities.Personas"/>
                 <mapping class="entities.Privilegios"/>
                 
 

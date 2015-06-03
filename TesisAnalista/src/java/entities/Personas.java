@@ -6,12 +6,9 @@ package entities;
 
 import com.sun.istack.internal.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,21 +17,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Persona")
-public class Persona implements Serializable {
+@Table(name = "personas")
+public class Personas implements Serializable {
 
     private Long id;
     private String usuario;
     private String pass;
     private String nombre;
     private String apellido;
-    private Long dni;    
-    private List<Privilegios> privilegios;
-    
-    public Persona() {
-        privilegios=new ArrayList<Privilegios>();
-    }  
-    
+    private Long dni;
+    private Privilegios privilegio;
+
+    public Personas() {
+
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "per_id")
@@ -45,7 +42,7 @@ public class Persona implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-    
+
     @Column(name = "per_usuario")
     @NotNull
     public String getUsuario() {
@@ -55,7 +52,7 @@ public class Persona implements Serializable {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-   
+
     @Column(name = "per_pass")
     @NotNull
     public String getPass() {
@@ -66,7 +63,6 @@ public class Persona implements Serializable {
         this.pass = pass;
     }
 
-    
     @Column(name = "per_nombre")
     @NotNull
     public String getNombre() {
@@ -76,7 +72,7 @@ public class Persona implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-   
+
     @Column(name = "per_ape")
     @NotNull
     public String getApellido() {
@@ -95,16 +91,16 @@ public class Persona implements Serializable {
 
     public void setDni(Long dni) {
         this.dni = dni;
-    }       
-   
-     @ManyToOne(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
-     @JoinColumn(name="f_persona")
-     public List<Privilegios> getPrivilegios() {
-        return privilegios;
     }
 
-    public void setPrivilegios(List<Privilegios> privilegios) {
-        this.privilegios = privilegios;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "f_privilegio")
+    public Privilegios getPrivilegio() {
+        return privilegio;
+    }
+
+    public void setPrivilegio(Privilegios privilegio) {
+        this.privilegio = privilegio;
     }
 
     @Override
@@ -112,5 +108,4 @@ public class Persona implements Serializable {
         return "Persona{" + "id=" + id + ", usuario=" + usuario + ", pass=" + pass + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + '}';
     }
 
-    
 }
