@@ -6,16 +6,16 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,7 +32,7 @@ public class Privilegios implements Serializable {
    
 
     public Privilegios() {
-       
+       persona = new ArrayList<Personas>();
     }
 
     @Id
@@ -57,8 +57,11 @@ public class Privilegios implements Serializable {
     }    
 
     
-    @OneToMany(cascade = CascadeType.ALL,fetch=FetchType.LAZY)
-    @JoinColumn(name="f_privilegio")
+    @ManyToMany()
+    @JoinTable(name = "personas_privilegios",
+            joinColumns = @JoinColumn(name = "fk_privilegio"),
+            inverseJoinColumns = @JoinColumn(name = "fk_persona"))
+
     public List<Personas> getPersona() {
         return persona;
     }
@@ -66,12 +69,6 @@ public class Privilegios implements Serializable {
     public void setPersona(List<Personas> persona) {
         this.persona = persona;
     }
-    
-   
-    
-    
-    
-    
-   
 
+   
 }

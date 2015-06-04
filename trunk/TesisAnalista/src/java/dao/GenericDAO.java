@@ -53,6 +53,14 @@ public abstract class GenericDAO<E extends Serializable, PK extends Serializable
         transaction.commit();
         return objects;
     }
+    
+    public List<E> getListBySQLQuery(String query) {        
+        Session session = getHibernateSession();
+        Transaction transaction = session.beginTransaction();
+        List<E> objects = session.createSQLQuery(query).list();
+        transaction.commit();
+        return objects;
+    }
 
     public E save(E object) {
         Session session = getHibernateSession();
