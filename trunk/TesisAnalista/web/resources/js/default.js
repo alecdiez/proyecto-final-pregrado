@@ -5,5 +5,9 @@
  */
 
 $(document).ready(function () {
-  
+
+    $(".ui-menuitem-text").click(function () {
+        var value=$(this).html();
+        alert(value+'chingote');
+    });
 });
