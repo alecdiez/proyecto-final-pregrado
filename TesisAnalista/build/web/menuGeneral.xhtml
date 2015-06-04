@@ -9,14 +9,13 @@
             <p:submenu label="Configuración" icon="ui-icon-check">
                 <p:column>
                     <p:submenu label="Persona">                    
-                        <p:menuitem value="Alta Persona" url="#" rendered="#{privilegio.tieneAcceso(valses.personaId, 'altaPersona')}"/>   
-                        <p:menuitem value="Baja Persona" url="#"  rendered="#{privilegio.tieneAcceso(valses.personaId, 'bajaPersona')}"/>
-                        <p:menuitem value="Modifica Persona" url="#" rendered="#{privilegio.tieneAcceso(valses.personaId, 'modificaPersona')}"/>                                                           
+                        <p:menuitem id="ap" value="Alta Persona" rendered="#{privilegio.tieneAcceso(valses.personaId, 'altaPersona')}"/>   
+                        <p:menuitem id="bp" value="Baja Persona" rendered="#{privilegio.tieneAcceso(valses.personaId, 'bajaPersona')}"/>
+                        <p:menuitem id="mp" value="Modifica Persona" rendered="#{privilegio.tieneAcceso(valses.personaId, 'modificaPersona')}"/>                                                           
                     </p:submenu>                    
                 </p:column>            
             </p:submenu>
         </p:megaMenu>         
     </h:form>
-
 </ui:composition>
 
