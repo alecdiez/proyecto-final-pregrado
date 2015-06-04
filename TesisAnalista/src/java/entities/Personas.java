@@ -5,14 +5,16 @@
 package entities;
 
 import java.io.Serializable;
-import javax.persistence.CascadeType;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,10 +27,10 @@ public class Personas implements Serializable {
     private String nombre;
     private String apellido;
     private Long dni;
-    private Privilegios privilegio;
+    private List<Privilegios> privilegios;
 
     public Personas() {
-
+         privilegios = new ArrayList<Privilegios>();
     }
 
     @Id
@@ -87,19 +89,23 @@ public class Personas implements Serializable {
         this.dni = dni;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "f_privilegio")
-    public Privilegios getPrivilegio() {
-        return privilegio;
+    @ManyToMany()
+    @JoinTable(name = "personas_privilegios",
+            joinColumns = @JoinColumn(name = "fk_persona"),
+            inverseJoinColumns = @JoinColumn(name = "fk_privilegio"))
+     public List<Privilegios> getPrivilegios() {
+        return privilegios;
     }
 
-    public void setPrivilegio(Privilegios privilegio) {
-        this.privilegio = privilegio;
+    public void setPrivilegios(List<Privilegios> privilegios) {
+        this.privilegios = privilegios;
     }
 
     @Override
     public String toString() {
         return "Persona{" + "id=" + id + ", usuario=" + usuario + ", pass=" + pass + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + '}';
     }
+
+   
 
 }

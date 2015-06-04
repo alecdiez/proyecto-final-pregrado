@@ -6,6 +6,9 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <link rel="shortcut icon" type="image/x-icon" href="http://sia1.subirimagenes.net/img/2015/05/29/150529111542371236.jpg" />
+    <script type="text/javascript">var $j = jQuery.noConflict(true);</script> <!--se evita el conflicto de jquery por primefaces-->
+    <h:outputScript library="primefaces" name="jquery/jquery.js" />
+    <h:outputScript name="/js/default.js"  />
     <ui:include src="validacion.xhtml" />
     <h:head>
         <title>Tesis Analista</title>
