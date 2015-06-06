@@ -52,24 +52,15 @@
 			}
 
 			if (document.getElementById('c').checked) {
-				var primeraMitad = '';
+				//var primeraMitad = '';
 				var arrayCaracteres = new Array(cadena.length);
 				for (var i = 0; i < cadena.length; i++) {
-					if (i < (cadena.length / 2)) {
-						primeraMitad = primeraMitad + cadena.charAt(i);
-					}
+					
 					arrayCaracteres[i] = cadena.charAt(i);
 				}
-				for (var i = 0; i < cadena.length; i++) {
-					if (i < (cadena.length / 2)) {
-						primeraMitad = primeraMitad + cadena.charAt(i);
-					}
-				}
 				var inversa = arrayCaracteres.reverse();
-
 				document.write('El String impreso inversamente es ... '
 						+ inversa + '<br>');
-
 			}
 			if (document.getElementById('d').checked) {
 				document.write('Cada Caracter entre guiones  ... ');
