@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Alta Persona</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:form>        
+            <p:growl id="growl2" showDetail="true" sticky="true" />
+            <p:panel header="Ingrese sus datos">  
+                <h:panelGrid columns="2" cellpadding="5">   
+                    <p:outputLabel for="usr" value="Usuario:" /> <p:inputText id="usr" value="#{persona.usuario}" required="true" requiredMessage="Usuario es requerido."/> 
+                    <p:outputLabel for="pass" value="Contraseña:" /> <p:password id="pass" value="#{persona.pass}" required="true" requiredMessage="Contraseña es requerido."/> 
+                    <p:outputLabel for="nom" value="Nombre:" /> <p:inputText id="nom" value="#{persona.nombre}" required="true" requiredMessage="Nombre es requerido."/> 
+                    <p:outputLabel for="ape" value="Apellido:" /> <p:inputText id="ape" value="#{persona.apellido}" required="true" requiredMessage="Apellido es requerido."/>                   
+                    <p:outputLabel for="dni" value="D.N.I:" /> <p:inputText id="dni" value="#{persona.dni}" required="true" requiredMessage="DNI es requerido."/>
+                </h:panelGrid>  
+
+                <p:commandButton value="Guardar" actionListener="#{tper.altaPersona(persona)}" update="growl2" />  
+            </p:panel> 
+        </h:form>  
+    </h:body>
+
+</html>

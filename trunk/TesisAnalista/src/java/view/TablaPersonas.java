@@ -46,14 +46,32 @@ public class TablaPersonas {
         RequestContext.getCurrentInstance().openDialog("tablaPersonas");
     }
 
-    public void moaPersonas() {
-        FacesMessage message;        
+    public void aPersona() {
+        RequestContext.getCurrentInstance().openDialog("altaPersona");
+    }
+
+    public void mOePersonas(Personas persona) {
+        FacesMessage message;
         if (seccion.equals("modifica")) {
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a modificar", seccion);
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a modificar", persona.getNombre());
             RequestContext.getCurrentInstance().showMessageInDialog(message);
         } else if (seccion.equals("elimina")) {
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a eliminar", seccion);
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a eliminar", persona.getNombre());
             RequestContext.getCurrentInstance().showMessageInDialog(message);
         }
+    }
+
+    public void altaPersona(Personas persona) {
+        FacesMessage message;
+        try {
+            new PersonaDAO().save(persona);
+            message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!");
+            RequestContext.getCurrentInstance().showMessageInDialog(message);
+        } catch (Exception ex) {
+            message = new FacesMessage("Error!!", ex.getMessage());
+            RequestContext.getCurrentInstance().showMessageInDialog(message);
+
+        }
+
     }
 }
