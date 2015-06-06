@@ -41,14 +41,14 @@
 						primeraMitad = primeraMitad + cadena.charAt(i);
 					}
 					arrayCaracteres[i] = cadena.charAt(i);
-				}
+				}				
 				document.write('La primera mitad del String ingresado es ... '
-						+ primeraMitad + '<br>');
+						+ primeraMitad + '<br><a href=\"index.jsp\">Regresar</a>');
 			}
 			if (document.getElementById('b').checked) {
 				document
 						.write('El último caracter del String ingresado es ... '
-								+ cadena.charAt((cadena.length - 1)) + '<br>');
+								+ cadena.charAt((cadena.length - 1)) + '<br><a href=\"index.jsp\">Regresar</a>');
 			}
 
 			if (document.getElementById('c').checked) {
@@ -60,10 +60,10 @@
 				}
 				var inversa = arrayCaracteres.reverse();
 				document.write('El String impreso inversamente es ... '
-						+ inversa + '<br>');
+						+ inversa + '<br><a href=\"index.jsp\">Regresar</a>');
 			}
 			if (document.getElementById('d').checked) {
-				document.write('Cada Caracter entre guiones  ... ');
+				document.write('Cada Caracter entre guiones  ... <br><a href=\"index.jsp\">Regresar</a>');
 				for (var i = 0; i < cadena.length; i++) {
 					if (i != cadena.length - 1) {
 						document.write(cadena.charAt(i) + ' - ');
@@ -91,9 +91,12 @@
 				}
 
 				document.write('La cantidad de vocales encontradas es ... '
-						+ cantVocales + '<br>');
+						+ cantVocales + '<br><br><a href=\"index.jsp\">Regresar</a>');
 			}
+			
 		}
+		
+		
 	</script>
 </body>
 
