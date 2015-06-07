@@ -40,6 +40,10 @@
 			mostrar = mostrar + " Tenis";
 		}
 
+		if (((futbol && tenis) && basquet) == false) {
+			mostrar = "no jugar ningún deporte";			
+		}		
+
 		var usr = document.getElementById("usr").value;
 
 		alert('el usuario ' + usr + ' eligio... ' + mostrar);
