@@ -7,8 +7,9 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:include src="validacion.xhtml" />
     <h:head>
         <title>Personas</title>
         <style type="text/css">
@@ -21,7 +22,7 @@ and open the template in the editor.
     <h:body>
         <h:form>
             <p:dataTable var="persona" value="#{tper.personas}">
-                <p:column headerText="Persona ID">
+                <p:column headerText="ID" style=" width: 10px">
                     <h:outputText value="#{persona.id}" />
                 </p:column>
 
