@@ -11,8 +11,30 @@
         <title>Tesis Analista</title>
     </h:head>
     <h:body>
+        <h:form>
+            <div align="right">           
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h:panelGrid id="grid">
+                                    <f:facet name="header">
+                                        <p:messages id="msgs" />
+                                    </f:facet> 
+                                </h:panelGrid>
+                            </td>
+                            <td>
+                                <p:commandLink id="ajax" actionListener="#{valses.logOut()}" style="font-size: small">
+                                    <h:outputText value="Cerrar Sesión" />
+                                </p:commandLink>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </h:form>
         <ui:include src="menuGeneral.xhtml" />        
-        
+
 
     </h:body>
 </html>
