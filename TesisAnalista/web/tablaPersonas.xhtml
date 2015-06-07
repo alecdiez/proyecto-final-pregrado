@@ -47,9 +47,16 @@ and open the template in the editor.
                     <h:outputText value="#{persona.dni}" />
                 </p:column>
                 <p:column headerText="Seleccionar" style=" width: 100px">
-                    <p:commandButton id="btnAccion" icon="ui-icon-search" actionListener="#{tper.mOePersonas(persona)}" />
+                    <p:commandButton id="btnAccion" icon="ui-icon-trash"  actionListener="#{tper.mOePersonas(persona)}">
+                        <p:confirm header="Confirme por favor?" message="Esta Seguro?" icon="ui-icon-alert" />
+                    </p:commandButton>                    
                 </p:column>
             </p:dataTable>
+
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+            </p:confirmDialog>
         </h:form>
     </h:body>
 

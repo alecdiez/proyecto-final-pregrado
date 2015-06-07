@@ -48,7 +48,7 @@ public class TablaPersonas {
         Map<String, Object> options = new HashMap<String, Object>();
         options.put("modal", true);
         options.put("draggable", true);
-        options.put("resizable", true);       
+        options.put("resizable", true);
         options.put("width", 700);
         options.put("height", 400);
         RequestContext.getCurrentInstance().openDialog("tablaPersonas", options, null);
@@ -64,17 +64,26 @@ public class TablaPersonas {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a modificar", persona.getNombre());
             RequestContext.getCurrentInstance().showMessageInDialog(message);
         } else if (seccion.equals("elimina")) {
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a eliminar", persona.getNombre());
-            RequestContext.getCurrentInstance().showMessageInDialog(message);
+            try {
+                new PersonaDAO().remove(persona);
+                message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se elimino Exitosamente!!!");
+                RequestContext.getCurrentInstance().showMessageInDialog(message);
+                (new PersonaDAO()).closeSessionFactory();
+            } catch (Exception ex) {
+                message = new FacesMessage("Error!!", ex.getMessage());
+                RequestContext.getCurrentInstance().showMessageInDialog(message);
+
+            }
         }
     }
 
     public void altaPersona(Personas persona) {
         FacesMessage message;
         try {
-            new PersonaDAO().save(persona);
+            (new PersonaDAO()).save(persona);
             message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!");
             RequestContext.getCurrentInstance().showMessageInDialog(message);
+            (new PersonaDAO()).closeSessionFactory();
         } catch (Exception ex) {
             message = new FacesMessage("Error!!", ex.getMessage());
             RequestContext.getCurrentInstance().showMessageInDialog(message);
