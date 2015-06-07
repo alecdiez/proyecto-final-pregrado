@@ -65,7 +65,7 @@ public class TablaPersonas {
             RequestContext.getCurrentInstance().showMessageInDialog(message);
         } else if (seccion.equals("elimina")) {
             try {
-                new PersonaDAO().remove(persona);
+                (new PersonaDAO()).remove(persona);
                 message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se elimino Exitosamente!!!");
                 RequestContext.getCurrentInstance().showMessageInDialog(message);
                 (new PersonaDAO()).closeSessionFactory();
