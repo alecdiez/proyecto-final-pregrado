@@ -47,7 +47,7 @@ public class Privilegios implements Serializable {
     }
     
 
-    @Column(name = "privilegio")    
+    @Column(name = "privilegio", unique=true)    
     public String getPrivilegio() {
         return privilegio;
     }

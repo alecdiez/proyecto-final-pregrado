@@ -34,7 +34,7 @@ public class Personas implements Serializable {
     private List<Privilegios> privilegios;
 
     public Personas() {
-         privilegios = new ArrayList<Privilegios>();
+        privilegios = new ArrayList<Privilegios>();
     }
 
     @Id
@@ -48,7 +48,7 @@ public class Personas implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "per_usuario")    
+    @Column(name = "per_usuario", unique = true)
     public String getUsuario() {
         return usuario;
     }
@@ -57,7 +57,7 @@ public class Personas implements Serializable {
         this.usuario = usuario;
     }
 
-    @Column(name = "per_pass")    
+    @Column(name = "per_pass")
     public String getPass() {
         return pass;
     }
@@ -66,7 +66,7 @@ public class Personas implements Serializable {
         this.pass = pass;
     }
 
-    @Column(name = "per_nombre")    
+    @Column(name = "per_nombre")
     public String getNombre() {
         return nombre;
     }
@@ -75,7 +75,7 @@ public class Personas implements Serializable {
         this.nombre = nombre;
     }
 
-    @Column(name = "per_ape")    
+    @Column(name = "per_ape")
     public String getApellido() {
         return apellido;
     }
@@ -84,8 +84,8 @@ public class Personas implements Serializable {
         this.apellido = apellido;
     }
 
-    @Column(name = "per_dni")
-        public Long getDni() {
+    @Column(name = "per_dni", unique = true)
+    public Long getDni() {
         return dni;
     }
 
@@ -97,7 +97,7 @@ public class Personas implements Serializable {
     @JoinTable(name = "personas_privilegios",
             joinColumns = @JoinColumn(name = "fk_persona"),
             inverseJoinColumns = @JoinColumn(name = "fk_privilegio"))
-     public List<Privilegios> getPrivilegios() {
+    public List<Privilegios> getPrivilegios() {
         return privilegios;
     }
 
@@ -109,7 +109,5 @@ public class Personas implements Serializable {
     public String toString() {
         return "Persona{" + "id=" + id + ", usuario=" + usuario + ", pass=" + pass + ", nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + '}';
     }
-
-   
 
 }
