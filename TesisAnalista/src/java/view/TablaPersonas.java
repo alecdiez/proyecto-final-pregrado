@@ -11,7 +11,9 @@ package view;
  */
 import dao.PersonaDAO;
 import entities.Personas;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -43,7 +45,13 @@ public class TablaPersonas {
     public void mostrarPersonas(String seccion) {
         this.setSeccion(seccion);
         this.setPersonas(new PersonaDAO().getAll());
-        RequestContext.getCurrentInstance().openDialog("tablaPersonas");
+        Map<String, Object> options = new HashMap<String, Object>();
+        options.put("modal", true);
+        options.put("draggable", true);
+        options.put("resizable", true);       
+        options.put("width", 700);
+        options.put("height", 400);
+        RequestContext.getCurrentInstance().openDialog("tablaPersonas", options, null);
     }
 
     public void aPersona() {
