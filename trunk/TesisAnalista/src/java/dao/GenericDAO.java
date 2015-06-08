@@ -93,7 +93,7 @@ public abstract class GenericDAO<E extends Serializable, PK extends Serializable
     }
 
     protected Session getHibernateSession() {
-        return HibernateUtil.getSessionFactory().openSession();
+        return HibernateUtil.getSessionFactory().getCurrentSession();
 
     }
 
