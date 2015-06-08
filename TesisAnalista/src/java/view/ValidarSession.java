@@ -62,7 +62,6 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
     public String toString() {
         return "ValidarSession{" + "usuarioId=" + personaId + ", usuario=" + usuario + ", pass=" + pass + ", validacion=" + validacion + '}';
     }
-    
 
     public void valSession() throws NoSuchFieldException, IOException {
 
@@ -93,7 +92,6 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
                     new FacesMessage("RECUERDE INGRESAR UN USUARIO VÁLIDO!!!"));
         }
 
-        (new PersonaDAO()).closeSessionFactory();
     }
 
     public void consultaEstadoValidacion() {
@@ -121,6 +119,7 @@ public class ValidarSession extends GenericDAO<ValidarSession, Long> implements 
         this.setValidacion("");
         this.setUsuario("");
         this.setPass("");
+        (new PersonaDAO()).closeSessionFactory();
         FacesContext fc = FacesContext.getCurrentInstance();
         ExternalContext ec = fc.getExternalContext();
         String url = "index.xhtml";

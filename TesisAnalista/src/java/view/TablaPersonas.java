@@ -68,11 +68,9 @@ public class TablaPersonas {
                 (new PersonaDAO()).remove(persona);
                 message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se elimino Exitosamente!!!");
                 RequestContext.getCurrentInstance().showMessageInDialog(message);
-                (new PersonaDAO()).closeSessionFactory();
             } catch (Exception ex) {
                 message = new FacesMessage("Error!!", ex.getMessage());
                 RequestContext.getCurrentInstance().showMessageInDialog(message);
-
             }
         }
     }
@@ -83,7 +81,7 @@ public class TablaPersonas {
             (new PersonaDAO()).save(persona);
             message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!");
             RequestContext.getCurrentInstance().showMessageInDialog(message);
-            (new PersonaDAO()).closeSessionFactory();
+
         } catch (Exception ex) {
             message = new FacesMessage("Error!!", ex.getMessage());
             RequestContext.getCurrentInstance().showMessageInDialog(message);
