@@ -26,6 +26,17 @@ public class TablaPersonas
 
    private List<Personas> personas;
    private String seccion;
+   private String usuario;
+
+   public String getUsuario()
+   {
+      return usuario;
+   }
+
+   public void setUsuario(String usuario)
+   {
+      this.usuario = usuario;
+   }
 
    public String getSeccion()
    {
@@ -50,7 +61,7 @@ public class TablaPersonas
    public void mostrarPersonas(String seccion)
    {
       this.setSeccion(seccion);
-      this.setPersonas(new PersonaDAO().getAll());
+      this.setPersonas((new PersonaDAO()).getAll());
       RequestContext.getCurrentInstance().openDialog("tablaPersonas", getDialogOptions(seccion), null);
    }
 
@@ -73,6 +84,7 @@ public class TablaPersonas
    public void mOePersonas(Personas persona)
    {
       FacesMessage message;
+      this.setUsuario(persona.getUsuario());
       if(seccion.equals("modifica"))
       {
          message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a modificar", persona.getNombre());
@@ -83,6 +95,7 @@ public class TablaPersonas
          try
          {
             (new PersonaDAO()).remove(persona);
+            this.setPersonas((new PersonaDAO()).getAll());
             message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se elimino Exitosamente!!!");
             RequestContext.getCurrentInstance().showMessageInDialog(message);
          }
@@ -111,5 +124,21 @@ public class TablaPersonas
 
       }
 
+   }
+
+   public String getIcon()
+   {
+      if(seccion.equals("modifica"))
+      {
+         return "ui-icon-arrowrefresh-1-w";
+      }
+      else if(seccion.equals("elimina"))
+      {
+         return "ui-icon-trash";
+      }
+      else
+      {
+         return "error";
+      }
    }
 }
