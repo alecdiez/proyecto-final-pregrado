@@ -27,6 +27,17 @@ public class TablaPersonas
    private List<Personas> personas;
    private String seccion;
    private String usuario;
+   private Personas persona;
+
+   public Personas getPersona()
+   {
+      return persona;
+   }
+
+   public void setPersona(Personas persona)
+   {
+      this.persona = persona;
+   }
 
    public String getUsuario()
    {
@@ -99,7 +110,7 @@ public class TablaPersonas
       this.setUsuario(persona.getUsuario());
       if(seccion.equals("modifica"))
       {
-
+         this.setPersona(persona);
          RequestContext.getCurrentInstance().openDialog("modificaPersona", getDialogOptions("actualiza"), null);
       }
       else if(seccion.equals("elimina"))
