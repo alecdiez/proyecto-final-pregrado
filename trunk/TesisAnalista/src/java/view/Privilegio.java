@@ -5,10 +5,14 @@
  */
 package view;
 
+import java.io.Serializable;
+
 import dao.PrivilegiosDAO;
 import entities.Privilegios;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -18,7 +22,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "privilegio")
 @SessionScoped
-public class Privilegio {
+public class Privilegio implements Serializable {
 
     private List<Privilegios> privilegios = new ArrayList();
 
