@@ -9,11 +9,15 @@ package view;
  *
  * @author Alejandro
  */
+import java.io.Serializable;
+
 import dao.PersonaDAO;
 import entities.Personas;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -21,8 +25,9 @@ import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "tper")
 @SessionScoped
-public class TablaPersonas
+public class TablaPersonas implements Serializable
 {
+   private static final long serialVersionUID = 1L;
 
    private List<Personas> personas;
    private String seccion;
@@ -156,19 +161,22 @@ public class TablaPersonas
       }
 
    }
+
    public void modificaPersona(Personas persona)
    {
       FacesMessage message;
+      RequestContext context = RequestContext.getCurrentInstance();
       try
       {
          (new PersonaDAO()).update(persona);
          message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se modifico Exitosamente!!!");
-         RequestContext.getCurrentInstance().showMessageInDialog(message);
+         context.showMessageInDialog(message);
+         //context.closeDialog("modificaPersona");
       }
       catch (Exception ex)
       {
          message = new FacesMessage("Error!!", ex.getMessage());
-         RequestContext.getCurrentInstance().showMessageInDialog(message);
+         context.showMessageInDialog(message);
 
       }
 

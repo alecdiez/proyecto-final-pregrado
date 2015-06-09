@@ -4,31 +4,31 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
-        <title>Modifica Persona</title>
-        <style type="text/css">
-            .ui-widget {
-                font-size: 90%;
-            }
-        </style>
-    </h:head>
+   <h:head>
+      <title>Modifica Persona</title>
+      <style type="text/css">
+         .ui-widget {
+            font-size: 90%;
+         }
+      </style>
+   </h:head>
 
-    <h:body>
-        <h:form>
-            <p:growl id="growl3" showDetail="true" sticky="true" />
-            <p:panel header="Ingrese sus datos">
-                <h:panelGrid columns="2" cellpadding="5">
-                   <p:outputLabel for="usr" value="Usuario:" /> <p:inputText id="usr" value="#{tper.persona.usuario}" required="true" requiredMessage="Usuario es requerido."/>
-                   <p:outputLabel for="pass" value="Contraseña:" /> <p:password id="pass" value="#{tper.persona.pass}" required="true" requiredMessage="Contraseña es requerido."/>
-                   <p:outputLabel for="nom" value="Nombre:" /> <p:inputText id="nom" value="#{tper.persona.nombre}" required="true" requiredMessage="Nombre es requerido."/>
-                   <p:outputLabel for="ape" value="Apellido:" /> <p:inputText id="ape" value="#{tper.persona.apellido}" required="true" requiredMessage="Apellido es requerido."/>
-                   <p:outputLabel for="dni" value="D.N.I:" /> <p:inputText id="dni" value="#{tper.persona.dni}" required="true" requiredMessage="DNI es requerido."/>
-                </h:panelGrid>
+   <h:body>
+      <h:form>
 
-               <p:commandButton value="Modificar" actionListener="#{tper.modificaPersona(tper.persona)}" update="growl3" />
-            </p:panel>
-        </h:form>
-    </h:body>
+         <p:panel header="Ingrese sus datos" id="panel">
+            <h:panelGrid columns="2" cellpadding="5">
+               <p:outputLabel for="usr" value="Usuario:" /> <p:inputText id="usr" value="#{tper.persona.usuario}" required="true" requiredMessage="Usuario es requerido."/>
+               <p:outputLabel for="pass" value="Contraseña:" /> <p:password id="pass" value="#{tper.persona.pass}" required="true" requiredMessage="Contraseña es requerido."/>
+               <p:outputLabel for="nom" value="Nombre:" /> <p:inputText id="nom" value="#{tper.persona.nombre}" required="true" requiredMessage="Nombre es requerido."/>
+               <p:outputLabel for="ape" value="Apellido:" /> <p:inputText id="ape" value="#{tper.persona.apellido}" required="true" requiredMessage="Apellido es requerido."/>
+               <p:outputLabel for="dni" value="D.N.I:" /> <p:inputText id="dni" value="#{tper.persona.dni}" required="true" requiredMessage="DNI es requerido."/>
+            </h:panelGrid>
+
+            <p:commandButton value="Modificar" actionListener="#{tper.modificaPersona(tper.persona)}" update="panel"/>
+         </p:panel>
+      </h:form>
+   </h:body>
 
 </html>
 
