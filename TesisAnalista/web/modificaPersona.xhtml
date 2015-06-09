@@ -25,7 +25,7 @@
                     <p:outputLabel for="dni" value="D.N.I:" /> <p:inputText id="dni" value="#{persona.dni}" required="true" requiredMessage="DNI es requerido."/>
                 </h:panelGrid>
 
-               <p:commandButton value="Modificar" actionListener="#{tper.altaModificaPersona(persona)}" update="growl3" />
+               <p:commandButton value="Modificar" actionListener="#{tper.modificaPersona(persona)}" update="growl3" />
             </p:panel>
         </h:form>
     </h:body>
