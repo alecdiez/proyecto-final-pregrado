@@ -30,7 +30,7 @@ and open the template in the editor.
             </p:column>
 
             <p:column headerText="Usuario" style=" width: 100px">
-               <h:outputText value="#{persona.usuario}#{persona.usuario}" />
+               <h:outputText value="#{persona.usuario}" />
             </p:column>
 
             <p:column headerText="Contraseña" style=" width: 100px">
@@ -47,7 +47,7 @@ and open the template in the editor.
                <h:outputText value="#{persona.dni}" />
             </p:column>
             <p:column headerText="Seleccionar" style=" width: 100px">
-               <p:commandButton id="btnAccion" icon="#{tper.icon}" update="tablaPersonas" actionListener="#{tper.mOePersonas(persona)}">
+               <p:commandButton id="btnAccion" icon="#{tper.icon}" update="tablaPersonas" actionListener="#{tper.mOePersonas(persona,valses.personaId)}">
                   <p:confirm header="Confirme por favor?" message="Esta Seguro que desea #{tper.accion} ?" icon="ui-icon-alert" />
                </p:commandButton>
             </p:column>

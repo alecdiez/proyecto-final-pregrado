@@ -81,7 +81,7 @@ public class TablaPersonas
       RequestContext.getCurrentInstance().openDialog("altaPersona", getDialogOptions(seccion), null);
    }
 
-   public void mOePersonas(Personas persona)
+   public void mOePersonas(Personas persona, Long usuarioId)
    {
       FacesMessage message;
       this.setUsuario(persona.getUsuario());
@@ -94,10 +94,19 @@ public class TablaPersonas
       {
          try
          {
-            (new PersonaDAO()).remove(persona);
-            this.setPersonas((new PersonaDAO()).getAll());
-            message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se elimino Exitosamente!!!");
-            RequestContext.getCurrentInstance().showMessageInDialog(message);
+            Long pId = persona.getId();
+            if(pId.longValue() == usuarioId.longValue())
+            {
+               message = new FacesMessage("Error de Seguridad!!!");
+               RequestContext.getCurrentInstance().showMessageInDialog(message);
+            }
+            else
+            {
+               (new PersonaDAO()).remove(persona);
+               this.setPersonas((new PersonaDAO()).getAll());
+               message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se elimino Exitosamente!!!");
+               RequestContext.getCurrentInstance().showMessageInDialog(message);
+            }
          }
          catch (Exception ex)
          {
@@ -135,6 +144,22 @@ public class TablaPersonas
       else if(seccion.equals("elimina"))
       {
          return "ui-icon-trash";
+      }
+      else
+      {
+         return "error";
+      }
+   }
+
+   public String getAccion()
+   {
+      if(seccion.equals("modifica"))
+      {
+         return "Modificar este Usuario";
+      }
+      else if(seccion.equals("elimina"))
+      {
+         return "Eliminar este Usuario";
       }
       else
       {
