@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+   <h:head>
+      <title>Modifica Persona</title>
+      <style type="text/css">
+         .ui-widget {
+            font-size: 90%;
+         }
+      </style>
+   </h:head>
+
+   <h:body>
+      <h:form>
+
+         <p:panel header="Ingrese sus datos" id="panel">
+            <h:panelGrid columns="2" cellpadding="5">
+               <p:outputLabel for="usr" value="Usuario:" /> <p:inputText id="usr" value="#{tper.persona.usuario}" required="true" requiredMessage="Usuario es requerido."/>
+               <p:outputLabel for="pass" value="Contraseña:" /> <p:password id="pass" value="#{tper.persona.pass}" required="true" requiredMessage="Contraseña es requerido."/>
+               <p:outputLabel for="nom" value="Nombre:" /> <p:inputText id="nom" value="#{tper.persona.nombre}" required="true" requiredMessage="Nombre es requerido."/>
+               <p:outputLabel for="ape" value="Apellido:" /> <p:inputText id="ape" value="#{tper.persona.apellido}" required="true" requiredMessage="Apellido es requerido."/>
+               <p:outputLabel for="dni" value="D.N.I:" /> <p:inputText id="dni" value="#{tper.persona.dni}" required="true" requiredMessage="DNI es requerido."/>
+            </h:panelGrid>
+
+            <p:commandButton value="Modificar" actionListener="#{tper.modificaPersona(tper.persona)}" update="panel"/>
+         </p:panel>
+      </h:form>
+   </h:body>
+
+</html>
+
