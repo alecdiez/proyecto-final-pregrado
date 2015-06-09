@@ -128,13 +128,30 @@ public class TablaPersonas
       }
    }
 
-   public void altaModificaPersona(Personas persona)
+   public void altaPersona(Personas persona)
    {
       FacesMessage message;
       try
       {
-         (new PersonaDAO()).saveOrUpdate(persona);
+         (new PersonaDAO()).save(persona);
          message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!");
+         RequestContext.getCurrentInstance().showMessageInDialog(message);
+      }
+      catch (Exception ex)
+      {
+         message = new FacesMessage("Error!!", ex.getMessage());
+         RequestContext.getCurrentInstance().showMessageInDialog(message);
+
+      }
+
+   }
+   public void modificaPersona(Personas persona)
+   {
+      FacesMessage message;
+      try
+      {
+         (new PersonaDAO()).update(persona);
+         message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se modifico Exitosamente!!!");
          RequestContext.getCurrentInstance().showMessageInDialog(message);
       }
       catch (Exception ex)
