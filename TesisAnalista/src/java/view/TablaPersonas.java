@@ -71,13 +71,25 @@ public class TablaPersonas
       options.put("modal", true);
       options.put("draggable", true);
       options.put("resizable", true);
-      options.put("width", 700);
-      options.put("height", 400);
+      options.put("contentHeight", "'100%'");
+      options.put("contentWidth", "'100%'");
+      if(seccion.equals("actualiza"))
+      {
+         options.put("width", 700);
+         options.put("height", 300);
+      }
+      else
+      {
+         options.put("width", 900);
+         options.put("height", 500);
+      }
+
       return options;
    }
 
    public void aPersona()
    {
+      this.setSeccion("alta");
       RequestContext.getCurrentInstance().openDialog("altaPersona", getDialogOptions(seccion), null);
    }
 
@@ -87,8 +99,8 @@ public class TablaPersonas
       this.setUsuario(persona.getUsuario());
       if(seccion.equals("modifica"))
       {
-         message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Se va a modificar", persona.getNombre());
-         RequestContext.getCurrentInstance().showMessageInDialog(message);
+
+         RequestContext.getCurrentInstance().openDialog("modificaPersona", getDialogOptions("actualiza"), null);
       }
       else if(seccion.equals("elimina"))
       {
@@ -116,15 +128,14 @@ public class TablaPersonas
       }
    }
 
-   public void altaPersona(Personas persona)
+   public void altaModificaPersona(Personas persona)
    {
       FacesMessage message;
       try
       {
-         (new PersonaDAO()).save(persona);
+         (new PersonaDAO()).saveOrUpdate(persona);
          message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!");
          RequestContext.getCurrentInstance().showMessageInDialog(message);
-
       }
       catch (Exception ex)
       {
