@@ -26,18 +26,17 @@ import javax.persistence.Table;
 @Table(name = "privilegios")
 public class Privilegios implements Serializable {
 
-    private Long privilegioId;       
+    private Long privilegioId;
     private String privilegio;
-    private List<Personas> persona;  
-   
+    private List<Personas> persona;
 
     public Privilegios() {
-       persona = new ArrayList<Personas>();
+        persona = new ArrayList<Personas>();
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "privilegio_id")    
+    @Column(name = "privilegio_id")
     public Long getPrivilegioId() {
         return privilegioId;
     }
@@ -45,18 +44,16 @@ public class Privilegios implements Serializable {
     public void setPrivilegioId(Long id) {
         this.privilegioId = id;
     }
-    
 
-    @Column(name = "privilegio", unique=true)    
+    @Column(name = "privilegio", unique = true)
     public String getPrivilegio() {
         return privilegio;
     }
 
     public void setPrivilegio(String privilegio) {
         this.privilegio = privilegio;
-    }    
+    }
 
-    
     @ManyToMany()
     @JoinTable(name = "personas_privilegios",
             joinColumns = @JoinColumn(name = "fk_privilegio"),
@@ -70,5 +67,4 @@ public class Privilegios implements Serializable {
         this.persona = persona;
     }
 
-   
 }
