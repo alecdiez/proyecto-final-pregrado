@@ -9,55 +9,55 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-   <ui:include src="validacion.xhtml" />
-   <h:head>
-      <title>Personas</title>
-      <style type="text/css">
-         .ui-widget {
-            font-size: 90%;
-         }
-         .ui-datatable table {
-            table-layout: auto !important;
-         }
-      </style>
-   </h:head>
+    <ui:include src="validacion.xhtml" />
+    <h:head>
+        <title>Personas</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+            .ui-datatable table {
+                table-layout: auto !important;
+            }
+        </style>
+    </h:head>
 
-   <h:body>
-      <h:form id="form1">
-         <p:dataTable var="persona"  id="tablaPersonas" value="#{tper.personas}" resizableColumns="true">
-            <p:column headerText="ID" style=" width: 10px">
-               <h:outputText value="#{persona.id}" />
-            </p:column>
+    <h:body>
+        <h:form id="form1">
+            <p:dataTable var="persona"  id="tablaPersonas" value="#{tper.personas}" resizableColumns="true">
+                <p:column headerText="ID" style=" width: 10px">
+                    <h:outputText value="#{persona.id}" />
+                </p:column>
 
-            <p:column headerText="Usuario" style=" width: 100px">
-               <h:outputText value="#{persona.usuario}" />
-            </p:column>
+                <p:column headerText="Usuario" style=" width: 100px">
+                    <h:outputText value="#{persona.usuario}" />
+                </p:column>
 
-            <p:column headerText="Contraseña" style=" width: 100px">
-               <h:outputText value="#{persona.pass}" />
-            </p:column>
+                <p:column headerText="Contraseña" style=" width: 100px">
+                    <h:outputText value="#{persona.pass}" />
+                </p:column>
 
-            <p:column headerText="Nombre" style=" width: 100px">
-               <h:outputText value="#{persona.nombre}" />
-            </p:column>
-            <p:column headerText="Apellido" style=" width: 100px">
-               <h:outputText value="#{persona.apellido}" />
-            </p:column>
-            <p:column headerText="DNI" style=" width: 100px">
-               <h:outputText value="#{persona.dni}" />
-            </p:column>
-            <p:column headerText="Seleccionar" style=" width: 100px">
-               <p:commandButton id="btnAccion" icon="#{tper.icon}" update="tablaPersonas" actionListener="#{tper.mOePersonas(persona,valses.personaId)}">
-                  <p:confirm header="Confirme por favor?" message="Esta Seguro que desea #{tper.accion} ?" icon="ui-icon-alert" />
-               </p:commandButton>
-            </p:column>
-         </p:dataTable>
+                <p:column headerText="Nombre" style=" width: 100px">
+                    <h:outputText value="#{persona.nombre}" />
+                </p:column>
+                <p:column headerText="Apellido" style=" width: 100px">
+                    <h:outputText value="#{persona.apellido}" />
+                </p:column>
+                <p:column headerText="DNI" style=" width: 100px">
+                    <h:outputText value="#{persona.dni}" />
+                </p:column>
+                <p:column headerText="Seleccionar" style=" width: 100px">
+                    <p:commandButton id="btnAccion" icon="#{tper.icon}" update="tablaPersonas" actionListener="#{tper.mOePersonas(persona,valses.personaId)}">
+                        <p:confirm header="Confirme por favor?" message="Esta Seguro que desea #{tper.accion} ?" icon="ui-icon-alert" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
 
-         <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-            <p:commandButton value="Si" type="button"  styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-         </p:confirmDialog>
-      </h:form>
-   </h:body>
+            <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+                <p:commandButton value="Si" type="button"  styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+            </p:confirmDialog>
+        </h:form>
+    </h:body>
 
 </html>
