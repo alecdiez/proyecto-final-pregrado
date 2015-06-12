@@ -32,7 +32,7 @@ public class TablaPersonas implements Serializable {
     private List<Personas> personas;
     private String seccion;
     private String usuario;
-    private Personas persona;
+    private Personas persona;   
 
     public Personas getPersona() {
         return persona;
@@ -90,7 +90,7 @@ public class TablaPersonas implements Serializable {
         return options;
     }
 
-    public void aPersona() {
+    public void aPersona() {        
         this.setSeccion("alta");
         RequestContext.getCurrentInstance().openDialog("altaPersona", getDialogOptions(seccion), null);
     }

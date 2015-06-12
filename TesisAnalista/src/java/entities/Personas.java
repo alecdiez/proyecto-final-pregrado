@@ -42,6 +42,15 @@ public class Personas implements Serializable {
     public Personas() {
         privilegios = new ArrayList<Privilegios>();
     }
+    
+    public void init(){
+        this.setId(0L);
+        this.setApellido(null);
+        this.setUsuario(null);
+        this.setNombre(null);
+        this.setApellido(null);
+        this.setDni(null);
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
