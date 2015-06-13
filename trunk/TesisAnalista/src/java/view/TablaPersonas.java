@@ -32,7 +32,7 @@ public class TablaPersonas implements Serializable {
     private List<Personas> personas;
     private String seccion;
     private String usuario;
-    private Personas persona;   
+    private Personas persona;
 
     public Personas getPersona() {
         return persona;
@@ -90,7 +90,7 @@ public class TablaPersonas implements Serializable {
         return options;
     }
 
-    public void aPersona() {        
+    public void aPersona() {
         this.setSeccion("alta");
         RequestContext.getCurrentInstance().openDialog("altaPersona", getDialogOptions(seccion), null);
     }
@@ -124,8 +124,9 @@ public class TablaPersonas implements Serializable {
         FacesMessage message;
         try {
             (new PersonaDAO()).save(persona);
-            message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!");
-            RequestContext.getCurrentInstance().showMessageInDialog(message);
+            RequestContext.getCurrentInstance().execute("alert('Exito!! El usuario : " + persona.getUsuario() + " se guardo Exitosamente!!!');");
+            RequestContext.getCurrentInstance().closeDialog("altaPersona");
+
         } catch (Exception ex) {
             message = new FacesMessage("Error!!", ex.getMessage());
             RequestContext.getCurrentInstance().showMessageInDialog(message);
@@ -138,10 +139,10 @@ public class TablaPersonas implements Serializable {
         FacesMessage message;
         RequestContext context = RequestContext.getCurrentInstance();
         try {
-            (new PersonaDAO()).update(persona);
-            message = new FacesMessage("Exito!!", "El usuario : " + persona.getUsuario() + " se modifico Exitosamente!!!");
-            context.showMessageInDialog(message);
-            //context.closeDialog("modificaPersona");
+            (new PersonaDAO()).update(persona);            
+            RequestContext.getCurrentInstance().execute("alert('Exito!! El usuario : " + persona.getUsuario() + " se modifico Exitosamente!!!');");
+            RequestContext.getCurrentInstance().closeDialog(this);
+
         } catch (Exception ex) {
             message = new FacesMessage("Error!!", ex.getMessage());
             context.showMessageInDialog(message);
