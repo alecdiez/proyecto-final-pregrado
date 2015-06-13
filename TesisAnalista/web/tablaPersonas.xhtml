@@ -11,7 +11,7 @@ and open the template in the editor.
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <ui:include src="validacion.xhtml" />
     <h:head>
-        <title>Personas</title>
+        <title>#{tper.seccion} Personas</title>
         <style type="text/css">
             .ui-widget {
                 font-size: 90%;
@@ -54,7 +54,7 @@ and open the template in the editor.
             </p:dataTable>
 
             <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
-                <p:commandButton value="Si" type="button"  styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
                 <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
             </p:confirmDialog>
         </h:form>
