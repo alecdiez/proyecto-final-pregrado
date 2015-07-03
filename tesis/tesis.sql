@@ -30,7 +30,7 @@ CREATE TABLE `per_privi` (
   KEY `perId_idx` (`perId`),
   KEY `priviId_idx` (`priviId`),
   CONSTRAINT `priviId` FOREIGN KEY (`priviId`) REFERENCES `privilegios` (`priviId`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `perId` FOREIGN KEY (`perId`) REFERENCES `personas` (`perId`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `perId` FOREIGN KEY (`perId`) REFERENCES `persona` (`perId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,13 +45,13 @@ INSERT INTO `per_privi` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6);
 UNLOCK TABLES;
 
 --
--- Table structure for table `personas`
+-- Table structure for table `persona`
 --
 
-DROP TABLE IF EXISTS `personas`;
+DROP TABLE IF EXISTS `persona`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `personas` (
+CREATE TABLE `persona` (
   `perId` int(11) NOT NULL AUTO_INCREMENT,
   `perUsuario` varchar(245) NOT NULL,
   `perPass` varchar(245) NOT NULL,
@@ -64,13 +64,13 @@ CREATE TABLE `personas` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `personas`
+-- Dumping data for table `persona`
 --
 
-LOCK TABLES `personas` WRITE;
-/*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,'alec9','ama921sa','Alejandro',' Sosa',27921909);
-/*!40000 ALTER TABLE `personas` ENABLE KEYS */;
+LOCK TABLES `persona` WRITE;
+/*!40000 ALTER TABLE `persona` DISABLE KEYS */;
+INSERT INTO `persona` VALUES (1,'alec9','ama921sa','Alejandro',' Sosa',27921909);
+/*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-03 14:40:44
+-- Dump completed on 2015-07-03 11:43:43

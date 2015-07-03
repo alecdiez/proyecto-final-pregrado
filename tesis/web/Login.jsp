@@ -21,7 +21,7 @@
 
                <div  style="background-color:  #c40606;border-radius: 10px;width: 75%;text-align: left">
 
-                  <form action="com.genericQuery">
+                  <form action="com.genericQuery" method="post">
 
                      <table  border="0" >
                         <thead>
