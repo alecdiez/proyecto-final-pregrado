@@ -8,6 +8,9 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,6 +25,9 @@ import javax.persistence.Table;
  *
  * @author Alejandro
  */
+
+@ManagedBean(name = "privi")
+@SessionScoped
 @Entity
 @Table(name = "privilegios")
 public class Privilegios implements Serializable {
@@ -32,6 +38,12 @@ public class Privilegios implements Serializable {
 
     public Privilegios() {
         persona = new ArrayList<Personas>();
+    }
+
+     public void init(){
+        this.setPrivilegioId(null);
+        this.setPrivilegio(null);
+        this.setPersona(null);
     }
 
     @Id

@@ -3,7 +3,7 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui">
-    <h:form>        
+    <h:form>
         <p:megaMenu id="p_megaMenuid">
             <p:submenu label="Configuración" icon="ui-icon-check">
                 <p:column>
@@ -17,9 +17,9 @@
                     </p:submenu>
                     <p:submenu label="Privilegios">
                         <p:menuitem id="apri" value="Alta Privilegio" rendered="#{privilegio.tieneAcceso(valses.personaId, 'altaPrivilegio')}"
-                                    icon="ui-icon-extlink" />
+                                    icon="ui-icon-extlink" actionListener="#{tprivi.aPrivilegio()}" />
                         <p:menuitem id="bpri" value="Baja Privilegio" rendered="#{privilegio.tieneAcceso(valses.personaId, 'bajaPrivilegio')}"
-                                    icon="ui-icon-extlink"/>
+                                    icon="ui-icon-extlink" />
                     </p:submenu>
                 </p:column>
             </p:submenu>
