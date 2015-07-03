@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Alta Privilegio</title>
+        <style type="text/css">
+            .ui-widget {
+                font-size: 90%;
+            }
+        </style>
+    </h:head>
+    #{privi.init()}
+    <h:body>
+        <h:form>
+            <p:growl id="growl4" showDetail="true" sticky="true" />
+            <p:panel header="Ingrese el Privilegio">
+                <h:panelGrid columns="2" cellpadding="5">
+                   <p:outputLabel for="privilegio" value="Privilegio:" /> <p:inputText id="privilegio" value="#{privi.privilegio}" required="true" requiredMessage="Privilegio es requerido."/>
+
+                </h:panelGrid>
+
+                <p:commandButton value="Guardar" actionListener="#{tprivi.altaPrivilegio(privi)}" update="growl4" />
+            </p:panel>
+        </h:form>
+    </h:body>
+
+</html>
+
