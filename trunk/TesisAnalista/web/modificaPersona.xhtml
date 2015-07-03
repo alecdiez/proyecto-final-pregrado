@@ -15,7 +15,7 @@
 
    <h:body>
       <h:form>
-
+         <p:growl id="growl3" showDetail="true" sticky="true" />
          <p:panel header="Ingrese sus datos" id="panel">
             <h:panelGrid columns="2" cellpadding="5">
                <p:outputLabel for="usr" value="Usuario:" /> <p:inputText id="usr" value="#{tper.persona.usuario}" required="true" requiredMessage="Usuario es requerido."/>
@@ -25,7 +25,7 @@
                <p:outputLabel for="dni" value="D.N.I:" /> <p:inputText id="dni" value="#{tper.persona.dni}" required="true" requiredMessage="DNI es requerido."/>
             </h:panelGrid>
 
-            <p:commandButton value="Modificar" actionListener="#{tper.modificaPersona(tper.persona)}"/>
+            <p:commandButton value="Modificar" actionListener="#{tper.modificaPersona(tper.persona)}" update="growl3"/>
          </p:panel>
       </h:form>
    </h:body>
