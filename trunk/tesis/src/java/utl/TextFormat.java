@@ -5,12 +5,10 @@
  */
 package utl;
 
-public final class TextFormat
-{
+public final class TextFormat {
 
-   public static String toStringNeverNull(Object o)
-   {
-      return o == null ? "" : o.toString();
-   }
+    public static String toStringNeverNull(Object o) {
+        return o == null ? "" : o.toString();
+    }
 
 }
