@@ -35,15 +35,6 @@ public class genericQuery extends HttpServlet implements finalVariables {
     private Connection connection = null;
     private PreparedStatement pst = null;
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -55,6 +46,7 @@ public class genericQuery extends HttpServlet implements finalVariables {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
+        session.removeAttribute("empty");
         ArrayList<String> usrLogOn = new ArrayList<String>();
         try {
             String usr = TextFormat.toStringNeverNull(request.getParameter("usuario"));
@@ -68,11 +60,11 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
         sessionLogin(usrLogOn, session);
         out.println("<script>");
-        if (!usrLogOn.get(0).equals("empty")) {
+        if (!usrLogOn.get(0).equals("empty")) {            
             out.println("window.open('DatosPersona.jsp?','alto')");
-            out.println("window.open('DefaultGeneral.jsp','central')");
-        } else {
-            out.println("window.open('DatosPersona.jsp?','alto')");
+            out.println("window.open('DefaultGeneral.jsp?','central')");
+        } else {            
+            out.println("window.open('Login.jsp?','alto')");                     
         }
         out.println("</script>");
     }
@@ -89,6 +81,9 @@ public class genericQuery extends HttpServlet implements finalVariables {
                 }
                 if (data.equals("perPass")) {
                     session.setAttribute("perPass", data);
+                }
+                if (data.equals("perNom")) {
+                    session.setAttribute("perNom", data);
                 }
             } else {
                 session.setAttribute("empty", data);
