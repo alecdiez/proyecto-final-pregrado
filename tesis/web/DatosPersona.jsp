@@ -12,8 +12,7 @@
 <link href="css/main.css" rel="stylesheet"/>
 <!DOCTYPE html>
 <%
-    String perNom = TextFormat.toStringNeverNull(request.getParameter("perNom"));
-    out.println(perNom + "lalal");
+    String perNom = TextFormat.toStringNeverNull(session.getAttribute("perNom"));    
 %>
 <c:set var="perNom" value="<%=perNom%>" />
 <html>
@@ -28,7 +27,7 @@
                     <td class="texto">
                         <c:out value="Bienvenido ${perNom}" />
                     </td>
-                    <td>
+                    <td style=" vertical-align: bottom ">
                         <form name="form1" action="com.genericQuery">
                             <input type="button" id="closeSession" value="Cerrar Sesion" class="BotonCerrarSession" onmouseover="this.style.color = 'blue'"
                                    onMouseOut="this.style.color = '#c40606'"/>                           
