@@ -33,8 +33,7 @@ import utl.TextFormat;
 public class genericQuery extends HttpServlet implements finalVariables {
 
     private Connection connection = null;
-    private PreparedStatement pst = null;
-    private String perNom;
+    private PreparedStatement pst = null;   
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -65,10 +64,10 @@ public class genericQuery extends HttpServlet implements finalVariables {
             Logger.getLogger(genericQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        sessionLogin(usrLogOn, session);
+        sessionLogin(usrLogOn, session);        
         out.println("<script>");
         if (!usrLogOn.get(0).equals("empty")) {
-            out.println("window.open('DatosPersona.jsp?perNom=" + this.getPerNom() + "','alto')");
+            out.println("window.open('DatosPersona.jsp','alto')");
             out.println("window.open('DefaultGeneral.jsp?','central')");
         } else {
             out.println("window.open('Login.jsp?','alto')");
@@ -78,23 +77,23 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
     public void sessionLogin(ArrayList<String> usrData, HttpSession session) {
 
-        for (String data : usrData) {
-            if (!data.equals("empty")) {
-                if (data.equals("perId")) {
-                    session.setAttribute("perId", data);
+        for (int i = 0; i < usrData.size(); i++) {
+            if (!usrData.get(i).equals("empty")) {
+                if (i==0) {
+                    session.setAttribute("perId", usrData.get(i));
                 }
-                if (data.equals("perUsuario")) {
-                    session.setAttribute("perUsuario", data);
+                if (i==1) {
+                    session.setAttribute("perUsuario", usrData.get(i));
                 }
-                if (data.equals("perPass")) {
-                    session.setAttribute("perPass", data);
+                if (i==2) {
+                    session.setAttribute("perPass", usrData.get(i));
                 }
-                if (data.equals("perNom")) {
-                    session.setAttribute("perNom", data);
-                    this.setPerNom(data);
+                if (i==3) {
+                    session.setAttribute("perNom", usrData.get(i));                    
                 }
+
             } else {
-                session.setAttribute("empty", data);
+                session.setAttribute("empty", usrData.get(i));
             }
         }
     }
@@ -164,14 +163,5 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
     public void setPst(PreparedStatement pst) {
         this.pst = pst;
-    }
-
-    public String getPerNom() {
-        return perNom;
-    }
-
-    public void setPerNom(String perNom) {
-        this.perNom = perNom;
-    }
-
+    }   
 }
