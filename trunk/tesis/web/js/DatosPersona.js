@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
-   
+   $('#closeSession').click(function() {       
+       form1.submit();
+   });
 });
 
