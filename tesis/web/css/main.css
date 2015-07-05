@@ -54,6 +54,22 @@ root {
 
 }
 
+.BotonCerrarSession {
+    BORDER-BOTTOM: 1px;
+    BORDER-LEFT: 1px;
+    BORDER-RIGHT: 1px;
+    border-bottom: 1px;
+    FONT-WEIGHT: bold;
+    BORDER-TOP: 0px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #3f3939;
+    FONT-FAMILY: Verdana, Tahoma;
+    FONT-SIZE: 10px;
+    border-radius: 15px;
+    width: 100px;
+}
+
 .ComboMedio
 {
     border-radius: 15px;

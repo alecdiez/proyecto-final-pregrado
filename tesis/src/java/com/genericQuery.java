@@ -34,11 +34,18 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
     private Connection connection = null;
     private PreparedStatement pst = null;
+    private String perNom;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        sessionLogoff(session);
+        out.println("<script>");
+        out.println("window.open('Login.jsp?','alto')");
+        out.println("window.open('Bienvenida.jsp?','central')");
+        out.println("</script>");
     }
 
     @Override
@@ -60,11 +67,11 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
         sessionLogin(usrLogOn, session);
         out.println("<script>");
-        if (!usrLogOn.get(0).equals("empty")) {            
-            out.println("window.open('DatosPersona.jsp?','alto')");
+        if (!usrLogOn.get(0).equals("empty")) {
+            out.println("window.open('DatosPersona.jsp?perNom=" + this.getPerNom() + "','alto')");
             out.println("window.open('DefaultGeneral.jsp?','central')");
-        } else {            
-            out.println("window.open('Login.jsp?','alto')");                     
+        } else {
+            out.println("window.open('Login.jsp?','alto')");
         }
         out.println("</script>");
     }
@@ -84,11 +91,21 @@ public class genericQuery extends HttpServlet implements finalVariables {
                 }
                 if (data.equals("perNom")) {
                     session.setAttribute("perNom", data);
+                    this.setPerNom(data);
                 }
             } else {
                 session.setAttribute("empty", data);
             }
         }
+    }
+
+    public void sessionLogoff(HttpSession session) {
+
+        session.removeAttribute("perId");
+        session.removeAttribute("perUsuario");
+        session.removeAttribute("perPass");
+        session.removeAttribute("perNom");
+        session.removeAttribute("empty");
     }
 
     public void doConnect() throws InstantiationException, IllegalAccessException, SQLException {
@@ -147,6 +164,14 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
     public void setPst(PreparedStatement pst) {
         this.pst = pst;
+    }
+
+    public String getPerNom() {
+        return perNom;
+    }
+
+    public void setPerNom(String perNom) {
+        this.perNom = perNom;
     }
 
 }
