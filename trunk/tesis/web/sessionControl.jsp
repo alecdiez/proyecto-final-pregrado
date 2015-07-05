@@ -13,7 +13,7 @@
     String perUsuario = TextFormat.toStringNeverNull(session.getAttribute("perUsuario"));
     String perPass = TextFormat.toStringNeverNull(session.getAttribute("perPass"));
 
-    if (emptyPer.equals("empty")) {
+    if (emptyPer.isEmpty()) {
         response.sendRedirect("index.html");
     }
 %>
