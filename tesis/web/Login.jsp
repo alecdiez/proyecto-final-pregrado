@@ -43,11 +43,16 @@
                                     <input type="submit"  value="Ingresar"  name="ingresa_b" title="Ingresar" style="width: 75px" class="BotonTablaRoja" onmouseover="this.style.color = 'blue'"
                                            onMouseOut="this.style.color = '#c40606'" />
                                 </div>
+                                </th>
                                 <%
                                     String emptySession = TextFormat.toStringNeverNull(session.getAttribute("empty"));
-                                    
+                                    if (!emptySession.isEmpty()) {%>
+                                <th style=" vertical-align: bottom ">
+                                <div>
+                                    <span class="Texto">Error de usuario y Contraseña!!!</span>
+                                </div>
 
-                                %>
+                                <%}%>
 
 
                                 </th>
