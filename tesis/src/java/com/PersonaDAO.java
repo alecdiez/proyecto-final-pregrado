@@ -40,16 +40,31 @@ public class PersonaDAO extends HttpServlet
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException
    {
+      HttpSession session = request.getSession();
+      PrintWriter out = response.getWriter();
+      String condicion = TextFormat.toStringNeverNull(request.getParameter("condicion"));
+      if(condicion.equals("guarda"))
+      {
+         guardaPersona(request);
+      }
+
+   }
+
+   @Override
+   public String getServletInfo()
+   {
+      return "Short description";
+   }// </editor-fold>
+
+   public void guardaPersona(HttpServletRequest request)
+   {
+      String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
+      String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
+      String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
+      String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
+      String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
       try
       {
-         HttpSession session = request.getSession();
-         PrintWriter out = response.getWriter();
-         String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
-         String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
-         String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
-         String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
-         String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
-
          genericQuery gq = new genericQuery();
          gq.doConnect();
          String execute = "INSERT INTO `tesis`.`personas`\n"
@@ -81,13 +96,5 @@ public class PersonaDAO extends HttpServlet
       {
          Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
-
    }
-
-   @Override
-   public String getServletInfo()
-   {
-      return "Short description";
-   }// </editor-fold>
-
 }
