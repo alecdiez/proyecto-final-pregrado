@@ -18,13 +18,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.PreparedStatement;
+import interfaces.finalVariables;
 import utl.TextFormat;
 
 /**
  *
  * @author bizit
  */
-public class PersonaDAO extends HttpServlet
+public class PersonaDAO extends HttpServlet implements finalVariables
 {
 
    private PreparedStatement pst = null;

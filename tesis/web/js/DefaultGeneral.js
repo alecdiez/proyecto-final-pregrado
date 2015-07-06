@@ -20,8 +20,8 @@ $(document).ready(function () {
       'closeClick': true,
       'mouseWheel':true,
       'type': 'iframe',
-      'width': 800,
-      'height': 600
+      'width': 600,
+      'height': 350
    });
    $('#modificaPersona').click(function () {
 
