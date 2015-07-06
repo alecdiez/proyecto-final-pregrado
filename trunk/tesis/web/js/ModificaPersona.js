@@ -8,7 +8,7 @@ $(document).ready(function () {
 
    $('.TextoTituloGris').click(function () {
 
-      $($(this).attr('id')).fancybox({
+      $('.TextoTituloGris').fancybox({
          'padding': 5,
          'overlayShow': false,
          'closeClick': true,

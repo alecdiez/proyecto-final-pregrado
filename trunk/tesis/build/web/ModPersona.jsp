@@ -11,6 +11,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <link href="css/main.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script>
+   !window.jQuery && document.write('<script src="js/jquery-1.4.3.min.js"><\/script>');
+</script>
+<script type="text/javascript" src="./js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="./js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script type="text/javascript" src="js/jquery.alerts.js"></script>
+<link href="js/jquery.alerts.css" rel="stylesheet" type="text/css" />
 <script src="js/ModPersona.js"></script>
 <!DOCTYPE html>
 <%String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));%>

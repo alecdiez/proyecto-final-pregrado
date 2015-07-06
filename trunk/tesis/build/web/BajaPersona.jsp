@@ -37,7 +37,8 @@
                         <th class="TextoTitulo" align="center">DNI</th>
                         <th class="TextoTitulo" align="center">Usuario</th>
                         <th class="TextoTitulo" align="center">Password</th>
-                        <th class="TextoTitulo" align="center">Borrar</th>
+                        <th class="TextoTitulo" align="center">Eliminar
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
