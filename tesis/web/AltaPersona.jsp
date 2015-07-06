@@ -34,7 +34,7 @@
                   <td><input type="text" id="ape" class="ComboMedio" name="ape" value="" /></td>
                </tr>
                <tr>
-                  <td class="TextoTituloGris">Dni</td>
+                  <td class="TextoTituloGris">Dni <font style="color: red">.*</td>
                   <td><input type="text" id="dni" class="ComboMedio" name="ndi" value="" onKeyPress="return soloNumeros(event)"/></td>
                </tr>
                <tr>
