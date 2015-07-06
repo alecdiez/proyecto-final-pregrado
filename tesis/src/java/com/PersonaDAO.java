@@ -47,6 +47,10 @@ public class PersonaDAO extends HttpServlet
       {
          guardaPersona(request);
       }
+      if(condicion.equals("elimina"))
+      {
+         eliminaPersona(request);
+      }
 
    }
 
@@ -79,6 +83,34 @@ public class PersonaDAO extends HttpServlet
             + "'" + nom + "',\n"
             + "'" + ape + "',\n"
             + "" + dni + ")";
+
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+         pst.executeUpdate(execute);
+         gq.doConnectClose();
+      }
+      catch (InstantiationException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      catch (IllegalAccessException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      catch (SQLException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+   }
+
+   public void eliminaPersona(HttpServletRequest request)
+   {
+      String perId = TextFormat.toStringNeverNull(request.getParameter("nom"));
+
+      try
+      {
+         genericQuery gq = new genericQuery();
+         gq.doConnect();
+         String execute = "";
 
          this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
          pst.executeUpdate(execute);
