@@ -33,7 +33,9 @@ function showLoadingAnimation() {
 
 function controlResponse() {
    parent.$.fancybox.showActivity();
-   parent.$.fancybox.close();
    parent.$.fancybox.hideActivity();
    alert('Persona Eliminada Correctamente!!!');
+   parent.$("#bajaPersona").trigger('click');
 }
+
+
