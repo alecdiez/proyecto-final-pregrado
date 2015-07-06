@@ -52,6 +52,10 @@ public class PersonaDAO extends HttpServlet implements finalVariables
       {
          eliminaPersona(request, session);
       }
+      if(condicion.equals("modifica"))
+      {
+         modificaPersona(request, session);
+      }
 
    }
 
@@ -123,6 +127,45 @@ public class PersonaDAO extends HttpServlet implements finalVariables
          {
             Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, "No se puede Borra el Usuario");
          }
+      }
+      catch (InstantiationException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      catch (IllegalAccessException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+      catch (SQLException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+   }
+
+   public void modificaPersona(HttpServletRequest request, HttpSession session)
+   {
+      String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
+      String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
+      String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
+      String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
+      String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
+      String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
+      try
+      {
+         genericQuery gq = new genericQuery();
+         gq.doConnect();
+         String execute = "UPDATE tesis.personas\n"
+            + "SET\n"
+            + "`perUsuario` = '" + usr + "',\n"
+            + "`perPass` = '" + pass + "',\n"
+            + "`perNom` = '" + nom + "',\n"
+            + "`perApe` = '" + ape + "',\n"
+            + "`perDni` = '" + dni + "'\n"
+            + "WHERE `perId` = " + perId + ";";
+
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+         pst.executeUpdate(execute);
+         gq.doConnectClose();
       }
       catch (InstantiationException ex)
       {
