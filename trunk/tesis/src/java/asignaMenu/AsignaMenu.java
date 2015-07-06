@@ -67,7 +67,6 @@ public class AsignaMenu
          this.pst.execute();
          rs = pst.getResultSet();
          java.sql.ResultSetMetaData rsMd = rs.getMetaData();
-         int cantidadColumnas = rsMd.getColumnCount();
          while(rs.next())
          {
             priviPersona.add(rs.getString(2));
@@ -90,15 +89,15 @@ public class AsignaMenu
          + "\n";
       if(privilegios.contains("altaPersona"))
       {
-         menu += "                <li id=\"altaPersona\" style=\"cursor: pointer\"><a>Alta Persona</a></li>\n";
+         menu += "                <li style=\"cursor: pointer\"><a id=\"altaPersona\" href=\"AltaPersona.jsp\">Alta Persona</a></li>\n";
       }
       if(privilegios.contains("bajaPersona"))
       {
-         menu += "                <li id=\"bajaPersona\" style=\"cursor: pointer\"><a>Baja Persona</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPersona\">Baja Persona</a></li>\n";
       }
       if(privilegios.contains("modificaPersona"))
       {
-         menu += "                <li id=\"moficaPersona\" style=\"cursor: pointer\"><a>Modifica Persona</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"moficaPersona\">Modifica Persona</a></li>\n";
       }
 
       menu += "\n"
@@ -109,15 +108,15 @@ public class AsignaMenu
          + "\n";
       if(privilegios.contains("altaPrivilegio"))
       {
-         menu += "                <li id=\"altaPrivilegio\" style=\"cursor: pointer\"><a>Alta Privilegio</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"altaPrivilegio\">Alta Privilegio</a></li>\n";
       }
       if(privilegios.contains("bajaPrivilegio"))
       {
-         menu += "                <li id=\"bajaPrivilegio\" style=\"cursor: pointer\"><a>Baja Privilegio</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPrivilegio\">Baja Privilegio</a></li>\n";
       }
       if(privilegios.contains("asignaPrivilegio"))
       {
-         menu += "                <li id=\"asignaPrivilegio\" style=\"cursor: pointer\"><a>Asigna Privilegio</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"asignaPrivilegio\">Asigna Privilegio</a></li>\n";
       }
 
       menu += "    </ul>";
