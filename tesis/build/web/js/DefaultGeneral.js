@@ -19,6 +19,7 @@ $(document).ready(function () {
       'overlayShow': false,
       'closeClick': true,
       'mouseWheel':true,
+      'onClosed': function () { window.setTimeout('abrirEliminaPersona()', 1000);},
       'type': 'iframe',
       'width': 600,
       'height': 350
@@ -37,3 +38,9 @@ $(document).ready(function () {
    });
 
 });
+
+function abrirEliminaPersona() {
+
+   $("#bajaPersona").trigger('click');
+
+}
