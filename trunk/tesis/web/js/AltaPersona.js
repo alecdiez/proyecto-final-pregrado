@@ -36,13 +36,13 @@ function soloNumeros(e) {
    return (key >= 48 && key <= 57)
 }
 
-function showLoadingAnimation(){
-    parent.$.fancybox.showActivity();
+function showLoadingAnimation() {
+   parent.$.fancybox.showActivity();
 }
 
-function controlResponse(){
-    parent.$.fancybox.showActivity();
-    parent.$.fancybox.close();
-    parent.$.fancybox.hideActivity();
-    alert('Persona Guardada Correctamente!!!');
+function controlResponse() {
+   parent.$.fancybox.showActivity();
+   parent.$.fancybox.close();
+   parent.$.fancybox.hideActivity();
+   alert('Persona Guardada Correctamente!!!');
 }
