@@ -6,6 +6,34 @@
 
 $(document).ready(function () {
    $('.Texto').click(function () {
-          alert($(this).attr('id'));
+      var perId = $(this).attr('id');
+      jConfirm("¿Desea Eliminar a esta Persona", "Elimina Persona", function (r) {
+         if (r) {
+            $.ajax({
+               async: true,
+               type: "POST",
+               dataType: "html",
+               cache: false,
+               url: "com.PersonaDAO",
+               data: "perId=" + perId + "&condicion=elimina",
+               beforeSend: showLoadingAnimation,
+               success: controlResponse,
+               timeout: 60000
+            });
+         } else {
+
+         }
+      });
    });
 });
+
+function showLoadingAnimation() {
+   parent.$.fancybox.showActivity();
+}
+
+function controlResponse() {
+   parent.$.fancybox.showActivity();
+   parent.$.fancybox.close();
+   parent.$.fancybox.hideActivity();
+   alert('Persona Eliminada Correctamente!!!');
+}

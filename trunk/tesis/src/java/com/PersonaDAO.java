@@ -50,7 +50,7 @@ public class PersonaDAO extends HttpServlet implements finalVariables
       }
       if(condicion.equals("elimina"))
       {
-         eliminaPersona(request);
+         eliminaPersona(request, session);
       }
 
    }
@@ -103,19 +103,26 @@ public class PersonaDAO extends HttpServlet implements finalVariables
       }
    }
 
-   public void eliminaPersona(HttpServletRequest request)
+   public void eliminaPersona(HttpServletRequest request, HttpSession session)
    {
-      String perId = TextFormat.toStringNeverNull(request.getParameter("nom"));
-
+      String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
+      String userId = TextFormat.toStringNeverNull(session.getAttribute("perId"));
       try
       {
-         genericQuery gq = new genericQuery();
-         gq.doConnect();
-         String execute = "";
+         if(!perId.equals(userId))
+         {
+            genericQuery gq = new genericQuery();
+            gq.doConnect();
+            String execute = "DELETE FROM tesis.personas WHERE perId='" + perId + "';";
 
-         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
-         pst.executeUpdate(execute);
-         gq.doConnectClose();
+            this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+            pst.executeUpdate(execute);
+            gq.doConnectClose();
+         }
+         else
+         {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, "No se puede Borra el Usuario");
+         }
       }
       catch (InstantiationException ex)
       {
