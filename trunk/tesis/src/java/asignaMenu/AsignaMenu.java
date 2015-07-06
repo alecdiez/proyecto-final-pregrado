@@ -93,11 +93,11 @@ public class AsignaMenu
       }
       if(privilegios.contains("bajaPersona"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPersona\">Baja Persona</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPersona\" href=\"bajaPersona.jsp\">Baja Persona</a></li>\n";
       }
       if(privilegios.contains("modificaPersona"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"moficaPersona\">Modifica Persona</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"moficaPersona\" href=\"modificaPersona.jsp\">Modifica Persona</a></li>\n";
       }
 
       menu += "\n"
@@ -108,15 +108,15 @@ public class AsignaMenu
          + "\n";
       if(privilegios.contains("altaPrivilegio"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"altaPrivilegio\">Alta Privilegio</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"altaPrivilegio\" href=\"AltaPrivilegio.jsp\">Alta Privilegio</a></li>\n";
       }
       if(privilegios.contains("bajaPrivilegio"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPrivilegio\">Baja Privilegio</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPrivilegio\" href=\"BajaPrivilegio.jsp\">Baja Privilegio</a></li>\n";
       }
       if(privilegios.contains("asignaPrivilegio"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"asignaPrivilegio\">Asigna Privilegio</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"asignaPrivilegio\" href=\"AsignaPrivilegio.jsp\">Asigna Privilegio</a></li>\n";
       }
 
       menu += "    </ul>";
