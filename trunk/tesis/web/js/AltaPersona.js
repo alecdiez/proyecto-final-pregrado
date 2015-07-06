@@ -21,7 +21,7 @@ $(document).ready(function () {
             dataType: "html",
             cache: false,
             url: "com.PersonaDAO",
-            data: "nom=" + nom + "&ape=" + ape + "&dni=" + dni + "&usr=" + usr + "&pass=" + pass,
+            data: "nom=" + nom + "&ape=" + ape + "&dni=" + dni + "&usr=" + usr + "&pass=" + pass+"&condicion=guarda",
             beforeSend: showLoadingAnimation,
             success: controlResponse,
             timeout: 60000
