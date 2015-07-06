@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS `tesis` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `tesis` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `tesis`;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
--- Host: localhost    Database: tesis
+-- Host: 127.0.0.1    Database: tesis
 -- ------------------------------------------------------
--- Server version	5.6.23-log
+-- Server version	5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -57,10 +57,11 @@ CREATE TABLE `personas` (
   `perPass` varchar(245) NOT NULL,
   `perNom` varchar(245) NOT NULL,
   `perApe` varchar(245) NOT NULL,
-  `perDni` int(11) DEFAULT NULL,
+  `perDni` int(11) NOT NULL,
   PRIMARY KEY (`perId`),
-  UNIQUE KEY `perUsuario_UNIQUE` (`perUsuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `perUsuario_UNIQUE` (`perUsuario`),
+  UNIQUE KEY `perDni_UNIQUE` (`perDni`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,6 +98,10 @@ LOCK TABLES `privilegios` WRITE;
 INSERT INTO `privilegios` VALUES (1,'altaPersona'),(4,'altaPrivilegio'),(6,'asignaPrivilegio'),(2,'bajaPersona'),(5,'bajaPrivilegio'),(3,'modificaPersona');
 /*!40000 ALTER TABLE `privilegios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'tesis'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -107,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-03 19:58:37
+-- Dump completed on 2015-07-06 13:19:12

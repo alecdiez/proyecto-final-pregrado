@@ -43,7 +43,7 @@
                </tr>
                <tr>
                   <td class="TextoTituloGris">Contraseña <font style="color: red">.*</font></td>
-                  <td><input type="text" id="pass" class="ComboMedio" name="pass" value="" /></td>
+                  <td><input type="password" id="pass" class="ComboMedio" name="pass" value="" /></td>
                </tr>
                <tr>
                   <td class="texto"></td>
