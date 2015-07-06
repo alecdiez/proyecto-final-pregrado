@@ -11,8 +11,8 @@ $(document).ready(function () {
       'closeClick': true,
       'mouseWheel':true,
       'type': 'iframe',
-      'width': 350,
-      'height': 200
+      'width': 400,
+      'height': 250
    });
    $('#bajaPersona').click(function () {
 

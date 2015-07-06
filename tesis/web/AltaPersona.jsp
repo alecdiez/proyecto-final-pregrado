@@ -26,11 +26,11 @@
             </thead>
             <tbody>
                <tr>
-                  <td class="TextoTituloGris">Nombre</td>
+                  <td class="TextoTituloGris">Nombre <font style="color: red">.*</font></td>
                   <td><input type="text" id="nom" class="ComboMedio" name="nom" value="" /></td>
                </tr>
                <tr>
-                  <td class="TextoTituloGris">Apellido</td>
+                  <td class="TextoTituloGris">Apellido <font style="color: red">.*</font></td>
                   <td><input type="text" id="ape" class="ComboMedio" name="ape" value="" /></td>
                </tr>
                <tr>
@@ -38,11 +38,11 @@
                   <td><input type="text" id="dni" class="ComboMedio" name="ndi" value="" onKeyPress="return soloNumeros(event)"/></td>
                </tr>
                <tr>
-                  <td class="TextoTituloGris">Usuario</td>
+                  <td class="TextoTituloGris">Usuario <font style="color: red">.*</font></td>
                   <td><input type="text" id="usr" class="ComboMedio" name="usr" value="" /></td>
                </tr>
                <tr>
-                  <td class="TextoTituloGris">Contraseña</td>
+                  <td class="TextoTituloGris">Contraseña <font style="color: red">.*</font></td>
                   <td><input type="text" id="pass" class="ComboMedio" name="pass" value="" /></td>
                </tr>
                <tr>

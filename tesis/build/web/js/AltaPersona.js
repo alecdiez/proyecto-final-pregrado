@@ -6,7 +6,19 @@
 
 $(document).ready(function () {
    $('#guardaPersona').click(function () {
-           alert('entramos');
+      var nom = $('#nom').val();
+      var ape = $('#ape').val();
+      var dni = $('#dni').val();
+      var usr = $('#usr').val();
+      var pass = $('#pass').val();
+
+      if (nom == '' | ape == '' | usr == '' | pass == '') {
+         alert('Recuerde completar los datos Obligatorios!!');
+      } else {
+         alert('aca llamamos a ajax')
+      }
+
+
    });
 });
 
