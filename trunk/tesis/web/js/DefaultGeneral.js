@@ -14,8 +14,14 @@ $(document).ready(function () {
       'width': 400,
       'height': 250
    });
-   $('#bajaPersona').click(function () {
-
+   $("#bajaPersona").fancybox({
+      'padding': 5,
+      'overlayShow': false,
+      'closeClick': true,
+      'mouseWheel':true,
+      'type': 'iframe',
+      'width': 800,
+      'height': 600
    });
    $('#modificaPersona').click(function () {
 

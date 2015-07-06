@@ -93,11 +93,11 @@ public class AsignaMenu
       }
       if(privilegios.contains("bajaPersona"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPersona\" href=\"bajaPersona.jsp\">Baja Persona</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"bajaPersona\" href=\"BajaPersona.jsp\">Baja Persona</a></li>\n";
       }
       if(privilegios.contains("modificaPersona"))
       {
-         menu += "                <li  style=\"cursor: pointer\"><a id=\"moficaPersona\" href=\"modificaPersona.jsp\">Modifica Persona</a></li>\n";
+         menu += "                <li  style=\"cursor: pointer\"><a id=\"moficaPersona\" href=\"ModificaPersona.jsp\">Modifica Persona</a></li>\n";
       }
 
       menu += "\n"
