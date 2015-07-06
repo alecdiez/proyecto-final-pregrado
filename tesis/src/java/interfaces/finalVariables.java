@@ -13,6 +13,6 @@ public interface finalVariables {
 
     public final String url = "jdbc:mysql://localhost:3306/tesis?zeroDateTimeBehavior=convertToNull";
     public final String connUsr = "root";
-    public final String connPass = "bizit2010";
+    public final String connPass = "ama921sa";
 
 }

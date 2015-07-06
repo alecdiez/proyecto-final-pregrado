@@ -19,49 +19,49 @@
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 
 <html>
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-   </head>
-   <body>
-      <div align="center">
-         <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
-                            url="${url}" user="${user}" password="${pass}" />
-         <h1 class="TextoTituloGris">Eliminar Persona</h1>
-         <table border="0" id="tabla">
-            <thead>
-               <tr>
-                  <th class="TextoTitulo" align="center">ID</th>
-                  <th class="TextoTitulo" align="center">Nombre</th>
-                  <th class="TextoTitulo" align="center">Apellido</th>
-                  <th class="TextoTitulo" align="center">DNI</th>
-                  <th class="TextoTitulo" align="center">Usuario</th>
-                  <th class="TextoTitulo" align="center">Password</th>
-                  <th class="TextoTitulo" align="center">Borrar</th>
-               </tr>
-            </thead>
-            <tbody>
-               <sql:query dataSource="${result}" sql="select * from tesis.personas"
-                          var="resultado" />
-               <c:forEach var="fila" items="${resultado.rows}">
-                  <tr>
-                     <td class="Cuadro" align="center"><c:out value="${fila.perId}" /></td>
-                     <td class="Cuadro" align="center"><c:out value="${fila.perNom}" /></td>
-                     <td class="Cuadro" align="center"><c:out value="${fila.perApe}" /></td>
-                     <td class="Cuadro" align="center"><c:out value="${fila.perDni}" /></td>
-                     <td class="Cuadro" align="center"><c:out value="${fila.perUsuario}" /></td>
-                     <td class="Cuadro" align="center"><c:out value="${fila.perPass}" /></td>
-                     <td align="center">
-                        <span class="Texto" style="cursor: pointer" id="${fila.perId}">
-                           <img src="images/eliminar.gif" width="25" height="25" alt="eliminar"/>
-                        </span>
-                     </td>
-                  </tr>
-               </c:forEach>
-            </tbody>
-         </table>
+    </head>
+    <body>
+        <div align="center">
+            <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
+                               url="${url}" user="${user}" password="${pass}" />
+            <h1 class="TextoTituloGris">Eliminar Persona</h1>
+            <table border="0" id="tabla">
+                <thead>
+                    <tr>
+                        <th class="TextoTitulo" align="center">ID</th>
+                        <th class="TextoTitulo" align="center">Nombre</th>
+                        <th class="TextoTitulo" align="center">Apellido</th>
+                        <th class="TextoTitulo" align="center">DNI</th>
+                        <th class="TextoTitulo" align="center">Usuario</th>
+                        <th class="TextoTitulo" align="center">Password</th>
+                        <th class="TextoTitulo" align="center">Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <sql:query dataSource="${result}" sql="select * from tesis.personas"
+                               var="resultado" />
+                    <c:forEach var="fila" items="${resultado.rows}">
+                        <tr>
+                            <td class="Cuadro" align="center"><c:out value="${fila.perId}" /></td>
+                            <td class="Cuadro" align="center"><c:out value="${fila.perNom}" /></td>
+                            <td class="Cuadro" align="center"><c:out value="${fila.perApe}" /></td>
+                            <td class="Cuadro" align="center"><c:out value="${fila.perDni}" /></td>
+                            <td class="Cuadro" align="center"><c:out value="${fila.perUsuario}" /></td>
+                            <td class="Cuadro" align="center"><c:out value="${fila.perPass}" /></td>
+                            <td align="center">
+                                <span class="Texto" style="cursor: pointer" id="${fila.perId}">
+                                    <img src="images/eliminar.gif" width="25" height="25" alt="eliminar"/>
+                                </span>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
 
 
-      </div>
-   </body>
+        </div>
+    </body>
 </html>
