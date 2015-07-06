@@ -12,12 +12,21 @@ $(document).ready(function () {
       var usr = $('#usr').val();
       var pass = $('#pass').val();
 
-      if (nom == '' | ape == '' | usr == '' | pass == '') {
+      if (nom == '' | ape == '' | usr == '' | pass == '' | dni == '') {
          alert('Recuerde completar los datos Obligatorios!!');
       } else {
-         alert('aca llamamos a ajax')
+         $.ajax({
+            async: true,
+            type: "POST",
+            dataType: "html",
+            cache: false,
+            url: "com.PersonaDAO",
+            data: "nom=" + nom + "&ape=" + ape + "&dni=" + dni + "&usr=" + usr + "&pass=" + pass,
+            beforeSend: showLoadingAnimation,
+            success: controlResponse,
+            timeout: 60000
+         });
       }
-
 
    });
 });
@@ -25,4 +34,15 @@ $(document).ready(function () {
 function soloNumeros(e) {
    var key = window.Event ? e.which : e.keyCode
    return (key >= 48 && key <= 57)
+}
+
+function showLoadingAnimation(){
+    parent.$.fancybox.showActivity();
+}
+
+function controlResponse(){
+    parent.$.fancybox.showActivity();
+    parent.$.fancybox.close();
+    parent.$.fancybox.hideActivity();
+    alert('Persona Guardada Correctamente!!!');
 }
