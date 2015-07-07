@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : main
     Created on : 04/06/2014, 14:10:07
     Author     : manager
@@ -6,110 +6,111 @@
         Purpose of the stylesheet follows.
 */
 
-root { 
-    display: block;
+root {
+   display: block;
 }
 
 .Texto
 {
-    PADDING-RIGHT: 5px;
-    PADDING-LEFT: 5px;
-    FONT-SIZE: 12px;
-    color:  aliceblue;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-SIZE: 12px;
+   color:  aliceblue;
+   FONT-FAMILY: Verdana, Tahoma
 }
 .Texto1
 {
-    PADDING-RIGHT: 5px;
-    PADDING-LEFT: 5px;
-    FONT-SIZE: 10px;
-    COLOR: #7f7f7f;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-SIZE: 10px;
+   COLOR: #7f7f7f;
+   FONT-FAMILY: Verdana, Tahoma
 }
 
 .TextoGrande
 {
-    PADDING-RIGHT: 5px;
-    PADDING-LEFT: 5px;
-    FONT-SIZE: 12px;
-    color:  aliceblue;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-SIZE: 12px;
+   color: #454444;
+   FONT-FAMILY: Verdana, Tahoma;
+   cursor: pointer;
 }
 
 
 
 .BotonTablaRoja {
-    BORDER-BOTTOM: 1px;
-    BORDER-LEFT: 1px;
-    BORDER-RIGHT: 1px;
-    border-bottom: 1px;
-    FONT-WEIGHT: bold;
-    BORDER-TOP: 0px;
-    cursor: pointer;
-    background-color: #ffffff;
-    COLOR: #c40606;
-    FONT-FAMILY: Verdana, Tahoma;
-    FONT-SIZE: 12px;
-    border-radius: 15px;
+   BORDER-BOTTOM: 1px;
+   BORDER-LEFT: 1px;
+   BORDER-RIGHT: 1px;
+   border-bottom: 1px;
+   FONT-WEIGHT: bold;
+   BORDER-TOP: 0px;
+   cursor: pointer;
+   background-color: #ffffff;
+   COLOR: #c40606;
+   FONT-FAMILY: Verdana, Tahoma;
+   FONT-SIZE: 12px;
+   border-radius: 15px;
 
 }
 
 .BotonCerrarSession {
-    BORDER-BOTTOM: 1px;
-    BORDER-LEFT: 1px;
-    BORDER-RIGHT: 1px;
-    border-bottom: 1px;
-    FONT-WEIGHT: bold;
-    BORDER-TOP: 0px;
-    cursor: pointer;
-    background-color: #ffffff;
-    color: #3f3939;
-    FONT-FAMILY: Verdana, Tahoma;
-    FONT-SIZE: 10px;
-    border-radius: 15px;
-    width: 100px;
+   BORDER-BOTTOM: 1px;
+   BORDER-LEFT: 1px;
+   BORDER-RIGHT: 1px;
+   border-bottom: 1px;
+   FONT-WEIGHT: bold;
+   BORDER-TOP: 0px;
+   cursor: pointer;
+   background-color: #ffffff;
+   color: #3f3939;
+   FONT-FAMILY: Verdana, Tahoma;
+   FONT-SIZE: 10px;
+   border-radius: 15px;
+   width: 100px;
 }
 
 .ComboMedio
 {
-    border-radius: 15px;
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 10px;
-    WIDTH: 165px;
-    COLOR: #5b5b5b;
-    FONT-FAMILY: Verdana, Tahoma;
-    HEIGHT: 18px;
-    border-style: solid;
+   border-radius: 15px;
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 10px;
+   WIDTH: 165px;
+   COLOR: #5b5b5b;
+   FONT-FAMILY: Verdana, Tahoma;
+   HEIGHT: 18px;
+   border-style: solid;
 
 
 }
 
 .ComboMedioSinBorde
 {
-    border-radius: 15px;
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 12px;
-    font-weight: bold;
-    WIDTH: 200px;
-    COLOR: #5b5b5b;
-    FONT-FAMILY: Verdana, Tahoma;
-    HEIGHT: 15px;
-    text-align: center;
-    border-style: hidden;
+   border-radius: 15px;
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 12px;
+   font-weight: bold;
+   WIDTH: 200px;
+   COLOR: #5b5b5b;
+   FONT-FAMILY: Verdana, Tahoma;
+   HEIGHT: 15px;
+   text-align: center;
+   border-style: hidden;
 
 
 }
 
 .TextoTituloGris
 {
-    PADDING-RIGHT: 5px;
-    PADDING-LEFT: 5px;
-    FONT-WEIGHT: bold;
-    FONT-SIZE: 12px;   
-    color: #222222;   
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 12px;
+   color: #222222;
+   FONT-FAMILY: Verdana, Tahoma
 
 }
 
@@ -121,244 +122,243 @@ root {
 
 .TextoTitulo
 {
-    PADDING-RIGHT: 5px;
-    background-color:  #c40606;
-    PADDING-LEFT: 5px;
-    FONT-WEIGHT: bold;
-    FONT-SIZE: 12px;
-    PADDING-BOTTOM: 5px;
-    COLOR: aliceblue;
-    PADDING-TOP: 5px;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   background-color:  #c40606;
+   PADDING-LEFT: 5px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 12px;
+   PADDING-BOTTOM: 5px;
+   COLOR: aliceblue;
+   PADDING-TOP: 5px;
+   FONT-FAMILY: Verdana, Tahoma
 
 }
 
 .TextoTituloPlano
 {
-    PADDING-RIGHT: 5px;    
-    PADDING-LEFT: 5px;
-    FONT-SIZE: 12px;
-    PADDING-BOTTOM: 5px;
-    color: #5b5b5b;
-    BORDER-BOTTOM: #5b5b5b 2pt solid;
-    PADDING-TOP: 5px;
-    FONT-FAMILY: Verdana, Tahoma
-
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-SIZE: 12px;
+   PADDING-BOTTOM: 5px;
+   color: #5b5b5b;
+   BORDER-BOTTOM: #5b5b5b 2pt solid;
+   PADDING-TOP: 5px;
+   FONT-FAMILY: Verdana, Tahoma
 }
 .TextoTablaAzul
 {
-    PADDING-RIGHT: 5px;
-    background-color:  blue;
-    PADDING-LEFT: 5px;
-    FONT-WEIGHT: bold;
-    FONT-SIZE: 10px;
-    PADDING-BOTTOM: 5px;
-    COLOR: aliceblue;
-    PADDING-TOP: 5px;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   background-color:  blue;
+   PADDING-LEFT: 5px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 10px;
+   PADDING-BOTTOM: 5px;
+   COLOR: aliceblue;
+   PADDING-TOP: 5px;
+   FONT-FAMILY: Verdana, Tahoma
 
 }
 
 .Group
 {
-    PADDING-RIGHT: 5px;
-    PADDING-LEFT: 5px;
-    FONT-SIZE: 10px;
-    COLOR: #bb2600;
-    BORDER-BOTTOM: red;
-    FONT-FAMILY: Verdana, Tahoma;
-    BACKGROUND-COLOR: #efefef;
-    text-align: left;
-    TEXT-DECORATION: none
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-SIZE: 10px;
+   COLOR: #bb2600;
+   BORDER-BOTTOM: red;
+   FONT-FAMILY: Verdana, Tahoma;
+   BACKGROUND-COLOR: #efefef;
+   text-align: left;
+   TEXT-DECORATION: none
 }
 
 .TextoTabla
 {
-    PADDING-RIGHT: 5px;
-    background-color:  #c40606;
-    PADDING-LEFT: 5px;
-    FONT-WEIGHT: bold;
-    FONT-SIZE: 10px;
-    PADDING-BOTTOM: 5px;
-    COLOR: aliceblue;
-    PADDING-TOP: 5px;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   background-color:  #c40606;
+   PADDING-LEFT: 5px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 10px;
+   PADDING-BOTTOM: 5px;
+   COLOR: aliceblue;
+   PADDING-TOP: 5px;
+   FONT-FAMILY: Verdana, Tahoma
 
 }
 
 .Cuadro
 {
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 12px;
-    PADDING-BOTTOM: 3px;
-    CURSOR: hand;
-    color: #454444;
-    PADDING-TOP: 3px;
-    BORDER-BOTTOM: #5b5b5b 1pt solid;   
-    FONT-FAMILY: Tahoma, Verdana;
-    HEIGHT: 22px;
-    BACKGROUND-COLOR: #ffffff
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 12px;
+   PADDING-BOTTOM: 3px;
+   CURSOR: hand;
+   color: #454444;
+   PADDING-TOP: 3px;
+   BORDER-BOTTOM: #5b5b5b 1pt solid;
+   FONT-FAMILY: Tahoma, Verdana;
+   HEIGHT: 22px;
+   BACKGROUND-COLOR: #ffffff
 }
 
 .CuadroSinBorde
 {
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 10px;  
-    CURSOR: hand;
-    color: #454444;   
-    FONT-FAMILY: Tahoma, Verdana;
-    HEIGHT: 10px;
-    BACKGROUND-COLOR: #ffffff
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 10px;
+   CURSOR: hand;
+   color: #454444;
+   FONT-FAMILY: Tahoma, Verdana;
+   HEIGHT: 10px;
+   BACKGROUND-COLOR: #ffffff
 }
 
 .CuadroNegroFinal
 {
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 10px;
-    PADDING-BOTTOM: 3px;
-    CURSOR: hand;
-    color: #454444;
-    PADDING-TOP: 3px;
-    BORDER-BOTTOM: #5b5b5b 2pt solid;   
-    FONT-FAMILY: Tahoma, Verdana;
-    HEIGHT: 22px;
-    BACKGROUND-COLOR: #ffffff
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 10px;
+   PADDING-BOTTOM: 3px;
+   CURSOR: hand;
+   color: #454444;
+   PADDING-TOP: 3px;
+   BORDER-BOTTOM: #5b5b5b 2pt solid;
+   FONT-FAMILY: Tahoma, Verdana;
+   HEIGHT: 22px;
+   BACKGROUND-COLOR: #ffffff
 }
 
 .pg-normal {
-    color: #990000;
-    font-weight: normal;
-    text-decoration: none;    
-    cursor: pointer; 
-    FONT-FAMILY: Verdana, Tahoma;
-    FONT-SIZE: 12px;
+   color: #990000;
+   font-weight: normal;
+   text-decoration: none;
+   cursor: pointer;
+   FONT-FAMILY: Verdana, Tahoma;
+   FONT-SIZE: 12px;
 }
 .pg-selected {
-    color: #FFF;
-    font-weight: bold;        
-    text-decoration: underline;
-    cursor: pointer;
-    FONT-FAMILY: Verdana, Tahoma;
-    FONT-SIZE: 12px;
-    background-color:  #c40606;
+   color: #FFF;
+   font-weight: bold;
+   text-decoration: underline;
+   cursor: pointer;
+   FONT-FAMILY: Verdana, Tahoma;
+   FONT-SIZE: 12px;
+   background-color:  #c40606;
 }
 
 .ComboLargo
 {
-    border-radius: 15px;
-    padding-right: 2px;
-    padding-left: 2px;
-    font-size: 10px;
-    width: 500px;
-    color: #5b5b5b;
-    font-family: Verdana, Tahoma;
-    height: 18px;
-    border-style: solid;
+   border-radius: 15px;
+   padding-right: 2px;
+   padding-left: 2px;
+   font-size: 10px;
+   width: 500px;
+   color: #5b5b5b;
+   font-family: Verdana, Tahoma;
+   height: 18px;
+   border-style: solid;
 }
 .ComboMedioLargo
 {
-    border-radius: 15px;
-    padding-right: 2px;
-    padding-left: 2px;
-    font-size: 10px;
-    width: 250px;
-    color: #5b5b5b;
-    font-family: Verdana, Tahoma;
-    height: 18px;
-    border-style: solid;
+   border-radius: 15px;
+   padding-right: 2px;
+   padding-left: 2px;
+   font-size: 10px;
+   width: 250px;
+   color: #5b5b5b;
+   font-family: Verdana, Tahoma;
+   height: 18px;
+   border-style: solid;
 }
 .ComboChico
 {
-    border-radius: 15px;
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 10px;
-    WIDTH: 50px;
-    COLOR: #5b5b5b;
-    FONT-FAMILY: Verdana, Tahoma;
-    HEIGHT: 18px;
-    border-style: solid;
+   border-radius: 15px;
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 10px;
+   WIDTH: 50px;
+   COLOR: #5b5b5b;
+   FONT-FAMILY: Verdana, Tahoma;
+   HEIGHT: 18px;
+   border-style: solid;
 
 
 }
 
 .ComboChicoChico
 {
-    border-radius: 15px;
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 10px;
-    WIDTH: 30px;
-    COLOR: #5b5b5b;
-    FONT-FAMILY: Verdana, Tahoma;
-    HEIGHT: 18px;
-    border-style: solid;
+   border-radius: 15px;
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 10px;
+   WIDTH: 30px;
+   COLOR: #5b5b5b;
+   FONT-FAMILY: Verdana, Tahoma;
+   HEIGHT: 18px;
+   border-style: solid;
 
 
 }
 .BotonBusq {
-    border-radius: 15px;
-    BORDER-BOTTOM: 0px;
-    BORDER-LEFT: 0px;
-    BORDER-RIGHT: 0px;
-    BORDER-TOP: 0px;
-    cursor: pointer;
-    background-color:  #c40606;
-    COLOR: aliceblue;
-    FONT-FAMILY: Verdana, Tahoma;
-    vertical-align: bottom;
-    FONT-SIZE: 12px;
+   border-radius: 15px;
+   BORDER-BOTTOM: 0px;
+   BORDER-LEFT: 0px;
+   BORDER-RIGHT: 0px;
+   BORDER-TOP: 0px;
+   cursor: pointer;
+   background-color:  #c40606;
+   COLOR: aliceblue;
+   FONT-FAMILY: Verdana, Tahoma;
+   vertical-align: bottom;
+   FONT-SIZE: 12px;
 
 }
 .ComboChicoMedio
 {
-    border-radius: 15px;
-    PADDING-RIGHT: 2px;
-    PADDING-LEFT: 2px;
-    FONT-SIZE: 10px;
-    WIDTH: 80px;
-    COLOR: #5b5b5b;
-    FONT-FAMILY: Verdana, Tahoma;
-    HEIGHT: 18px;
-    border-style: solid;
+   border-radius: 15px;
+   PADDING-RIGHT: 2px;
+   PADDING-LEFT: 2px;
+   FONT-SIZE: 10px;
+   WIDTH: 80px;
+   COLOR: #5b5b5b;
+   FONT-FAMILY: Verdana, Tahoma;
+   HEIGHT: 18px;
+   border-style: solid;
 
 
 }
 .TextoLinea
 {
-    PADDING-RIGHT: 5px;
-    background-color:  #c40606;
-    PADDING-LEFT: 5px;
-    FONT-WEIGHT: bold;
-    FONT-SIZE: 12px;
-    PADDING-BOTTOM: 5px;
-    COLOR: aliceblue;
-    PADDING-TOP: 5px;
-    FONT-FAMILY: Verdana, Tahoma
+   PADDING-RIGHT: 5px;
+   background-color:  #c40606;
+   PADDING-LEFT: 5px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 12px;
+   PADDING-BOTTOM: 5px;
+   COLOR: aliceblue;
+   PADDING-TOP: 5px;
+   FONT-FAMILY: Verdana, Tahoma
 
 }
 
 .TextoLineaResaltado
 {
-    PADDING-RIGHT: 5px;
-    PADDING-LEFT: 5px;
-    FONT-WEIGHT: bold;
-    FONT-SIZE: 12px;
-    PADDING-BOTTOM: 5px;
-    color: blue;
-    FONT-FAMILY: Verdana, Tahoma;
-    BORDER-BOTTOM: #5b5b5b 1pt solid; 
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-WEIGHT: bold;
+   FONT-SIZE: 12px;
+   PADDING-BOTTOM: 5px;
+   color: blue;
+   FONT-FAMILY: Verdana, Tahoma;
+   BORDER-BOTTOM: #5b5b5b 1pt solid;
 
 }
 
 table#resultados tr:nth-child(odd) td {
-    background-color: #ddd;
+   background-color: #ddd;
 }
 
 table#resultados tr:nth-child(even) td {
-    background-color: papayawhip;
+   background-color: papayawhip;
 }
 
