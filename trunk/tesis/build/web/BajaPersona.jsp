@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <sql:query dataSource="${result}" sql="select * from tesis.personas"
+                    <sql:query dataSource="${result}" sql="select * from tesis.personas order by perId"
                                var="resultado" />
                     <c:forEach var="fila" items="${resultado.rows}">
                         <tr>

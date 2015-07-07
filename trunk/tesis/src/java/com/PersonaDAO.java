@@ -25,159 +25,113 @@ import utl.TextFormat;
  *
  * @author bizit
  */
-public class PersonaDAO extends HttpServlet implements finalVariables
-{
+public class PersonaDAO extends HttpServlet implements finalVariables {
 
-   private PreparedStatement pst = null;
+    private PreparedStatement pst = null;
 
-   @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException
-   {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-   }
+    }
 
-   @Override
-   protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException
-   {
-      HttpSession session = request.getSession();
-      PrintWriter out = response.getWriter();
-      String condicion = TextFormat.toStringNeverNull(request.getParameter("condicion"));
-      if(condicion.equals("guarda"))
-      {
-         guardaPersona(request);
-      }
-      if(condicion.equals("elimina"))
-      {
-         eliminaPersona(request, session);
-      }
-      if(condicion.equals("modifica"))
-      {
-         modificaPersona(request, session);
-      }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        PrintWriter out = response.getWriter();
+        String condicion = TextFormat.toStringNeverNull(request.getParameter("condicion"));
+        if (condicion.equals("guarda")) {
+            guardaPersona(request);
+        }
+        if (condicion.equals("elimina")) {
+            eliminaPersona(request, session);
+        }
+        if (condicion.equals("modifica")) {
+            modificaPersona(request, session);
+        }
 
-   }
+    }
 
-   @Override
-   public String getServletInfo()
-   {
-      return "Short description";
-   }// </editor-fold>
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
-   public void guardaPersona(HttpServletRequest request)
-   {
-      String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
-      String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
-      String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
-      String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
-      String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
-      try
-      {
-         genericQuery gq = new genericQuery();
-         gq.doConnect();
-         String execute = "INSERT INTO `tesis`.`personas`\n"
-            + "(perUsuario,\n"
-            + "perPass,\n"
-            + "perNom,\n"
-            + "perApe,\n"
-            + "perDni)\n"
-            + "VALUES\n"
-            + "('" + usr + "',\n"
-            + "'" + pass + "',\n"
-            + "'" + nom + "',\n"
-            + "'" + ape + "',\n"
-            + "" + dni + ")";
-
-         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
-         pst.executeUpdate(execute);
-         gq.doConnectClose();
-      }
-      catch (InstantiationException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      catch (IllegalAccessException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      catch (SQLException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-   }
-
-   public void eliminaPersona(HttpServletRequest request, HttpSession session)
-   {
-      String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
-      String userId = TextFormat.toStringNeverNull(session.getAttribute("perId"));
-      try
-      {
-         if(!perId.equals(userId))
-         {
+    public void guardaPersona(HttpServletRequest request) {
+        String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
+        String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
+        String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
+        String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
+        String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
+        try {
             genericQuery gq = new genericQuery();
             gq.doConnect();
-            String execute = "DELETE FROM tesis.personas WHERE perId='" + perId + "';";
+            String execute = "INSERT INTO `tesis`.`personas`\n"
+                    + "(perUsuario,\n"
+                    + "perPass,\n"
+                    + "perNom,\n"
+                    + "perApe,\n"
+                    + "perDni)\n"
+                    + "VALUES\n"
+                    + "('" + usr + "',\n"
+                    + "'" + pass + "',\n"
+                    + "'" + nom + "',\n"
+                    + "'" + ape + "',\n"
+                    + "" + dni + ")";
 
-            this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
             pst.executeUpdate(execute);
             gq.doConnectClose();
-         }
-         else
-         {
-            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, "No se puede Borra el Usuario");
-         }
-      }
-      catch (InstantiationException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      catch (IllegalAccessException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      catch (SQLException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-   }
+        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-   public void modificaPersona(HttpServletRequest request, HttpSession session)
-   {
-      String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
-      String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
-      String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
-      String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
-      String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
-      String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
-      try
-      {
-         genericQuery gq = new genericQuery();
-         gq.doConnect();
-         String execute = "UPDATE tesis.personas\n"
-            + "SET\n"
-            + "`perUsuario` = '" + usr + "',\n"
-            + "`perPass` = '" + pass + "',\n"
-            + "`perNom` = '" + nom + "',\n"
-            + "`perApe` = '" + ape + "',\n"
-            + "`perDni` = '" + dni + "'\n"
-            + "WHERE `perId` = " + perId + ";";
+    public void eliminaPersona(HttpServletRequest request, HttpSession session) {
+        String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
+        String userId = TextFormat.toStringNeverNull(session.getAttribute("perId"));
+        try {
+            if (!perId.equals(userId)) {
+                genericQuery gq = new genericQuery();
+                gq.doConnect();
+                String execute = "DELETE FROM tesis.personas WHERE perId='" + perId + "';";
 
-         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
-         pst.executeUpdate(execute);
-         gq.doConnectClose();
-      }
-      catch (InstantiationException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      catch (IllegalAccessException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-      catch (SQLException ex)
-      {
-         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-      }
-   }
+                this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
+                pst.executeUpdate(execute);
+                gq.doConnectClose();
+            } else {
+                Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, "No se puede Borra el Usuario");
+            }
+        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void modificaPersona(HttpServletRequest request, HttpSession session) {
+        String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
+        String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
+        String ape = TextFormat.toStringNeverNull(request.getParameter("ape"));
+        String dni = TextFormat.toStringNeverNull(request.getParameter("dni"));
+        String usr = TextFormat.toStringNeverNull(request.getParameter("usr"));
+        String pass = TextFormat.toStringNeverNull(request.getParameter("pass"));
+        try {
+            genericQuery gq = new genericQuery();
+            gq.doConnect();
+            String execute = "UPDATE tesis.personas\n"
+                    + "SET\n"
+                    + "`perUsuario` = '" + usr + "',\n"
+                    + "`perPass` = '" + pass + "',\n"
+                    + "`perNom` = '" + nom + "',\n"
+                    + "`perApe` = '" + ape + "',\n"
+                    + "`perDni` = '" + dni + "'\n"
+                    + "WHERE `perId` = " + perId + ";";
+
+            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
+            pst.executeUpdate(execute);
+            gq.doConnectClose();
+        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

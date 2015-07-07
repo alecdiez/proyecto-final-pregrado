@@ -8,6 +8,10 @@
         <servlet-name>PersonaDAO</servlet-name>
         <servlet-class>com.PersonaDAO</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PrivilegioDAO</servlet-name>
+        <servlet-class>com.PrivilegioDAO</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>genericQuery</servlet-name>
         <url-pattern>/com.genericQuery</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>PersonaDAO</servlet-name>
         <url-pattern>/com.PersonaDAO</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PrivilegioDAO</servlet-name>
+        <url-pattern>/com.PrivilegioDAO</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
