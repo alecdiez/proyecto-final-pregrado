@@ -55,6 +55,7 @@ function controlResponse() {
     parent.$.fancybox.hideActivity();    
     alert('Persona Guardada Correctamente!!!');
     parent.$("#modificaPersona").trigger('click');
+    parent.$("#modificaUnaPersona").trigger('click');
 }
 
 

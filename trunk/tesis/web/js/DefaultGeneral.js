@@ -32,6 +32,15 @@ $(document).ready(function () {
       'width': 600,
       'height': 350
    });
+   $("#modificaUnaPersona").fancybox({
+      'padding': 5,
+      'overlayShow': false,
+      'closeClick': true,
+      'mouseWheel':true,
+      'type': 'iframe',
+      'width': 600,
+      'height': 350
+   });
    $('#altaPrivilegio').click(function () {
 
    });
