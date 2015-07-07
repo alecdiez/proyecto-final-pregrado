@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `tesis` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `tesis`;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
--- Host: 127.0.0.1    Database: tesis
+-- Host: localhost    Database: tesis
 -- ------------------------------------------------------
--- Server version	5.5.28
+-- Server version	5.6.23-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -61,7 +59,7 @@ CREATE TABLE `personas` (
   PRIMARY KEY (`perId`),
   UNIQUE KEY `perUsuario_UNIQUE` (`perUsuario`),
   UNIQUE KEY `perDni_UNIQUE` (`perDni`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +68,7 @@ CREATE TABLE `personas` (
 
 LOCK TABLES `personas` WRITE;
 /*!40000 ALTER TABLE `personas` DISABLE KEYS */;
-INSERT INTO `personas` VALUES (1,'alec9','ama921sa','Alejandro',' Sosa',27921909);
+INSERT INTO `personas` VALUES (1,'alec9','ama921sa','Alejandro',' Sosa',27921909),(5,'yani_zwenger','--hrz9454--','Maria Yanina','Zwenger',31506563),(6,'manuelfonsss','ama921','Manuel Antonio','Sosa',7964879),(7,'rrrr','rrrrrrrrrrr','rrrr','rrrrrrrrr',333);
 /*!40000 ALTER TABLE `personas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,10 +96,6 @@ LOCK TABLES `privilegios` WRITE;
 INSERT INTO `privilegios` VALUES (1,'altaPersona'),(4,'altaPrivilegio'),(6,'asignaPrivilegio'),(2,'bajaPersona'),(5,'bajaPrivilegio'),(3,'modificaPersona');
 /*!40000 ALTER TABLE `privilegios` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'tesis'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -112,4 +106,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-06 13:19:12
+-- Dump completed on 2015-07-07  7:07:53
