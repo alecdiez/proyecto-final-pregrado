@@ -27,6 +27,7 @@
                          url="${url}" user="${user}" password="${pass}" />
       <div align="center">
          <h1 class="TextoTituloGris">Asignación de Privilegios por Persona</h1>
+         <div align="right"><td><input type="button" class="BotonTablaRoja" id="guardaPrivilegio" value="Guardar" name="guardaPrivilegio" /></div>
          <table class="FormatoTabla">
             <thead>
                <tr>

@@ -26,12 +26,12 @@ function buscaPrivilegios(perId) {
       var priviIds = responseText.split('_');
 
       $('.TextoGrande').each(function (j) {
+         $(this).attr('checked', false);
          for (var i = 0; i < priviIds.length; i++) {
             if ($(this).attr('id') == 'privi' + (priviIds[i].trim())) {
                $(this).attr('checked', true);
             }
          }
-
       });
 
    });
