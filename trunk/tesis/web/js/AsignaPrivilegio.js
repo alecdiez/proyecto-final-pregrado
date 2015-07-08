@@ -7,7 +7,15 @@
 $(document).ready(function () {
 
    $('.TextoGrande').click(function () {
-      alert($(this).attr('id'));
+
+      $('.TextoGrande').each(function (i) {
+         if ($(this).hasClass('highlight')) {
+            $(this).removeClass('highlight');
+         }
+      });
+
+      $(this).toggleClass('highlight');
+
    });
 
 });
