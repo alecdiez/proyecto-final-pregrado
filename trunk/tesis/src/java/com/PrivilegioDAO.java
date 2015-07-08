@@ -23,86 +23,123 @@ import utl.TextFormat;
  *
  * @author Alejandro
  */
-public class PrivilegioDAO extends HttpServlet {
+public class PrivilegioDAO extends HttpServlet
+{
 
-    private PreparedStatement pst = null;
+   private PreparedStatement pst = null;
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+   @Override
+   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException
+   {
+      String condicion = TextFormat.toStringNeverNull(request.getParameter("condicion"));
+      if(condicion.equals("getPrivilegios"))
+      {
+         getPrivilegios(request, response);
+      }
 
-    }
+   }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        PrintWriter out = response.getWriter();
+   @Override
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException
+   {
+      HttpSession session = request.getSession();
+      PrintWriter out = response.getWriter();
 
-        String condicion = TextFormat.toStringNeverNull(request.getParameter("condicion"));
-        if (condicion.equals("guarda")) {
-            guardaPrivilegio(request);
-        }
-        if (condicion.equals("elimina")) {
-            eliminaPrivilegio(request, session);
-        }
-        if (condicion.equals("asigna")) {
+      String condicion = TextFormat.toStringNeverNull(request.getParameter("condicion"));
+      if(condicion.equals("guarda"))
+      {
+         guardaPrivilegio(request);
+      }
+      if(condicion.equals("elimina"))
+      {
+         eliminaPrivilegio(request, session);
+      }
+      if(condicion.equals("asigna"))
+      {
 
-        }
+      }
 
-    }
+   }
 
-    public void guardaPrivilegio(HttpServletRequest request) {
-        String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
-        ResultSet rs = null;
-        int priviId = 0;
-        try {
-            genericQuery gq = new genericQuery();
-            gq.doConnect();
+   public void getPrivilegios(HttpServletRequest request, HttpServletResponse response)
+   {
+      try
+      {
+         HttpSession session = request.getSession();
+         PrintWriter out = response.getWriter();
+         String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
+         out.println("lalalala  " + perId);
+      }
+      catch (IOException ex)
+      {
+         Logger.getLogger(PrivilegioDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
 
-            String ultId = "SELECT max(priviId) FROM tesis.privilegios;";
-            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(ultId);
-            this.pst.execute();
-            rs = pst.getResultSet();
-            java.sql.ResultSetMetaData rsMd = rs.getMetaData();
-            while (rs.next()) {
-                priviId = (rs.getInt(1) + 1);
-            }
+   }
 
-            String execute = "INSERT INTO `tesis`.`privilegios`\n"
-                    + "(priviId,privilegio)\n"
-                    + "VALUES\n"
-                    + "(" + priviId + ",'" + nom + "')";
+   public void guardaPrivilegio(HttpServletRequest request)
+   {
+      String nom = TextFormat.toStringNeverNull(request.getParameter("nom"));
+      ResultSet rs = null;
+      int priviId = 0;
+      try
+      {
+         genericQuery gq = new genericQuery();
+         gq.doConnect();
 
-            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
-            pst.executeUpdate(execute);
-            gq.doConnectClose();
-        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
-            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+         String ultId = "SELECT max(priviId) FROM tesis.privilegios;";
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(ultId);
+         this.pst.execute();
+         rs = pst.getResultSet();
+         java.sql.ResultSetMetaData rsMd = rs.getMetaData();
+         while(rs.next())
+         {
+            priviId = (rs.getInt(1) + 1);
+         }
 
-    public void eliminaPrivilegio(HttpServletRequest request, HttpSession session) {
-        String priviId = TextFormat.toStringNeverNull(request.getParameter("priviId"));
+         String execute = "INSERT INTO `tesis`.`privilegios`\n"
+            + "(priviId,privilegio)\n"
+            + "VALUES\n"
+            + "(" + priviId + ",'" + nom + "')";
 
-        try {
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+         pst.executeUpdate(execute);
+         gq.doConnectClose();
+      }
+      catch (InstantiationException | IllegalAccessException | SQLException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+   }
 
-            genericQuery gq = new genericQuery();
-            gq.doConnect();
-            String execute = "DELETE FROM tesis.privilegios WHERE priviId='" + priviId + "';";
+   public void eliminaPrivilegio(HttpServletRequest request, HttpSession session)
+   {
+      String priviId = TextFormat.toStringNeverNull(request.getParameter("priviId"));
 
-            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
-            pst.executeUpdate(execute);
-            gq.doConnectClose();
+      try
+      {
 
-        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
-            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+         genericQuery gq = new genericQuery();
+         gq.doConnect();
+         String execute = "DELETE FROM tesis.privilegios WHERE priviId='" + priviId + "';";
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+         pst.executeUpdate(execute);
+         gq.doConnectClose();
+
+      }
+      catch (InstantiationException | IllegalAccessException | SQLException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+      }
+   }
+
+   @Override
+   public String getServletInfo()
+   {
+      return "Short description";
+   }// </editor-fold>
 
 }
