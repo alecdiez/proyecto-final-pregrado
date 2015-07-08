@@ -43,15 +43,18 @@
             </thead>
             <tbody>
                <tr>
-                  <td class="TextoGrande" align="left">
+                  <td  align="left">
                      <sql:query dataSource="${result}" sql="select per.perId, per.perNom, per.perApe from tesis.personas per order by perId"
                                 var="resultado" />
-                     <ul>
-                        <c:forEach var="fila" items="${resultado.rows}">
-                           <li id="${perId}"><c:out value="${fila.perNom} ${fila.perApe}" /></li><br>
-                           </c:forEach>
+                     <div id="listaPersonas">
 
-                     </ul>
+                        <ul >
+                           <c:forEach var="fila" items="${resultado.rows}">
+                              <li class="TextoGrande" id="${fila.perId}"><c:out value="${fila.perNom} ${fila.perApe}" /></li><br>
+                              </c:forEach>
+
+                        </ul>
+                     </div>
 
                   </td>
 
