@@ -21,8 +21,18 @@ $(document).ready(function () {
 });
 
 function buscaPrivilegios(perId) {
-   
-   $.get('com.PrivilegioDAO', {perId: perId,condicion:"getPrivilegios"}, function (responseText) {
+
+   $.get('com.PrivilegioDAO', {perId: perId, condicion: "getPrivilegios"}, function (responseText) {
+      var priviIds = responseText.split('_');
+
+      $('.TextoGrande').each(function (j) {
+         for (var i = 0; i < priviIds.length; i++) {
+            if ($(this).attr('id') == 'privi' + (priviIds[i].trim())) {
+               $(this).attr('checked', true);
+            }
+         }
+
+      });
 
    });
 }

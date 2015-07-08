@@ -65,16 +65,18 @@
                                 var="resultado" />
                      <ul >
                         <table>
-                           <c:forEach var="fila" items="${resultado.rows}">
-                              <tr>
+                           <div id="listaPrivilegios">
+                              <c:forEach var="fila" items="${resultado.rows}">
+                                 <tr>
+                                    <td>
+                                 <li><c:out value="${fila.privilegio}" /></li>
+                                 </td>
                                  <td>
-                              <li><c:out value="${fila.privilegio}" /></li>
-                              </td>
-                              <td>
-                                 <input id="${fila.priviId}" type="checkbox" style="cursor: pointer" name="privi" value="" />
-                              </td>
-                              </tr>
-                           </c:forEach>
+                                    <input class="TextoGrande" id="privi${fila.priviId}" type="checkbox" style="cursor: pointer" name="privi" value="" />
+                                 </td>
+                                 </tr>
+                              </c:forEach>
+                           </div>
                         </table>
 
                      </ul>
