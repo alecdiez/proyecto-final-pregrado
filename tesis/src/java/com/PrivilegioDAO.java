@@ -6,17 +6,21 @@
 package com;
 
 import com.mysql.jdbc.PreparedStatement;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import utl.TextFormat;
 
 /**
@@ -65,12 +69,44 @@ public class PrivilegioDAO extends HttpServlet
 
    public void getPrivilegios(HttpServletRequest request, HttpServletResponse response)
    {
+      ResultSet rs = null;
+      ArrayList<String> priviIds = new ArrayList<String>();
       try
       {
          HttpSession session = request.getSession();
          PrintWriter out = response.getWriter();
          String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));
-         out.println("lalalala  " + perId);
+         String query = "SELECT priviId FROM tesis.per_privi where perId = " + perId + ";";
+
+         genericQuery gq = new genericQuery();
+         gq.doConnect();
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(query);
+         this.pst.execute();
+         rs = pst.getResultSet();
+         while(rs.next())
+         {
+            priviIds.add(rs.getString(1));
+         }
+         String result = "";
+         for(String priviId : priviIds)
+         {
+            if(priviId.equals(priviIds.get(0)))
+            {
+               result = priviId;
+            }
+            else
+            {
+               result = result + "_" + priviId;
+            }
+
+         }
+
+         out.println(result);
+
+      }
+      catch (InstantiationException | IllegalAccessException | SQLException ex)
+      {
+         Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
       }
       catch (IOException ex)
       {
@@ -93,7 +129,6 @@ public class PrivilegioDAO extends HttpServlet
          this.pst = (PreparedStatement)gq.getConnection().prepareStatement(ultId);
          this.pst.execute();
          rs = pst.getResultSet();
-         java.sql.ResultSetMetaData rsMd = rs.getMetaData();
          while(rs.next())
          {
             priviId = (rs.getInt(1) + 1);
