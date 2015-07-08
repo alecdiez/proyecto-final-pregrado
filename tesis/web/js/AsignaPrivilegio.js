@@ -15,8 +15,16 @@ $(document).ready(function () {
       });
 
       $(this).toggleClass('highlight');
-
+      buscaPrivilegios($(this).attr('id'));
    });
 
 });
+
+function buscaPrivilegios(perId) {
+   
+   $.get('com.PrivilegioDAO', {perId: perId,condicion:"getPrivilegios"}, function (responseText) {
+
+   });
+}
+
 
