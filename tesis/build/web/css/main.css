@@ -29,6 +29,7 @@ root {
 
 .TextoGrande
 {
+   background:#FFF;
    PADDING-RIGHT: 5px;
    PADDING-LEFT: 5px;
    FONT-SIZE: 12px;
@@ -54,6 +55,11 @@ root {
    border-radius: 15px;
 
 }
+
+.highlight {
+    background: highlighttext;
+    color: white;
+  }
 
 .BotonCerrarSession {
    BORDER-BOTTOM: 1px;

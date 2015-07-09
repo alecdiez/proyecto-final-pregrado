@@ -27,7 +27,7 @@
                          url="${url}" user="${user}" password="${pass}" />
       <div align="center">
          <h1 class="TextoTituloGris">Asignación de Privilegios por Persona</h1>
-         <div align="right"><td><input type="button" class="BotonTablaRoja" id="guardaPrivilegio" value="Guardar" name="guardaPrivilegio" /></div>
+         <div align="right"><td><input type="button" class="BotonTablaRoja" id="asigPrivi" value="Guardar" name="guardaPrivilegio" /></div>
          <table class="FormatoTabla">
             <thead>
                <tr>
@@ -73,7 +73,7 @@
                                  <li><c:out value="${fila.privilegio}" /></li>
                                  </td>
                                  <td>
-                                    <input class="TextoGrande" id="privi${fila.priviId}" type="checkbox" style="cursor: pointer" name="privi" value="" />
+                                    <input class="TextoTituloGris" id="privi${fila.priviId}" type="checkbox" style="cursor: pointer" name="privi" value="" />
                                  </td>
                                  </tr>
                               </c:forEach>
