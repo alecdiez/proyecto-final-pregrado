@@ -27,6 +27,7 @@
                          url="${url}" user="${user}" password="${pass}" />
       <div align="center">
          <h1 class="TextoTituloGris">Asignación de Privilegios por Persona</h1>
+         <div align="right"><td><input type="button" class="BotonTablaRoja" id="asigPrivi" value="Guardar" name="guardaPrivilegio" /></div>
          <table class="FormatoTabla">
             <thead>
                <tr>
@@ -43,15 +44,18 @@
             </thead>
             <tbody>
                <tr>
-                  <td class="TextoGrande" align="left">
+                  <td  align="left">
                      <sql:query dataSource="${result}" sql="select per.perId, per.perNom, per.perApe from tesis.personas per order by perId"
                                 var="resultado" />
-                     <ul>
-                        <c:forEach var="fila" items="${resultado.rows}">
-                           <li id="${perId}"><c:out value="${fila.perNom} ${fila.perApe}" /></li><br>
-                           </c:forEach>
+                     <div id="listaPersonas">
 
-                     </ul>
+                        <ul >
+                           <c:forEach var="fila" items="${resultado.rows}">
+                              <li class="TextoGrande" id="${fila.perId}"><c:out value="${fila.perNom} ${fila.perApe}" /></li><br>
+                              </c:forEach>
+
+                        </ul>
+                     </div>
 
                   </td>
 
@@ -62,16 +66,18 @@
                                 var="resultado" />
                      <ul >
                         <table>
-                           <c:forEach var="fila" items="${resultado.rows}">
-                              <tr>
+                           <div id="listaPrivilegios">
+                              <c:forEach var="fila" items="${resultado.rows}">
+                                 <tr>
+                                    <td>
+                                 <li><c:out value="${fila.privilegio}" /></li>
+                                 </td>
                                  <td>
-                              <li><c:out value="${fila.privilegio}" /></li>
-                              </td>
-                              <td>
-                                 <input id="${fila.priviId}" type="checkbox" style="cursor: pointer" name="privi" value="" />
-                              </td>
-                              </tr>
-                           </c:forEach>
+                                    <input class="TextoTituloGris" id="privi${fila.priviId}" type="checkbox" style="cursor: pointer" name="privi" value="" />
+                                 </td>
+                                 </tr>
+                              </c:forEach>
+                           </div>
                         </table>
 
                      </ul>
