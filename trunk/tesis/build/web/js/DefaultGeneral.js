@@ -74,8 +74,8 @@ $(document).ready(function () {
         'closeClick': true,
         'mouseWheel': true,
         'type': 'iframe',
-        'width': 400,
-        'height': 250
+        'width': 600,
+        'height': 350
     });
 
 });
