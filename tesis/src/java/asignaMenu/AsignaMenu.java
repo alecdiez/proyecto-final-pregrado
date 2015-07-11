@@ -103,7 +103,7 @@ public class AsignaMenu {
 
         menu += " <li><a href=\"#\">Sistema</a>\n"
                 + "<ul>\n";
-        menu += "                <li style=\"cursor: pointer\"><a id=\"generarMapa\" href=\"GeneraMapa.jsp\">Generar Mapa</a></li>\n";
+        menu += "                <li style=\"cursor: pointer\"><a id=\"generaMapa\" href=\"GeneraMapa.jsp\">Generar Mapa</a></li>\n";
         menu += "    </ul>";
         menu += "    </li>";
 
