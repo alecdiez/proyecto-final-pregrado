@@ -68,6 +68,15 @@ $(document).ready(function () {
         'width': 600,
         'height': 350
     });
+    $("#generaMapa").fancybox({
+        'padding': 5,
+        'overlayShow': false,
+        'closeClick': true,
+        'mouseWheel': true,
+        'type': 'iframe',
+        'width': 400,
+        'height': 250
+    });
 
 });
 
