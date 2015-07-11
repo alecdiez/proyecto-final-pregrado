@@ -12,8 +12,9 @@
     String perId = TextFormat.toStringNeverNull(session.getAttribute("perId"));
     String perUsuario = TextFormat.toStringNeverNull(session.getAttribute("perUsuario"));
     String perPass = TextFormat.toStringNeverNull(session.getAttribute("perPass"));
+    String perNom = TextFormat.toStringNeverNull(session.getAttribute("perNom"));
 
-    if (emptyPer.isEmpty()) {
+    if ((emptyPer.equals("empty") || emptyPer.isEmpty()) && perId.isEmpty() && perUsuario.isEmpty() && perPass.isEmpty() && perNom.isEmpty()) {
         response.sendRedirect("index.html");
     }
 %>

@@ -21,6 +21,7 @@
 <link href="js/jquery.alerts.css" rel="stylesheet" type="text/css" />
 <script src="js/ModPersona.js"></script>
 <!DOCTYPE html>
+<%@include file="sessionControl.jsp"%>
 <%String perId = TextFormat.toStringNeverNull(request.getParameter("perId"));%>
 <c:set var="url" value="<%=finalVariables.url%>" />
 <c:set var="user" value="<%=finalVariables.connUsr%>" />

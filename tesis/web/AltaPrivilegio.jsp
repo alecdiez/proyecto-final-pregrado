@@ -17,6 +17,7 @@
 <link href="js/jquery.alerts.css" rel="stylesheet" type="text/css" />
 <script src="js/AltaPrivilegio.js"></script>
 <!DOCTYPE html>
+<%@include file="sessionControl.jsp"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
