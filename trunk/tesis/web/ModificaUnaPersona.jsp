@@ -26,6 +26,7 @@
 <c:set var="user" value="<%=finalVariables.connUsr%>" />
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 <c:set var="perId" value="<%=perId%>" />
+<%@include file="sessionControl.jsp"%>
 
 <html>
    <head>

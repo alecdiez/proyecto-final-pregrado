@@ -99,6 +99,13 @@ public class AsignaMenu {
         if (privilegios.contains("asignaPrivilegio")) {
             menu += "                <li  style=\"cursor: pointer\"><a id=\"asignaPrivilegio\" href=\"AsignaPrivilegio.jsp\">Asigna Privilegio</a></li>\n";
         }
+        menu += "</ul></li>";
+
+        menu += " <li><a href=\"#\">Sistema</a>\n"
+                + "<ul>\n";
+        menu += "                <li style=\"cursor: pointer\"><a id=\"generarMapa\" href=\"GeneraMapa.jsp\">Generar Mapa</a></li>\n";
+        menu += "    </ul>";
+        menu += "    </li>";
 
         menu += "    </ul>";
 

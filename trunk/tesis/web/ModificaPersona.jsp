@@ -22,6 +22,7 @@
 <c:set var="url" value="<%=finalVariables.url%>" />
 <c:set var="user" value="<%=finalVariables.connUsr%>" />
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
+<%@include file="sessionControl.jsp"%>
 
 <html>
    <head>
