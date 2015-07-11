@@ -27,7 +27,21 @@
     <body>
         <div align="center">
             <h1 class="TextoTituloGris">Generar Nuevo Mapa</h1>
-        </div>
+        </div><br>
+        <div align="left">
+            <h1 class="Group">Se recuerda que para generar un nuevo mapa, se debe ingresar los datos en un archivo 
+                excel que luego se debera seleccionar!</h1>
+        </div><br><br>
+        <form action="com.RecibeArchivo" method="post" enctype="multipart/form-data">
+
+            <div align="left">
+                <input type="file" id="archivo" width="150px" name="file" value="" />
+            </div><br><br>
+            <div align="center">
+                <input type="submit" id="generaMapa" class="BotonTablaRoja" value="Generar Mapa" name="generaMapa" />
+            </div>
+        </form>
+
 
     </body>
 </html>
