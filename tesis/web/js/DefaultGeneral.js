@@ -78,6 +78,16 @@ $(document).ready(function () {
         'height': 350
     });
 
+    $("#muestraMapa").fancybox({
+        'padding': 5,
+        'overlayShow': false,
+        'closeClick': true,
+        'mouseWheel': true,
+        'type': 'iframe',
+        'width': 1100,
+        'height': 900
+    });
+
 });
 
 

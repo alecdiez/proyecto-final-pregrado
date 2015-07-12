@@ -59,8 +59,25 @@ public class RecibeArchivo extends HttpServlet {
 
                     }
                 }
-                //File uploaded successfully              
-                out.println("File Uploaded Successfully");
+                out.println("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js\"></script>");
+                out.println("<script>");
+                out.println("!window.jQuery && document.write('<script src=\"js/jquery-1.4.3.min.js\"><\\/script>');");
+                out.println("</script>");
+                out.println("<script type=\"text/javascript\" src=\"./js/fancybox/jquery.mousewheel-3.0.4.pack.js\"></script>");
+                out.println("<script type=\"text/javascript\" src=\"./js/fancybox/jquery.fancybox-1.3.4.pack.js\"></script>");
+                out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./js/fancybox/jquery.fancybox-1.3.4.css\" media=\"screen\" />");
+
+                out.println("<script>");
+
+                out.println("$(document).ready(function () {");
+
+                //out.println("parent.$.fancybox.close();");
+
+                out.println("parent.$('#muestraMapa').trigger('click');");
+
+                out.println("});");
+
+                out.println("</script>");
 
             } catch (Exception ex) {
                 out.println("File Upload Failed due to " + ex);
