@@ -71,9 +71,9 @@ public class RecibeArchivo extends HttpServlet {
 
                 out.println("$(document).ready(function () {");
 
-                //out.println("parent.$.fancybox.close();");
+                out.println("parent.$.fancybox.close();");
 
-                out.println("parent.$('#muestraMapa').trigger('click');");
+                out.println("window.open('MuestraMapa.jsp','','height=700,width=1100,left=200,top=50,scrollbars=1');");
 
                 out.println("});");
 

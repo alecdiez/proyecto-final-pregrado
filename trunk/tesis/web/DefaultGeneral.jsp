@@ -23,7 +23,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="menu.jsp" %>
-        <a id="muestraMapa" style="visibility: hidden" href="MuestraMapa.jsp">Muestra Mapa</a>
+        <%@include file="menu.jsp" %>        
     </body>
 </html>
