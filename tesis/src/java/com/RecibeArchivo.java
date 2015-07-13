@@ -43,6 +43,14 @@ public class RecibeArchivo extends HttpServlet implements finalVariables
       HttpSession session = request.getSession();
       PrintWriter out = response.getWriter();
 
+      out.println("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js\"></script>");
+      out.println("<script>");
+      out.println("!window.jQuery && document.write('<script src=\"js/jquery-1.4.3.min.js\"><\\/script>');");
+      out.println("</script>");
+      out.println("<script type=\"text/javascript\" src=\"./js/fancybox/jquery.mousewheel-3.0.4.pack.js\"></script>");
+      out.println("<script type=\"text/javascript\" src=\"./js/fancybox/jquery.fancybox-1.3.4.pack.js\"></script>");
+      out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./js/fancybox/jquery.fancybox-1.3.4.css\" media=\"screen\" />");
+
       if(ServletFileUpload.isMultipartContent(request))
       {
 
@@ -55,29 +63,35 @@ public class RecibeArchivo extends HttpServlet implements finalVariables
                {
 
                   String name = new File(item.getName()).getName();
-                  item.write(new File(UPLOAD_DIRECTORY + File.separator + name));
+                  String[] ext = name.split("\\.");
+                  if(ext[ext.length - 1].equals("xls") || ext[ext.length - 1].equals("xlsx"))
+                  {
+                     item.write(new File(UPLOAD_DIRECTORY + File.separator + name));
+
+                     //parsear el archivo excel
+
+                     
+
+
+                     out.println("<script>");
+
+                     out.println("$(document).ready(function () {");
+
+                     out.println("parent.$.fancybox.close();");
+
+                     out.println("window.open('MuestraMapa.jsp','','height=700,width=1100,left=200,top=50,scrollbars=1');");
+
+                     out.println("});");
+
+                     out.println("</script>");
+                  }
+                  else
+                  {
+                     out.println("Recuerde enviar archivos con formato EXCEL con extension - 'XLS' o 'XLSX'");
+                  }
 
                }
             }
-            out.println("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js\"></script>");
-            out.println("<script>");
-            out.println("!window.jQuery && document.write('<script src=\"js/jquery-1.4.3.min.js\"><\\/script>');");
-            out.println("</script>");
-            out.println("<script type=\"text/javascript\" src=\"./js/fancybox/jquery.mousewheel-3.0.4.pack.js\"></script>");
-            out.println("<script type=\"text/javascript\" src=\"./js/fancybox/jquery.fancybox-1.3.4.pack.js\"></script>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"./js/fancybox/jquery.fancybox-1.3.4.css\" media=\"screen\" />");
-
-            out.println("<script>");
-
-            out.println("$(document).ready(function () {");
-
-            out.println("parent.$.fancybox.close();");
-
-            out.println("window.open('MuestraMapa.jsp','','height=700,width=1100,left=200,top=50,scrollbars=1');");
-
-            out.println("});");
-
-            out.println("</script>");
 
          }
          catch (Exception ex)
