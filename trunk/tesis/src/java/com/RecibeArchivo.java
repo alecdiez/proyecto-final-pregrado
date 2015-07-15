@@ -17,9 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import interfaces.finalVariables;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import jxl.*;
+import jxl.read.biff.BiffException;
 
 /**
  *
@@ -60,7 +64,9 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                         if (ext[ext.length - 1].equals("xls") || ext[ext.length - 1].equals("xlsx")) {
                             item.write(new File(UPLOAD_DIRECTORY + File.separator + name));
 
-                     //parsear el archivo excel
+                            //parsear el archivo excel
+                            leerArchivoExcel(UPLOAD_DIRECTORY + File.separator + name);
+                            
                             out.println("<script>");
 
                             out.println("$(document).ready(function () {");
@@ -89,14 +95,25 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    public void leerArchivoExcel(String path) {
+        try {
+            Workbook workbook = Workbook.getWorkbook(new File(path)); //Pasamos el excel que vamos a leer
+            Sheet sheet = workbook.getSheet(0); //Seleccionamos la hoja que vamos a leer
+            String nombre;
+
+            for (int fila = 1; fila < sheet.getRows(); fila++) { //recorremos las filas
+                for (int columna = 0; columna < sheet.getColumns(); columna++) { //recorremos las columnas
+                    nombre = sheet.getCell(columna, fila).getContents(); //setear la celda leida a nombre
+                    System.out.print(nombre + ""); // imprimir nombre
+                }
+                System.out.println("\n");
+                System.out.println("————————————-");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BiffException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }
