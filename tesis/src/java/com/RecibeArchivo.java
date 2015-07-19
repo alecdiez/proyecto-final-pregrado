@@ -5,6 +5,7 @@
  */
 package com;
 
+import com.mysql.jdbc.PreparedStatement;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import interfaces.finalVariables;
+import java.sql.SQLException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +37,8 @@ import jxl.read.biff.BiffException;
  */
 public class RecibeArchivo extends HttpServlet implements finalVariables {
 
+    private PreparedStatement pst = null;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -48,6 +52,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         String perUsuario = session.getAttribute("perUsuario").toString();
+        String perId = session.getAttribute("perId").toString();
 
         out.println("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js\"></script>");
         out.println("<script>");
@@ -67,14 +72,18 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                         String name = item.getName();
                         String[] ext = name.split("\\.");
                         if (ext[ext.length - 1].equals("xls") || ext[ext.length - 1].equals("xlsx")) {
+                            ext[1] = ext[1].equals("xlsx") ? "xls" : ext[1];
                             String archivoCreado = UPLOAD_DIRECTORY + File.separator + ext[0] + "_" + perUsuario + "_" + getDate() + "." + ext[1];
                             File arc = new File(archivoCreado);
                             item.write(new File(archivoCreado));
 
-                            //parsear el archivo excel
-                            leerArchivoExcel(archivoCreado);
-
                             out.println("<script>");
+
+                            //parsear el archivo excel
+                            if (leerArchivoExcel(archivoCreado)) {
+                                out.println("Archivo excel con formato Incorrecto!!!");
+                            }
+                            creaMapa(Integer.parseInt(perId));
 
                             out.println("$(document).ready(function () {");
 
@@ -102,7 +111,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
     }
 
-    public void leerArchivoExcel(String path) {
+    public boolean leerArchivoExcel(String path) {
 
         try {
 
@@ -118,10 +127,13 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                 System.out.println("\n");
                 System.out.println("————————————-");
             }
+            return true;
         } catch (IOException ex) {
             Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         } catch (BiffException ex) {
             Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
 
@@ -129,6 +141,29 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         SimpleDateFormat sdf = new SimpleDateFormat("dd_M_yyyy HH_mm_ss");
         String date = sdf.format(new Date());
         return date;
+    }
+
+    public boolean creaMapa(int usrId) {
+
+        try {
+            genericQuery gq = new genericQuery();
+            gq.doConnect();
+            String execute = "INSERT INTO `tesis`.`mapa`\n"
+                    + " (mapaUsrId,\n"
+                    + " mapaFecha)\n"
+                    + "VALUES\n"
+                    + " ('" + usrId + "',\n"
+                    + " now())";
+
+            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
+            pst.executeUpdate(execute);
+            gq.doConnectClose();
+            return true;
+        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
     }
 
 }
