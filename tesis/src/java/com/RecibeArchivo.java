@@ -81,11 +81,12 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
                             out.println("<script>");
 
+                            ultimoMapaId = creaMapa(Integer.parseInt(perId));
+
                             //parsear el archivo excel
-                            if (leerArchivoExcel(archivoCreado)) {
+                            if (leerArchivoExcel(archivoCreado, ultimoMapaId)) {
 
                             }
-                            ultimoMapaId = creaMapa(Integer.parseInt(perId));
 
                             out.println("$(document).ready(function () {");
 
@@ -113,7 +114,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
     }
 
-    public boolean leerArchivoExcel(String path) {
+    public boolean leerArchivoExcel(String path, int mapaId) {
 
         ArrayList<String> controlNombreColumna = new ArrayList<String>();
         ArrayList valoresPorFila = new ArrayList();
@@ -148,15 +149,46 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                             && controlNombreColumna.contains("Venta")
                             && controlNombreColumna.contains("Entrega")
                             && controlNombreColumna.contains("Observaciones")) {
-                        valoresPorFila.add(valor);
+
                     } else {
                         return false;
                     }
+                } else {
+                    valoresPorFila.add(valor);
                 }
 
             }
             for (Object vpf : valoresPorFila) {
-                System.out.println(vpf);
+                String[] data = vpf.toString().split(",");
+                if (!data[0].isEmpty()
+                        || !data[1].isEmpty()
+                        || !data[2].isEmpty()
+                        || !data[3].isEmpty()
+                        || !data[4].isEmpty()) {
+
+                    String execute = " INSERT INTO tesis.mapamarker"
+                            + "(mapaId,"
+                            + "mapaMarkerCliNomApe,"
+                            + "mapaMarkerDirección,"
+                            + "mapaMarkerCiudad,"
+                            + "mapaMarkerProvincia,"
+                            + "mapaMarkerLat,"
+                            + "mapaMarkerLong,"
+                            + "mapamarkerVenta,"
+                            + "mapamarkerEntrega,"
+                            + "mapamarkerObserva)"
+                            + "VALUES"
+                            + "(" + mapaId + ","
+                            + "'" + data[0] + " " + data[1] + "',"
+                            + "'" + data[2] + "',"
+                            + "'" + data[3] + "',"
+                            + "'" + data[4] + "',"
+                            + "'" + data[5] + "',"
+                            + "'" + data[6] + "',"
+                            + "'" + data[7] + "',"
+                            + "'" + data[8] + "');";
+
+                }
             }
             return true;
         } catch (IOException ex) {

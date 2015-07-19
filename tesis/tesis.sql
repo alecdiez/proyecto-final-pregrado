@@ -29,7 +29,7 @@ CREATE TABLE `mapa` (
   `mapaUsrId` int(11) NOT NULL,
   `mapaFecha` datetime NOT NULL,
   PRIMARY KEY (`mapaId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `mapa` (
 
 LOCK TABLES `mapa` WRITE;
 /*!40000 ALTER TABLE `mapa` DISABLE KEYS */;
-INSERT INTO `mapa` VALUES (1,1,'2015-07-18 11:31:54');
+INSERT INTO `mapa` VALUES (7,1,'2015-07-19 10:58:06'),(8,1,'2015-07-19 11:26:34'),(9,1,'2015-07-19 11:28:44'),(10,1,'2015-07-19 12:00:52'),(11,1,'2015-07-19 12:02:42'),(12,1,'2015-07-19 19:20:36'),(13,1,'2015-07-19 19:23:56'),(14,1,'2015-07-19 19:25:21');
 /*!40000 ALTER TABLE `mapa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `mapamarker` (
   `mapaMarkerLat` varchar(250) DEFAULT NULL,
   `mapaMarkerLong` varchar(250) DEFAULT NULL,
   `mapamarkerVenta` decimal(10,0) DEFAULT NULL,
-  `mapamarkerEntrega` int(11) DEFAULT NULL,
+  `mapamarkerEntrega` varchar(2) DEFAULT NULL,
   `mapamarkerObserva` varchar(1500) DEFAULT NULL,
   PRIMARY KEY (`mapaMarkerId`),
   KEY `mapaId_idx` (`mapaId`),
@@ -167,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-19 10:01:18
+-- Dump completed on 2015-07-19 19:46:48
