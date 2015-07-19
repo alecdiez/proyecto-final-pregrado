@@ -29,7 +29,7 @@ CREATE TABLE `mapa` (
   `mapaUsrId` int(11) NOT NULL,
   `mapaFecha` datetime NOT NULL,
   PRIMARY KEY (`mapaId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `mapa` (
 
 LOCK TABLES `mapa` WRITE;
 /*!40000 ALTER TABLE `mapa` DISABLE KEYS */;
+INSERT INTO `mapa` VALUES (1,1,'2015-07-18 11:31:54');
 /*!40000 ALTER TABLE `mapa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,9 +58,11 @@ CREATE TABLE `mapamarker` (
   `mapaMarkerProvincia` varchar(250) NOT NULL,
   `mapaMarkerLat` varchar(250) DEFAULT NULL,
   `mapaMarkerLong` varchar(250) DEFAULT NULL,
+  `mapamarkerVenta` decimal(10,0) DEFAULT NULL,
+  `mapamarkerEntrega` int(11) DEFAULT NULL,
   PRIMARY KEY (`mapaMarkerId`),
   KEY `mapaId_idx` (`mapaId`),
-  CONSTRAINT `mapaId` FOREIGN KEY (`mapaId`) REFERENCES `mapa` (`mapaId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `mapaId` FOREIGN KEY (`mapaId`) REFERENCES `mapa` (`mapaId`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -163,4 +166,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-18 10:44:09
+-- Dump completed on 2015-07-19  9:56:03
