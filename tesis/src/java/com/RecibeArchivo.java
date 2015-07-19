@@ -84,9 +84,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                             ultimoMapaId = creaMapa(Integer.parseInt(perId));
 
                             //parsear el archivo excel
-                            if (leerArchivoExcel(archivoCreado, ultimoMapaId)) {
-
-                            }
+                            leerArchivoExcel(archivoCreado, ultimoMapaId);
 
                             out.println("$(document).ready(function () {");
 
@@ -120,6 +118,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         ArrayList valoresPorFila = new ArrayList();
 
         try {
+            genericQuery gq = new genericQuery();
 
             Workbook workbook = Workbook.getWorkbook(new File(path)); //Pasamos el excel que vamos a leer
             Sheet sheet = workbook.getSheet(0); //Seleccionamos la hoja que vamos a leer
@@ -158,43 +157,59 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                 }
 
             }
+            gq.doConnect();
             for (Object vpf : valoresPorFila) {
                 String[] data = vpf.toString().split(",");
-                if (!data[0].isEmpty()
-                        || !data[1].isEmpty()
-                        || !data[2].isEmpty()
-                        || !data[3].isEmpty()
-                        || !data[4].isEmpty()) {
+                if (data.length > 0) {
+                    if (!data[0].isEmpty()
+                            || !data[1].isEmpty()
+                            || !data[2].isEmpty()
+                            || !data[3].isEmpty()
+                            || !data[4].isEmpty()) {
 
-                    String execute = " INSERT INTO tesis.mapamarker"
-                            + "(mapaId,"
-                            + "mapaMarkerCliNomApe,"
-                            + "mapaMarkerDirección,"
-                            + "mapaMarkerCiudad,"
-                            + "mapaMarkerProvincia,"
-                            + "mapaMarkerLat,"
-                            + "mapaMarkerLong,"
-                            + "mapamarkerVenta,"
-                            + "mapamarkerEntrega,"
-                            + "mapamarkerObserva)"
-                            + "VALUES"
-                            + "(" + mapaId + ","
-                            + "'" + data[0] + " " + data[1] + "',"
-                            + "'" + data[2] + "',"
-                            + "'" + data[3] + "',"
-                            + "'" + data[4] + "',"
-                            + "'" + data[5] + "',"
-                            + "'" + data[6] + "',"
-                            + "'" + data[7] + "',"
-                            + "'" + data[8] + "');";
+                        String execute = " INSERT INTO tesis.mapamarker"
+                                + "(mapaId,"
+                                + "mapaMarkerCliNomApe,"
+                                + "mapaMarkerDirección,"
+                                + "mapaMarkerCiudad,"
+                                + "mapaMarkerProvincia,"
+                                + "mapaMarkerLat,"
+                                + "mapaMarkerLong,"
+                                + "mapamarkerVenta,"
+                                + "mapamarkerEntrega,"
+                                + "mapamarkerObserva)"
+                                + "VALUES"
+                                + "(" + mapaId + ","
+                                + "'" + data[0] + " " + data[1] + "',"
+                                + "'" + data[2] + "',"
+                                + "'" + data[3] + "',"
+                                + "'" + data[4] + "',"
+                                + "'" + data[5] + "',"
+                                + "'" + data[6] + "',"
+                                + "'" + data[7] + "',"
+                                + "'" + data[8] + "',"
+                                + "'" + data[9] + "');";
 
+                        this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
+                        pst.executeUpdate(execute);
+                    }
                 }
             }
+            gq.doConnectClose();
             return true;
         } catch (IOException ex) {
             Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } catch (BiffException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (InstantiationException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (SQLException ex) {
             Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
