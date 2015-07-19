@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import interfaces.finalVariables;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -81,9 +82,9 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                             out.println("<script>");
 
                             //parsear el archivo excel
-                            /*if (leerArchivoExcel(archivoCreado)) {
-                             out.println("Archivo excel con formato Incorrecto!!!");
-                             }*/
+                            if (leerArchivoExcel(archivoCreado)) {
+
+                            }
                             ultimoMapaId = creaMapa(Integer.parseInt(perId));
 
                             out.println("$(document).ready(function () {");
@@ -114,19 +115,48 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
     public boolean leerArchivoExcel(String path) {
 
+        ArrayList<String> controlNombreColumna = new ArrayList<String>();
+        ArrayList valoresPorFila = new ArrayList();
+
         try {
 
             Workbook workbook = Workbook.getWorkbook(new File(path)); //Pasamos el excel que vamos a leer
             Sheet sheet = workbook.getSheet(0); //Seleccionamos la hoja que vamos a leer
-            String nombre;
-
+            String nombrecolumna;
+            String valor = "";
             for (int fila = 0; fila < sheet.getRows(); fila++) { //recorremos las filas
-                for (int columna = 0; columna < sheet.getColumns(); columna++) { //recorremos las columnas
-                    nombre = sheet.getCell(columna, fila).getContents(); //setear la celda leida a nombre
-                    System.out.print(nombre + " "); // imprimir nombre
+                for (int columna = 0; columna < sheet.getColumns(); columna++) { //recorremos las columnas                    
+                    nombrecolumna = sheet.getCell(columna, fila).getContents(); //setear la celda leida a nombre
+                    if (fila == 0) {
+                        controlNombreColumna.add(nombrecolumna);
+                    } else {
+                        if (columna == 0) {
+                            valor = sheet.getCell(columna, fila).getContents();
+                        } else {
+                            valor = valor + "," + sheet.getCell(columna, fila).getContents();
+                        }
+                    }
                 }
-                System.out.println("\n");
-                System.out.println("————————————-");
+                if (fila == 0) {
+                    if (controlNombreColumna.contains("Nombre")
+                            && controlNombreColumna.contains("Apellido")
+                            && controlNombreColumna.contains("Direccion")
+                            && controlNombreColumna.contains("Ciudad")
+                            && controlNombreColumna.contains("Provincia")
+                            && controlNombreColumna.contains("Latitud")
+                            && controlNombreColumna.contains("Longitud")
+                            && controlNombreColumna.contains("Venta")
+                            && controlNombreColumna.contains("Entrega")
+                            && controlNombreColumna.contains("Observaciones")) {
+                        valoresPorFila.add(valor);
+                    } else {
+                        return false;
+                    }
+                }
+
+            }
+            for (Object vpf : valoresPorFila) {
+                System.out.println(vpf);
             }
             return true;
         } catch (IOException ex) {
