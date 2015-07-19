@@ -39,6 +39,11 @@
             </div><br><br>
             <div align="center">
                 <input type="submit" id="generaMapa" class="BotonTablaRoja" value="Generar Mapa" name="generaMapa" />
+            </div><br><br>
+
+            <div align="center">
+                <h2 class="Group">Ejemplo de archivo Excel! extension .xls (Compatible 97/2003)</h2>
+                <img src="images/ejemplo.jpg" width="700" height="332" alt="ejemplo"/>
             </div>
         </form>
 

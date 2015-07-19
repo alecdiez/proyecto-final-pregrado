@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import interfaces.finalVariables;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.logging.Level;
@@ -53,6 +54,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         PrintWriter out = response.getWriter();
         String perUsuario = session.getAttribute("perUsuario").toString();
         String perId = session.getAttribute("perId").toString();
+        int ultimoMapaId = 0;
 
         out.println("<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js\"></script>");
         out.println("<script>");
@@ -71,8 +73,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
                         String name = item.getName();
                         String[] ext = name.split("\\.");
-                        if (ext[ext.length - 1].equals("xls") || ext[ext.length - 1].equals("xlsx")) {
-                            ext[1] = ext[1].equals("xlsx") ? "xls" : ext[1];
+                        if (ext[ext.length - 1].equals("xls")) {
                             String archivoCreado = UPLOAD_DIRECTORY + File.separator + ext[0] + "_" + perUsuario + "_" + getDate() + "." + ext[1];
                             File arc = new File(archivoCreado);
                             item.write(new File(archivoCreado));
@@ -80,22 +81,22 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                             out.println("<script>");
 
                             //parsear el archivo excel
-                            if (leerArchivoExcel(archivoCreado)) {
-                                out.println("Archivo excel con formato Incorrecto!!!");
-                            }
-                            creaMapa(Integer.parseInt(perId));
+                            /*if (leerArchivoExcel(archivoCreado)) {
+                             out.println("Archivo excel con formato Incorrecto!!!");
+                             }*/
+                            ultimoMapaId = creaMapa(Integer.parseInt(perId));
 
                             out.println("$(document).ready(function () {");
 
                             out.println("parent.$.fancybox.close();");
 
-                            out.println("window.open('MuestraMapa.jsp','','height=700,width=1100,left=200,top=50,scrollbars=1');");
+                            out.println("window.open('MuestraMapa.jsp?mapaId=" + ultimoMapaId + "','','height=700,width=1100,left=200,top=50,scrollbars=1');");
 
                             out.println("});");
 
                             out.println("</script>");
                         } else {
-                            out.println("Recuerde enviar archivos con formato EXCEL con extension - 'XLS' o 'XLSX'");
+                            out.println("Recuerde enviar archivos con formato EXCEL con extension - 'XLS'");
                         }
 
                     }
@@ -143,7 +144,9 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         return date;
     }
 
-    public boolean creaMapa(int usrId) {
+    public int creaMapa(int usrId) {
+
+        ResultSet rs = null;
 
         try {
             genericQuery gq = new genericQuery();
@@ -157,11 +160,21 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
             this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
             pst.executeUpdate(execute);
+
+            String query = "select max(mapaId) from tesis.mapa;";
+
+            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(query);
+            this.pst.execute();
+            rs = pst.getResultSet();
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
             gq.doConnectClose();
-            return true;
+            return 0;
         } catch (InstantiationException | IllegalAccessException | SQLException ex) {
             Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return 0;
         }
 
     }
