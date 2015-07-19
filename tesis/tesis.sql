@@ -60,6 +60,7 @@ CREATE TABLE `mapamarker` (
   `mapaMarkerLong` varchar(250) DEFAULT NULL,
   `mapamarkerVenta` decimal(10,0) DEFAULT NULL,
   `mapamarkerEntrega` int(11) DEFAULT NULL,
+  `mapamarkerObserva` varchar(1500) DEFAULT NULL,
   PRIMARY KEY (`mapaMarkerId`),
   KEY `mapaId_idx` (`mapaId`),
   CONSTRAINT `mapaId` FOREIGN KEY (`mapaId`) REFERENCES `mapa` (`mapaId`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -166,4 +167,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-07-19  9:56:03
+-- Dump completed on 2015-07-19 10:01:18
