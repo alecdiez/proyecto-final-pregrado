@@ -6,4 +6,16 @@
 
 $(document).ready(function () {
 
+    google.maps.event.addDomListener(window, 'load', initialize);
+
 });
+
+function initialize() {
+
+    var mapOptions = {
+        center: {lat: -31.411311, lng: -64.191514},
+        zoom: 12       
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+}
