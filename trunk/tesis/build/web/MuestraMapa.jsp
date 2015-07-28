@@ -30,6 +30,20 @@
         <title>JSP Page</title>
     </head>
     <body>        
+        <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
+                           url="${url}" user="${user}" password="${pass}" />
+        <sql:query dataSource="${result}" sql="select * from tesis.mapamarker where mapaId = ${mapaId} "
+                   var="resultado" />
+        <c:forEach var="fila" items="${resultado.rows}">
+            <input type="hidden" id="markerId" value="${fila.mapaMarkerId}" />
+            <input type="hidden" id="MarkerCliNomApe${fila.mapaMarkerId}" value="${fila.mapaMarkerCliNomApe}" />
+            <input type="hidden" id="MarkerDirección${fila.mapaMarkerId}" value="${fila.mapaMarkerDirección}" />
+            <input type="hidden" id="MarkerCiudad${fila.mapaMarkerId}" value="${fila.mapaMarkerCiudad}" />
+            <input type="hidden" id="MarkerProvincia${fila.mapaMarkerId}" value="${fila.mapaMarkerProvincia}" />
+            <input type="hidden" id="MarkerVenta${fila.mapaMarkerId}" value="${fila.mapaMarkerVenta}" />
+            <input type="hidden" id="MarkerEntrega${fila.mapaMarkerId}" value="${fila.mapaMarkerEntrega}" />
+            <input type="hidden" id="MarkerObserva${fila.mapaMarkerId}" value="${fila.mapaMarkerObserva}" />
+        </c:forEach>
         <div id="map-canvas"></div>
     </body>
 </html>
