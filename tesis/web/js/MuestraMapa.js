@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var cantMarkers;
 
 $(document).ready(function () {
 
     google.maps.event.addDomListener(window, 'load', initialize);
-
+    cantMarkers = $('#cantMarkers').val();
 });
 var map;
 function initialize() {
@@ -22,21 +23,19 @@ function initialize() {
 
     //setMarkers(-31.411311, -64.191514,map);  
 
-    
-    
+
+
     var geocoder = new google.maps.Geocoder();
-    
-    var address1 = 'la pampa 1468 cordoba';
-    var address2 = 'pedro isnardi 4250 cordoba';
-    for(var i=0;i<2;i++){
-       if(i==0){
-           geocoder.geocode({'address': address1}, geocodeResult);
-       }else{
-           geocoder.geocode({'address': address2}, geocodeResult);
-       }
-        
+
+    //var address1 = 'la pampa 1468 cordoba';
+    //var address2 = 'pedro isnardi 4250 cordoba';
+
+    for (var i = 0; i < cantMarkers; i++) {
+        var direc = $('#MarkerDireccion' + (i + 1)).val();   
+        var ciudad= $('#MarkerCiudad' + (i + 1)).val();
+        geocoder.geocode({'address': direc+' '+ciudad}, geocodeResult);
     }
-    
+
 
 }
 

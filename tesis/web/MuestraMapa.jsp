@@ -34,16 +34,17 @@
                            url="${url}" user="${user}" password="${pass}" />
         <sql:query dataSource="${result}" sql="select * from tesis.mapamarker where mapaId = ${mapaId} "
                    var="resultado" />
-        <c:forEach var="fila" items="${resultado.rows}">
-            <input type="hidden" id="markerId" value="${fila.mapaMarkerId}" />
-            <input type="hidden" id="MarkerCliNomApe${fila.mapaMarkerId}" value="${fila.mapaMarkerCliNomApe}" />
-            <input type="hidden" id="MarkerDirección${fila.mapaMarkerId}" value="${fila.mapaMarkerDirección}" />
-            <input type="hidden" id="MarkerCiudad${fila.mapaMarkerId}" value="${fila.mapaMarkerCiudad}" />
-            <input type="hidden" id="MarkerProvincia${fila.mapaMarkerId}" value="${fila.mapaMarkerProvincia}" />
-            <input type="hidden" id="MarkerVenta${fila.mapaMarkerId}" value="${fila.mapaMarkerVenta}" />
-            <input type="hidden" id="MarkerEntrega${fila.mapaMarkerId}" value="${fila.mapaMarkerEntrega}" />
-            <input type="hidden" id="MarkerObserva${fila.mapaMarkerId}" value="${fila.mapaMarkerObserva}" />
-        </c:forEach>
+        <c:forEach var="fila" items="${resultado.rows}" varStatus="theCount">
+            <input type="hidden" id="markerId${theCount.count}" value="${fila.mapaMarkerId}" />
+            <input type="hidden" id="MarkerCliNomApe${theCount.count}" value="${fila.mapaMarkerCliNomApe}" />
+            <input type="hidden" id="MarkerDireccion${theCount.count}" value="${fila.mapaMarkerDirección}" />
+            <input type="hidden" id="MarkerCiudad${theCount.count}" value="${fila.mapaMarkerCiudad}" />
+            <input type="hidden" id="MarkerProvincia${theCount.count}" value="${fila.mapaMarkerProvincia}" />
+            <input type="hidden" id="MarkerVenta${theCount.count}" value="${fila.mapaMarkerVenta}" />
+            <input type="hidden" id="MarkerEntrega${theCount.count}" value="${fila.mapaMarkerEntrega}" />
+            <input type="hidden" id="MarkerObserva${theCount.count}" value="${fila.mapaMarkerObserva}" />  
+            <input type="hidden" id="cantMarkers" value="2" />               
+        </c:forEach>            
         <div id="map-canvas"></div>
     </body>
 </html>
