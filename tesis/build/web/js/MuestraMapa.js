@@ -4,16 +4,25 @@
  * and open the template in the editor.
  */
 var cantMarkers;
+var nomApe;
+var direc;
+var ciudad;
+var provincia;
+var venta;
+var entrega;
+var observa;
+var marker;
+var contentString = [];
+var map;
+var count=0;
 
 $(document).ready(function () {
-
     google.maps.event.addDomListener(window, 'load', initialize);
     cantMarkers = $('#cantMarkers').val();
 });
-var map;
+
 function initialize() {
-
-
+    
     var mapOptions = {
         center: {lat: -31.411311, lng: -64.191514},
         zoom: 13
@@ -22,63 +31,68 @@ function initialize() {
             mapOptions);
 
     //setMarkers(-31.411311, -64.191514,map);  
-
-
-
     var geocoder = new google.maps.Geocoder();
 
     //var address1 = 'la pampa 1468 cordoba';
     //var address2 = 'pedro isnardi 4250 cordoba';
-
+   
     for (var i = 0; i < cantMarkers; i++) {
-        var direc = $('#MarkerDireccion' + (i + 1)).val();   
-        var ciudad= $('#MarkerCiudad' + (i + 1)).val();
-        geocoder.geocode({'address': direc+' '+ciudad}, geocodeResult);
-    }
+        direc = $('#MarkerDireccion' + (i + 1)).val();
+        ciudad = $('#MarkerCiudad' + (i + 1)).val();
+        nomApe = $('#MarkerCliNomApe' + (i + 1)).val();
+        provincia = $('#MarkerProvincia' + (i + 1)).val();
+        venta = $('#MarkerVenta' + (i + 1)).val();
+        entrega = $('#MarkerEntrega' + (i + 1)).val();
+        observa = $('#MarkerObserva' + (i + 1)).val();
+        entrega = entrega == 'S' ? 'Entregado' : 'No Entregado';
+        
+        
 
-
-}
-
-function geocodeResult(results, status) {
-    // Verificamos el estatus
-
-    if (status == 'OK') {
-
-        var markerOptions = {position: results[0].geometry.location}
-        var marker = new google.maps.Marker(markerOptions);
-        marker.setMap(map);
-
-        var contentString = '<div id="content">' +
-                '<div id="siteNotice">' +
+        contentString[i] = '<div id="content">' +
+                '<div id="divisor">' +
                 '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                '<h1 id="firstHeading" class="firstHeading">Cliente</h1>' +
                 '<div id="bodyContent">' +
-                '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-                'sandstone rock formation in the southern part of the ' +
-                'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) ' +
-                'south west of the nearest large town, Alice Springs; 450&#160;km ' +
-                '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major ' +
-                'features of the Uluru - Kata Tjuta National Park. Uluru is ' +
-                'sacred to the Pitjantjatjara and Yankunytjatjara, the ' +
-                'Aboriginal people of the area. It has many springs, waterholes, ' +
-                'rock caves and ancient paintings. Uluru is listed as a World ' +
-                'Heritage Site.</p>' +
-                '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-                'https://en.wikipedia.org/w/index.php?title=Uluru</a> ' +
-                '(last visited June 22, 2009).</p>' +
+                '<p><b>' + nomApe + '</b></p><br>' +
+                'Dirección: ' + direc + '<br>' +
+                'Ciudad: ' + ciudad + '<br>' +
+                'Provincia: ' + provincia + '<br>' +
+                'Estado: ' + entrega + '<br>' +
+                'Monto: ' + venta + '<br>' +
+                'Observaciones: ' + observa + '<br>' +
                 '</div>' +
                 '</div>';
 
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
+        geocoder.geocode({'address': direc + ' ' + ciudad}, function geocodeResult(results, status) {
+            
+            if (status == 'OK') {                
+                var markerOptions = {position: results[0].geometry.location}
+                marker = new google.maps.Marker(markerOptions);
+                marker.setMap(map);
+                bindInfoWindow(marker,count);
 
+            } else {
+                // En caso de no haber resultados o que haya ocurrido un error
+                // lanzamos un mensaje con el error
+                alert("Geocoding no tuvo éxito debido a: " + status);
+            }
+            count++;
+        });
+    }
+}
+
+
+
+function bindInfoWindow(marker,position) {
+        
+        var content=contentString[position];
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: content,
+        });
         google.maps.event.addListener(marker, 'click', function () {
             infowindow.open(map, marker);
         });
-    } else {
-        // En caso de no haber resultados o que haya ocurrido un error
-        // lanzamos un mensaje con el error
-        alert("Geocoding no tuvo éxito debido a: " + status);
-    }
+   
 }
+
