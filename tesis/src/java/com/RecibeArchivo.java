@@ -89,6 +89,8 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                             out.println("$(document).ready(function () {");
 
                             out.println("parent.$.fancybox.close();");
+                            
+                            out.println("window.open('DefaultGeneral.jsp?','central','');");
 
                             out.println("window.open('MuestraMapa.jsp?mapaId=" + ultimoMapaId + "','','height=700,width=1100,left=200,top=50,scrollbars=1');");
 
