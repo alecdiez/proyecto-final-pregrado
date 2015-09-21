@@ -80,5 +80,6 @@ $(document).ready(function () {
 });
 
 function abreMapa(mapaId) {
+	//probando si anda el update del svn
     window.open('MuestraMapa.jsp?mapaId=' + mapaId + '', '', 'height=700,width=1100,left=200,top=50,scrollbars=1');
 }
