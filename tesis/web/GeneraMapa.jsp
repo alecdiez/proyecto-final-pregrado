@@ -42,7 +42,7 @@
             </div><br><br>
 
             <div align="center">
-                <h2 class="Group">Ejemplo de archivo Excel! extension .xls (Compatible 97/2003)</h2>
+                <h2 class="Group">Ejemplo de archivo Excel! extension .xls (Compatible 97/2003) Recuerde Completar todos los datos!!!</h2>
                 <img src="images/ejemplo.jpg" width="700" height="332" alt="ejemplo"/>
             </div>
         </form>

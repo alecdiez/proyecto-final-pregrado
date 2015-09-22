@@ -11,10 +11,10 @@ var provincia;
 var venta;
 var entrega;
 var observa;
-var marker;
+var marker = [];
 var contentString = [];
 var map;
-var count=0;
+var count = 0;
 
 $(document).ready(function () {
     google.maps.event.addDomListener(window, 'load', initialize);
@@ -22,7 +22,7 @@ $(document).ready(function () {
 });
 
 function initialize() {
-    
+
     var mapOptions = {
         center: {lat: -31.411311, lng: -64.191514},
         zoom: 13
@@ -35,7 +35,7 @@ function initialize() {
 
     //var address1 = 'la pampa 1468 cordoba';
     //var address2 = 'pedro isnardi 4250 cordoba';
-   
+
     for (var i = 0; i < cantMarkers; i++) {
         direc = $('#MarkerDireccion' + (i + 1)).val();
         ciudad = $('#MarkerCiudad' + (i + 1)).val();
@@ -45,8 +45,8 @@ function initialize() {
         entrega = $('#MarkerEntrega' + (i + 1)).val();
         observa = $('#MarkerObserva' + (i + 1)).val();
         entrega = entrega == 'S' ? 'Entregado' : 'No Entregado';
-        
-        
+
+
 
         contentString[i] = '<div id="content">' +
                 '<div id="divisor">' +
@@ -64,12 +64,12 @@ function initialize() {
                 '</div>';
 
         geocoder.geocode({'address': direc + ' ' + ciudad}, function geocodeResult(results, status) {
-            
-            if (status == 'OK') {                
+
+            if (status == 'OK') {
                 var markerOptions = {position: results[0].geometry.location}
-                marker = new google.maps.Marker(markerOptions);
-                marker.setMap(map);
-                bindInfoWindow(marker,count);
+                marker[count] = new google.maps.Marker(markerOptions);
+                marker[count].setMap(map);
+                bindInfoWindow(marker[count], count);
 
             } else {
                 // En caso de no haber resultados o que haya ocurrido un error
@@ -83,16 +83,16 @@ function initialize() {
 
 
 
-function bindInfoWindow(marker,position) {
-        
-        var content=contentString[position];
-        
-        var infowindow = new google.maps.InfoWindow({
-            content: content,
-        });
-        google.maps.event.addListener(marker, 'click', function () {
-            infowindow.open(map, marker);
-        });
-   
+function bindInfoWindow(marker, position) {
+
+    var content = contentString[position];
+
+    var infowindow = new google.maps.InfoWindow({
+        content: content,
+    });
+    google.maps.event.addListener(marker, 'click', function () {
+        infowindow.open(map, marker);
+    });
+
 }
 
