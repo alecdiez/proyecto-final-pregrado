@@ -11,14 +11,19 @@ var provincia;
 var venta;
 var entrega;
 var observa;
-var marker = [];
+var markers = [];
 var contentString = [];
+var direcciones = [];
 var map;
 var count = 0;
+var activeWindow;
 
 $(document).ready(function () {
     google.maps.event.addDomListener(window, 'load', initialize);
     cantMarkers = $('#cantMarkers').val();
+    setTimeout(function () {
+        finishOperation()
+    }, 1500);
 });
 
 function initialize() {
@@ -63,36 +68,45 @@ function initialize() {
                 '</div>' +
                 '</div>';
 
-        geocoder.geocode({'address': direc + ' ' + ciudad}, function geocodeResult(results, status) {
+        direcciones[i] = direc + ' ' + ciudad;
+    }
 
-            if (status == 'OK') {
-                var markerOptions = {position: results[0].geometry.location}
-                marker[count] = new google.maps.Marker(markerOptions);
-                marker[count].setMap(map);
-                bindInfoWindow(marker[count], count);
-
+    for (var j = 0; j < cantMarkers; j++) {
+        geocoder.geocode({'address': direcciones[j]}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+                markers.push(marker);
             } else {
-                // En caso de no haber resultados o que haya ocurrido un error
-                // lanzamos un mensaje con el error
-                alert("Geocoding no tuvo éxito debido a: " + status);
+                alert('Geocode was not successful for the following reason: ' + status);
             }
             count++;
         });
     }
 }
 
-
-
-function bindInfoWindow(marker, position) {
-
-    var content = contentString[position];
-
-    var infowindow = new google.maps.InfoWindow({
-        content: content,
-    });
-    google.maps.event.addListener(marker, 'click', function () {
-        infowindow.open(map, marker);
-    });
-
+function finishOperation() {
+   
+    for (var x = 0; x < cantMarkers; x++) {
+        var infowindow = new google.maps.InfoWindow({});
+        bindInfoWindow(markers[x], map, infowindow, contentString[x]);
+    }
 }
 
+function bindInfoWindow(marker, map, infowindow, contentString) {
+
+    google.maps.event.addListener(marker, 'click', function () {
+        if (activeWindow != null)
+            activeWindow.close();
+
+        infowindow.close(map, marker);
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+        activeWindow = infowindow;
+    });
+
+    google.maps.event.addListener(infowindow, 'domready', function () {
+    });
+}
