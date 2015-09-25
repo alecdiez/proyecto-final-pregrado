@@ -79,7 +79,7 @@ function finalizaOperacion() {
          });
 
          var infowindow = new google.maps.InfoWindow({});
-         bindInfoWindow(markerToMap, infowindow, contentString[pos], split[0], split[1]);
+         bindInfoWindow(markerToMap, infowindow, contentString[pos]+ "Latitud: " + split[0] + "<br>Longitud: " + split[1]);
 
       });
    }
@@ -98,13 +98,11 @@ function resuleveLatLng(direc, pos, callback) {
 
 }
 
-function bindInfoWindow(marker, infowindow, contentString, lat, lng) {
+function bindInfoWindow(marker, infowindow, contentString) {
 
    google.maps.event.addListener(marker, 'click', function () {
       if (activeWindow != null)
          activeWindow.close();
-
-      contentString = contentString + "Latitud: " + lat + "<br>Longitud: " + lng
 
       infowindow.close(map, marker);
       infowindow.setContent(contentString);
