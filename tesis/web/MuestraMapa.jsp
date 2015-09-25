@@ -38,7 +38,7 @@
             <input type="hidden" id="cantMarkers" value="${filaCant.cant}" />
         </c:forEach>
 
-        <sql:query dataSource="${result}" sql="select * from tesis.mapamarker where mapaId = ${mapaId} "
+        <sql:query dataSource="${result}" sql="select * from tesis.mapamarker where mapaId = ${mapaId} order by mapaMarkerId "
                    var="resultado" />
         <c:forEach var="fila" items="${resultado.rows}" varStatus="theCount">
             <input type="hidden" id="markerId${theCount.count}" value="${fila.mapaMarkerId}" />
