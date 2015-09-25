@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : MuestraMapa
     Created on : 12/07/2015, 11:59:56
     Author     : Alejandro
@@ -29,7 +29,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>        
+    <body>
         <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                            url="${url}" user="${user}" password="${pass}" />
         <sql:query dataSource="${result}" sql="select count(*) cant from tesis.mapamarker where mapaId = ${mapaId} "
@@ -41,15 +41,15 @@
         <sql:query dataSource="${result}" sql="select * from tesis.mapamarker where mapaId = ${mapaId} order by mapaMarkerId "
                    var="resultado" />
         <c:forEach var="fila" items="${resultado.rows}" varStatus="theCount">
-            <input type="hidden" id="markerId${theCount.count}" value="${fila.mapaMarkerId}" />
+            <input type="hidden" id="MarkerId${theCount.count}" value="${fila.mapaMarkerId}" />
             <input type="hidden" id="MarkerCliNomApe${theCount.count}" value="${fila.mapaMarkerCliNomApe}" />
             <input type="hidden" id="MarkerDireccion${theCount.count}" value="${fila.mapaMarkerDirección}" />
             <input type="hidden" id="MarkerCiudad${theCount.count}" value="${fila.mapaMarkerCiudad}" />
             <input type="hidden" id="MarkerProvincia${theCount.count}" value="${fila.mapaMarkerProvincia}" />
             <input type="hidden" id="MarkerVenta${theCount.count}" value="${fila.mapaMarkerVenta}" />
             <input type="hidden" id="MarkerEntrega${theCount.count}" value="${fila.mapaMarkerEntrega}" />
-            <input type="hidden" id="MarkerObserva${theCount.count}" value="${fila.mapaMarkerObserva}" />                            
-        </c:forEach>            
+            <input type="hidden" id="MarkerObserva${theCount.count}" value="${fila.mapaMarkerObserva}" />
+        </c:forEach>
         <div id="map-canvas"></div>
     </body>
 </html>
