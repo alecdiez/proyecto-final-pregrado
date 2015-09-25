@@ -1,4 +1,4 @@
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,15 +15,14 @@ var markers = [];
 var contentString = [];
 var direcciones = [];
 var map;
-var count = 0;
 var activeWindow;
+var geocoder;
+var latLng;
+var count = 0;
 
 $(document).ready(function () {
     google.maps.event.addDomListener(window, 'load', initialize);
     cantMarkers = $('#cantMarkers').val();
-    setTimeout(function () {
-        finishOperation()
-    }, 1500);
 });
 
 function initialize() {
@@ -32,14 +31,12 @@ function initialize() {
         center: {lat: -31.411311, lng: -64.191514},
         zoom: 13
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-            mapOptions);
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    geocoder = new google.maps.Geocoder();
+    finalizaOperacion();
+}
 
-    //setMarkers(-31.411311, -64.191514,map);  
-    var geocoder = new google.maps.Geocoder();
-
-    //var address1 = 'la pampa 1468 cordoba';
-    //var address2 = 'pedro isnardi 4250 cordoba';
+function finalizaOperacion() {
 
     for (var i = 0; i < cantMarkers; i++) {
         direc = $('#MarkerDireccion' + (i + 1)).val();
@@ -50,8 +47,6 @@ function initialize() {
         entrega = $('#MarkerEntrega' + (i + 1)).val();
         observa = $('#MarkerObserva' + (i + 1)).val();
         entrega = entrega == 'S' ? 'Entregado' : 'No Entregado';
-
-
 
         contentString[i] = '<div id="content">' +
                 '<div id="divisor">' +
@@ -71,31 +66,43 @@ function initialize() {
         direcciones[i] = direc + ' ' + ciudad;
     }
 
-    for (var j = 0; j < cantMarkers; j++) {
-        geocoder.geocode({'address': direcciones[j]}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-                markers.push(marker);
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-            }
-            count++;
+    
+        resuleveLatLng(direcciones[0], function (ll) {
+
+            var split = ll.split(',');
+            var markerToMap = new google.maps.Marker({
+                position: {lat: parseFloat(split[0]), lng: parseFloat(split[1])},
+                map: map,
+                title: ll
+            });
+
+            var infowindow = new google.maps.InfoWindow({});
+            bindInfoWindow(markerToMap, infowindow, contentString[0]);
+
         });
-    }
+    
 }
 
-function finishOperation() {
-   
-    for (var x = 0; x < cantMarkers; x++) {
-        var infowindow = new google.maps.InfoWindow({});
-        bindInfoWindow(markers[x], map, infowindow, contentString[x]);
-    }
+function resuleveLatLng(direc, callback) {
+
+    geocoder.geocode({'address': direc}, function (results, status) {
+        
+        if (status == google.maps.GeocoderStatus.OK) {
+
+            latLng = results[0].geometry.location.lat() + ',' + results[0].geometry.location.lng();
+
+            if (typeof callback == 'function') {
+                callback(latLng);
+            }
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+
+
 }
 
-function bindInfoWindow(marker, map, infowindow, contentString) {
+function bindInfoWindow(marker, infowindow, contentString) {
 
     google.maps.event.addListener(marker, 'click', function () {
         if (activeWindow != null)

@@ -17,7 +17,8 @@ var direcciones = [];
 var map;
 var activeWindow;
 var geocoder;
-var latLng = [];
+var latLng;
+var count = 0;
 
 $(document).ready(function () {
     google.maps.event.addDomListener(window, 'load', initialize);
@@ -65,41 +66,40 @@ function finalizaOperacion() {
         direcciones[i] = direc + ' ' + ciudad;
     }
 
-    setMarkers(direcciones, function () {
+    
+        resuleveLatLng(direcciones[0], function (ll) {
 
-
-        for (var x = 0; x < cantMarkers; x++) {
-            var split = latLng[x].split(',');
+            var split = ll.split(',');
             var markerToMap = new google.maps.Marker({
                 position: {lat: parseFloat(split[0]), lng: parseFloat(split[1])},
                 map: map,
-                title: direcciones[x]
+                title: ll
             });
 
             var infowindow = new google.maps.InfoWindow({});
-            bindInfoWindow(markerToMap, infowindow, contentString[x]);
-        }
-    });
+            bindInfoWindow(markerToMap, infowindow, contentString[0]);
+
+        });
+    
 }
 
-function setMarkers(direcs, callback) {
+function resuleveLatLng(direc, callback) {
 
-    for (var j = 0; j < direcs.length; j++) {
-        geocoder.geocode({'address': direcs[j]}, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
+    geocoder.geocode({'address': direc}, function (results, status) {
+        
+        if (status == google.maps.GeocoderStatus.OK) {
 
-                latLng.push(results[0].geometry.location.lat() + ',' + results[0].geometry.location.lng());
+            latLng = results[0].geometry.location.lat() + ',' + results[0].geometry.location.lng();
 
-                if (latLng.length == direcs.length) {
-                    if (typeof callback == 'function') {
-                        callback();
-                    }
-                }
-            } else {
-                alert('Geocode was not successful for the following reason: ' + status);
+            if (typeof callback == 'function') {
+                callback(latLng);
             }
-        });
-    }
+        } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+        }
+    });
+
+
 }
 
 function bindInfoWindow(marker, infowindow, contentString) {
