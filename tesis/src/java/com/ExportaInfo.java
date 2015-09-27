@@ -7,7 +7,6 @@ package com;
 
 import com.mysql.jdbc.PreparedStatement;
 import interfaces.finalVariables;
-import static interfaces.finalVariables.UPLOAD_DIRECTORY;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

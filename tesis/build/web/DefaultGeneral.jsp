@@ -27,6 +27,7 @@
 <c:set var="user" value="<%=finalVariables.connUsr%>" />
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 <c:set var="userId" value="<%=userId%>" />
+<c:set var="exportAllInfo" value="false" />
 <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificar de Mapa', 
        CONCAT( personas.perNom, ' ', personas.perApe ) AS Usuario, 
        DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS Fecha 
@@ -50,6 +51,7 @@
                FROM tesis.mapa AS mapa, tesis.personas AS personas 
                WHERE mapa.mapaUsrId = personas.perId
                ORDER BY Fecha DESC" />
+        <c:set var="exportAllInfo" value="true" />
     </c:if>
 </c:forEach>
 <html>
@@ -81,7 +83,11 @@
                             <td class="Cuadro" align="center">${fila.Fecha}</td>
                             <td class="Cuadro" align="center" title="Abrir Mapa N° ${fila.mapaId}">
                                 <img src="images/XtpTm.png" onclick="abreMapa(${fila.mapaId})" width="25" height="25" alt="XtpTm"/>
+                            </td>                            
+                            <td class="Cuadro" align="center" title="Exportar Info de Mapa N° ${fila.mapaId}">
+                                <img src="images/xls.jpg" onclick="exportaInfo(${fila.mapaId})" width="25" height="25" alt="xls"/>
                             </td>
+
                         </tr>                             
                     </c:forEach>
                 </tbody>
