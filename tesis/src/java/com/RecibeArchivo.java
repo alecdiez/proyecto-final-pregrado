@@ -41,6 +41,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
 
     private PreparedStatement pst = null;
     private genericQuery gq = new genericQuery();
+    private ResultSet rs = null;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -106,7 +107,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                         if (ext[ext.length - 1].equals("xls")) {
                             String archivoCreado = UPLOAD_DIRECTORY + File.separator + ext[0] + "_" + perUsuario + "_" + getDate() + "." + ext[1];
                             File arc = new File(archivoCreado);
-                            item.write(new File(archivoCreado));
+                            item.write(arc);
 
                             out.println("<script>");
 
@@ -149,8 +150,6 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         ArrayList valoresPorFila = new ArrayList();
 
         try {
-            genericQuery gq = new genericQuery();
-
             Workbook workbook = Workbook.getWorkbook(new File(path)); //Pasamos el excel que vamos a leer
             Sheet sheet = workbook.getSheet(0); //Seleccionamos la hoja que vamos a leer
             String nombrecolumna;
@@ -252,12 +251,9 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         return date;
     }
 
-    public int creaMapa(int usrId) {
-
-        ResultSet rs = null;
+    public int creaMapa(int usrId) {        
 
         try {
-            genericQuery gq = new genericQuery();
             gq.doConnect();
             String execute = "INSERT INTO `tesis`.`mapa`\n"
                     + " (mapaUsrId,\n"

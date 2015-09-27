@@ -16,6 +16,10 @@
         <servlet-name>RecibeArchivo</servlet-name>
         <servlet-class>com.RecibeArchivo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExportaInfo</servlet-name>
+        <servlet-class>com.ExportaInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>genericQuery</servlet-name>
         <url-pattern>/com.genericQuery</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>RecibeArchivo</servlet-name>
         <url-pattern>/com.RecibeArchivo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExportaInfo</servlet-name>
+        <url-pattern>/com.ExportaInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

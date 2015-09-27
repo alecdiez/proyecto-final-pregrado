@@ -15,5 +15,7 @@ public interface finalVariables {
     public final String connUsr = "root";
     public final String connPass = "ama921sa";
     public final String UPLOAD_DIRECTORY = "C:\\apache-tomcat-7.0.62\\upLoadFiles";
+    public final String GENERATED_DIRECTORY = "C:\\apache-tomcat-7.0.62\\webapps\\docs\\generatedFiles";
+    public final String GENERATED_FILE = "http://localhost:8080/docs/generatedFiles/";
 
 }
