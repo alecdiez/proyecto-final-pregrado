@@ -40,10 +40,39 @@ import jxl.read.biff.BiffException;
 public class RecibeArchivo extends HttpServlet implements finalVariables {
 
     private PreparedStatement pst = null;
+    private genericQuery gq = new genericQuery();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String mapaMarkerId = request.getParameter("mapaMarkerId");
+        String lat = request.getParameter("latitud");
+        String lng = request.getParameter("longitud");
+        guardaLatLng(mapaMarkerId, lat, lng);
+    }
+
+    public void guardaLatLng(String mapaMarkerId, String lat, String lng) {
+
+        try {
+            gq.doConnect();
+            String execute = "UPDATE tesis.mapamarker"
+                    + " SET"
+                    + " mapaMarkerLat = '" + lat + "',"
+                    + " mapaMarkerLong = '" + lng + "'"
+                    + " WHERE mapaMarkerId = " + Integer.parseInt(mapaMarkerId) + ";";
+
+            this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
+            pst.executeUpdate(execute);
+
+            gq.doConnectClose();
+
+        } catch (InstantiationException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -89,7 +118,7 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                             out.println("$(document).ready(function () {");
 
                             out.println("parent.$.fancybox.close();");
-                            
+
                             out.println("window.open('DefaultGeneral.jsp?','central','');");
 
                             out.println("window.open('MuestraMapa.jsp?mapaId=" + ultimoMapaId + "','','height=700,width=1100,left=200,top=50,scrollbars=1');");
