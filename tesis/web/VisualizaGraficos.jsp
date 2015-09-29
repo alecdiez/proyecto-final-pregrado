@@ -46,10 +46,14 @@
     </c:if>
 </c:forEach>
 
-<c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
+<c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) 
+       FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId 
+       AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
-    <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId GROUP BY mapa.mapaFecha" />
+    <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) 
+           FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa 
+           WHERE mapamarker.mapaId = mapa.mapaId GROUP BY mapa.mapaFecha" />
 </c:if>    
 
 <html>
