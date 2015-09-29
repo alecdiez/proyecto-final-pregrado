@@ -1,4 +1,4 @@
-<%-- 
+<%--
     Document   : VisualizaGraficos
     Created on : 28/09/2015, 20:26:44
     Author     : Alejandro
@@ -32,40 +32,53 @@
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
 
-<sql:query dataSource="${result}" 
-           sql="SELECT personas.perId, privilegios.privilegio 
-           FROM tesis.per_privi AS per_privi, tesis.personas AS personas, tesis.privilegios AS privilegios 
-           WHERE per_privi.perId = personas.perId AND per_privi.priviId = privilegios.priviId AND personas.perId = ${userId} 
+<sql:query dataSource="${result}"
+           sql="SELECT personas.perId, privilegios.privilegio
+           FROM tesis.per_privi AS per_privi, tesis.personas AS personas, tesis.privilegios AS privilegios
+           WHERE per_privi.perId = personas.perId AND per_privi.priviId = privilegios.priviId AND personas.perId = ${userId}
            AND privilegios.privilegio = 'SuperAdmin'"
            var="privilegios" />
 
 <c:forEach var="elige" items="${privilegios.rows}" varStatus="theCount">
-    <c:if test="${theCount.count==1}" >      
-        <c:set var="queryCant" value="select count(*) cant from tesis.mapa"/>
-        <c:set var="isSuperAdmin" value="true" />
-    </c:if>
+   <c:if test="${theCount.count==1}" >
+      <c:set var="queryCant" value="select count(*) cant from tesis.mapa"/>
+      <c:set var="isSuperAdmin" value="true" />
+   </c:if>
 </c:forEach>
 
-<c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
+<c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) AS suma
+       FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId
+       AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
-    <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId GROUP BY mapa.mapaFecha" />
-</c:if>    
+   <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) AS suma
+          FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId GROUP BY mapa.mapaFecha" />
+</c:if>
 
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Graficos</title>
-    </head>
-    <body>
-        <h1 class="TextoTituloGris">Graficos Comparativo de Total de Ventas por Fecha</h1>
-        <br><br>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Graficos</title>
+   </head>
+   <body>
+      <h1 class="TextoTituloGris">Graficos Comparativo de Total de Ventas por Fecha</h1>
+      <br><br>
 
-        <sql:query dataSource="${result}" sql="${queryCant}"
-                   var="cantMapas" />
-        <c:forEach var="filaCant" items="${cantMapas.rows}">
-            <input type="hidden" id="cantMapas" value="${filaCant.cant}" />
-        </c:forEach>
-        <div id="chart"></div>
-    </body>
+      <sql:query dataSource="${result}" sql="${queryCant}"
+                 var="cantMapas" />
+      <c:forEach var="filaCant" items="${cantMapas.rows}">
+         <input type="hidden" id="cantMapas" value="${filaCant.cant}" />
+      </c:forEach>
+
+      <sql:query dataSource="${result}" sql="${queryCant}"
+                 var="datos" />
+
+      <c:forEach var="fila" items="${datos.rows}" varStatus="theCount">
+         <input type="hidden" id="usrId${theCount.count}" value="${fila.mapaUsrId}" />
+         <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
+         <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
+      </c:forEach>
+
+      <div id="chart"></div>
+   </body>
 </html>
