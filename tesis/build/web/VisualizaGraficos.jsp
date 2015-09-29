@@ -35,7 +35,7 @@
 <sql:query dataSource="${result}"
            sql="SELECT personas.perId, privilegios.privilegio
            FROM tesis.per_privi AS per_privi, tesis.personas AS personas, tesis.privilegios AS privilegios
-           WHERE per_privi.perId = personas.perId AND per_privi.priviId = privilegios.priviId AND personas.perId = ${userId}
+           WHERE per_privi.perId = personas.perId AND per_privi.priviId = privilegios.priviId AND personas.perId = ${perId}
            AND privilegios.privilegio = 'SuperAdmin'"
            var="privilegios" />
 
@@ -46,13 +46,14 @@
    </c:if>
 </c:forEach>
 
-<c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) AS suma
-       FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId
-       AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
+<c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ), personas.perUsuario
+          FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
+          WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
-   <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) AS suma
-          FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId GROUP BY mapa.mapaFecha" />
+   <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ), personas.perUsuario
+          FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
+          WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId " />
 </c:if>
 
 
@@ -71,13 +72,14 @@
          <input type="hidden" id="cantMapas" value="${filaCant.cant}" />
       </c:forEach>
 
-      <sql:query dataSource="${result}" sql="${queryCant}"
+      <sql:query dataSource="${result}" sql="${queryGeneral}"
                  var="datos" />
 
       <c:forEach var="fila" items="${datos.rows}" varStatus="theCount">
          <input type="hidden" id="usrId${theCount.count}" value="${fila.mapaUsrId}" />
          <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
          <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
+         <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
       </c:forEach>
 
       <div id="chart"></div>
