@@ -103,7 +103,10 @@ public class AsignaMenu {
 
         menu += " <li><a href=\"#\">Sistema</a>\n"
                 + "<ul>\n";
-        menu += "                <li style=\"cursor: pointer\"><a id=\"generaMapa\" href=\"GeneraMapa.jsp\">Generar Mapa</a></li>\n";        
+        menu += "                <li style=\"cursor: pointer\"><a id=\"generaMapa\" href=\"GeneraMapa.jsp\">Generar Mapa</a></li>\n";   
+         if (privilegios.contains("visualizaGraficos")) {
+            menu += "                <li  style=\"cursor: pointer\"><a id=\"visualizaGraficos\" href=\"VisualizaGraficos.jsp\">Ver Graficos Estadisticos</a></li>\n";
+        }
         menu += "    </ul>";
         menu += "    </li>";
 

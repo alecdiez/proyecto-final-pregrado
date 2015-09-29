@@ -77,6 +77,15 @@ $(document).ready(function () {
         'width': 800,
         'height': 500
     });
+    $("#visualizaGraficos").fancybox({
+        'padding': 5,
+        'overlayShow': false,
+        'closeClick': true,
+        'mouseWheel': true,
+        'type': 'iframe',
+        'width': 1000,
+        'height': 500
+    });
 });
 
 function abreMapa(mapaId) {
