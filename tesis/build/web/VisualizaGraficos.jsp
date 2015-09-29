@@ -55,6 +55,7 @@
           FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa WHERE mapamarker.mapaId = mapa.mapaId GROUP BY mapa.mapaFecha" />
 </c:if>
 
+
 <html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
