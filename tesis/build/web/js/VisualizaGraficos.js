@@ -22,23 +22,25 @@ $(document).ready(function () {
 
    }
 
-
    if (cantMapas >= 1) {
-      var chart = c3.generate({
-         data: {
-            xs: {
-               'data1': 'x1'
-
-            },
-            columns: [
-               ['x1', 10, 30, 45, 50, 70, 100],
-               ['data1', 30, 200, 100, 400, 150, 250]
-            ]
-         }
-      });
+       generaGrafico();
    } else {
       alert('No Existen datos Comparables!!');
    }
 
 });
+
+var p={'data1':'x1'};
+var s1=['x1', 10, 30, 45, 50, 70, 100];
+var s2= [ 'data1', 30, 200, 100, 400, 150, 250];
+function generaGrafico(){
+   var chart = c3.generate({
+         data: {
+            xs: p,
+            columns: [
+               s1,s2
+            ]
+         }
+      });
+}
 
