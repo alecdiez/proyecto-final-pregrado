@@ -4,43 +4,52 @@
  * and open the template in the editor.
  */
 
-var cantMapas;
+
+
+
 var usuario;
+var usrId;
+var fecha;
+var suma;
+var cantMapas;
+var data1 = [];
 
-$(document).ready(function () {
-   cantMapas = $('#cantMapas').val();
+google.load("visualization", "1", {packages: ["corechart"]});
+google.setOnLoadCallback(dibujarGrafico);
 
-   for (var i = 0; i < cantMapas; i++) {
-      usuario = $('#usuario' + (i + 1)).val();
-      if (i != 0) {
-         if (usuario != $('#usuario' + (i)).val()) {
+function getValue()
+{
+    cantMapas = document.getElementById("cantMapas").value;
 
-         }
-      } else {
+    for (var i = 0; i < (parseInt(cantMapas) + 1); i++) {
 
-      }
-
-   }
-
-   if (cantMapas >= 1) {
-       generaGrafico();
-   } else {
-      alert('No Existen datos Comparables!!');
-   }
-
-});
-
-var p={'data1':'x1'};
-var s1=['x1', 10, 30, 45, 50, 70, 100];
-var s2= [ 'data1', 30, 200, 100, 400, 150, 250];
-function generaGrafico(){
-   var chart = c3.generate({
-         data: {
-            xs: p,
-            columns: [
-               s1,s2
-            ]
-         }
-      });
+        if (i == 0) {
+            data1[i] = ['Suma', 'Total de Ventas en $'];
+        } else {
+            usuario = document.getElementById("usuario" + i).value;
+            usrId = document.getElementById("usrId" + i).value;
+            fecha = document.getElementById("fecha" + i).value;
+            suma = document.getElementById("suma" + i).value;
+            data1[i] = [usuario + ' - Fecha: ' + fecha + '', parseFloat(suma)];
+        }
+    }
 }
 
+
+
+
+function dibujarGrafico() {
+
+    getValue();
+
+    // Tabla de datos: valores y etiquetas de la gráfica
+    var data = google.visualization.arrayToDataTable(data1);
+    var options = {
+        title: 'Graficos Comparativo de Total de Ventas por Fecha'
+    }
+// Dibujar el gráfico
+    new google.visualization.ColumnChart(
+            //ColumnChart sería el tipo de gráfico a dibujar
+            document.getElementById('GraficoGoogleChart-ejemplo-1')
+            ).draw(data, options);
+}
