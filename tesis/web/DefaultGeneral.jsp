@@ -17,7 +17,6 @@
 <script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="./js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <link href="css/main.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/style_menu.css">
 <script src="js/DefaultGeneral.js"></script>
 <!DOCTYPE html>
@@ -89,9 +88,11 @@
                             <td class="Cuadro" align="center" title="Exportar Info de Mapa N° ${fila.mapaId}">
                                 <img src="images/xls.jpg" onclick="exportaInfo(${fila.mapaId})" width="25" height="25" alt="xls"/>
                             </td>
-
-                        </tr>
-                    </c:forEach>
+                    <a id="visualizaGraficos" href="" style="display: none" title="GRAFICOS">Graficos</a>
+                    <input type="hidden" id="fDesde" value="">
+                    <input type="hidden" id="fHasta" value="">                   
+                    </tr>
+                </c:forEach>
                 </tbody>
             </table>
         </div>

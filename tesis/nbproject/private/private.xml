@@ -5,10 +5,13 @@
         <group name="IIR_APPS"/>
         <group>
             <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/DefaultGeneral.jsp</file>
+            <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/src/java/asignaMenu/AsignaMenu.java</file>
             <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/js/VisualizaGraficos.js</file>
+            <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/js/CalendarioGraficos.js</file>
             <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/VisualizaGraficos.jsp</file>
             <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/src/java/interfaces/finalVariables.java</file>
-            <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/MuestraMapa.jsp</file>
+            <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/CalendarioGraficos.jsp</file>
+            <file>file:/C:/Users/Alejandro/Desktop/FACULTAD/Cursando/Proyecto%20Final%20PreGrado/proyecto-final-pregrado/tesis/web/js/DefaultGeneral.js</file>
         </group>
     </open-files>
 </project-private>

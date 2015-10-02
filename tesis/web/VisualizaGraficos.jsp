@@ -18,7 +18,15 @@
 <%@include file="sessionControl.jsp"%>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<%    String fDesde = request.getParameter("fDesde");
+    String fHasta = request.getParameter("fHasta");
 
+    fDesde = fDesde == null ? "vino null" : fDesde;
+    fHasta = fHasta == null ? "vino null" : fHasta;
+%>
+<script>alert('<%=fDesde%>'+' - '+'<%=fHasta%>');</script>
+<c:set var="fDesde" value="<%=fDesde%>" />
+<c:set var="fHasta" value="<%=fHasta%>" />
 <c:set var="url" value="<%=finalVariables.url%>" />
 <c:set var="user" value="<%=finalVariables.connUsr%>" />
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
@@ -60,7 +68,8 @@
         <title>Graficos</title>
     </head>
     <body>
-
+        <input type="hidden" id="fDes" value="${fDesde}" >
+        <input type="hidden" id="fHas" value="${fHasta}" >
         <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
 
         <sql:query dataSource="${result}" sql="${queryCant}"

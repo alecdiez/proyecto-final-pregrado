@@ -3,10 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
-
 var usuario;
 var usrId;
 var fecha;
@@ -34,10 +30,6 @@ function getValue()
         }
     }
 }
-
-
-
-
 function dibujarGrafico() {
 
     getValue();

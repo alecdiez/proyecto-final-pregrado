@@ -77,14 +77,14 @@ $(document).ready(function () {
         'width': 800,
         'height': 500
     });
-    $("#visualizaGraficos").fancybox({
+    $("#calendarioGraficos").fancybox({
         'padding': 5,
         'overlayShow': false,
         'closeClick': true,
         'mouseWheel': true,
         'type': 'iframe',
-        'width': 1000,
-        'height': 500
+        'width': 600,
+        'height': 350
     });
 });
 
@@ -96,5 +96,4 @@ function exportaInfo(mapaId) {
     $.get('com.ExportaInfo', {mapaId: mapaId}, function (responseText) {
         window.open(responseText);
     });
-
 }
