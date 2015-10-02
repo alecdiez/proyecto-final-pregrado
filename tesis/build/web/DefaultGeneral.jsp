@@ -17,7 +17,8 @@
 <script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="./js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 <link href="css/main.css" rel="stylesheet" />
-<LINK href="css/menunew.css" rel=stylesheet />
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/style_menu.css">
 <script src="js/DefaultGeneral.js"></script>
 <!DOCTYPE html>
 
@@ -28,27 +29,27 @@
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 <c:set var="userId" value="<%=userId%>" />
 <c:set var="exportAllInfo" value="false" />
-<c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificar de Mapa', 
-       CONCAT( personas.perNom, ' ', personas.perApe ) AS Usuario, 
-       DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS Fecha 
-       FROM tesis.mapa AS mapa, tesis.personas AS personas 
+<c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificar de Mapa',
+       CONCAT( personas.perNom, ' ', personas.perApe ) AS Usuario,
+       DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS Fecha
+       FROM tesis.mapa AS mapa, tesis.personas AS personas
        WHERE mapa.mapaUsrId = personas.perId AND personas.perId = ${userId}
        ORDER BY Fecha DESC" />
 
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
-<sql:query dataSource="${result}" 
-           sql="SELECT personas.perId, privilegios.privilegio 
-           FROM tesis.per_privi AS per_privi, tesis.personas AS personas, tesis.privilegios AS privilegios 
-           WHERE per_privi.perId = personas.perId AND per_privi.priviId = privilegios.priviId AND personas.perId = ${userId} 
+<sql:query dataSource="${result}"
+           sql="SELECT personas.perId, privilegios.privilegio
+           FROM tesis.per_privi AS per_privi, tesis.personas AS personas, tesis.privilegios AS privilegios
+           WHERE per_privi.perId = personas.perId AND per_privi.priviId = privilegios.priviId AND personas.perId = ${userId}
            AND privilegios.privilegio = 'SuperAdmin'"
            var="privilegios" />
 <c:forEach var="elige" items="${privilegios.rows}" varStatus="theCount">
-    <c:if test="${theCount.count==1}" >        
-        <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificador de Mapa', 
-               CONCAT( personas.perNom, ' ', personas.perApe ) AS Usuario, 
-               DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS Fecha 
-               FROM tesis.mapa AS mapa, tesis.personas AS personas 
+    <c:if test="${theCount.count==1}" >
+        <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificador de Mapa',
+               CONCAT( personas.perNom, ' ', personas.perApe ) AS Usuario,
+               DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS Fecha
+               FROM tesis.mapa AS mapa, tesis.personas AS personas
                WHERE mapa.mapaUsrId = personas.perId
                ORDER BY Fecha DESC" />
         <c:set var="exportAllInfo" value="true" />
@@ -60,8 +61,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="menu.jsp" %>       
-
+        <%@include file="menu.jsp" %>
+        <br>
+        <br>
         <div align="center">
             <h1 class="TextoTituloGris">Ultimos Mapas Generados</h1>
             <table border="0" cellspacing="2" cellpadding="2">
@@ -73,26 +75,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <sql:query dataSource="${result}" 
-                               sql="${sqlGeneral}" 
+                    <sql:query dataSource="${result}"
+                               sql="${sqlGeneral}"
                                var="resultado" />
                     <c:forEach var="fila" items="${resultado.rows}">
-                        <tr>                           
+                        <tr>
                             <td class="Cuadro" align="center">${fila.mapaId}</td>
                             <td class="Cuadro" align="center">${fila.Usuario}</td>
                             <td class="Cuadro" align="center">${fila.Fecha}</td>
                             <td class="Cuadro" align="center" title="Abrir Mapa N° ${fila.mapaId}">
                                 <img src="images/XtpTm.png" onclick="abreMapa(${fila.mapaId})" width="25" height="25" alt="XtpTm"/>
-                            </td>                            
+                            </td>
                             <td class="Cuadro" align="center" title="Exportar Info de Mapa N° ${fila.mapaId}">
                                 <img src="images/xls.jpg" onclick="exportaInfo(${fila.mapaId})" width="25" height="25" alt="xls"/>
                             </td>
 
-                        </tr>                             
+                        </tr>
                     </c:forEach>
                 </tbody>
             </table>
-        </div> 
+        </div>
     </body>
 
 </html>
