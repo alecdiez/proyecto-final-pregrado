@@ -7,7 +7,7 @@ var usuario;
 var usrId;
 var fecha;
 var suma;
-var cantMapas;
+var cantMapas = 0;
 var data1 = [];
 
 google.load("visualization", "1", {packages: ["corechart"]});
@@ -34,15 +34,22 @@ function dibujarGrafico() {
 
     getValue();
 
-    // Tabla de datos: valores y etiquetas de la gráfica
-    var data = google.visualization.arrayToDataTable(data1);
-    var options = {
-        title: 'Graficos Comparativo de Total de Ventas por Fecha  - \n\
+    if (cantMapas != 0) {
+
+        // Tabla de datos: valores y etiquetas de la gráfica
+        var data = google.visualization.arrayToDataTable(data1);
+        var options = {
+            title: 'Graficos Comparativo de Total de Ventas por Fecha  - \n\
             Entre los días (' + document.getElementById('fDes').value + ' y ' + document.getElementById('fHas').value + ')'
-    }
+        }
 // Dibujar el gráfico
-    new google.visualization.ColumnChart(
-            //ColumnChart sería el tipo de gráfico a dibujar
-            document.getElementById('GraficoGoogleChart-ejemplo-1')
-            ).draw(data, options);
+        new google.visualization.ColumnChart(
+                //ColumnChart sería el tipo de gráfico a dibujar
+                document.getElementById('GraficoGoogleChart-ejemplo-1')
+                ).draw(data, options);
+    }else{
+        alert('No existe ningun mapa generado entre las Fechas Seleccionadas!!!');
+        
+        parent.$("#calendarioGraficos").trigger('click');
+    }
 }
