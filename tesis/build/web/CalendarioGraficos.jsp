@@ -26,8 +26,8 @@
         <h1 class="TextoTituloGris">Seleccione entre que fechas se mostraran los graficos estadisticos.</h1>
         <table border="0" id="tabla">
             <tr>
-                <td align="left"><p>Fecha Desde: <input type="text" id="fechaDesde" readonly></p></td>
-                <td align="right"><p>Fecha Hasta: <input type="text" id="fechaHasta" readonly></p></td>
+                <td align="left"><p>Fecha Desde: <input type="text" style="color: #666" id="fechaDesde" value="Click para abrir Calendario." readonly></p></td>
+                <td align="right"><p>Fecha Hasta: <input type="text" style="color: #666" id="fechaHasta" value="Click para abrir Calendario." readonly></p></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="button" id="generaGraficos" class="BotonTablaRoja" value="Mostra Graficos" name="generaGraficos" /></td>

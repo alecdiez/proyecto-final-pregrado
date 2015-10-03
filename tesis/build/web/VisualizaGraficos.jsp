@@ -20,19 +20,32 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script> 
 <%    String fDesde = request.getParameter("fDesde");
     String fHasta = request.getParameter("fHasta");
+    String fDesdeSinModificar = fDesde;
+    String fHastaSinModificar = fHasta;
 
-    fDesde = fDesde == null ? "vino null" : fDesde;
-    fHasta = fHasta == null ? "vino null" : fHasta;
+    fDesde = transformaFecha(fDesde);
+    fHasta = transformaFecha(fHasta);
+
+%>
+
+<%!
+    public String transformaFecha(String fecha) {
+        String fechaSplit[] = fecha.split("/");
+        return fechaSplit[2] + "/" + fechaSplit[1] + "/" + fechaSplit[0];
+    }
 %>
 
 <c:set var="fDesde" value="<%=fDesde%>" />
 <c:set var="fHasta" value="<%=fHasta%>" />
+<c:set var="fDesdeSinModificar" value="<%=fDesdeSinModificar%>" />
+<c:set var="fHastaSinModificar" value="<%=fHastaSinModificar%>" />
 <c:set var="url" value="<%=finalVariables.url%>" />
 <c:set var="user" value="<%=finalVariables.connUsr%>" />
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 <c:set var="perId" value="<%=perId%>" />
 <c:set var="isSuperAdmin" value="false" />
-<c:set var="queryCant" value="select count(*) cant from tesis.mapa where mapaUsrId = ${perId}" />
+<c:set var="queryCant" value="select count(*) cant from tesis.mapa where mapaUsrId = ${perId}
+       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}'" />
 
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
@@ -46,19 +59,22 @@
 
 <c:forEach var="elige" items="${privilegios.rows}" varStatus="theCount">
     <c:if test="${theCount.count==1}" >
-        <c:set var="queryCant" value="select count(*) cant from tesis.mapa"/>
+        <c:set var="queryCant" value="select count(*) cant from tesis.mapa WHERE
+               DATE(mapaFecha) between '${fDesde}' and '${fHasta}'"/>
         <c:set var="isSuperAdmin" value="true" />
     </c:if>
 </c:forEach>
 
 <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
        FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
-       WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId} GROUP BY mapa.mapaFecha" />
+       WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId} 
+       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
     <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
            FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
-           WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId " />
+           WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId 
+           AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId " />
 </c:if>
 
 
@@ -68,8 +84,8 @@
         <title>Graficos</title>
     </head>
     <body>
-        <input type="text" id="fDes" value="${fDesde}" >
-        <input type="text" id="fHas" value="${fHasta}" >
+        <input type="hidden" id="fDes" value="${fDesdeSinModificar}" >
+        <input type="hidden" id="fHas" value="${fHastaSinModificar}" >
         <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
 
         <sql:query dataSource="${result}" sql="${queryCant}"
@@ -87,7 +103,5 @@
             <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
             <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
         </c:forEach>
-
-
     </body>
 </html>

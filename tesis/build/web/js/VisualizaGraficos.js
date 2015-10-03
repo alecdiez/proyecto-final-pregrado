@@ -37,7 +37,8 @@ function dibujarGrafico() {
     // Tabla de datos: valores y etiquetas de la gráfica
     var data = google.visualization.arrayToDataTable(data1);
     var options = {
-        title: 'Graficos Comparativo de Total de Ventas por Fecha'
+        title: 'Graficos Comparativo de Total de Ventas por Fecha  - \n\
+            Entre los días (' + document.getElementById('fDes').value + ' y ' + document.getElementById('fHas').value + ')'
     }
 // Dibujar el gráfico
     new google.visualization.ColumnChart(
