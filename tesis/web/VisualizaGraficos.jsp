@@ -24,7 +24,7 @@
     fDesde = fDesde == null ? "vino null" : fDesde;
     fHasta = fHasta == null ? "vino null" : fHasta;
 %>
-<script>alert('<%=fDesde%>'+' - '+'<%=fHasta%>');</script>
+
 <c:set var="fDesde" value="<%=fDesde%>" />
 <c:set var="fHasta" value="<%=fHasta%>" />
 <c:set var="url" value="<%=finalVariables.url%>" />
@@ -68,8 +68,8 @@
         <title>Graficos</title>
     </head>
     <body>
-        <input type="hidden" id="fDes" value="${fDesde}" >
-        <input type="hidden" id="fHas" value="${fHasta}" >
+        <input type="text" id="fDes" value="${fDesde}" >
+        <input type="text" id="fHas" value="${fHasta}" >
         <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
 
         <sql:query dataSource="${result}" sql="${queryCant}"

@@ -57,8 +57,7 @@ $(document).ready(function () {
 });
 
 function open() {
-
-    alert("Hello");
+    
     var href = "VisualizaGraficos.jsp?fDesde=" + parent.$('#fDesde').val() + "&fHasta=" + parent.$('#fHasta').val();
 
     parent.$("#visualizaGraficos").fancybox({
@@ -71,5 +70,7 @@ function open() {
         'width': 1000,
         'height': 600
     });
+    
+    parent.$("#visualizaGraficos").trigger('click');
 }
 

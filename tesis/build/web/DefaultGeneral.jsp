@@ -88,7 +88,7 @@
                             <td class="Cuadro" align="center" title="Exportar Info de Mapa N° ${fila.mapaId}">
                                 <img src="images/xls.jpg" onclick="exportaInfo(${fila.mapaId})" width="25" height="25" alt="xls"/>
                             </td>
-                    <a id="visualizaGraficos" href="" style="display: none" title="GRAFICOS">Graficos</a>
+                    <a id="visualizaGraficos" href="VizualizaGraficos.jsp" style="display: none" title="GRAFICOS">Graficos</a>
                     <input type="hidden" id="fDesde" value="">
                     <input type="hidden" id="fHasta" value="">                   
                     </tr>
