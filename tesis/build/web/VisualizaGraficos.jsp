@@ -84,24 +84,29 @@
         <title>Graficos</title>
     </head>
     <body>
-        <input type="hidden" id="fDes" value="${fDesdeSinModificar}" >
-        <input type="hidden" id="fHas" value="${fHastaSinModificar}" >
-        <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
+        <form>
+            <input type="hidden" id="fDes" value="${fDesdeSinModificar}" >
+            <input type="hidden" id="fHas" value="${fHastaSinModificar}" >
+            <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
 
-        <sql:query dataSource="${result}" sql="${queryCant}"
-                   var="cantMapas" />
-        <c:forEach var="filaCant" items="${cantMapas.rows}">
-            <input type="hidden" id="cantMapas" value="${filaCant.cant}" />
-        </c:forEach>
+            <sql:query dataSource="${result}" sql="${queryCant}"
+                       var="cantMapas" />
+            <c:forEach var="filaCant" items="${cantMapas.rows}">
+                <input type="hidden" id="cantMapas" value="${filaCant.cant}" />
+            </c:forEach>
 
-        <sql:query dataSource="${result}" sql="${queryGeneral}"
-                   var="datos" />
+            <sql:query dataSource="${result}" sql="${queryGeneral}"
+                       var="datos" />
 
-        <c:forEach var="fila" items="${datos.rows}" varStatus="theCount">
-            <input type="hidden" id="usrId${theCount.count}" value="${fila.mapaUsrId}" />
-            <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
-            <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
-            <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
-        </c:forEach>
+            <c:forEach var="fila" items="${datos.rows}" varStatus="theCount">
+                <input type="hidden" id="usrId${theCount.count}" value="${fila.mapaUsrId}" />
+                <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
+                <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
+                <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
+            </c:forEach>
+                
+                <br>
+                <a href="javascript:void(0)" onclick="printPage()">Imprimir / Guardar en PDF - Grafico</a>
+        </form>
     </body>
 </html>

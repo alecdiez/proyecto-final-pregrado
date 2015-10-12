@@ -47,9 +47,13 @@ function dibujarGrafico() {
                 //ColumnChart sería el tipo de gráfico a dibujar
                 document.getElementById('GraficoGoogleChart-ejemplo-1')
                 ).draw(data, options);
-    }else{
+    } else {
         alert('No existe ningun mapa generado entre las Fechas Seleccionadas!!!');
-        
+
         parent.$("#calendarioGraficos").trigger('click');
     }
+}
+
+function printPage() {
+    window.print();
 }
