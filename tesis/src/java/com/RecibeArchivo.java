@@ -207,7 +207,8 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                                 + "mapaMarkerLong,"
                                 + "mapamarkerVenta,"
                                 + "mapamarkerEntrega,"
-                                + "mapamarkerObserva)"
+                                + "mapamarkerObserva,"
+                                + "mapamarkerEstado)"
                                 + "VALUES"
                                 + "(" + mapaId + ","
                                 + "'" + data[0] + " " + data[1] + "',"
@@ -218,7 +219,8 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
                                 + "'" + data[6] + "',"
                                 + "'" + data[7] + "',"
                                 + "'" + data[8] + "',"
-                                + "'" + data[9] + "');";
+                                + "'" + data[9] + "',"
+                                + "1);";
 
                         this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
                         pst.executeUpdate(execute);
@@ -251,16 +253,18 @@ public class RecibeArchivo extends HttpServlet implements finalVariables {
         return date;
     }
 
-    public int creaMapa(int usrId) {        
+    public int creaMapa(int usrId) {
 
         try {
             gq.doConnect();
-            String execute = "INSERT INTO `tesis`.`mapa`\n"
+            String execute = "INSERT INTO mapa\n"
                     + " (mapaUsrId,\n"
-                    + " mapaFecha)\n"
+                    + " mapaFecha,\n"
+                    + " mapaEstado)\n"
                     + "VALUES\n"
                     + " ('" + usrId + "',\n"
-                    + " now())";
+                    + " now(),\n"
+                    + "1)";
 
             this.pst = (PreparedStatement) gq.getConnection().prepareStatement(execute);
             pst.executeUpdate(execute);

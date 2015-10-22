@@ -12,6 +12,7 @@ var provincia;
 var venta;
 var entrega;
 var observa;
+var estado;
 var markers = [];
 var contentString = [];
 var direcciones = [];
@@ -49,7 +50,9 @@ function finalizaOperacion() {
         venta = $('#MarkerVenta' + (i + 1)).val();
         entrega = $('#MarkerEntrega' + (i + 1)).val();
         observa = $('#MarkerObserva' + (i + 1)).val();
+        estado = $('#MarkerEstado' + (i + 1)).val();
         entrega = entrega == 'S' ? 'Entregado' : 'No Entregado';
+        estado = estado == '0' ? 'Cancelado' : 'Activo';
 
         contentString[i] = '<div id="content">' +
                 '<div id="divisor">' +
@@ -63,6 +66,7 @@ function finalizaOperacion() {
                 'Estado: ' + entrega + '<br>' +
                 'Monto: ' + venta + '<br>' +
                 'Observaciones: ' + observa + '<br>' +
+                'Estado: ' + estado + '<br>' +
                 '</div>' +
                 '</div>';
 
@@ -119,9 +123,13 @@ function bindInfoWindow(marker, infowindow, contentString) {
 
 
 function guardaLatLong(mapaMarkerId, lat, lng) {
-   
-    $.get('com.RecibeArchivo', {mapaMarkerId: mapaMarkerId, latitud: lat, longitud: lng}, function (responseText) {
-       
 
-    });    
+    $.get('com.RecibeArchivo', {mapaMarkerId: mapaMarkerId, latitud: lat, longitud: lng}, function (responseText) {
+
+
+    });
+}
+
+function printPage() {
+    window.print();
 }

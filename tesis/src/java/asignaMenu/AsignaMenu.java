@@ -68,7 +68,7 @@ public class AsignaMenu {
 
     public String devuelveMenu(ArrayList privilegios) {
 
-        String menu = "<ul id=\"menu-bar\" >\n"
+        String menu = "<nav><ul id=\"menu-bar\" >\n"
                 + "        <li><a href=\"#\">Personas</a>\n"
                 + "            <ul>\n"
                 + "\n";
@@ -104,13 +104,21 @@ public class AsignaMenu {
         menu += " <li><a href=\"#\">Sistema</a>\n"
                 + "<ul>\n";
         menu += "                <li style=\"cursor: pointer\"><a id=\"generaMapa\" href=\"GeneraMapa.jsp\" title=\"GENERA MAPA\">Generar Mapa</a></li>\n";
+        if (privilegios.contains("visualizaMapas")) {
+            menu += "                <li  style=\"cursor: pointer\"><a href=\"#\" title=\"VER MAPAS \">Ver Mapas</a>"
+                    + "<ul>"
+                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorFechas\" href=\"MapasPorFechas.jsp\" title=\"MAPAS POR FECHAS\">Ver Mapas por Fechas</a></li>\n"
+                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorVentas\" href=\"MapasPorVentas.jsp\" title=\"MAPAS POR VENTAS\">Ver Mapas por Ventas</a></li>\n"
+                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorEstado\" href=\"MapasPorEstado.jsp\" title=\"MAPAS POR ESTADOS\">Ver Mapas por Estado</a></li>\n"
+                    + "</ul></li>\n";
+        }
         if (privilegios.contains("visualizaGraficos")) {
             menu += "                <li  style=\"cursor: pointer\"><a id=\"calendarioGraficos\" href=\"CalendarioGraficos.jsp\" title=\"CALENDARIO GRAFICOS\">Ver Graficos Estadisticos</a></li>\n";
         }
         menu += "    </ul>";
         menu += "    </li>";
 
-        menu += "    </ul>";
+        menu += "    </ul></nav>";
 
         return menu;
     }

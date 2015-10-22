@@ -85,6 +85,7 @@
     </head>
     <body>
         <form>
+            <a href="javascript:void(0)" onclick="printPage()">Imprimir / Guardar en PDF - Grafico</a><br>
             <input type="hidden" id="fDes" value="${fDesdeSinModificar}" >
             <input type="hidden" id="fHas" value="${fHastaSinModificar}" >
             <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
@@ -103,10 +104,7 @@
                 <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
                 <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
                 <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
-            </c:forEach>
-                
-                <br>
-                <a href="javascript:void(0)" onclick="printPage()">Imprimir / Guardar en PDF - Grafico</a>
+            </c:forEach>                
         </form>
     </body>
 </html>
