@@ -18,7 +18,9 @@
 <%@include file="sessionControl.jsp"%>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script> 
-<%    String fDesde = request.getParameter("fDesde");
+
+<%    String cantMax = request.getParameter("cantMax");
+    String fDesde = request.getParameter("fDesde");
     String fHasta = request.getParameter("fHasta");
     String fDesdeSinModificar = fDesde;
     String fHastaSinModificar = fHasta;
@@ -34,7 +36,7 @@
         return fechaSplit[2] + "/" + fechaSplit[1] + "/" + fechaSplit[0];
     }
 %>
-
+<c:set var="cantMax" value="<%=cantMax%>" />
 <c:set var="fDesde" value="<%=fDesde%>" />
 <c:set var="fHasta" value="<%=fHasta%>" />
 <c:set var="fDesdeSinModificar" value="<%=fDesdeSinModificar%>" />
@@ -44,8 +46,8 @@
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 <c:set var="perId" value="<%=perId%>" />
 <c:set var="isSuperAdmin" value="false" />
-<c:set var="queryCant" value="select count(*) cant from tesis.mapa where mapaUsrId = ${perId}
-       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}'" />
+<c:set var="queryCant" value="select * from tesis.mapa where mapaUsrId = ${perId}
+       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' LIMIT ${cantMax}" />
 
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
@@ -59,8 +61,8 @@
 
 <c:forEach var="elige" items="${privilegios.rows}" varStatus="theCount">
     <c:if test="${theCount.count==1}" >
-        <c:set var="queryCant" value="select count(*) cant from tesis.mapa WHERE
-               DATE(mapaFecha) between '${fDesde}' and '${fHasta}'"/>
+        <c:set var="queryCant" value="select * from tesis.mapa WHERE
+               DATE(mapaFecha) between '${fDesde}' and '${fHasta}' LIMIT ${cantMax}"/>
         <c:set var="isSuperAdmin" value="true" />
     </c:if>
 </c:forEach>
@@ -68,13 +70,13 @@
 <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
        FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
        WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId} 
-       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha" />
+       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha LIMIT ${cantMax}" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
     <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
            FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
            WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId 
-           AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId " />
+           AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId LIMIT ${cantMax}" />
 </c:if>
 
 
@@ -93,9 +95,9 @@
             <sql:query dataSource="${result}" sql="${queryCant}"
                        var="cantMapas" />
             <c:forEach var="filaCant" items="${cantMapas.rows}">
-                <input type="hidden" id="cantMapas" value="${filaCant.cant}" />
-            </c:forEach>
-
+                <c:set var="count" value="${count + 1}" scope="page"/>                                
+            </c:forEach>   
+            <input type="hidden" id="cantMapas" value="${count}" />
             <sql:query dataSource="${result}" sql="${queryGeneral}"
                        var="datos" />
 

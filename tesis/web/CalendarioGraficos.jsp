@@ -27,8 +27,12 @@
         <h2 class="TextoTituloGris">Click sobre el campo para expandir el calendario.</h2>
         <table border="0" id="tabla" cellpadding="20">
             <tr>
-                <td align="left" class="TextoLinea"><p>Fecha Desde: <input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
-                <td align="right" class="TextoLinea"><p>Fecha Hasta: <input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
+                <td align="left" class="TextoLinea"><p>Fecha Desde: <font style="color: red">*</font> <input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
+                <td align="right" class="TextoLinea"><p>Fecha Hasta: <font style="color: red">*</font><input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
+            </tr>
+            <tr>
+                <td align="left" colspan="2" class="TextoLinea"><p>Cantidad Maxima de Mapas a Comparar:<font style="color: red">*</font> 
+                        <input type="text" size="2" style="color: #666" id="cantMax" onKeyPress="return soloNumeros(event)"></p></td>                
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="button" id="generaGraficos" class="BotonTablaRoja" title="Click para generar el grafico!" value="Mostrar Graficos" name="generaGraficos" /></td>

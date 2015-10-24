@@ -31,13 +31,14 @@ $(document).ready(function () {
     $('#generaGraficos').click(function () {
         var fechaDesde = $('#fechaDesde').val();
         var fechaHasta = $('#fechaHasta').val();
+        var cantMax = $('#cantMax').val();
 
-        if (fechaDesde == '' || fechaHasta == '') {
-            alert('Recuerde ingresar las fechas para generar los Graficos!!');
+        if (fechaDesde == '' || fechaHasta == '' || cantMax == '') {
+            alert('Recuerde ingresar los datos Requeridos!!');
         } else {
             parent.$('#fDesde').val(fechaDesde);
             parent.$('#fHasta').val(fechaHasta);
-            open();
+            open(cantMax);
             // parent.$("#visualizaGraficos").trigger('click');
 
 
@@ -56,9 +57,9 @@ $(document).ready(function () {
     });
 });
 
-function open() {
-    
-    var href = "VisualizaGraficos.jsp?fDesde=" + parent.$('#fDesde').val() + "&fHasta=" + parent.$('#fHasta').val();
+function open(cantMax) {
+
+    var href = "VisualizaGraficos.jsp?fDesde=" + parent.$('#fDesde').val() + "&fHasta=" + parent.$('#fHasta').val() + "&cantMax=" + cantMax;
 
     parent.$("#visualizaGraficos").fancybox({
         'href': href,
@@ -70,7 +71,11 @@ function open() {
         'width': 1000,
         'height': 600
     });
-    
+
     parent.$("#visualizaGraficos").trigger('click');
 }
 
+function soloNumeros(e) {
+    var key = window.Event ? e.which : e.keyCode
+    return (key >= 48 && key <= 57)
+}

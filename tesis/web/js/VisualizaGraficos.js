@@ -16,17 +16,18 @@ google.setOnLoadCallback(dibujarGrafico);
 function getValue()
 {
     cantMapas = document.getElementById("cantMapas").value;
-
+    
     for (var i = 0; i < (parseInt(cantMapas) + 1); i++) {
 
         if (i == 0) {
             data1[i] = ['Suma', 'Total de Ventas en $'];
+            data1[i + 1] = ['Comienzo', 0];
         } else {
             usuario = document.getElementById("usuario" + i).value;
             usrId = document.getElementById("usrId" + i).value;
             fecha = document.getElementById("fecha" + i).value;
             suma = document.getElementById("suma" + i).value;
-            data1[i] = [usuario + ' - Fecha: ' + fecha + '', parseFloat(suma)];
+            data1[i + 1] = [usuario + ' - Fecha: ' + fecha + '', parseFloat(suma)];
         }
     }
 }
@@ -40,13 +41,24 @@ function dibujarGrafico() {
         var data = google.visualization.arrayToDataTable(data1);
         var options = {
             title: 'Graficos Comparativo de Total de Ventas por Fecha  - \n\
-            Entre los días (' + document.getElementById('fDes').value + ' y ' + document.getElementById('fHas').value + ')'
+            Entre los días (' + document.getElementById('fDes').value + ' y ' + document.getElementById('fHas').value + ')',
+            curveType: 'function',
+            legend: {position: 'bottom'}
         }
 // Dibujar el gráfico
-        new google.visualization.ColumnChart(
-                //ColumnChart sería el tipo de gráfico a dibujar
-                document.getElementById('GraficoGoogleChart-ejemplo-1')
-                ).draw(data, options);
+
+        if (cantMapas == 1) {
+            new google.visualization.ColumnChart(
+                    //ColumnChart sería el tipo de gráfico a dibujar
+                    document.getElementById('GraficoGoogleChart-ejemplo-1')
+                    ).draw(data, options);
+        } else {
+            new google.visualization.LineChart(
+                    //ColumnChart sería el tipo de gráfico a dibujar
+                    document.getElementById('GraficoGoogleChart-ejemplo-1')
+                    ).draw(data, options);
+        }
+
     } else {
         alert('No existe ningun mapa generado entre las Fechas Seleccionadas!!!');
 

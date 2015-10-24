@@ -111,7 +111,10 @@ public class AsignaMenu {
                     + "</ul></li>\n";
         }
         if (privilegios.contains("visualizaGraficos")) {
-            menu += "                <li  style=\"cursor: pointer\"><a id=\"calendarioGraficos\" href=\"CalendarioGraficos.jsp\" title=\"CALENDARIO GRAFICOS\">Ver Graficos Estadisticos</a></li>\n";
+            menu += "                <li  style=\"cursor: pointer\"><a href=\"#\" title=\"GRAFICOS\">Gráficos <b>&rarr;</b></a>"
+                    + "<ul>"
+                    + "<li  style=\"cursor: pointer\"><a id=\"calendarioGraficos\" href=\"CalendarioGraficos.jsp\" title=\"CALENDARIO GRAFICOS\">Ver Graficos por Fechas</a></li>\n"
+                    + "</ul></li>\n";
         }
         menu += "    </ul>";
         menu += "    </li>";
