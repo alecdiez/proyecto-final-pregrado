@@ -40,8 +40,7 @@
                                 <th style=" vertical-align: bottom ">
 
                                 <div align ="right">
-                                    <input type="submit"  value="Ingresar"  name="ingresa_b" title="Ingresar" style="width: 75px" class="BotonTablaRoja" onmouseover="this.style.color = 'blue'"
-                                           onMouseOut="this.style.color = '#c40606'" />
+                                    <input type="submit"  value="Ingresar"  name="ingresa_b" title="Ingresar" style="width: 75px" class="BotonTablaRoja" />
                                 </div>
                                 </th>
                                 <%

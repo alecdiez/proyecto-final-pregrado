@@ -25,13 +25,13 @@
     <body>
         <h1 class="TextoTituloGris">Seleccione entre que fechas se mostraran los graficos estadisticos.</h1><br>
         <h2 class="TextoTituloGris">Click sobre el campo para expandir el calendario.</h2>
-        <table border="0" id="tabla">
+        <table border="0" id="tabla" cellpadding="20">
             <tr>
                 <td align="left" class="TextoLinea"><p>Fecha Desde: <input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
                 <td align="right" class="TextoLinea"><p>Fecha Hasta: <input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="button" id="generaGraficos" class="BotonTablaRoja" value="Mostra Graficos" name="generaGraficos" /></td>
+                <td colspan="2" align="center"><input type="button" id="generaGraficos" class="BotonTablaRoja" title="Click para generar el grafico!" value="Mostrar Graficos" name="generaGraficos" /></td>
             </tr>
         </table>
 
