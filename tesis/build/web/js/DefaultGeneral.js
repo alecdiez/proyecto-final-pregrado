@@ -94,5 +94,5 @@ $(document).ready(function () {
         'type': 'iframe',
         'width': 600,
         'height': 350
-    });
+    });    
 });

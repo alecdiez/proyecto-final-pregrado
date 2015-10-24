@@ -107,9 +107,7 @@ public class AsignaMenu {
         if (privilegios.contains("visualizaMapas")) {
             menu += "                <li  style=\"cursor: pointer\"><a href=\"#\" title=\"VER MAPAS \">Ver Mapas <b>&rarr;</b></a>"
                     + "<ul>"
-                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorFechas\" href=\"MapasPorFechas.jsp\" title=\"MAPAS POR FECHAS\">Ver Mapas por Fechas</a></li>\n"
-                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorVentas\" href=\"MapasPorVentas.jsp\" title=\"MAPAS POR VENTAS\">Ver Mapas por Ventas</a></li>\n"
-                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorEstado\" href=\"MapasPorEstado.jsp\" title=\"MAPAS POR ESTADOS\">Ver Mapas por Estado</a></li>\n"
+                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorFechas\" href=\"MapasPorFechas.jsp\" title=\"MAPAS POR FECHAS o ESTADO\">Ver Mapas por Fechas o Estado</a></li>\n"
                     + "</ul></li>\n";
         }
         if (privilegios.contains("visualizaGraficos")) {

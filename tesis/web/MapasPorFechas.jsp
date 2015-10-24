@@ -23,18 +23,25 @@
         <link href="css/main.css" rel="stylesheet"/>
     </head>
     <body>
-        <h1 class="TextoTituloGris">Seleccione entre que fechas se mostraran los Mapas.</h1><br>
+        <h1 class="TextoTituloGris">Seleccione el estado y las fechas para mostrar los Mapas.</h1><br>
         <h2 class="TextoTituloGris">Click sobre el campo para expandir el calendario.</h2>
-        <table border="0" id="tabla" cellpadding="20">
-            <tr>
-                <td align="left" class="TextoLinea"><p>Fecha Desde: <input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
-                <td align="right" class="TextoLinea"><p>Fecha Hasta: <input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><input type="button" id="mapasPorFechas" title="Click para buscar mapas!" class="BotonTablaRoja" value="Mostrar Mapas" name="mapasPorFechas" /></td>
-            </tr>
-        </table>
+        <form name="form1">
+            <table border="0" id="tabla" cellpadding="20">
+                <tr>
+                    <td align="left" class="TextoLinea"><p>FECHAS:</p></td>
+                    <td align="left" class="TextoLinea"><p>Fecha Desde: <input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
+                    <td align="right" class="TextoLinea"><p>Fecha Hasta: <input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
+                </tr>
+                <tr>
+                    <td align="left" class="TextoLinea"><p>ESTADOS:</p></td>
+                    <td align="left" class="TextoLinea"><p>Abierto:&nbsp;<input type="radio" name="estado" value="1" /></p></td>
+                    <td align="left" class="TextoLinea"><p>Cerrado:&nbsp;<input type="radio" name="estado" value="0" /></p></td>
+                </tr>
+                <tr>
+                    <td colspan="3" align="center"><input type="button" id="mapasPorFechas" title="Click para buscar mapas!" class="BotonTablaRoja" value="Mostrar Mapas" name="mapasPorFechas" /></td>
+                </tr>
+            </table>
 
-
+        </form>
     </body>
 </html>

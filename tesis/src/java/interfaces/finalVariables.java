@@ -17,5 +17,8 @@ public interface finalVariables {
     public final String UPLOAD_DIRECTORY = "C:\\apache-tomcat-7.0.62\\upLoadFiles";
     public final String GENERATED_DIRECTORY = "C:\\apache-tomcat-7.0.62\\webapps\\docs\\generatedFiles";
     public final String GENERATED_FILE = "http://localhost:8080/docs/generatedFiles/";
+    /*public final String UPLOAD_DIRECTORY = "C:\\apache-tomcat-7.0.50\\upLoadFiles";
+    public final String GENERATED_DIRECTORY = "C:\\apache-tomcat-7.0.50\\webapps\\docs\\generatedFiles";
+    public final String GENERATED_FILE = "http://www.easylocation.com.ar/docs/generatedFiles/";*/
 
 }

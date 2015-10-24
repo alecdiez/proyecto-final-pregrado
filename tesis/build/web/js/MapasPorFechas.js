@@ -31,21 +31,24 @@ $(document).ready(function () {
     $('#mapasPorFechas').click(function () {
         var fechaDesde = $('#fechaDesde').val();
         var fechaHasta = $('#fechaHasta').val();
+        var radio = $('input[type="radio"]:checked').val()
 
         if (fechaDesde == '' || fechaHasta == '') {
-            alert('Recuerde ingresar las fechas para generar los Mapas!!');
+            alert('Recuerde ingresar las fechas para buscar los Mapas!!');
         } else {
             parent.$('#fDesde').val(fechaDesde);
             parent.$('#fHasta').val(fechaHasta);
-            open();
+            if (typeof radio === "undefined") {
+                radio = '';
+            }
+            open(radio);
         }
-
     });
 });
 
-function open() {
+function open(radio) {
 
-    var href = "MapasGeneral.jsp?fDesde=" + parent.$('#fDesde').val() + "&fHasta=" + parent.$('#fHasta').val();
+    var href = "MapasGeneral.jsp?fDesde=" + parent.$('#fDesde').val() + "&fHasta=" + parent.$('#fHasta').val() + "&estado=" + radio;
 
     parent.$("#mapasGeneral").fancybox({
         'href': href,

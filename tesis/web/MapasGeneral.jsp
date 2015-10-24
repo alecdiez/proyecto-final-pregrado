@@ -21,8 +21,11 @@
 <link href="css/main.css" rel="stylesheet" />
 <script src="js/MapasGeneral.js"></script>
 
-<%    String fDesde = request.getParameter("fDesde");
-    String fHasta = request.getParameter("fHasta");
+<%
+    String estado = TextFormat.toStringNeverNull(request.getParameter("estado"));
+
+    String fDesde = TextFormat.toStringNeverNull(request.getParameter("fDesde"));
+    String fHasta = TextFormat.toStringNeverNull(request.getParameter("fHasta"));
     String fDesdeSinModificar = fDesde;
     String fHastaSinModificar = fHasta;
 
@@ -38,8 +41,8 @@
     }
 %>
 
-
 <%Long userId = Long.parseLong(TextFormat.toStringNeverNull(session.getAttribute("perId")));%>
+<c:set var="estado" value="<%=estado%>" />
 <c:set var="fDesde" value="<%=fDesde%>" />
 <c:set var="fHasta" value="<%=fHasta%>" />
 <c:set var="fDesdeSinModificar" value="<%=fDesdeSinModificar%>" />
@@ -50,15 +53,28 @@
 <c:set var="userId" value="<%=userId%>" />
 <c:set var="exportAllInfo" value="false" />
 <c:set var="queryCant" value="select count(*) cant from tesis.mapa where mapaUsrId = ${perId}
-       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}'" />
+       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' AND mapa.mapaEstado = '${estado}'" />
 <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificar de Mapa',
        CONCAT( personas.perNom, ' ', personas.perApe ) AS 'Usuario',
        DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS 'Fecha',
        CASE mapa.mapaEstado WHEN 0 THEN 'CERRADO' ELSE 'ABIERTO' END AS 'Estado'
        FROM tesis.mapa AS mapa, tesis.personas AS personas
-       WHERE mapa.mapaUsrId = personas.perId AND personas.perId = ${userId} 
+       WHERE mapa.mapaUsrId = personas.perId AND personas.perId = ${userId}       
        AND DATE(mapa.mapaFecha) between '${fDesde}' and '${fHasta}'
-       ORDER BY Fecha DESC" />
+       AND mapa.mapaEstado = '${estado}'" />
+
+<c:if test="${estado eq ''}" >
+    <c:set var="queryCant" value="select count(*) cant from tesis.mapa where mapaUsrId = ${perId}
+           AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}'" />
+    <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificar de Mapa',
+           CONCAT( personas.perNom, ' ', personas.perApe ) AS 'Usuario',
+           DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS 'Fecha',
+           CASE mapa.mapaEstado WHEN 0 THEN 'CERRADO' ELSE 'ABIERTO' END AS 'Estado'
+           FROM tesis.mapa AS mapa, tesis.personas AS personas
+           WHERE mapa.mapaUsrId = personas.perId AND personas.perId = ${userId}       
+           AND DATE(mapa.mapaFecha) between '${fDesde}' and '${fHasta}'" />
+</c:if>
+
 
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
@@ -69,7 +85,7 @@
            AND privilegios.privilegio = 'SuperAdmin'"
            var="privilegios" />
 <c:forEach var="elige" items="${privilegios.rows}" varStatus="theCount">
-    <c:if test="${theCount.count==1}" >
+    <c:if test="${theCount.count==1}" >        
         <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificador de Mapa',
                CONCAT( personas.perNom, ' ', personas.perApe ) AS 'Usuario',
                DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS 'Fecha',
@@ -77,12 +93,39 @@
                FROM tesis.mapa AS mapa, tesis.personas AS personas
                WHERE mapa.mapaUsrId = personas.perId 
                AND DATE(mapa.mapaFecha) between '${fDesde}' and '${fHasta}'
-               ORDER BY mapa.mapaFecha DESC" />
+               AND mapa.mapaEstado = '${estado}'" />
         <c:set var="exportAllInfo" value="true" />
         <c:set var="queryCant" value="select count(*) cant from tesis.mapa WHERE
-               DATE(mapaFecha) between '${fDesde}' and '${fHasta}'"/>
+               DATE(mapaFecha) between '${fDesde}' and '${fHasta}'  AND mapa.mapaEstado = '${estado}'"/>
+        <c:if test="${estado eq ''}" >
+            <c:set var="sqlGeneral" value="SELECT mapa.mapaId AS 'Identificador de Mapa',
+                   CONCAT( personas.perNom, ' ', personas.perApe ) AS 'Usuario',
+                   DATE_FORMAT( mapa.mapaFecha, '%d/%m/%Y %H:%i' ) AS 'Fecha',
+                   CASE mapa.mapaEstado WHEN 0 THEN 'CERRADO' ELSE 'ABIERTO' END AS 'Estado'
+                   FROM tesis.mapa AS mapa, tesis.personas AS personas
+                   WHERE mapa.mapaUsrId = personas.perId 
+                   AND DATE(mapa.mapaFecha) between '${fDesde}' and '${fHasta}'" />
+            <c:set var="exportAllInfo" value="true" />
+            <c:set var="queryCant" value="select count(*) cant from tesis.mapa WHERE
+                   DATE(mapaFecha) between '${fDesde}' and '${fHasta}'"/>            
+        </c:if>
     </c:if>
 </c:forEach>
+
+<c:choose>
+    <c:when test="${estado eq '0'}">
+        <c:set var="estado" value="Cerrado" />
+    </c:when>
+    <c:when test="${estado eq '1'}">
+        <c:set var="estado" value="Abierto" />
+    </c:when>
+    <c:when test="${estado eq ''}">
+        <c:set var="estado" value="Búsqueda sin Estado" />
+    </c:when>
+</c:choose>
+
+<c:set var="sqlGeneral" value="${sqlGeneral} ORDER BY mapa.mapaFecha DESC"/>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -92,7 +135,7 @@
         <br>
         <br>
         <div align="center">
-            <h1 class="TextoTituloGris">Mapas generados entre los dias  '${fDesdeSinModificar}'  y  '${fHastaSinModificar}'</h1>
+            <h1 class="TextoTituloGris">Mapas generados entre los dias  '${fDesdeSinModificar}'  y  '${fHastaSinModificar}' con Estado: ${estado}</h1>
             <table border="0" cellspacing="2" cellpadding="2">
                 <thead>
                     <tr>
