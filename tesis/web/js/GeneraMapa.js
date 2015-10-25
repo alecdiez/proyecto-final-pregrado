@@ -6,4 +6,19 @@
 
 $(document).ready(function () {
 
+    var href = "GeneraMapaManual.jsp";
+
+    $('#generaMapaManual').click(function () {
+        parent.$("#generaMapaManual").fancybox({
+            'href': href,
+            'padding': 5,
+            'overlayShow': false,
+            'closeClick': true,
+            'mouseWheel': true,
+            'type': 'iframe',
+            'width': 600,
+            'height': 400
+        });
+        parent.$("#generaMapaManual").trigger('click');
+    });
 });

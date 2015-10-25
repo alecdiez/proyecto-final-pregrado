@@ -31,6 +31,7 @@
         <a id="visualizaGraficos" href="VizualizaGraficos.jsp" style="display: none" >Graficos</a>
         <a id="mapasGeneral" href="MapasGeneral.jsp" style="display: none" >Mapas</a>
         <a id="visGraficosPorVentas" href="VisGraficosPorVentas.jsp" style="display: none" >Graficos</a>
+        <a id="generaMapaManual" href="GeneraMapaManual.jsp" style="display: none" >Graficos</a>
         <input type="hidden" id="fDesde" value="">
         <input type="hidden" id="fHasta" value="">  
     </body>

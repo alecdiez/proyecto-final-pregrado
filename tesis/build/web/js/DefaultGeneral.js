@@ -74,7 +74,7 @@ $(document).ready(function () {
         'closeClick': true,
         'mouseWheel': true,
         'type': 'iframe',
-        'width': 800,
+        'width': 930,
         'height': 500
     });
     $("#calendarioGraficos").fancybox({

@@ -28,25 +28,42 @@
         <div align="center">
             <h1 class="TextoTituloGris">Generar Nuevo Mapa</h1>
         </div><br>
-        <div align="left">
-            <h1 class="Group">Se recuerda que para generar un nuevo mapa, se debe ingresar los datos en un archivo 
-                excel que luego se debera seleccionar!</h1>
-        </div><br><br>
+
         <form action="com.RecibeArchivo" method="post" enctype="multipart/form-data">
+            
+                <table border="0" width="50%" cellpadding="20">
+                    <thead>
+                        <tr>
+                            <th colspan="2"><div align="left">
+                        <h1 class="Group">Se recuerda que para generar un nuevo mapa, se debe ingresar los datos en un archivo 
+                            excel que luego se debera seleccionar! - O puede Generar un mapa ingresando valores manualmente.</h1>
+                    </div></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> 
+                                <input type="file" id="archivo" width="150px" name="file" value="" />
+                            </td>
+                            <td>
+                                <input type="submit" id="generaMapa" class="BotonTablaRoja" title="Genera Mapa by Excel" value="Generar Mapa" name="generaMapa" />
+                            </td> 
 
-            <div align="left">
-                <input type="file" id="archivo" width="150px" name="file" value="" />
-            </div><br><br>
-            <div align="center">
-                <input type="submit" id="generaMapa" class="BotonTablaRoja" value="Generar Mapa" name="generaMapa" />
-            </div><br><br>
-
-            <div align="center">
-                <h2 class="Group">Ejemplo de archivo Excel! extension .xls (Compatible 97/2003) Recuerde Completar todos los datos!!!</h2>
-                <img src="images/ejemplo.jpg" width="700" height="332" alt="ejemplo"/>
-            </div>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="button" id="generaMapaManual" class="BotonTablaRoja" title="Genera Mapa Manual" value="Generar Mapa Manual" name="generaMapaManual" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td> 
+                                <h2 class="Group">Ejemplo de archivo Excel! extension .xls (Compatible 97/2003) Recuerde Completar todos los datos!!!</h2>
+                                <img src="images/ejemplo.jpg" width="700" height="332" alt="ejemplo"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+           
         </form>
-
-
     </body>
 </html>
