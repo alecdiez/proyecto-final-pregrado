@@ -17,6 +17,9 @@ $(document).ready(function () {
         if (min == '' || max == '' || cantMax == '') {
             alert('Recuerde ingresar los datos Requeridos!!');
         } else {
+            if (typeof radio === "undefined") {
+                radio = '';
+            }
             open(cantMax, min, max, radio);
         }
     });
