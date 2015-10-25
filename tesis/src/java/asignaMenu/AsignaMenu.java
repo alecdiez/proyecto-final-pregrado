@@ -107,13 +107,14 @@ public class AsignaMenu {
         if (privilegios.contains("visualizaMapas")) {
             menu += "                <li  style=\"cursor: pointer\"><a href=\"#\" title=\"VER MAPAS \">Ver Mapas <b>&rarr;</b></a>"
                     + "<ul>"
-                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorFechas\" href=\"MapasPorFechas.jsp\" title=\"MAPAS POR FECHAS o ESTADO\">Ver Mapas por Fechas o Estado</a></li>\n"
+                    + "<li  style=\"cursor: pointer\"><a id=\"verMapasPorFechas\" href=\"MapasPorFechas.jsp\" title=\"MAPAS POR FECHAS o ESTADO\">Ver Mapas por Fechas y Estado</a></li>\n"
                     + "</ul></li>\n";
         }
         if (privilegios.contains("visualizaGraficos")) {
             menu += "                <li  style=\"cursor: pointer\"><a href=\"#\" title=\"GRAFICOS\">Gráficos <b>&rarr;</b></a>"
                     + "<ul>"
                     + "<li  style=\"cursor: pointer\"><a id=\"calendarioGraficos\" href=\"CalendarioGraficos.jsp\" title=\"CALENDARIO GRAFICOS\">Ver Graficos por Fechas</a></li>\n"
+                    + "<li  style=\"cursor: pointer\"><a id=\"graficosPorVentas\" href=\"GraficosPorVentas.jsp\" title=\"GRAFICOS POR VENTA\">Ver Graficos por Ventas</a></li>\n"
                     + "</ul></li>\n";
         }
         menu += "    </ul>";
