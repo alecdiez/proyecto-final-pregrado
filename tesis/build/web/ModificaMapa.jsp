@@ -1,7 +1,7 @@
 <%--
     Document   : ModificaMapa
     Created on : Oct 26, 2015, 3:04:23 PM
-    Author     : bizit
+    Author     : Alejandro
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
