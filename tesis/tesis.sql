@@ -1,8 +1,10 @@
+CREATE DATABASE  IF NOT EXISTS `tesis` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `tesis`;
 -- MySQL dump 10.13  Distrib 5.6.17, for Win32 (x86)
 --
--- Host: localhost    Database: tesis
+-- Host: 127.0.0.1    Database: tesis
 -- ------------------------------------------------------
--- Server version	5.6.23-log
+-- Server version	5.5.28
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,7 +31,7 @@ CREATE TABLE `mapa` (
   `mapaEstado` int(11) NOT NULL,
   `mapaObserva` varchar(1500) DEFAULT NULL,
   PRIMARY KEY (`mapaId`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +40,7 @@ CREATE TABLE `mapa` (
 
 LOCK TABLES `mapa` WRITE;
 /*!40000 ALTER TABLE `mapa` DISABLE KEYS */;
-INSERT INTO `mapa` VALUES (26,1,'2015-10-22 19:55:39',1,NULL),(27,1,'2015-10-24 17:59:03',1,NULL);
+INSERT INTO `mapa` VALUES (26,1,'2015-10-22 19:55:39',1,NULL),(27,1,'2015-10-24 17:59:03',1,NULL),(32,1,'2015-10-26 15:07:34',1,'sdfgsdfgsdfg');
 /*!40000 ALTER TABLE `mapa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,9 +60,9 @@ CREATE TABLE `mapamarker` (
   `mapaMarkerProvincia` varchar(250) NOT NULL,
   `mapaMarkerLat` varchar(250) DEFAULT NULL,
   `mapaMarkerLong` varchar(250) DEFAULT NULL,
-  `mapamarkerVenta` decimal(10,0) DEFAULT NULL,
-  `mapamarkerEntrega` varchar(2) DEFAULT NULL,
-  `mapamarkerObserva` varchar(1500) DEFAULT NULL,
+  `mapaMarkerVenta` decimal(10,0) DEFAULT NULL,
+  `mapaMarkerEntrega` varchar(2) DEFAULT NULL,
+  `mapaMarkerObserva` varchar(1500) DEFAULT NULL,
   `mapaMarkerEstado` int(11) NOT NULL,
   PRIMARY KEY (`mapaMarkerId`),
   KEY `mapaId_idx` (`mapaId`),
@@ -161,10 +163,6 @@ INSERT INTO `privilegios` VALUES (1,'altaPersona'),(4,'altaPrivilegio'),(6,'asig
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'tesis'
---
-
---
 -- Dumping routines for database 'tesis'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -177,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-25 19:51:48
+-- Dump completed on 2015-10-26 15:53:34
