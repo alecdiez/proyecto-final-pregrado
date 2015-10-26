@@ -27,8 +27,8 @@ function exportaInfo(mapaId) {
    });
 }
 
-function editaMapa(mapaId) {
-   var href = "ModificaMapa.jsp?mapaId=" + mapaId;
+function editaMapa(mapaId, observa) {
+   var href = "ModificaMapa.jsp?mapaId=" + mapaId + "&observa=" + observa;
 
    parent.$("#modificaMapa").fancybox({
       'href': href,

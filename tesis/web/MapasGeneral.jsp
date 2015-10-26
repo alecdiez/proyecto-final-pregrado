@@ -175,7 +175,7 @@
                   </td>
                   <c:if test="${fila.Estado eq 'ABIERTO'}" >
                      <td class="Cuadro" align="center" title="Edita Mapa N° ${fila.mapaId}">
-                        <img src="images/editar.png" onclick="editaMapa(${fila.mapaId})" style="cursor: pointer" title="Edita Mapa N° ${fila.mapaId}" width="25" height="25" alt="edit"/>
+                        <img src="images/editar.png" onclick="editaMapa(${fila.mapaId},'${fila.mapaObserva}')" style="cursor: pointer" title="Edita Mapa N° ${fila.mapaId}" width="25" height="25" alt="edit"/>
                      </td>
                   </c:if>
                </tr>
