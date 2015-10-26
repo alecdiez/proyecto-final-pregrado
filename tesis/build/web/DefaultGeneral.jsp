@@ -32,8 +32,9 @@
         <a id="mapasGeneral" href="MapasGeneral.jsp" style="display: none" >Mapas</a>
         <a id="visGraficosPorVentas" href="VisGraficosPorVentas.jsp" style="display: none" >Graficos</a>
         <a id="generaMapaManual" href="GeneraMapaManual.jsp" style="display: none" >Graficos</a>
+        <a id="modificaMapa" href="ModificaMapa.jsp" style="display: none" >Mapa</a>
         <input type="hidden" id="fDesde" value="">
-        <input type="hidden" id="fHasta" value="">  
+        <input type="hidden" id="fHasta" value="">
     </body>
 
 </html>
