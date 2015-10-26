@@ -24,6 +24,10 @@
         <servlet-name>ServletUtil</servlet-name>
         <servlet-class>com.ServletUtil</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MapaDAO</servlet-name>
+        <servlet-class>com.MapaDAO</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>genericQuery</servlet-name>
         <url-pattern>/com.genericQuery</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>ServletUtil</servlet-name>
         <url-pattern>/com.ServletUtil</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MapaDAO</servlet-name>
+        <url-pattern>/com.MapaDAO</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
