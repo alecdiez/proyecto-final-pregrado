@@ -40,8 +40,16 @@ public class ServletUtil extends HttpServlet
       PrintWriter out = response.getWriter();
       int mapaId = Integer.parseInt(request.getParameter("mapaId"));
       String observa = toStringNeverNull(request.getParameter("observa"));
+      String cierraMapa = toStringNeverNull(request.getParameter("cierraMapa"));
 
-      out.print(upDateObservaciones(mapaId, observa));
+      if(cierraMapa.isEmpty() && !cierraMapa.equals("true"))
+      {
+         out.print(upDateObservaciones(mapaId, observa));
+      }
+      else
+      {
+         out.print(cierraMapa(mapaId));
+      }
 
    }
 
@@ -88,6 +96,43 @@ public class ServletUtil extends HttpServlet
    {
       HttpSession session = request.getSession();
       PrintWriter out = response.getWriter();
+
+   }
+
+   private String cierraMapa(int mapaId)
+   {
+
+      try
+      {
+         gq.doConnect();
+         String execute = "UPDATE tesis.mapa"
+            + " SET"
+            + " mapaEstado = '0'"
+            + " WHERE mapaId = " + mapaId + ";";
+
+         this.pst = (PreparedStatement)gq.getConnection().prepareStatement(execute);
+         pst.executeUpdate(execute);
+
+         gq.doConnectClose();
+
+         return "bien";
+
+      }
+      catch (InstantiationException ex)
+      {
+         Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+         return null;
+      }
+      catch (IllegalAccessException ex)
+      {
+         Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+         return null;
+      }
+      catch (SQLException ex)
+      {
+         Logger.getLogger(RecibeArchivo.class.getName()).log(Level.SEVERE, null, ex);
+         return null;
+      }
 
    }
 

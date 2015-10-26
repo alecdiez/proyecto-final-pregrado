@@ -3,14 +3,12 @@
     Created on : Oct 26, 2015, 3:04:23 PM
     Author     : Alejandro
 --%>
-
 <%@page import="utl.TextFormat"%>
 <%@page import="interfaces.finalVariables"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<!DOCTYPE html>
-
+<link href="css/main.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script>
    !window.jQuery && document.write('<script src="js/jquery-1.4.3.min.js"><\/script>');
@@ -18,9 +16,10 @@
 <script type="text/javascript" src="./js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 <link rel="stylesheet" type="text/css" href="./js/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-<link href="css/main.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery.alerts.js"></script>
+<link href="js/jquery.alerts.css" rel="stylesheet" type="text/css" />
 <script src="js/ModificaMapa.js"></script>
-
+<%@include file="sessionControl.jsp"%>
 <%
    String mapaId = request.getParameter("mapaId");
    String observa = request.getParameter("observa");
