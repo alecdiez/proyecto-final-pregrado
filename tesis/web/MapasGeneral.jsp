@@ -165,7 +165,14 @@
                   <td class="Cuadro" align="center">${fila.mapaId}</td>
                   <td class="Cuadro" align="center">${fila.Usuario}</td>
                   <td class="Cuadro" align="center">${fila.Fecha}</td>
-                  <td class="Cuadro" align="center">${fila.Estado}</td>
+                  <td class="Cuadro" align="center">
+                     <c:if test="${fila.Estado eq 'ABIERTO'}">
+                        ${fila.Estado}
+                     </c:if>
+                     <c:if test="${fila.Estado eq 'CERRADO'}">
+                        <font style="color:  #990000;font-weight: bold">${fila.Estado}</font>
+                     </c:if>
+                  </td>
                   <td class="Cuadro" align="center">${fila.mapaObserva}</td>
                   <td class="Cuadro" align="center" title="Abrir Mapa N° ${fila.mapaId}">
                      <img src="images/XtpTm.png" onclick="abreMapa(${fila.mapaId})" style="cursor: pointer" title="Abre Mapa N° ${fila.mapaId}" width="25" height="25" alt="XtpTm"/>
@@ -175,7 +182,7 @@
                   </td>
                   <c:if test="${fila.Estado eq 'ABIERTO'}" >
                      <td class="Cuadro" align="center" title="Edita Mapa N° ${fila.mapaId}">
-                        <img src="images/editar.png" onclick="editaMapa(${fila.mapaId},'${fila.mapaObserva}')" style="cursor: pointer" title="Edita Mapa N° ${fila.mapaId}" width="25" height="25" alt="edit"/>
+                        <img src="images/editar.png" onclick="editaMapa(${fila.mapaId}, '${fila.mapaObserva}')" style="cursor: pointer" title="Edita Mapa N° ${fila.mapaId}" width="25" height="25" alt="edit"/>
                      </td>
                   </c:if>
                </tr>

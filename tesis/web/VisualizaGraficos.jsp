@@ -9,15 +9,15 @@
 <%@page import="interfaces.finalVariables"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <!DOCTYPE html>
 
 <script src="js/VisualizaGraficos.js"></script>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <link href="css/main.css" rel="stylesheet"/>
 <%@include file="sessionControl.jsp"%>
 
-<script type="text/javascript" src="https://www.google.com/jsapi"></script> 
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <%    String cantMax = request.getParameter("cantMax");
     String fDesde = request.getParameter("fDesde");
@@ -46,8 +46,6 @@
 <c:set var="pass" value="<%=finalVariables.connPass%>" />
 <c:set var="perId" value="<%=perId%>" />
 <c:set var="isSuperAdmin" value="false" />
-<c:set var="queryCant" value="select * from tesis.mapa where mapaUsrId = ${perId}
-       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' LIMIT ${cantMax}" />
 
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
@@ -61,21 +59,19 @@
 
 <c:forEach var="elige" items="${privilegios.rows}" varStatus="theCount">
     <c:if test="${theCount.count==1}" >
-        <c:set var="queryCant" value="select * from tesis.mapa WHERE
-               DATE(mapaFecha) between '${fDesde}' and '${fHasta}' LIMIT ${cantMax}"/>
         <c:set var="isSuperAdmin" value="true" />
     </c:if>
 </c:forEach>
 
 <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
        FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
-       WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId} 
+       WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId}
        AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha LIMIT ${cantMax}" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
     <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
            FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
-           WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId 
+           WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId
            AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId LIMIT ${cantMax}" />
 </c:if>
 
@@ -92,12 +88,6 @@
             <input type="hidden" id="fHas" value="${fHastaSinModificar}" >
             <div id="GraficoGoogleChart-ejemplo-1" style="width: 950px; height: 500px"></div>
 
-            <sql:query dataSource="${result}" sql="${queryCant}"
-                       var="cantMapas" />
-            <c:forEach var="filaCant" items="${cantMapas.rows}">
-                <c:set var="count" value="${count + 1}" scope="page"/>                                
-            </c:forEach>   
-            <input type="hidden" id="cantMapas" value="${count}" />
             <sql:query dataSource="${result}" sql="${queryGeneral}"
                        var="datos" />
 
@@ -106,7 +96,9 @@
                 <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
                 <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
                 <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
-            </c:forEach>                
+                <c:set var="count" value="${count + 1}" scope="page"/>
+            </c:forEach>
+                <input type="hidden" id="cantMapas" value="${count}" />
         </form>
     </body>
 </html>

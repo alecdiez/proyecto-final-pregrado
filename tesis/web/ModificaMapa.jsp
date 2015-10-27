@@ -62,7 +62,7 @@
                      <th class="TextoTitulo">Provincia<font style="color: red">*</font></th>
                      <th class="TextoTitulo">Latitud</th>
                      <th class="TextoTitulo">Longitud</th>
-                     <th class="TextoTitulo">Venta</th>
+                     <th class="TextoTitulo">Venta<font style="color: red">*</font></th>
                      <th class="TextoTitulo">Entrega</th>
                      <th class="TextoTitulo">Observaciones</th>
                      <th class="TextoTitulo">Estado<font style="color: red">*</font></th>
@@ -144,11 +144,13 @@
                         <td class="Cuadro" id="mapaMarkerEstado${fila.mapaMarkerId}" align="center">
                            <c:if test="${fila.mapaMarkerEstado eq '1'}" >
                               <c:set var="estadoFila" value="ABIERTO" />
+                              ${estadoFila}
                            </c:if>
                            <c:if test="${fila.mapaMarkerEstado eq '0'}" >
                               <c:set var="estadoFila" value="CERRADO" />
+                              <font style="color:  #990000;font-weight: bold">${estadoFila}</font>
                            </c:if>
-                           ${estadoFila}
+
                         </td>
 
                         <td class="Cuadro" align="center">

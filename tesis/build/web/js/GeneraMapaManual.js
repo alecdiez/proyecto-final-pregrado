@@ -26,7 +26,7 @@ function creaNuevoMapa(observa) {
             beforeSend: showLoadingAnimation,
             success: function (result)
             {
-               controlResponse(result)
+               controlResponse(result, observa)
             },
             timeout: 60000
          });
@@ -40,12 +40,12 @@ function showLoadingAnimation() {
    parent.$.fancybox.showActivity();
 }
 
-function controlResponse(result) {
+function controlResponse(result, observa) {
    parent.$.fancybox.showActivity();
    parent.$.fancybox.hideActivity();
    alert('Exito, el mapa N° ' + result + ' ha sido creado!!!');
 
-   var href = "ModificaMapa.jsp?mapaId=" + result;
+   var href = "ModificaMapa.jsp?mapaId=" + result + "&observa=" + observa;
 
    parent.$("#modificaMapa").fancybox({
       'href': href,
@@ -54,8 +54,8 @@ function controlResponse(result) {
       'closeClick': true,
       'mouseWheel': true,
       'type': 'iframe',
-      'width': 800,
-      'height': 600
+      'width': 1200,
+      'height': 700
    });
    parent.$("#modificaMapa").trigger('click');
 

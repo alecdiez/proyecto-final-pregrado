@@ -6,19 +6,26 @@
 
 $(document).ready(function () {
 
-    var href = "GeneraMapaManual.jsp";
+   var href = "GeneraMapaManual.jsp";
 
-    $('#generaMapaManual').click(function () {
-        parent.$("#generaMapaManual").fancybox({
-            'href': href,
-            'padding': 5,
-            'overlayShow': false,
-            'closeClick': true,
-            'mouseWheel': true,
-            'type': 'iframe',
-            'width': 650,
-            'height': 300
-        });
-        parent.$("#generaMapaManual").trigger('click');
-    });
+   $('#generaMapaManual').click(function () {
+      parent.$("#generaMapaManual").fancybox({
+         'href': href,
+         'padding': 5,
+         'overlayShow': false,
+         'closeClick': true,
+         'mouseWheel': true,
+         'type': 'iframe',
+         'width': 650,
+         'height': 300
+      });
+      parent.$("#generaMapaManual").trigger('click');
+   });
+
+   $(".custom-input-file input:file").change(function () {
+      $(this).parent().find(".archivo").html($(this).val());
+   }).css('border-width', function () {
+      if (navigator.appName == "Microsoft Internet Explorer")
+         return 0;
+   });
 });
