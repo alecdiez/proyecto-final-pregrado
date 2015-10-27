@@ -11,7 +11,7 @@
 <link href="css/main.css" rel="stylesheet" />
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <script>
-    !window.jQuery && document.write('<script src="js/jquery-1.4.3.min.js"><\/script>');
+   !window.jQuery && document.write('<script src="js/jquery-1.4.3.min.js"><\/script>');
 </script>
 <script type="text/javascript" src="./js/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript" src="./js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
@@ -21,7 +21,7 @@
 <script src="js/ModificaMapa.js"></script>
 <%@include file="sessionControl.jsp"%>
 <%    String mapaId = request.getParameter("mapaId");
-    String observa = request.getParameter("observa");
+   String observa = request.getParameter("observa");
 %>
 <c:set var="mapaId" value="<%=mapaId%>" />
 <c:set var="observa" value="<%=observa%>" />
@@ -34,117 +34,132 @@
 <sql:setDataSource var="result" driver="com.mysql.jdbc.Driver"
                    url="${url}" user="${user}" password="${pass}" />
 <html>
-    <input type="hidden" name="mapaId" id="mapaId" value="${mapaId}" />
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <br>
-        <br>
-        <div align="center">
-            <h1 class="TextoTituloGris">Edicion Completa del Mapa N° ${mapaId}</h1><br>
-            <span class="TextoTituloGris"> Estado:</span> <select id="estado" class="ComboMedio" name="estado">
-                <option>ABIERTO</option>
-                <option>CERRADO</option>
-            </select><br><br>
-            <span class="TextoTituloGris"> Observaciones:<input class="ComboMedioLargo" id="observa" type="text"
-                                                                name="observa" value="${observa}" />
-                <img src="images/guard.png" title="Guarda Observaciones" id="imgObserva" style="cursor: pointer" width="25" height="25" alt="guard"/>
-                <br><br>
-                <table border="0" cellspacing="2" cellpadding="2">
-                    <thead>
-                        <tr>
-                            <th class="TextoTitulo">N° de Marker<font style="color: red">*</font></th>
-                            <th class="TextoTitulo">Nombre y Apellido<font style="color: red">*</font></th>
-                            <th class="TextoTitulo">Dirección<font style="color: red">*</font></th>
-                            <th class="TextoTitulo">Ciudad<font style="color: red">*</font></th>
-                            <th class="TextoTitulo">Provincia<font style="color: red">*</font></th>
-                            <th class="TextoTitulo">Latitud</th>
-                            <th class="TextoTitulo">Longitud</th>
-                            <th class="TextoTitulo">Venta</th>
-                            <th class="TextoTitulo">Entrega</th>
-                            <th class="TextoTitulo">Observaciones</th>
-                            <th class="TextoTitulo">Estado<font style="color: red">*</font></th>
-                        </tr>
-                    </thead>
-                    <tbody>
+   <input type="hidden" name="mapaId" id="mapaId" value="${mapaId}" />
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>JSP Page</title>
+   </head>
+   <body>
+      <br>
+      <br>
+      <div align="center">
+         <h1 class="TextoTituloGris">Edicion Completa del Mapa N° ${mapaId}</h1><br>
+         <span class="TextoTituloGris"> Estado:</span> <select id="estado" class="ComboMedio" name="estado">
+            <option>ABIERTO</option>
+            <option>CERRADO</option>
+         </select><br><br>
+         <span class="TextoTituloGris"> Observaciones:<input class="ComboMedioLargo" id="observa" type="text"
+                                                             name="observa" value="${observa}" />
+            <img src="images/guard.png" title="Guarda Observaciones" id="imgObserva" style="cursor: pointer" width="25" height="25" alt="guard"/>
+            <br><br>
+            <table border="0" cellspacing="2" cellpadding="2">
+               <thead>
+                  <tr>
+                     <th class="TextoTitulo">N° de Marker<font style="color: red">*</font></th>
+                     <th class="TextoTitulo">Nombre y Apellido<font style="color: red">*</font></th>
+                     <th class="TextoTitulo">Dirección<font style="color: red">*</font></th>
+                     <th class="TextoTitulo">Ciudad<font style="color: red">*</font></th>
+                     <th class="TextoTitulo">Provincia<font style="color: red">*</font></th>
+                     <th class="TextoTitulo">Latitud</th>
+                     <th class="TextoTitulo">Longitud</th>
+                     <th class="TextoTitulo">Venta</th>
+                     <th class="TextoTitulo">Entrega</th>
+                     <th class="TextoTitulo">Observaciones</th>
+                     <th class="TextoTitulo">Estado<font style="color: red">*</font></th>
+                  </tr>
+               </thead>
+               <tbody>
 
-                        <tr>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" readonly class="ComboChico" id="mapaMarkerId" name="" value="" />                                
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboMedio" id="mapaMarkerCliNomApe" name="" value="" />                                
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboMedio" id="mapaMarkerDireccion" name="" value="" />                                
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboChicoMedio" id="mapaMarkerCiudad" name="" value="" />                                
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboChicoMedio" id="mapaMarkerProvincia" name="" value="" />                               
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboChico" id="mapaMarkerLat" name="" value="" />                                
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboChico" id="mapaMarkerLong" name="" value="" />
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" class="ComboChico" id="mapaMarkerVenta" name="" value="" />
-                            </td>
-                            <td class="Cuadro"  align="center">                                
-                                <select id="mapaMarkerEntrega" class="ComboChico" name="estado">
-                                    <option>SI</option>
-                                    <option>NO</option>
-                                </select>
-                            </td>
-                            <td class="Cuadro"  align="center">
-                                <input type="text" id="mapaMarkerObserva" class="ComboChicoMedio" name="" value="" />
-                            </td>
-                            <td class="Cuadro" align="center" >
-                                <select id="mapaMarkerEstado" class="ComboChicoMedio" disabled name="estado">
-                                    <option>ABIERTO</option>
-                                    <option>CERRADO</option>
-                                </select>                                
-                            </td>
-                            <td class="Cuadro" id="guardaNuevaLinea" align="center">
-                                <img src="images/guard.png" title="Guarda Nuevo Marker" id="imgNuevoMarker" style="cursor: pointer" width="20" height="20" alt="guard"/>
-                            </td>
-                        </tr>
+                  <tr>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" readonly class="ComboChico" id="mapaMarkerId" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboMedio" id="mapaMarkerCliNomApe" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboMedio" id="mapaMarkerDireccion" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboChicoMedio" id="mapaMarkerCiudad" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboChicoMedio" id="mapaMarkerProvincia" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboChico" id="mapaMarkerLat" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboChico" id="mapaMarkerLong" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" class="ComboChico" id="mapaMarkerVenta" onKeyPress="return soloNumeros(event)" name="" value="" />
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <select id="mapaMarkerEntrega" class="ComboChico" name="entrega">
+                           <option>SI</option>
+                           <option>NO</option>
+                        </select>
+                     </td>
+                     <td class="Cuadro"  align="center">
+                        <input type="text" id="mapaMarkerObserva" class="ComboChicoMedio" name="" value="" />
+                     </td>
+                     <td class="Cuadro" align="center" >
+                        <select id="mapaMarkerEstado" class="ComboChicoMedio" name="estado">
+                           <option>ABIERTO</option>
+                           <option>CERRADO</option>
+                        </select>
+                     </td>
+                     <td class="Cuadro" id="guardaNuevaLinea" align="center">
+                        <img src="images/guard.png" title="Guarda Marker" id="imgNuevoMarker" style="cursor: pointer" width="20" height="20" alt="guard"/>
+                        <img src="images/cancela.png" title="Cancela Edición" id="imgCancela" style="cursor: pointer" width="20" height="20" alt="cancela"/>
+                     </td>
+                  </tr>
 
 
 
-                        <sql:query dataSource="${result}"
-                                   sql="${sqlGeneral}"
-                                   var="resultado" />
-                        <c:forEach var="fila" items="${resultado.rows}">
-                            <tr>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerId}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerCliNomApe}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerDirección}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerCiudad}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerProvincia}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerLat}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerLong}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerVenta}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerEntrega}</td>
-                                <td class="Cuadro" align="center">${fila.mapaMarkerObserva}</td>
-                                <td class="Cuadro" align="center">
-                                    <c:if test="${fila.mapaMarkerEstado eq '1'}" >
-                                        <c:set var="estadoFila" value="ABIERTO" />
-                                    </c:if>
-                                    <c:if test="${fila.mapaMarkerEstado eq '0'}" >
-                                        <c:set var="estadoFila" value="CERRADO" />
-                                    </c:if>
-                                    ${estadoFila}
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-        </div>
-    </body>
+                  <sql:query dataSource="${result}"
+                             sql="${sqlGeneral}"
+                             var="resultado" />
+                  <c:forEach var="fila" items="${resultado.rows}">
+                     <tr>
+                        <td class="Cuadro" id="${fila.mapaMarkerId}" align="center">${fila.mapaMarkerId}</td>
+                        <td class="Cuadro" id="mapaMarkerCliNomApe${fila.mapaMarkerId}" align="center">${fila.mapaMarkerCliNomApe}</td>
+                        <td class="Cuadro" id="mapaMarkerDireccion${fila.mapaMarkerId}" align="center">${fila.mapaMarkerDirección}</td>
+                        <td class="Cuadro" id="mapaMarkerCiudad${fila.mapaMarkerId}" align="center">${fila.mapaMarkerCiudad}</td>
+                        <td class="Cuadro" id="mapaMarkerProvincia${fila.mapaMarkerId}" align="center">${fila.mapaMarkerProvincia}</td>
+                        <td class="Cuadro" id="mapaMarkerLat${fila.mapaMarkerId}" align="center">${fila.mapaMarkerLat}</td>
+                        <td class="Cuadro" id="mapaMarkerLong${fila.mapaMarkerId}" align="center">${fila.mapaMarkerLong}</td>
+                        <td class="Cuadro" id="mapaMarkerVenta${fila.mapaMarkerId}" align="center">${fila.mapaMarkerVenta}</td>
+                        <td class="Cuadro" id="mapaMarkerEntrega${fila.mapaMarkerId}" align="center">
+                           <c:if test="${fila.mapaMarkerEntrega eq 'S'}" >
+                              <c:set var="entregaFila" value="SI" />
+                           </c:if>
+                           <c:if test="${fila.mapaMarkerEntrega eq 'N'}" >
+                              <c:set var="entregaFila" value="NO" />
+                           </c:if>
+                           ${entregaFila}
+                        </td>
+                        <td class="Cuadro" id="mapaMarkerObserva${fila.mapaMarkerId}" align="center">${fila.mapaMarkerObserva}</td>
+                        <td class="Cuadro" id="mapaMarkerEstado${fila.mapaMarkerId}" align="center">
+                           <c:if test="${fila.mapaMarkerEstado eq '1'}" >
+                              <c:set var="estadoFila" value="ABIERTO" />
+                           </c:if>
+                           <c:if test="${fila.mapaMarkerEstado eq '0'}" >
+                              <c:set var="estadoFila" value="CERRADO" />
+                           </c:if>
+                           ${estadoFila}
+                        </td>
+
+                        <td class="Cuadro" align="center">
+                           <c:if test="${fila.mapaMarkerEstado eq '1'}" >
+                              <img src="images/editar.png" title="Edita Marker" onclick="editaMarker(${fila.mapaMarkerId})" style="cursor: pointer" width="15" height="15" alt="edita"/>
+                           </c:if>
+                        </td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+      </div>
+   </body>
 </html>
