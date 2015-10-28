@@ -54,13 +54,13 @@
        FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
        WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId} 
        AND mapa.mapaEstado = ${estado}
-       GROUP BY mapa.mapaFecha LIMIT ${cantMax}" />
+       GROUP BY mapa.mapaFecha ORDER BY mapa.mapaFecha LIMIT ${cantMax}" />
 
 <c:if test="${estado eq ''}" >
     <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
            FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
            WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId}        
-           GROUP BY mapa.mapaFecha LIMIT ${cantMax}" />
+           GROUP BY mapa.mapaFecha ORDER BY mapa.mapaFecha LIMIT ${cantMax}" />
 </c:if>
 
 <c:if test="${isSuperAdmin eq 'true'}" >
@@ -68,16 +68,15 @@
            FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
            WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId 
            AND mapa.mapaEstado = ${estado}
-           GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId LIMIT ${cantMax}" />
+           GROUP BY mapa.mapaFecha ORDER BY mapa.mapaFecha LIMIT ${cantMax}" />
 
     <c:if test="${estado eq ''}" >
         <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
                FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
                WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId            
-               GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId LIMIT ${cantMax}" />        
+               GROUP BY mapa.mapaFecha ORDER BY mapa.mapaFecha LIMIT ${cantMax}" />        
     </c:if>
 </c:if>
-
 
 <html>
     <head>
@@ -94,17 +93,18 @@
 
             <sql:query dataSource="${result}" sql="${queryGeneral}"
                        var="datos" />
-
+            <c:set var="count" value="0" scope="page"/>
             <c:forEach var="fila" items="${datos.rows}" varStatus="theCount">
-                <c:if test="${fila.suma >= min && fila.suma <=max}" >
+                <c:if test="${fila.suma >= min && fila.suma <= max}" > 
                     <c:set var="count" value="${count + 1}" scope="page"/>
-                    <input type="hidden" id="usrId${theCount.count}" value="${fila.mapaUsrId}" />
-                    <input type="hidden" id="fecha${theCount.count}" value="${fila.mapaFecha}" />
-                    <input type="hidden" id="suma${theCount.count}" value="${fila.suma}" />
-                    <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
+                    <input type="hidden" id="usrId${count}" value="${fila.mapaUsrId}" />
+                    <input type="hidden" id="fecha${count}" value="${fila.mapaFecha}" />
+                    <input type="hidden" id="suma${count}" value="${fila.suma}" />
+                    <input type="hidden" id="usuario${count}" value="${fila.perUsuario}" />                    
                 </c:if>
             </c:forEach>                
             <input type="hidden" id="cantMapas" value="${count}" />
+
         </form>
     </body>
 </html>

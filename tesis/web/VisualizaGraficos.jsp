@@ -66,13 +66,13 @@
 <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
        FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
        WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId AND mapa.mapaUsrId = ${perId}
-       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha LIMIT ${cantMax}" />
+       AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaFecha LIMIT ${cantMax}" />
 
 <c:if test="${isSuperAdmin eq 'true'}" >
     <c:set var="queryGeneral" value="SELECT mapa.mapaUsrId, mapa.mapaFecha, SUM( mapamarker.mapamarkerVenta ) suma, personas.perUsuario
            FROM tesis.mapamarker AS mapamarker, tesis.mapa AS mapa, tesis.personas AS personas
            WHERE mapamarker.mapaId = mapa.mapaId AND mapa.mapaUsrId = personas.perId
-           AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaUsrId LIMIT ${cantMax}" />
+           AND DATE(mapaFecha) between '${fDesde}' and '${fHasta}' GROUP BY mapa.mapaFecha ORDER BY mapa.mapaFecha LIMIT ${cantMax}" />
 </c:if>
 
 
@@ -98,7 +98,7 @@
                 <input type="hidden" id="usuario${theCount.count}" value="${fila.perUsuario}" />
                 <c:set var="count" value="${count + 1}" scope="page"/>
             </c:forEach>
-                <input type="hidden" id="cantMapas" value="${count}" />
+            <input type="hidden" id="cantMapas" value="${count}" />
         </form>
     </body>
 </html>

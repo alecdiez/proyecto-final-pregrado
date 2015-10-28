@@ -17,7 +17,7 @@ google.setOnLoadCallback(dibujarGrafico);
 function getValue()
 {
     cantMapas = document.getElementById("cantMapas").value;
-    
+
     for (var i = 0; i < (parseInt(cantMapas) + 1); i++) {
 
         if (i == 0) {
