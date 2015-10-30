@@ -43,7 +43,7 @@
          <input type="text" id="observa" size="35" name="observa" value="" />
       </td>
       <td>
-         <input type="button" id="generaMapa" class="BotonTablaRoja" title="Genera Mapa" value="Generar Mapa" name="generaMapa" />
+         <input type="button" id="generaMapa" class="BotonTablaRoja" title="Genera Mapa" value="Nuevo Mapa" name="generaMapa" />
       </td>
 </tbody>
 
