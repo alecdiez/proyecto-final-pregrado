@@ -6,17 +6,20 @@
 
 $(document).ready(function () {
 
-    $('.TextoGrande').click(function () {
+    /*$('.TextoGrande').click(function () {
+     
+     $('.TextoGrande').each(function (i) {
+     if ($(this).hasClass('highlight')) {
+     $(this).removeClass('highlight');
+     }
+     });
+     
+     $(this).toggleClass('highlight');
+     buscaPrivilegios($(this).attr('id'));
+     });*/
 
-        $('.TextoGrande').each(function (i) {
-            if ($(this).hasClass('highlight')) {
-                $(this).removeClass('highlight');
-            }
-        });
-
-        $(this).toggleClass('highlight');
-        buscaPrivilegios($(this).attr('id'));
-    });
+    buscaPrivilegios($('.TextoGrande').attr('id'));
+    $('.TextoGrande').toggleClass('highlight');
 
     $('#asigPrivi').click(function () {
         asignaPrivilegios();

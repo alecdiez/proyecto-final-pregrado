@@ -171,7 +171,7 @@ root {
 .TextoTitulo
 {
    PADDING-RIGHT: 5px;
-   background-color:  #c40606;
+   background-color:  darkgreen;
    PADDING-LEFT: 5px;
    FONT-WEIGHT: bold;
    FONT-SIZE: 12px;
@@ -253,7 +253,7 @@ root {
 {
    PADDING-RIGHT: 2px;
    PADDING-LEFT: 2px;
-   FONT-SIZE: 10px;
+   FONT-SIZE: 14px;
    CURSOR: hand;
    color: #454444;
    FONT-FAMILY: Tahoma, Verdana;

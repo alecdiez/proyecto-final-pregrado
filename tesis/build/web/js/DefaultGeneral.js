@@ -59,7 +59,7 @@ $(document).ready(function () {
         'width': 600,
         'height': 350
     });
-    $("#asignaPrivilegio").fancybox({
+    $("#asignaPrivilegioPer").fancybox({
         'padding': 5,
         'overlayShow': false,
         'closeClick': true,

@@ -34,7 +34,11 @@ $(document).ready(function () {
         var radio = $('input[type="radio"]:checked').val()
 
         if (fechaDesde == '' || fechaHasta == '') {
-            alert('Recuerde ingresar las fechas para buscar los Mapas!!');
+            var error = [];
+            error[0] = fechaDesde == '' ? 'Fecha Desde -' : ' - ';
+            error[1] = fechaHasta == '' ? 'Fecha Hasta' : ' - ';
+
+            alert('Recuerde ingresar las fechas para buscar los Mapas!! - Falta:' + error[0] + '' + error[1]);
         } else {
             parent.$('#fDesde').val(fechaDesde);
             parent.$('#fHasta').val(fechaHasta);

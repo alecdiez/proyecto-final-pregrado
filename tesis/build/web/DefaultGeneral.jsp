@@ -33,6 +33,7 @@
         <a id="visGraficosPorVentas" href="VisGraficosPorVentas.jsp" style="display: none" >Graficos</a>
         <a id="generaMapaManual" href="GeneraMapaManual.jsp" style="display: none" >Graficos</a>
         <a id="modificaMapa" href="ModificaMapa.jsp" style="display: none" >Mapa</a>
+        <a id="asignaPrivilegio" href="AsignaPrivilegio.jsp" style="display: none" >Asigna</a>
         <input type="hidden" id="fDesde" value="">
         <input type="hidden" id="fHasta" value="">
     </body>

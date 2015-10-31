@@ -51,7 +51,9 @@
         <br>
         <br>
         <div align="center">
-            <h1 class="TextoTituloGris">Edicion Completa del Mapa N° ${mapaId} - Creado el día ${fec} a las ${hora} hs. </h1><br>
+            <h1 class="TextoTituloGris">Edicion Completa del Mapa N° ${mapaId} - Creado el día ${fec} a las ${hora} hs.&nbsp;&nbsp;&nbsp;
+                <img src="images/XtpTm.png" onclick="abreMapa(${mapaId})" style="cursor: pointer" title="Abre Mapa N° ${mapaId}" width="25" height="25" alt="XtpTm"/>
+            </h1><br>
             <span class="TextoTituloGris"> Estado:</span> <select id="estado" class="ComboMedio" name="estado">
                 <option>ABIERTO</option>
                 <option>CERRADO</option>
@@ -63,7 +65,7 @@
                 <table border="0" cellspacing="2" cellpadding="2">
                     <thead>
                         <tr>
-                            <th class="TextoTitulo">N° de Marker<font style="color: red">*</font></th>
+                            <th class="TextoTitulo">N° de Marker</th>
                             <th class="TextoTitulo">Nombre y Apellido<font style="color: red">*</font></th>
                             <th class="TextoTitulo">Dirección<font style="color: red">*</font></th>
                             <th class="TextoTitulo">Ciudad<font style="color: red">*</font></th>

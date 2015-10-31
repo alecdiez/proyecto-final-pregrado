@@ -29,8 +29,8 @@
             <table border="0" id="tabla" cellpadding="20">
                 <tr>
                     <td align="left" class="TextoLinea"><p>FECHAS:</p></td>
-                    <td align="left" class="TextoLinea"><p>Fecha Desde: <input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
-                    <td align="right" class="TextoLinea"><p>Fecha Hasta: <input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
+                    <td align="left" class="TextoLinea"><p>Fecha Desde: <font style="color: red">*</font><input type="text" style="color: #666" id="fechaDesde" readonly></p></td>
+                    <td align="right" class="TextoLinea"><p>Fecha Hasta: <font style="color: red">*</font><input type="text" style="color: #666" id="fechaHasta" readonly></p></td>
                 </tr>
                 <tr>
                     <td align="left" class="TextoLinea"><p>ESTADOS:</p></td>
