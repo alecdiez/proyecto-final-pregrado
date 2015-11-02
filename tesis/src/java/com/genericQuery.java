@@ -33,7 +33,7 @@ import utl.TextFormat;
 public class genericQuery extends HttpServlet implements finalVariables {
 
     private Connection connection = null;
-    private PreparedStatement pst = null;   
+    private PreparedStatement pst = null;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -53,10 +53,14 @@ public class genericQuery extends HttpServlet implements finalVariables {
         HttpSession session = request.getSession();
         PrintWriter out = response.getWriter();
         session.removeAttribute("empty");
+        String usr = null;
+        String pass = null;
+        String clienteIpNumero = null;
         ArrayList<String> usrLogOn = new ArrayList<String>();
         try {
-            String usr = TextFormat.toStringNeverNull(request.getParameter("usuario"));
-            String pass = TextFormat.toStringNeverNull(request.getParameter("password"));
+            usr = TextFormat.toStringNeverNull(request.getParameter("usuario"));
+            pass = TextFormat.toStringNeverNull(request.getParameter("password"));
+            clienteIpNumero = TextFormat.toStringNeverNull(request.getParameter("clienteIpNumero"));
             doConnect();
             usrLogOn = Login(usr, pass);
             doConnectClose();
@@ -64,7 +68,7 @@ public class genericQuery extends HttpServlet implements finalVariables {
             Logger.getLogger(genericQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        sessionLogin(usrLogOn, session);        
+        sessionLogin(usrLogOn, session);
         out.println("<script>");
         if (!usrLogOn.get(0).equals("empty")) {
             out.println("window.open('DatosPersona.jsp','alto')");
@@ -72,24 +76,56 @@ public class genericQuery extends HttpServlet implements finalVariables {
         } else {
             out.println("window.open('Login.jsp?','alto')");
         }
+        insertaAuditLogin(usr, pass, clienteIpNumero, session);
         out.println("</script>");
+    }
+
+    public void insertaAuditLogin(String usr, String pass, String ip, HttpSession session) {
+        try {
+            String isConnected = session.getAttribute("empty") != null ? "N" : "S";
+            int usrId = TextFormat.toStringNeverNull(session.getAttribute("perId")).isEmpty() ? 0 : Integer.parseInt(TextFormat.toStringNeverNull(session.getAttribute("perId")));
+            doConnect();
+            String execute = "INSERT INTO tesis.audit_login\n"
+                    + "(audtiLoginUsrId,\n"
+                    + "auditLoginUsr,\n"
+                    + "auditLoginPass,\n"
+                    + "auditLoginIP,\n"
+                    + "auditLoginFecha,\n"
+                    + "auditLoginConectado)\n"
+                    + "VALUES\n"
+                    + "('" + usrId + "',\n"
+                    + "'" + TextFormat.toStringNeverNull(usr) + "',\n"
+                    + "'" + TextFormat.toStringNeverNull(pass) + "',\n"
+                    + "'" + ip + "',\n"
+                    + "NOW(),\n"
+                    + "'" + isConnected + "');";
+
+            this.pst = (PreparedStatement) getConnection().prepareStatement(execute);
+            pst.executeUpdate(execute);
+
+            doConnectClose();
+
+        } catch (InstantiationException | IllegalAccessException | SQLException ex) {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
     }
 
     public void sessionLogin(ArrayList<String> usrData, HttpSession session) {
 
         for (int i = 0; i < usrData.size(); i++) {
             if (!usrData.get(i).equals("empty")) {
-                if (i==0) {
+                if (i == 0) {
                     session.setAttribute("perId", usrData.get(i));
                 }
-                if (i==1) {
+                if (i == 1) {
                     session.setAttribute("perUsuario", usrData.get(i));
                 }
-                if (i==2) {
+                if (i == 2) {
                     session.setAttribute("perPass", usrData.get(i));
                 }
-                if (i==3) {
-                    session.setAttribute("perNom", usrData.get(i));                    
+                if (i == 3) {
+                    session.setAttribute("perNom", usrData.get(i));
                 }
 
             } else {
@@ -163,5 +199,5 @@ public class genericQuery extends HttpServlet implements finalVariables {
 
     public void setPst(PreparedStatement pst) {
         this.pst = pst;
-    }   
+    }
 }

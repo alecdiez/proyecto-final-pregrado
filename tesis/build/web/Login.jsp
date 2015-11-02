@@ -13,7 +13,9 @@
         <link href="css/main.css" rel="stylesheet"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/Login.js"></script>
-
+        <%
+            String clienteIpNumero = request.getLocalAddr();
+        %>
 
     </head>
     <body>
@@ -33,6 +35,7 @@
                                     <tr>
                                         <td><label  class="Texto" >Usuario:</label>&nbsp;<input name="usuario" id="usuario" type="text" class="ComboMedio"  value="" align="rigth" />&nbsp</td>
                                         <td><label  class="Texto">Contraseña:</label>&nbsp;<input name="password" id="password" type="password" class="ComboMedio" value="" align="rigth"/>&nbsp&nbsp</td>
+                                    <input type="hidden" name="clienteIpNumero" value="<%=clienteIpNumero%>" />
                                     </tr>
 
                                 </table>
