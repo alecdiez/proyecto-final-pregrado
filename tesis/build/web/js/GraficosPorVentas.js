@@ -15,7 +15,11 @@ $(document).ready(function () {
         var radio = $('input[type="radio"]:checked').val()
 
         if (min == '' || max == '' || cantMax == '') {
-            alert('Recuerde ingresar los datos Requeridos!!');
+            var error = [];
+            error[0] = min == '' ? 'Minimo -' : ' - ';
+            error[1] = max == '' ? 'Maximo -' : ' - ';
+            error[2] = cantMax == '' ? 'Cantidad Maxima' : '';
+            alert('Recuerde ingresar los datos Requeridos!! - Falta:' + error[0] + '' + error[1] + '' + error[2]);
         } else {
             if (typeof radio === "undefined") {
                 radio = '';

@@ -61,7 +61,7 @@ function dibujarGrafico() {
         }
 
     } else {
-        alert('No existe ningun mapa generado entre las Fechas Seleccionadas!!!');
+        alert('No existe ningun mapa generado entre los montos Seleccionados!!!');
 
         parent.$("#graficosPorVentas").trigger('click');
     }
