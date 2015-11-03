@@ -112,6 +112,6 @@ $(document).ready(function () {
         'mouseWheel': true,
         'type': 'iframe',
         'width': 900,
-        'height': 600
+        'height': 400
     });
 });

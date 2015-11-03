@@ -12,6 +12,7 @@
 <script type="text/javascript" src="js/jquery.alerts.js"></script>
 <link href="js/jquery.alerts.css" rel="stylesheet" type="text/css" />
 <script src="js/AuditLogin.js"></script>
+<script src="js/pager.js"></script>
 <link href="css/main.css" rel="stylesheet"/>
 <!DOCTYPE html>
 <c:set var="url" value="<%=finalVariables.url%>" />
@@ -60,6 +61,13 @@
                     </c:forEach>
                 </tbody>
             </table>
+            <div style="border:0" id="pageNavPosition"></div>
+            <script>
+                var pager = new Pager('tabla', 10);
+                pager.init();
+                pager.showPageNav('pager', 'pageNavPosition');
+                pager.showPage(1);
+            </script>
         </div>
     </body>
 </html>
