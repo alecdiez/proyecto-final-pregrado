@@ -104,4 +104,14 @@ $(document).ready(function () {
         'width': 600,
         'height': 350
     });
+
+    $("#auditLogin").fancybox({
+        'padding': 5,
+        'overlayShow': false,
+        'closeClick': true,
+        'mouseWheel': true,
+        'type': 'iframe',
+        'width': 900,
+        'height': 600
+    });
 });

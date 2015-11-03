@@ -117,6 +117,15 @@ public class AsignaMenu {
                     + "<li  style=\"cursor: pointer\"><a id=\"graficosPorVentas\" href=\"GraficosPorVentas.jsp\" title=\"GRAFICOS POR VENTA\">Ver Graficos por Ventas</a></li>\n"
                     + "</ul></li>\n";
         }
+
+        if (privilegios.contains("SuperAdmin")) {
+             menu += "</ul></li>";
+            menu += " <li><a href=\"#\">Administración</a><ul>\n";
+            menu += "                <li style=\"cursor: pointer\"><a id=\"auditLogin\" href=\"AuditLogin.jsp\">Audit Login</a></li>\n";
+            menu += "</ul></li>";
+
+        }
+
         menu += "    </ul>";
         menu += "    </li>";
 
