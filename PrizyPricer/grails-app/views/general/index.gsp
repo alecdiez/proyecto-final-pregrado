@@ -13,7 +13,19 @@
    </head>
    <body>
       <h1>
+         <g:if test="${'admin' == 'admin'}">
+            <g:each in="${[1,2,3]}" var="num">
+               <p>Number ${num}</p>
+            </g:each>
 
-</h1>
+            <g:set var="num" value="${1}" />
+            <g:while test="${num < 5 }">
+               <p>Number ${num++}</p>
+            </g:while>
+         </g:if>
+         <g:else>
+            no
+         </g:else>
+      </h1>
    </body>
 </html>
