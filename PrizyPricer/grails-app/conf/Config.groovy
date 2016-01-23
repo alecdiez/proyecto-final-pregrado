@@ -15,24 +15,26 @@ grails.project.groupId = appName // change this to alter the default package nam
 grails.mime.file.extensions = true // enables the parsing of file extensions from URLs into the request format
 grails.mime.use.accept.header = false
 grails.mime.types = [ html: ['text/html','application/xhtml+xml'],
-                      xml: ['text/xml', 'application/xml'],
-                      text: 'text/plain',
-                      js: 'text/javascript',
-                      rss: 'application/rss+xml',
-                      atom: 'application/atom+xml',
-                      css: 'text/css',
-                      csv: 'text/csv',
-                      all: '*/*',
-                      json: ['application/json','text/json'],
-                      form: 'application/x-www-form-urlencoded',
-                      multipartForm: 'multipart/form-data'
-                    ]
+    xml: ['text/xml', 'application/xml'],
+    text: 'text/plain',
+    js: 'text/javascript',
+    rss: 'application/rss+xml',
+    atom: 'application/atom+xml',
+    css: 'text/css',
+    csv: 'text/csv',
+    all: '*/*',
+    json: ['application/json','text/json'],
+    form: 'application/x-www-form-urlencoded',
+    multipartForm: 'multipart/form-data'
+]
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
 // What URL patterns should be processed by the resources plugin
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
+
+grails.resources.adhoc.includes = ['/images/**', '/css/**', '/js/**', '/img/**']
 
 
 // The default codec used to encode data with ${}
