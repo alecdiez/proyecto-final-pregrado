@@ -36,6 +36,8 @@ grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
 grails.resources.adhoc.includes = ['/images/**', '/css/**', '/js/**', '/img/**']
 
+grails.views.javascript.library="jquery"
+
 
 // The default codec used to encode data with ${}
 grails.views.default.codec = "none" // none, html, base64
