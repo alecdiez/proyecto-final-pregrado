@@ -36,7 +36,7 @@
                         <td>${price.prices_PRICE}</td>
                         <td>${price.prices_NOTES}</td>                        
                     </tr>             
-                </g:each>
+                </g:each>                
             </tbody>     
         </table>                      
     </center>

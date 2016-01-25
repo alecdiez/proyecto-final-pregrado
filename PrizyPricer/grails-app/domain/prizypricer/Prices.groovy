@@ -5,7 +5,7 @@ import prizypricer.Product
 class Prices implements Serializable{
 
    Long prices_ID = 0L;
-   String prices_BAR_CODE = "";
+   Long prices_BAR_CODE = 0L;
    Double prices_PRICE = 0d;
    String prices_NOTES = "";
 
