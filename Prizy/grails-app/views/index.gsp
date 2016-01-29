@@ -39,7 +39,7 @@
                 <td>
                     <div class="styleGreen" style="text-align: center; height:250px; width: 250px; position: absolute;">
 
-                        <g:link controller="researcher" action="researcher">
+                        <g:link controller="researcher" action="index">
                             <p>IF YOU ARE A PRICE RESEARCHER</p>
                             <p>PRESS HERE</p>
                         </g:link>
@@ -48,7 +48,7 @@
                 <td>
 
                     <div class="styleGreen" style="text-align: center; height:250px; width: 250px; position: absolute;">
-                        <g:link controller="admin" action="admin">
+                        <g:link controller="admin" action="index">
                             <p>IF YOU ARE AN ADMINISTRATOR</p>
                             <p>PRESS HERE</p>
                         </g:link>

@@ -17,19 +17,19 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:postgresql://localhost:5432/prizypricer"
+            url = "jdbc:postgresql://localhost:5432/prizy"
         }
     }
     test {
         dataSource {
-            dbCreate = "create"
-            url = "jdbc:postgresql://localhost:5432/prizypricer"
+            dbCreate = "update"
+            url = "jdbc:postgresql://localhost:5432/prizy"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:postgresql://localhost:5432/prizypricer"
+            url = "jdbc:postgresql://localhost:5432/prizy"
             pooled = true
             properties {
                maxActive = -1

@@ -4,15 +4,14 @@ import prizy.Product
 
 class Prices implements Serializable{
 
-   Long prices_ID = 0L;
-   Long prices_BAR_CODE = 0L;
-   BigDecimal prices_PRICE = 0d;
-   String prices_NOTES = "";
+   Long pricesId = 0L;
+   Long pricesBarCode = 0L;
+   BigDecimal pricesPrice = new BigDecimal(0);
+   String pricesNotes = "";
 
    static mapping = {
-      id generator: 'increment', name: 'prices_ID'
+      id generator: 'increment', name: 'pricesId'
       version false
    }
-
-   static belongsTo = [prices_ID:Product]
+   static belongsTo = [pricesId:Product]
 }
