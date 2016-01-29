@@ -1,122 +1,61 @@
-<!doctype html>
+<!--
+  To change this license header, choose License Headers in Project Properties.
+  To change this template file, choose Tools | Templates
+  and open the template in the editor.
+-->
+
+<%@ page contentType="text/html;charset=UTF-8" %>
+
 <html>
-	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" type="image/x-icon" href="http://sia1.subirimagenes.net/img/2015/05/29/150529111542371236.jpg" />
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+        <title>Welcome to PRYZY</title>
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
-            
-			#status li {
-				line-height: 1.3;
-			}
+        <style>
+            div { color: #7c795d; font-family: 'Trocchi', serif; font-size: 25px; font-weight: normal; line-height: 48px; margin: 0; }
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+            a:link, a:visited {
+            background-color: #f44336;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            }
 
-			#page-body {
-				margin: 2em 1em 1.25em 18em;
-			}
 
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
+            a:hover, a:active {
+            background-color: red;
+            }
+        </style>
 
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
+    </head>
+    <body>
+        <div align="center"><img src="${resource(dir: 'images', file: 'prizy.png')}" alt="logo"/></div>
+        <div align="center"><img src="${resource(dir: 'images', file: 'prizy2.png')}" alt="logo"/></div>
+        <table align="center" width="60%" border="0" cellspacing="100">
+            <tr>
+                <td>
+                    <div class="styleGreen" style="text-align: center; height:250px; width: 250px; position: absolute;">
 
-			#controller-list ul {
-				list-style-position: inside;
-			}
+                        <g:link controller="researcher" action="researcher">
+                            <p>IF YOU ARE A PRICE RESEARCHER</p>
+                            <p>PRESS HERE</p>
+                        </g:link>
+                    </div>
+                </td>
+                <td>
 
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
+                    <div class="styleGreen" style="text-align: center; height:250px; width: 250px; position: absolute;">
+                        <g:link controller="admin" action="admin">
+                            <p>IF YOU ARE AN ADMINISTRATOR</p>
+                            <p>PRESS HERE</p>
+                        </g:link>
+                    </div>
 
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<a href="#page-body" class="skip"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div id="status" role="complementary">
-			<h1>Application Status</h1>
-			<ul>
-				<li>App version: <g:meta name="app.version"/></li>
-				<li>Grails version: <g:meta name="app.grails.version"/></li>
-				<li>Groovy version: ${org.codehaus.groovy.runtime.InvokerHelper.getVersion()}</li>
-				<li>JVM version: ${System.getProperty('java.version')}</li>
-				<li>Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</li>
-				<li>Controllers: ${grailsApplication.controllerClasses.size()}</li>
-				<li>Domains: ${grailsApplication.domainClasses.size()}</li>
-				<li>Services: ${grailsApplication.serviceClasses.size()}</li>
-				<li>Tag Libraries: ${grailsApplication.tagLibClasses.size()}</li>
-			</ul>
-			<h1>Installed Plugins</h1>
-			<ul>
-				<g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-					<li>${plugin.name} - ${plugin.version}</li>
-				</g:each>
-			</ul>
-		</div>
-		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
-			<p>Congratulations, you have successfully started your first Grails application! At the moment
-			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
-			   content you may choose. Below is a list of controllers that are currently deployed in this application,
-			   click on each to execute its default action:</p>
-
-			<div id="controller-list" role="navigation">
-				<h2>Available Controllers:</h2>
-				<ul>
-					<g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-						<li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-					</g:each>
-				</ul>
-			</div>
-		</div>
-	</body>
+                </td>
+            </tr>
+        </table>
+    </body>
 </html>
