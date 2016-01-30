@@ -4,43 +4,35 @@ import prizy.Product
 
 class AdminController {
 
-   def index() {
-      def barcode = params.barcode
-      def products = "";
-      if (!barcode) {
-         products = Product.listOrderByProductId(order: "desc")
-         [products: products]
-      }else{
-         products = Product.findAll("from Product as p " +
+    def index() {
+        def barcode = params.barcode
+        def products = ""
+        if (!barcode) {
+            products = Product.listOrderByProductId(order: "desc")            
+            [products: products]
+        }else{          
+            products = Product.findAll("from Product as p " +
                          "where str(p.productBarCode) like :barcode",
-            [barcode: '%' + barcode + '%'])
-         [products: products, barcode:barcode]
-      }
-   }
+                [barcode: '%' + barcode + '%'])
+            [products: products, barcode:barcode]
+        }
+    }
+    
+    def newproduct() {
+        def code = params.code
+        def desc = params.desc
+        def barCode = params.barcode       
 
-   def newproduct() {
-
-      def code = params.code
-      def desc = params.desc
-      def barcode = params.barcode
-      def error = "ERROR to Save the new Product!"
-
-      if(code && barcode && barcode.toString().length() == 12){
-         def pro = new Product()
-         pro.setProductCode(code)
-         pro.setProductBarCode(Long.parseLong(barcode))
-         pro.setProductDesc(desc)
-         if(pro.save()){
-            redirect(controller: "admin", action: "index", params: [barcode: barcode])
-         }else{
-            [error: error]
-         }
-      }else{
-         if(barcode && barcode.toString().length() != 12){
-            [error: error]
-         }
-      }
-
-   }
-
+        if(code && barCode){
+            def pro = new Product()
+            pro.setProductCode(code)
+            pro.setProductDesc(desc)
+            pro.setProductBarCode(Long.parseLong(barCode))
+            if(pro.save(flush: true, failOnError: false)){
+                redirect(controller: "admin", action: "index", params: [barCode: barCode])
+            }else{                
+                [error: "Error to Save new Product!"]
+            }
+        }
+    }    
 }

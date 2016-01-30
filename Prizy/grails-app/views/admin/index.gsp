@@ -60,10 +60,10 @@
                </tr>
             </g:each>
          </tbody>
-      </table>
+      </table>      
       <g:if test="${products.empty}">
          No product is found
-      </g:if>
+      </g:if>      
    </center>
 </body>
 </html>
