@@ -27,9 +27,9 @@ class AdminController {
 
       if(code && barcode && barcode.toString().length() == 12){
          def pro = new Product()
-         pro.setProduct_CODE(code)
-         pro.setProduct_BAR_CODE(Long.parseLong(barcode))
-         pro.setProduct_DESC(desc)
+         pro.setProductCode(code)
+         pro.setProductBarCode(Long.parseLong(barcode))
+         pro.setProductDesc(desc)
          if(pro.save()){
             redirect(controller: "admin", action: "index", params: [barcode: barcode])
          }else{

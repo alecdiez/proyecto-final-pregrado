@@ -18,7 +18,7 @@
    <center>
       <table width="70%"><tr><td><div align="right"><g:link uri="/">Go Back</g:link></div></td></tr></table><br>
          <h1 align="center">List of Products</h1>
-      <g:form action="admin">
+      <g:form action="index">
          <table width="70%"><tr><td>Search By Bar Code: <g:field type="number" name="barcode" value="${barcode}"/>
                   <g:submitButton name="search" value="Go" />
                </td><td align="right"><g:link controller="admin" action="newproduct">Add New Product</g:link></td></tr></table>
@@ -53,7 +53,7 @@
                         ${product.productIdealPrice}
                      </g:else>
                   </td>
-                  <td>${product.productAvaragePrice}</td>
+                  <td>${product.productAveragePrice}</td>
                   <td>${product.productHighestPrice}</td>
                   <td>${product.productLowestPrice}</td>
                   <td>${product.productNumberOfPrices}</td>
