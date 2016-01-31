@@ -1,6 +1,7 @@
 package com.admin
 
 import prizy.Product
+import prizy.IdealPriceFormula
 
 class AdminController {
 
@@ -34,5 +35,29 @@ class AdminController {
                 [error: "Error to Save new Product!"]
             }
         }
-    }    
+    }
+    
+    def idealpriceformula(){
+        def formulas = IdealPriceFormula.findAll("from IdealPriceFormula as i order by idealPriceFormulaIsUsed desc, idealPriceFormulaId desc") 
+        def formulaUsed = IdealPriceFormula.findByIdealPriceFormulaIsUsed('S')
+        
+        def percentage = params.percentage
+        def max = params.max
+        def min = params.min
+        
+        if(percentage && max && min){
+            IdealPriceFormula ipf = new IdealPriceFormula()            
+            ipf.setIdealPriceFormulaPercentage(percentage)
+            ipf.setIdealPriceFormulaMax(max)
+            ipf.setIdealPriceFormulaMin(min)
+            ipf.setIdealPriceFormulaIsUsed('N')
+            if(ipf.save(flush: true, failOnError: false)){
+                redirect(controller: "admin", action: "idealpriceformula")
+            }else{                
+                [error: "Error to Save new Formula!"]
+            }            
+        }
+            
+        [formulas: formulas, formulaUsed: formulaUsed]
+    }
 }

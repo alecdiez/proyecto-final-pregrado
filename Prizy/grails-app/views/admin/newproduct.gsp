@@ -45,13 +45,7 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            <g:hasErrors bean="${product}">
-                                <ul>
-                                    <g:eachError var="err" bean="${product}">
-                                        <li><g:message error="${err}" /></li>
-                                        </g:eachError>
-                                </ul>
-                            </g:hasErrors>
+                            ${error}
                         </td>
                         <td align="left"><g:submitButton name="submit" value="SAVE"/></td>
                     </tr>

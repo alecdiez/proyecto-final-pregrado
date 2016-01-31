@@ -125,3 +125,7 @@ h1 {
 #products tbody tr td.lalign {
   text-align: left;
 }
+
+.red{
+    color: red !important;
+}

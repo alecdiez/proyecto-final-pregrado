@@ -9,10 +9,10 @@ class ResearcherController {
         def max = ""
         def avg = ""
         def min = ""
-        def total= ""
+        def total = ""
 
         def productId = params.productId
-        def productBarCode = params.productbarcode
+        def productBarCode = params.productBarCode
         def prices = Prices.listOrderByPricesId(order: "desc")
 
         if(productId){
@@ -20,18 +20,19 @@ class ResearcherController {
                                                   " from Prices as p where p.pricesBarCode = :bc",
                 [bc:Long.parseLong(productBarCode)])
 
-            avg = data[0][0]
-            max = data[0][1]
-            min = data[0][2]
+            avg = new BigDecimal(data[0][0])
+            max = new BigDecimal(data[0][1])
+            min = new BigDecimal(data[0][2])
             total = data[0][3]        
 
-            def idealPrice = ""
-
-            if(!idealPrice){
-                idealPrice = 0d
-            }            
+            BigDecimal idealPrice = new BigDecimal(0)
+            
+            Product product = Product.findByProductId(Long.parseLong(productId))
             product.executeUpdate("update Product set productHighestPrice = ?, productAveragePrice = ?, productLowestPrice = ?," +
-                                                    "productNumberOfPrices = ?, productIdealPrice = ? where productId = ?", [max, avg , min , total, idealPrice, Long.parseLong(productId)])
+                                   "productNumberOfPrices = ?, productIdealPrice = ? where productId = ?",
+                [max, avg , min , total, idealPrice, Long.parseLong(productId)])
+                                               
+           
         }
         [prices: prices]       
     }
@@ -42,8 +43,8 @@ class ResearcherController {
         def barCode = params.barcode     
 
         if(barCode && price){          
-            def product = Product.exists(Long.parseLong(barCode)) 
-            if(product){
+            Product product = Product.findByProductBarCode(Long.parseLong(barCode))
+            if(product.getProductBarCode() == Long.parseLong(barCode)){
                 Prices pri = new Prices()
                 pri.setPricesBarCode(Long.parseLong(barCode))
                 pri.setPricesPrice(new BigDecimal(price))

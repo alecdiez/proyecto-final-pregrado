@@ -21,7 +21,8 @@
       <g:form action="index">
          <table width="70%"><tr><td>Search By Bar Code: <g:field type="number" name="barcode" value="${barcode}"/>
                   <g:submitButton name="search" value="Go" />
-               </td><td align="right"><g:link controller="admin" action="newproduct">Add New Product</g:link></td></tr></table>
+                 </td><td><g:link controller="admin" action="idealpriceformula">Ideal Price Formula</g:link></td>
+                 <td align="right"><g:link controller="admin" action="newproduct">Add New Product</g:link></td></tr></table>
             </g:form>
 
       <table id="products">
