@@ -70,7 +70,7 @@ class ResearcherController {
 
       if(barCode && price){
          Product product = Product.findByProductBarCode(Long.parseLong(barCode))
-         if(product.getProductBarCode() == Long.parseLong(barCode)){
+         if(product){
             Prices pri = new Prices()
             pri.setPricesBarCode(Long.parseLong(barCode))
             pri.setPricesPrice(new BigDecimal(price))
