@@ -37,6 +37,7 @@
                <th>Highest Price</th>
                <th>Lowest Price</th>
                <th>Prices UpLoaded</th>
+               <th>Formula Used - ID</th>
             </tr>
          </thead>
          <tbody>
@@ -58,13 +59,14 @@
                   <td>${product.productHighestPrice}</td>
                   <td>${product.productLowestPrice}</td>
                   <td>${product.productNumberOfPrices}</td>
+                  <td>${product.productFormulaId}</td>
                </tr>
             </g:each>
          </tbody>
-      </table>      
+      </table>
       <g:if test="${products.empty}">
          No product is found
-      </g:if>      
+      </g:if>
    </center>
 </body>
 </html>

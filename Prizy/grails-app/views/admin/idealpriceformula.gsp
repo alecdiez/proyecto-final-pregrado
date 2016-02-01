@@ -60,7 +60,7 @@
                <th>Date Of Birth</th>
                <th>Max</th>
                <th>Min</th>
-               <th>Percentage</th>
+               <th>Percentage %</th>
                <th>Is Used</th>
                <th>Select Formula</th>
             </tr>
