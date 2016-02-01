@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="1" hostname="bizdes034" id="0" name="AdminControllerTests" package="com.admin" tests="1" time="2.734" timestamp="2016-02-01T19:17:20">
+      <properties />
+
+      <testcase classname="com.admin.AdminControllerTests" name="testSomething" time="2.578">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at com.admin.AdminControllerTests.testSomething(AdminControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="bizdes034" id="1" name="ResearcherControllerTests" package="com.researcher" tests="1" time="1.171" timestamp="2016-02-01T19:17:22">
+      <properties />
+
+      <testcase classname="com.researcher.ResearcherControllerTests" name="testSomething" time="0.343">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at com.researcher.ResearcherControllerTests.testSomething(ResearcherControllerTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="bizdes034" id="2" name="IdealPriceFormulaTests" package="prizy" tests="1" time="0.75" timestamp="2016-02-01T19:17:24">
+      <properties />
+
+      <testcase classname="prizy.IdealPriceFormulaTests" name="testSomething" time="0.625">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at prizy.IdealPriceFormulaTests.testSomething(IdealPriceFormulaTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="bizdes034" id="3" name="PricesTests" package="prizy" tests="1" time="0.5" timestamp="2016-02-01T19:17:24">
+      <properties />
+
+      <testcase classname="prizy.PricesTests" name="testSomething" time="0.218">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at prizy.PricesTests.testSomething(PricesTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="1" hostname="bizdes034" id="4" name="ProductTests" package="prizy" tests="1" time="0.172" timestamp="2016-02-01T19:17:25">
+      <properties />
+
+      <testcase classname="prizy.ProductTests" name="testSomething" time="0.172">
+          <failure message="java.lang.AssertionError: Implement me" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: java.lang.AssertionError: Implement me
+	at prizy.ProductTests.testSomething(ProductTests.groovy:15)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from testSomething--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from testSomething--
+]]></system-err>
+
+  </testsuite>
+</testsuites>
