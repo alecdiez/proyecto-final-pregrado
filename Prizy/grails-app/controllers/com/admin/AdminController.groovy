@@ -6,16 +6,14 @@ import prizy.IdealPriceFormula
 class AdminController {
 
    def index() {
-      def barcode = params.barcode
-      def products = ""
-      if (!barcode) {
+      def barCode = params.barcode
+      def products
+      if (!barCode) {
          products = Product.listOrderByProductId(order: "desc")
          [products: products]
       }else{
-         products = Product.findAll("from Product as p " +
-                         "where str(p.productBarCode) like :barcode",
-            [barcode: '%' + barcode + '%'])
-         [products: products, barcode:barcode]
+         products = Product.listFoundProducts(barCode)
+         [products: products, barCode: barCode]
       }
    }
 

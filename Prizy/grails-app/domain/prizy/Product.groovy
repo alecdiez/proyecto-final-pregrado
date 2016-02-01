@@ -25,4 +25,11 @@ class Product implements Serializable {
       version false
    }
    static hasMany = [productId:Prices]
+
+   def listFoundProducts(String barCode){
+      Product products = Product.findAll("from Product as p " +
+                         "where str(p.productBarCode) like :bc",
+         [bc: '%' + barCode + '%'])
+      return [products]
+   }
 }
