@@ -56,9 +56,7 @@ class ResearcherController {
          Product product = Product.findByProductId(Long.parseLong(productId))
          product.executeUpdate("update Product set productHighestPrice = ?, productAveragePrice = ?, productLowestPrice = ?," +
                                    "productNumberOfPrices = ?, productIdealPrice = ?, productFormulaId = ? where productId = ?",
-            [max, avg , min , total, idealPrice, Long.parseLong(productId), formulaUsed.getIdealPriceFormulaId()])
-
-
+            [max, avg , min , total, idealPrice, formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId)])
       }
       [prices: prices]
    }
