@@ -12,7 +12,9 @@ class AdminController {
          products = Product.listOrderByProductId(order: "desc")
          [products: products]
       }else{
-          products = Product.listFoundProducts(barCode)
+         products = Product.findAll("from Product as p " +
+                         "where str(p.productBarCode) like :bc",
+            [bc: '%' + barCode + '%'])
          [products: products, barCode: barCode]
       }
    }
