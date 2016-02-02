@@ -37,7 +37,7 @@
                     </tr>
                     <tr>
                         <td align="left">Product BAR CODE</td>
-                        <td align="left"><g:field type="number" name="barcode" value="${barcode}"/></td>                        
+                        <td align="left"><g:field type="number" name="barCode" value="${barCode}"/></td>                        
                     </tr>
                     <tr>
                         <td align="left">Product DESC</td>

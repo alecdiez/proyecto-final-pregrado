@@ -19,7 +19,7 @@
       <table width="70%"><tr><td><div align="right"><g:link uri="/">Go Back</g:link></div></td></tr></table><br>
          <h1 align="center">List of Products</h1>
       <g:form action="index">
-         <table width="70%"><tr><td>Search By Bar Code: <g:field type="number" name="barcode" value="${barCode}"/>
+         <table width="70%"><tr><td>Search By Bar Code: <g:field type="number" name="barCode" value="${barCode}"/>
                   <g:submitButton name="search" value="Go" />
                  </td><td><g:link controller="admin" action="idealpriceformula">Ideal Price Formula</g:link></td>
                  <td align="right"><g:link controller="admin" action="newproduct">Add New Product</g:link></td></tr></table>

@@ -6,13 +6,13 @@ import prizy.IdealPriceFormula
 class AdminController {
 
    def index() {
-      def barCode = params.barcode
+      def barCode = params.barCode
       def products
       if (!barCode) {
          products = Product.listOrderByProductId(order: "desc")
          [products: products]
       }else{
-         products = Product.listFoundProducts(barCode)
+          products = Product.listFoundProducts(barCode)
          [products: products, barCode: barCode]
       }
    }
@@ -20,7 +20,7 @@ class AdminController {
    def newproduct() {
       def code = params.code
       def desc = params.desc
-      def barCode = params.barcode
+      def barCode = params.barCode
 
       if(code && barCode){
          def pro = new Product()
