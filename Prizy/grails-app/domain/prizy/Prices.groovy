@@ -36,16 +36,16 @@ class Prices implements Serializable{
       return [result: result]
    }
 
-   def updateProduct(max, avg , min , total, idealPrice, idealPriceFormulaId, productId){
+   def saveDataProduct(max, avg , min , total, idealPrice, idealPriceFormulaId, productId, product){
 
       try {
-         Product product = Product.findByProductId(Long.parseLong(productId))
          product.executeUpdate("update Product set productHighestPrice = ?, productAveragePrice = ?, productLowestPrice = ?," +
                                    "productNumberOfPrices = ?, productIdealPrice = ?, productFormulaId = ? where productId = ?",
-            [max, avg , min , total, idealPrice, formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId)])
-         [result: true]
-      } catch (all) {
-         [result: false]
+            [max, avg , min , total, idealPrice, idealPriceFormulaId, productId])
+
+         [result: "Updated Product Data!"]
+      } catch (Exception e) {
+         [result: e.getMessage()]
       }
 
    }

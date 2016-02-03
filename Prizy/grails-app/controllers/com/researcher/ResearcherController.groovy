@@ -9,10 +9,11 @@ class ResearcherController {
    def sessionFactory
 
    def index() {
-      def max = ""
-      def avg = ""
-      def min = ""
-      def total = ""
+      def max
+      def avg
+      def min
+      def total
+      def updateProduct
 
 
       def productId = params.productId
@@ -38,13 +39,13 @@ class ResearcherController {
 
          def idealPrice
          if(result.result[0][0]){
-            idealPrice = new BigDecimal(result[0][0])
+            idealPrice = new BigDecimal(result.result[0][0])
          }else{
             idealPrice = new BigDecimal(0)
          }
 
-         def updateProduct = new Prices().updateProduct(max, avg , min , total, idealPrice,
-            formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId))
+         Product product = Product.findByProductId(Long.parseLong(productId))
+         updateProduct = new Prices().saveDataProduct(max, avg , min , total, idealPrice, formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId), product)
       }
       [prices: prices, updateProduct: updateProduct]
    }
