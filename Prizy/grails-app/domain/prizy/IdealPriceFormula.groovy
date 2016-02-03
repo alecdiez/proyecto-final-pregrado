@@ -14,4 +14,11 @@ class IdealPriceFormula implements Serializable {
         version false
         idealPriceFormulaDate defaultValue: 'now()'
     }
+    
+    def formulasOrderBy(){
+        def results = this.findAll("from IdealPriceFormula " +
+                                    "order by idealPriceFormulaIsUsed desc, " +
+                                              "idealPriceFormulaId desc")    
+        [results: results]
+    }
 }
