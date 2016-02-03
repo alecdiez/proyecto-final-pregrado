@@ -43,15 +43,15 @@
                             <td align="left"><g:field type="text" name="note" value="${note}"/></td>                        
                         </tr>
                         <tr>
-                            <td>${error}</td>
+                            <td><span class="red">${error}</span></td>
                             <td><g:submitButton name="submit" value="Save" /></td>                        
                         </tr>
                     <br/>                
                     </tbody>     
                 </table>
                 
-                 <script> 
- $( document ).ready(function() {
+<script type="text/javascript"> 
+ $( document ).ready(function() { 
     $('#form1').validate({
         rules: {
             price: 'required',

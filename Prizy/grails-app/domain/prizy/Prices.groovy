@@ -43,9 +43,9 @@ class Prices implements Serializable{
                                    "productNumberOfPrices = ?, productIdealPrice = ?, productFormulaId = ? where productId = ?",
             [max, avg , min , total, idealPrice, idealPriceFormulaId, productId])
 
-         [result: "Updated Product Data!"]
+         [resultOK: "Updated Data for Product # " + productId +""]
       } catch (Exception e) {
-         [result: e.getMessage()]
+         [resultError: e.getMessage()]
       }
 
    }

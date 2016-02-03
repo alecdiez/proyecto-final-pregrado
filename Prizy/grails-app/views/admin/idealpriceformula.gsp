@@ -27,9 +27,9 @@
                 <tr><td colspan="2">
                         Formula Used to calculate the Ideal Price:
                         &nbsp;&nbsp;&nbsp;
-                        <span class="red">ID:&nbsp;${formulaUsed.idealPriceFormulaId}</span>
+                        <span class="green">ID:&nbsp;${formulaUsed.idealPriceFormulaId}</span>
                     </td>
-                    <td colspan="2" class="red">
+                    <td colspan="2" class="green">
                         Date of Birth:&nbsp;
                         <g:formatDate format="MM-dd-yyyy HH:mm" date="${formulaUsed.idealPriceFormulaDate}"/>
                     </td>
@@ -69,15 +69,15 @@
                 <g:each in="${formulas}" var="form" status="i">
                     <g:if test="${form.idealPriceFormulaIsUsed == 'Y'}">
                         <tr>
-                            <td class="red">${form.idealPriceFormulaId}</td>
-                            <td class="red">
+                            <td class="green">${form.idealPriceFormulaId}</td>
+                            <td class="green">
                                 <g:formatDate format="MM-dd-yyyy HH:mm" date="${form.idealPriceFormulaDate}"/>
                             </td>
-                            <td class="red">${form.idealPriceFormulaMax}</td>
-                            <td class="red">${form.idealPriceFormulaMin}</td>
-                            <td class="red">${form.idealPriceFormulaPercentage}</td>
-                            <td class="red">YES</td>
-                            <td class="red">Formula Used</td>
+                            <td class="green">${form.idealPriceFormulaMax}</td>
+                            <td class="green">${form.idealPriceFormulaMin}</td>
+                            <td class="green">${form.idealPriceFormulaPercentage}</td>
+                            <td class="green">YES</td>
+                            <td class="green">Formula Used</td>
                         </tr>
                     </g:if>
                     <g:else>

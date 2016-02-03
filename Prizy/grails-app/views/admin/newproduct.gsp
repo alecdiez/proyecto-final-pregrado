@@ -22,7 +22,7 @@
         <div align="center">
             <p>It's important to remember that there is not can be two products</p>
             <p>with the same BARCODE and PRODUCT CODE.</p>        
-        <g:form name="form1" action="newproduct">
+        <g:form name="formSubmit" action="newproduct">
             <table width="60%" align="center" cellspacing="10">
                 <thead>
                     <tr>
@@ -45,29 +45,29 @@
                     </tr>
                     <tr>
                         <td align="left">
-                            ${error}
+                            <span class="red">${error}</span>
                         </td>
                         <td align="left"><g:submitButton name="submit" value="SAVE"/></td>
                     </tr>
                 <br/>
                 </tbody>
             </table>
-   <script> 
- $( document ).ready(function() {
-    $('#form1').validate({
+<script type="text/javascript"> 
+    $( document ).ready(function() { 
+    $('#formSubmit').validate({
         rules: {
             code: 'required',
-            barcode:{
-              required: true,
-              minlength: 12,
-              maxlength: 12
+            barCode: {
+                required: true,
+                minlength: 12,
+                maxlength: 12
             }            
         },
         messages: {
             code: {
                 required: 'Please enter the CODE  for your new product!',
             },
-            barcode: {
+            barCode: {
                 required: 'Please provide a new BAR CODE',
                 minlength: 'Please Remember, 12 Digits for the Bar Code! Thanks.',
                 maxlength: 'Please Remember, 12 Digits for the Bar Code! Thanks.'
@@ -76,7 +76,7 @@
 
         submitHandler: function(form) {
 
-            if(form1.valid()){
+            if(formSubmit.valid()){
                 form.submit();
                  $('button[type="submit"]').removeAttr('disabled');
             } else {
