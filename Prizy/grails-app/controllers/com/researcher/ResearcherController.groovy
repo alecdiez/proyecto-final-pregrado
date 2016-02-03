@@ -4,72 +4,72 @@ import prizy.Product
 import prizy.Prices
 import prizy.IdealPriceFormula
 
-class ResearcherController {    
+class ResearcherController {
 
-    def index() {
-        def max = ""
-        def avg = ""
-        def min = ""
-        def total = ""
+   def sessionFactory
+
+   def index() {
+      def max = ""
+      def avg = ""
+      def min = ""
+      def total = ""
 
 
-        def productId = params.productId
-        def productBarCode = params.productBarCode
-        def prices = Prices.listOrderByPricesId(order: "desc")
+      def productId = params.productId
+      def productBarCode = params.productBarCode
+      def prices = Prices.listOrderByPricesId(order: "desc")
 
-        if(productId){
-            def data = new Prices().calculateData(params)
-            
-            avg = new BigDecimal(data[0][0])
-            max = new BigDecimal(data[0][1])
-            min = new BigDecimal(data[0][2])
-            total = data[0][3]
+      if(productId){
+         def data = new Prices().calculateData(params)
 
-            IdealPriceFormula formulaUsed = IdealPriceFormula.findByIdealPriceFormulaIsUsed('Y')
+         avg = new BigDecimal(data[0][0])
+         max = new BigDecimal(data[0][1])
+         min = new BigDecimal(data[0][2])
+         total = data[0][3]
 
-            def formulaUsedPercentage = formulaUsed.getIdealPriceFormulaPercentage()
-            def fp = new BigDecimal(formulaUsedPercentage).divide(100)+1
-            def formulaUsedMax = Long.parseLong(formulaUsed.getIdealPriceFormulaMax())
-            def formulaUsedMin = Long.parseLong(formulaUsed.getIdealPriceFormulaMin())
+         IdealPriceFormula formulaUsed = IdealPriceFormula.findByIdealPriceFormulaIsUsed('Y')
 
-            def result = new Prices().sqlQueries(params, fp, formulaUsedMax, formulaUsedMin)
-//continuar 03/02/2016
-            def idealPrice
-            if(result[0][0]){
-                idealPrice = new BigDecimal(result[0][0])
+         def formulaUsedPercentage = formulaUsed.getIdealPriceFormulaPercentage()
+         def fp = new BigDecimal(formulaUsedPercentage).divide(100)+1
+         def formulaUsedMax = Long.parseLong(formulaUsed.getIdealPriceFormulaMax())
+         def formulaUsedMin = Long.parseLong(formulaUsed.getIdealPriceFormulaMin())
+
+         def result = new Prices().sqlQueries(params, fp, formulaUsedMax, formulaUsedMin, sessionFactory)
+
+         def idealPrice
+         if(result.result[0][0]){
+            idealPrice = new BigDecimal(result[0][0])
+         }else{
+            idealPrice = new BigDecimal(0)
+         }
+
+         def updateProduct = new Prices().updateProduct(max, avg , min , total, idealPrice,
+            formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId))
+      }
+      [prices: prices, updateProduct: updateProduct]
+   }
+
+   def newprice (){
+      def note = params.note
+      def price = params.price
+      def barCode = params.barcode
+
+      if(barCode && price){
+         Product product = Product.findByProductBarCode(Long.parseLong(barCode))
+         if(product){
+            Prices pri = new Prices()
+            pri.setPricesBarCode(Long.parseLong(barCode))
+            pri.setPricesPrice(new BigDecimal(price))
+            pri.setPricesNotes(note)
+            def newprice= pri.save()
+            if(newprice){
+               redirect(action: "index", params: [productId: product.getProductId(), productBarCode: product.getProductBarCode()])
             }else{
-                idealPrice = new BigDecimal(0)
+               [error: "Error to Save new Price!."]
             }
-
-            Product product = Product.findByProductId(Long.parseLong(productId))
-            product.executeUpdate("update Product set productHighestPrice = ?, productAveragePrice = ?, productLowestPrice = ?," +
-                                   "productNumberOfPrices = ?, productIdealPrice = ?, productFormulaId = ? where productId = ?",
-                [max, avg , min , total, idealPrice, formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId)])
-        }
-        [prices: prices]
-    }
-
-    def newprice (){
-        def note = params.note
-        def price = params.price
-        def barCode = params.barcode
-
-        if(barCode && price){
-            Product product = Product.findByProductBarCode(Long.parseLong(barCode))
-            if(product){
-                Prices pri = new Prices()
-                pri.setPricesBarCode(Long.parseLong(barCode))
-                pri.setPricesPrice(new BigDecimal(price))
-                pri.setPricesNotes(note)
-                def newprice= pri.save()
-                if(newprice){
-                    redirect(action: "index", params: [productId: product.getProductId(), productBarCode: product.getProductBarCode()])
-                }else{
-                    [error: "Error to Save new Price!."]
-                }
-            }else{
-                [error: "Product doesn't Exists!."]
-            }
-        }
-    }
+         }else{
+            [error: "Product doesn't Exists!."]
+         }
+      }
+   }
 }
