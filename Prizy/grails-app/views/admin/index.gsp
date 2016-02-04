@@ -68,5 +68,10 @@
          No product is found
       </g:if>
    </center>
+   <script type="text/javascript"> 
+    $( document ).ready(function() { 
+        $('#barCode').focus();
+    });
+   </script>
 </body>
 </html>

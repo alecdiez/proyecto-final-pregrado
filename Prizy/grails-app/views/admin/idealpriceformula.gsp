@@ -102,5 +102,10 @@
             </tbody>
         </table>
     </center>
+    <script type="text/javascript"> 
+    $( document ).ready(function() { 
+        $('#percentage').focus();
+    });
+   </script>
 </body>
 </html>

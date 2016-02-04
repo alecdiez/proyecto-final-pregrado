@@ -53,7 +53,7 @@ class ResearcherController {
    def newprice (){
       def note = params.note
       def price = params.price
-      def barCode = params.barcode
+      def barCode = params.barCode
 
       if(barCode && price){
          Product product = Product.findByProductBarCode(Long.parseLong(barCode))

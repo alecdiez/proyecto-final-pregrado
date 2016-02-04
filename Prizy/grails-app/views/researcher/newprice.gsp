@@ -32,7 +32,7 @@
                     <tbody>                    
                         <tr>
                             <td align="left">Product BAR CODE</td>
-                            <td align="left"><g:field type="number" name="barcode" value="${barcode}"/></td>                        
+                            <td align="left"><g:field type="number" name="barCode" value="${barCode}"/></td>                        
                         </tr>  
                         <tr>
                             <td align="left">Product Price </td>
@@ -52,10 +52,11 @@
                 
 <script type="text/javascript"> 
  $( document ).ready(function() { 
+    $('#barCode').focus();
     $('#form1').validate({
         rules: {
             price: 'required',
-            barcode:{
+            barCode:{
               required: true,
               minlength: 12,
               maxlength: 12
@@ -65,7 +66,7 @@
             price: {
                 required: 'Please enter the PRICE  for this product!',
             },
-            barcode: {
+            barCode: {
                 required: 'Please provide an existing BAR CODE',
                 minlength: 'Please Remember, 12 Digits for the Bar Code! Thanks.',
                 maxlength: 'Please Remember, 12 Digits for the Bar Code! Thanks.'
