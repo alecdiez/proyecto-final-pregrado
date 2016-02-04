@@ -12,16 +12,7 @@ import org.junit.*
 class ProductTests {
 
    @Test
-   void setupSpec() {
-      mockDomain(Product)
-   }
+    void testSomething() {
 
-   void 'Test first ID of table Prodcut'() {
-
-      when: "We find a product with barCode == 121212454545"
-      Product pro = Product.findByProductBarCode(121212454545L)
-
-      then: "We must now that this product has de first id of the table product!"
-      pro.productId == 1L
-   }
+    }
 }

@@ -12,6 +12,7 @@ import spock.lang.Specification
 @TestFor(Prices)
 class PricesTests extends Specification {
 
+   @Test
     void testSomething() {
 
     }

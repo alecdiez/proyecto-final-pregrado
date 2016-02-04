@@ -13,8 +13,8 @@ import spock.lang.Specification
 @TestFor(AdminController)
 class AdminControllerTests extends Specification {
 
-    @Test
-    void testSomething() {
-       
+   @Test
+   void testSomething() {
+
     }
 }

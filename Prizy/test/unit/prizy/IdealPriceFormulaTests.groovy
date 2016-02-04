@@ -12,7 +12,8 @@ import spock.lang.Specification
 @TestFor(IdealPriceFormula)
 class IdealPriceFormulaTests extends Specification {
 
-    void testSomething() {
+   @Test
+   void testSomething() {
 
     }
 }

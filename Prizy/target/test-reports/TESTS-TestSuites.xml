@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="0" name="AdminControllerTests" package="com.admin" tests="1" time="2.781" timestamp="2016-02-04T16:20:05">
+  <testsuite errors="0" failures="1" hostname="bizdes034" id="0" name="AdminControllerSpec" package="prizy" tests="1" time="0.172" timestamp="2016-02-04T19:45:22">
       <properties />
 
-      <testcase classname="com.admin.AdminControllerTests" name="testSomething" time="2.547" />
+      <testcase classname="prizy.AdminControllerSpec" name="Product List" time="0.172">
+          <failure message="Condition not satisfied:&#xa;&#xa;model.author == &apos;Alvin Pltinga&apos;&#xa;|     |      |&#xa;|     |      false&#xa;|     |      2 differences (86% similarity)&#xa;|     |      Alvin Pl(an)tinga&#xa;|     |      Alvin Pl(--)tinga&#xa;|     Alvin Plantinga&#xa;[title:The Nature Of Necessity, author:Alvin Plantinga]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.author == &apos;Alvin Pltinga&apos;
+|     |      |
+|     |      false
+|     |      2 differences (86% similarity)
+|     |      Alvin Pl(an)tinga
+|     |      Alvin Pl(--)tinga
+|     Alvin Plantinga
+[title:The Nature Of Necessity, author:Alvin Plantinga]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+</failure>
+
+      </testcase>
+
+      <system-out><![CDATA[--Output from Product List--
+]]></system-out>
+
+      <system-err><![CDATA[--Output from Product List--
+]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="bizdes034" id="1" name="AdminControllerTests" package="com.admin" tests="1" time="2.39" timestamp="2016-02-04T19:45:01">
+      <properties />
+
+      <testcase classname="com.admin.AdminControllerTests" name="testSomething" time="2.109" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -12,10 +39,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="1" name="ResearcherControllerTests" package="com.researcher" tests="1" time="1.359" timestamp="2016-02-04T16:20:08">
+  <testsuite errors="0" failures="0" hostname="bizdes034" id="2" name="ResearcherControllerTests" package="com.researcher" tests="1" time="1.25" timestamp="2016-02-04T19:45:04">
       <properties />
 
-      <testcase classname="com.researcher.ResearcherControllerTests" name="testSomething" time="1.031" />
+      <testcase classname="com.researcher.ResearcherControllerTests" name="testSomething" time="0.75" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -24,10 +51,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="2" name="IdealPriceFormulaTests" package="prizy" tests="1" time="0.89" timestamp="2016-02-04T16:20:09">
+  <testsuite errors="0" failures="0" hostname="bizdes034" id="3" name="IdealPriceFormulaTests" package="prizy" tests="1" time="0.995" timestamp="2016-02-04T19:45:05">
       <properties />
 
-      <testcase classname="prizy.IdealPriceFormulaTests" name="testSomething" time="0.765" />
+      <testcase classname="prizy.IdealPriceFormulaTests" name="testSomething" time="0.808" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -36,10 +63,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="3" name="PricesTests" package="prizy" tests="1" time="0.391" timestamp="2016-02-04T16:20:10">
+  <testsuite errors="0" failures="0" hostname="bizdes034" id="4" name="PricesTests" package="prizy" tests="1" time="0.329" timestamp="2016-02-04T19:45:06">
       <properties />
 
-      <testcase classname="prizy.PricesTests" name="testSomething" time="0.187" />
+      <testcase classname="prizy.PricesTests" name="testSomething" time="0.188" />
 
       <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
@@ -48,15 +75,15 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="4" name="ProductTests" package="prizy" tests="1" time="0.687" timestamp="2016-02-04T16:20:11">
+  <testsuite errors="0" failures="0" hostname="bizdes034" id="5" name="ProductTests" package="prizy" tests="1" time="0.938" timestamp="2016-02-04T19:45:06">
       <properties />
 
-      <testcase classname="prizy.ProductTests" name="setupSpec" time="0.687" />
+      <testcase classname="prizy.ProductTests" name="testSomething" time="0.938" />
 
-      <system-out><![CDATA[--Output from setupSpec--
+      <system-out><![CDATA[--Output from testSomething--
 ]]></system-out>
 
-      <system-err><![CDATA[--Output from setupSpec--
+      <system-err><![CDATA[--Output from testSomething--
 ]]></system-err>
 
   </testsuite>
