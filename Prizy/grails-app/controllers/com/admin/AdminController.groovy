@@ -11,11 +11,11 @@ class AdminController {
         if (!barCode) {
             products = Product.listOrderByProductId(order: "desc")
             [products: products]
-        }else{         
-            products = new Product().productsWithCriteria(params)  
+        }else{
+            products = new Product().productsWithCriteria(params)
             [products: products.products, barCode: barCode]
         }
-    }    
+    }
 
     def newproduct() {
         def code = params.code
@@ -36,7 +36,7 @@ class AdminController {
     }
 
     def idealpriceformula(){
-        def formulas = new IdealPriceFormula().formulasOrderBy()      
+        def formulas = new IdealPriceFormula().formulasOrderBy()
         IdealPriceFormula formulaUsed = IdealPriceFormula.findByIdealPriceFormulaIsUsed('Y')
 
         def percentage = params.percentage
@@ -77,7 +77,7 @@ class AdminController {
                 error = "Error to Update the Formula Used!"
             }
         }
-   
+
         [formulas: formulas.results, formulaUsed: formulaUsed, error: error]
     }
 }
