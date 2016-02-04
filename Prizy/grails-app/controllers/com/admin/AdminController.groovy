@@ -15,7 +15,7 @@ class AdminController {
             products = new Product().productsWithCriteria(params)  
             [products: products.products, barCode: barCode]
         }
-    }
+    }    
 
     def newproduct() {
         def code = params.code
