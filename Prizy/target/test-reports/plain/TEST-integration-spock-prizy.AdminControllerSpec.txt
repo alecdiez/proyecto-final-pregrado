@@ -1,5 +1,5 @@
 Testsuite: prizy.AdminControllerSpec
-Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.562 sec
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.703 sec
 ------------- Standard Output ---------------
 --Output from Product First Row--
 --Output from Product Find with criteria--
@@ -11,6 +11,6 @@ Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.562 sec
 --Output from Ideal Price Formula Find First Id--
 ------------- ---------------- ---------------
 
-Testcase: Product First Row took 0.344 sec
-Testcase: Product Find with criteria took 0.203 sec
-Testcase: Ideal Price Formula Find First Id took 0.015 sec
+Testcase: Product First Row took 0.391 sec
+Testcase: Product Find with criteria took 0.172 sec
+Testcase: Ideal Price Formula Find First Id took 0.062 sec

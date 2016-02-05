@@ -73,4 +73,10 @@ class ResearcherController {
          }
       }
    }
+
+    /*Next Methods are only for Integration Test*/
+
+   def pricesTestForCalculateData(params) {
+        [ product:  new Prices().calculateData(params)]
+    }
 }
