@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="bizdes034" name="prizy.AdminControllerSpec" tests="3" time="0.562" timestamp="2016-02-05T13:49:04">
+  <properties />
+  <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.344" />
+  <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.203" />
+  <testcase classname="prizy.AdminControllerSpec" name="Ideal Price Formula Find First Id" time="0.015" />
+  <system-out><![CDATA[--Output from Product First Row--
+--Output from Product Find with criteria--
+--Output from Ideal Price Formula Find First Id--
+]]></system-out>
+  <system-err><![CDATA[--Output from Product First Row--
+--Output from Product Find with criteria--
+--Output from Ideal Price Formula Find First Id--
+]]></system-err>
+</testsuite>

@@ -55159,3 +55159,417 @@ p.product.size() > 1
 [product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
 
 	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 09:39:13,979 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: L for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:39:13,994 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: L for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:39:13,994 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: L for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:39:13,994 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: L for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:39:14,010 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: L for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:39:14,010 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: L for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:40:05,922 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 1L
+| |       |         |
+| |       2         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:40:05,938 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 1L
+| |       |         |
+| |       2         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:40:05,969 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 1L
+| |       |         |
+| |       2         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:40:05,969 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 1L
+| |       |         |
+| |       2         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:40:05,969 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 1L
+| |       |         |
+| |       2         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:40:05,969 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 1L
+| |       |         |
+| |       2         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:42:35,959 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:42:35,959 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:42:35,990 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:42:35,990 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:42:35,990 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:42:35,990 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:46:52,544 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       3         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:46:52,544 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       3         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:46:52,574 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       3         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:46:52,574 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       3         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:46:52,584 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       3         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:46:52,584 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       3         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-05 09:52:37,676 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 09:52:37,691 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 09:52:37,723 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 09:52:37,738 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 09:52:37,738 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 09:52:37,738 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-05 10:20:37,526 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p2.product.size() >= 3 //Here the result must have at least 3 rows!
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-05 10:20:37,537 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p2.product.size() >= 3 //Here the result must have at least 3 rows!
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-05 10:20:37,583 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() >= 3 //Here the result must have at least 3 rows!
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-05 10:20:37,583 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() >= 3 //Here the result must have at least 3 rows!
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-05 10:20:37,590 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() >= 3 //Here the result must have at least 3 rows!
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-05 10:20:37,590 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() >= 3 //Here the result must have at least 3 rows!
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-05 10:37:42,256 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: idealPriceFomulaPercentage for class: prizy.IdealPriceFormula
+Possible solutions: idealPriceFormulaPercentage
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:37:42,272 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: idealPriceFomulaPercentage for class: prizy.IdealPriceFormula
+Possible solutions: idealPriceFormulaPercentage
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:37:42,287 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: idealPriceFomulaPercentage for class: prizy.IdealPriceFormula
+Possible solutions: idealPriceFormulaPercentage
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:37:42,303 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: idealPriceFomulaPercentage for class: prizy.IdealPriceFormula
+Possible solutions: idealPriceFormulaPercentage
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:37:42,318 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: idealPriceFomulaPercentage for class: prizy.IdealPriceFormula
+Possible solutions: idealPriceFormulaPercentage
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:37:42,318 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: idealPriceFomulaPercentage for class: prizy.IdealPriceFormula
+Possible solutions: idealPriceFormulaPercentage
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:40:58,935 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+ipf.original.idealPriceFormulaPercentage == '10'
+|   |        |                           |
+|   |        20                          false
+|   prizy.IdealPriceFormula : null       1 difference (50% similarity)
+|                                        (2)0
+|                                        (1)0
+[original:prizy.IdealPriceFormula : null]
+
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:40:58,951 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+ipf.original.idealPriceFormulaPercentage == '10'
+|   |        |                           |
+|   |        20                          false
+|   prizy.IdealPriceFormula : null       1 difference (50% similarity)
+|                                        (2)0
+|                                        (1)0
+[original:prizy.IdealPriceFormula : null]
+
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:40:58,967 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+ipf.original.idealPriceFormulaPercentage == '10'
+|   |        |                           |
+|   |        20                          false
+|   prizy.IdealPriceFormula : null       1 difference (50% similarity)
+|                                        (2)0
+|                                        (1)0
+[original:prizy.IdealPriceFormula : null]
+
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:40:58,967 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+ipf.original.idealPriceFormulaPercentage == '10'
+|   |        |                           |
+|   |        20                          false
+|   prizy.IdealPriceFormula : null       1 difference (50% similarity)
+|                                        (2)0
+|                                        (1)0
+[original:prizy.IdealPriceFormula : null]
+
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:40:58,982 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+ipf.original.idealPriceFormulaPercentage == '10'
+|   |        |                           |
+|   |        20                          false
+|   prizy.IdealPriceFormula : null       1 difference (50% similarity)
+|                                        (2)0
+|                                        (1)0
+[original:prizy.IdealPriceFormula : null]
+
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)
+2016-02-05 10:40:58,982 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+ipf.original.idealPriceFormulaPercentage == '10'
+|   |        |                           |
+|   |        20                          false
+|   prizy.IdealPriceFormula : null       1 difference (50% similarity)
+|                                        (2)0
+|                                        (1)0
+[original:prizy.IdealPriceFormula : null]
+
+	at prizy.AdminControllerSpec.Ideal Price Formula Find First Id(AdminControllerSpec.groovy:52)

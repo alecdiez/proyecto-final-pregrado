@@ -1,102 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="2" hostname="Ale-Esc-PC" id="0" name="AdminControllerSpec" package="prizy" tests="2" time="0.969" timestamp="2016-02-05T00:20:59">
+  <testsuite errors="0" failures="0" hostname="bizdes034" id="0" name="AdminControllerSpec" package="prizy" tests="3" time="0.562" timestamp="2016-02-05T13:49:04">
       <properties />
 
-      <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.515">
-          <failure message="Condition not satisfied:&#xa;&#xa;p.product.productId == 2L&#xa;| |       |         |&#xa;| |       1         false&#xa;| prizy.Product : null&#xa;[product:prizy.Product : null]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
+      <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.344" />
 
-p.product.productId == 2L
-| |       |         |
-| |       1         false
-| prizy.Product : null
-[product:prizy.Product : null]
+      <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.203" />
 
-	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
-</failure>
-
-      </testcase>
-
-      <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.438">
-          <failure message="Condition not satisfied:&#xa;&#xa;p.product.size() &gt; 1&#xa;| |       |      |&#xa;| |       1      false&#xa;| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]&#xa;[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]&#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Condition not satisfied:
-
-p.product.size() &gt; 1
-| |       |      |
-| |       1      false
-| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
-[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
-
-	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
-</failure>
-
-      </testcase>
+      <testcase classname="prizy.AdminControllerSpec" name="Ideal Price Formula Find First Id" time="0.015" />
 
       <system-out><![CDATA[--Output from Product First Row--
 --Output from Product Find with criteria--
+--Output from Ideal Price Formula Find First Id--
 ]]></system-out>
 
       <system-err><![CDATA[--Output from Product First Row--
 --Output from Product Find with criteria--
-]]></system-err>
-
-  </testsuite>
-  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="1" name="AdminControllerTests" package="com.admin" tests="1" time="5.719" timestamp="2016-02-05T00:20:21">
-      <properties />
-
-      <testcase classname="com.admin.AdminControllerTests" name="testSomething" time="4.406" />
-
-      <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-
-      <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-
-  </testsuite>
-  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="2" name="ResearcherControllerTests" package="com.researcher" tests="1" time="1.641" timestamp="2016-02-05T00:20:27">
-      <properties />
-
-      <testcase classname="com.researcher.ResearcherControllerTests" name="testSomething" time="1.063" />
-
-      <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-
-      <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-
-  </testsuite>
-  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="3" name="IdealPriceFormulaTests" package="prizy" tests="1" time="2.079" timestamp="2016-02-05T00:20:29">
-      <properties />
-
-      <testcase classname="prizy.IdealPriceFormulaTests" name="testSomething" time="1.594" />
-
-      <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-
-      <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-
-  </testsuite>
-  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="4" name="PricesTests" package="prizy" tests="1" time="0.937" timestamp="2016-02-05T00:20:33">
-      <properties />
-
-      <testcase classname="prizy.PricesTests" name="testSomething" time="0.64" />
-
-      <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-
-      <system-err><![CDATA[--Output from testSomething--
-]]></system-err>
-
-  </testsuite>
-  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="5" name="ProductTests" package="prizy" tests="1" time="0.187" timestamp="2016-02-05T00:20:34">
-      <properties />
-
-      <testcase classname="prizy.ProductTests" name="testSomething" time="0.187" />
-
-      <system-out><![CDATA[--Output from testSomething--
-]]></system-out>
-
-      <system-err><![CDATA[--Output from testSomething--
+--Output from Ideal Price Formula Find First Id--
 ]]></system-err>
 
   </testsuite>

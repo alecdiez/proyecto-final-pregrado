@@ -80,16 +80,19 @@ class AdminController {
 
         [formulas: formulas.results, formulaUsed: formulaUsed, error: error]
     }
-    
+
     /*Next Methods are only for Integration Test*/
-    
+
     def productTestFirstId(params) {
         [ product: Product.findByProductBarCode(params.barCode)]
     }
-    
+
     def productTestFindWithCriteria(params) {
         [ product: new Product().productsWithCriteria(params)]
     }
-    
-    
+
+   def idealPriceFormulaFirstId(params) {
+        [ original: IdealPriceFormula.findByIdealPriceFormulaId(params.idealPriceFormulaId)]
+    }
+
 }

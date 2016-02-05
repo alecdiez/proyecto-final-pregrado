@@ -1,0 +1,3 @@
+--Output from Product First Row--
+--Output from Product Find with criteria--
+--Output from Ideal Price Formula Find First Id--
