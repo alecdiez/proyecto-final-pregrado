@@ -54289,3 +54289,873 @@ model.author == 'Alvin Pltinga'
 [title:The Nature Of Necessity, author:Alvin Plantinga]
 
 	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:18:47,783 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+model.product == null
+|     |       |
+|     |       false
+|     [prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]
+[product:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:18:47,783 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+model.product == null
+|     |       |
+|     |       false
+|     [prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]
+[product:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:18:47,845 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.product == null
+|     |       |
+|     |       false
+|     [prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]
+[product:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:18:47,845 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.product == null
+|     |       |
+|     |       false
+|     [prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]
+[product:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:18:47,877 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.product == null
+|     |       |
+|     |       false
+|     [prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]
+[product:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:18:47,877 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.product == null
+|     |       |
+|     |       false
+|     [prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]
+[product:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:22)
+2016-02-04 19:27:47,271 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:27:47,271 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:27:47,318 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:27:47,334 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:27:47,334 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:27:47,334 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:29:37,562 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:29:37,577 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:29:37,593 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:29:37,593 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:29:37,608 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:29:37,608 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingPropertyException: No such property: params for class: prizy.AdminControllerSpec
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:12)
+2016-02-04 19:31:41,650 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+model.productId == 1L
+|     |         |
+|     null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:31:41,650 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+model.productId == 1L
+|     |         |
+|     null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:31:41,697 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.productId == 1L
+|     |         |
+|     null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:31:41,697 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.productId == 1L
+|     |         |
+|     null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:31:41,713 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.productId == 1L
+|     |         |
+|     null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:31:41,713 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+model.productId == 1L
+|     |         |
+|     null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:34:31,928 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:34:31,944 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:34:32,022 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:34:32,053 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:34:32,053 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:34:32,053 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:37:53,789 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:37:53,789 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:37:53,867 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:37:53,867 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:37:53,867 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:37:53,867 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p == null
+| |
+| false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:39:20,999 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product_id == 1L
+| |          |
+| null       false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:39:21,046 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product_id == 1L
+| |          |
+| null       false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:39:21,109 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product_id == 1L
+| |          |
+| null       false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:39:21,109 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product_id == 1L
+| |          |
+| null       false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:39:21,124 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product_id == 1L
+| |          |
+| null       false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:39:21,124 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product_id == 1L
+| |          |
+| null       false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:41:09,983 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.productId == 1
+| |         |
+| null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:41:09,983 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.productId == 1
+| |         |
+| null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:41:10,046 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.productId == 1
+| |         |
+| null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:41:10,046 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.productId == 1
+| |         |
+| null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:41:10,046 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.productId == 1
+| |         |
+| null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:41:10,046 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.productId == 1
+| |         |
+| null      false
+[product:null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:42:52,514 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:42:52,514 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:42:52,530 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:42:52,530 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:42:52,546 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:42:52,546 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:48:11,519 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:48:11,534 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:48:11,534 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:48:11,534 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:48:11,550 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:48:11,550 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'productId' on null object
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:49:39,904 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:49:39,920 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:49:40,092 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:49:40,092 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:49:40,123 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 19:49:40,123 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product List(AdminControllerSpec.groovy:16)
+2016-02-04 20:54:52,029 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 20:54:52,201 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 20:54:52,216 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 20:54:52,216 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 20:54:52,248 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 20:54:52,263 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:01:33,718 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:01:33,843 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:01:33,858 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:01:33,858 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:01:33,890 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:01:33,890 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:08:15,720 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:08:15,830 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:08:15,830 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:08:15,845 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:08:15,924 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:08:15,924 [main] ERROR StackTrace  - Full Stack Trace:
+groovy.lang.MissingMethodException: No signature of method: prizy.Product.productsWithCriteria() is applicable for argument types: (java.util.LinkedHashMap) values: [[barCode:121212454545]]
+Possible solutions: productsWithCriteria(java.lang.Object)
+	at org.grails.datastore.gorm.GormStaticApi.methodMissing(GormStaticApi.groovy:97)
+	at com.admin.AdminController.productTestFindWithCriteria(AdminController.groovy:91)
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:25)
+2016-02-04 21:10:30,785 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:10:30,785 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:10:30,847 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:10:30,863 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:10:30,863 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:10:30,863 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:13:18,743 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p2.product.size() > 1
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:13:18,759 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p2.product.size() > 1
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:13:18,868 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() > 1
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:13:18,868 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() > 1
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:13:18,884 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() > 1
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:13:18,884 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p2.product.size() > 1
+|  |       |      |
+|  |       1      false
+|  [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:35)
+2016-02-04 21:18:15,434 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:18:15,450 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:18:15,481 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:18:15,481 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:18:15,496 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:18:15,496 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:20:59,762 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:20:59,762 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:20:59,856 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:20:59,856 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:20:59,856 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:20:59,856 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.productId == 2L
+| |       |         |
+| |       1         false
+| prizy.Product : null
+[product:prizy.Product : null]
+
+	at prizy.AdminControllerSpec.Product First Row(AdminControllerSpec.groovy:17)
+2016-02-04 21:21:00,340 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-04 21:21:00,340 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-04 21:21:00,356 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-04 21:21:00,356 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-04 21:21:00,356 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
+2016-02-04 21:21:00,356 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+p.product.size() > 1
+| |       |      |
+| |       1      false
+| [products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]
+[product:[products:[prizy.Product : null, prizy.Product : null, prizy.Product : null]]]
+
+	at prizy.AdminControllerSpec.Product Find with criteria(AdminControllerSpec.groovy:28)
