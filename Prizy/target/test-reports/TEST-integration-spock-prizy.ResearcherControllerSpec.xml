@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="bizdes034" name="prizy.ResearcherControllerSpec" tests="1" time="0.063" timestamp="2016-02-05T15:22:12">
-  <properties />
-  <testcase classname="prizy.ResearcherControllerSpec" name="We must get the calculated data for the first product" time="0.063" />
-  <system-out><![CDATA[--Output from We must get the calculated data for the first product--
-]]></system-out>
-  <system-err><![CDATA[--Output from We must get the calculated data for the first product--
-]]></system-err>
-</testsuite>

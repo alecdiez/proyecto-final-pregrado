@@ -4,9 +4,7 @@ import prizy.Product
 import prizy.Prices
 import prizy.IdealPriceFormula
 
-class ResearcherController {
-
-   def sessionFactory
+class ResearcherController {   
 
    def index() {
       def max
@@ -35,11 +33,11 @@ class ResearcherController {
          def formulaUsedMax = Long.parseLong(formulaUsed.getIdealPriceFormulaMax())
          def formulaUsedMin = Long.parseLong(formulaUsed.getIdealPriceFormulaMin())
 
-         def result = new Prices().sqlQueries(params, fp, formulaUsedMax, formulaUsedMin, sessionFactory)
+         def getCalculatedIdealPrice = new Prices().sqlQueries(params, fp, formulaUsedMax, formulaUsedMin)
 
          def idealPrice
-         if(result.result[0][0]){
-            idealPrice = new BigDecimal(result.result[0][0])
+         if(getCalculatedIdealPrice.result[0][0]){
+            idealPrice = new BigDecimal(getCalculatedIdealPrice.result[0][0])
          }else{
             idealPrice = new BigDecimal(0)
          }

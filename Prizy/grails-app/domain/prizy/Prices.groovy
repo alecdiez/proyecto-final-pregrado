@@ -9,7 +9,9 @@ class Prices implements Serializable{
    Long pricesBarCode = 0L;
    BigDecimal pricesPrice = new BigDecimal(0);
    String pricesNotes = "";
-
+  
+   def sessionFactory
+   
    static mapping = {
       id generator: 'increment', name: 'pricesId'
       version false
@@ -23,7 +25,7 @@ class Prices implements Serializable{
       return data
    }
 
-   def sqlQueries(params, fp, formulaUsedMin, formulaUsedMax, sessionFactory){
+   def sqlQueries(params, fp, formulaUsedMin, formulaUsedMax){
 
       def sql = new Sql(sessionFactory.currentSession.connection())
       def result  = sql.rows("select (AVG(prices_price) * :fp) from Prices " +

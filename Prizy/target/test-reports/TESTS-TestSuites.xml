@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="0" name="AdminControllerSpec" package="prizy" tests="3" time="0.703" timestamp="2016-02-05T15:22:12">
+  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="0" name="AdminControllerSpec" package="prizy" tests="3" time="1.454" timestamp="2016-02-06T15:54:27">
       <properties />
 
-      <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.391" />
+      <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.814" />
 
-      <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.172" />
+      <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.391" />
 
-      <testcase classname="prizy.AdminControllerSpec" name="Ideal Price Formula Find First Id" time="0.062" />
+      <testcase classname="prizy.AdminControllerSpec" name="Ideal Price Formula Find First Id" time="0.078" />
 
       <system-out><![CDATA[--Output from Product First Row--
 --Output from Product Find with criteria--
@@ -20,10 +20,10 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="bizdes034" id="1" name="ResearcherControllerSpec" package="prizy" tests="1" time="0.063" timestamp="2016-02-05T15:22:12">
+  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="1" name="ResearcherControllerSpec" package="prizy" tests="1" time="0.172" timestamp="2016-02-06T15:54:29">
       <properties />
 
-      <testcase classname="prizy.ResearcherControllerSpec" name="We must get the calculated data for the first product" time="0.063" />
+      <testcase classname="prizy.ResearcherControllerSpec" name="We must get the calculated data for the first product" time="0.156" />
 
       <system-out><![CDATA[--Output from We must get the calculated data for the first product--
 ]]></system-out>
