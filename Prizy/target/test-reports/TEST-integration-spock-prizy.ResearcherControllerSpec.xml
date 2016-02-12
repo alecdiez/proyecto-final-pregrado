@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Ale-Esc-PC" name="prizy.ResearcherControllerSpec" tests="1" time="0.359" timestamp="2016-02-07T16:23:02">
+  <properties />
+  <testcase classname="prizy.ResearcherControllerSpec" name="We must get the calculated data for the first product" time="0.328" />
+  <system-out><![CDATA[--Output from We must get the calculated data for the first product--
+]]></system-out>
+  <system-err><![CDATA[--Output from We must get the calculated data for the first product--
+]]></system-err>
+</testsuite>
