@@ -2,23 +2,15 @@ package prizy
 
 class IdealPriceFormula implements Serializable {
 
-    Long idealPriceFormulaId = 0L
-    String idealPriceFormulaPercentage = ""
-    String idealPriceFormulaMax = ""
-    String idealPriceFormulaMin = ""
-    String idealPriceFormulaIsUsed = ""
-    Date idealPriceFormulaDate = new Date()
+    Long formulaId = 0L
+    String formulaDescription = ""
+    String formula = ""    
+    String formulaIsUsed = ""
+    Date formulaDate = new Date()
 
     static mapping = {
-        id generator: 'increment', name: 'idealPriceFormulaId'
+        id generator: 'increment', name: 'formulaId'
         version false
         idealPriceFormulaDate defaultValue: 'now()'
-    }
-    
-    def formulasOrderBy(){
-        def results = this.findAll("from IdealPriceFormula " +
-                                    "order by idealPriceFormulaIsUsed desc, " +
-                                              "idealPriceFormulaId desc")    
-        [results: results]
     }
 }

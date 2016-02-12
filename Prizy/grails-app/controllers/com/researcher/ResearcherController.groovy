@@ -31,17 +31,10 @@ class ResearcherController {
          def formulaUsedPercentage = formulaUsed.getIdealPriceFormulaPercentage()
          def fp = new BigDecimal(formulaUsedPercentage).divide(100)+1
          def formulaUsedMax = Long.parseLong(formulaUsed.getIdealPriceFormulaMax())
-         def formulaUsedMin = Long.parseLong(formulaUsed.getIdealPriceFormulaMin())
+         def formulaUsedMin = Long.parseLong(formulaUsed.getIdealPriceFormulaMin())         
 
-         def getCalculatedIdealPrice = new Prices().sqlQueries(params, fp, formulaUsedMax, formulaUsedMin)
-
-         def idealPrice
-         if(getCalculatedIdealPrice.result[0][0]){
-            idealPrice = new BigDecimal(getCalculatedIdealPrice.result[0][0])
-         }else{
-            idealPrice = new BigDecimal(0)
-         }
-
+         def idealPrice = new BigDecimal(0)
+        
          Product product = Product.findByProductId(Long.parseLong(productId))
          updateProduct = new Prices().saveDataProduct(max, avg , min , total, idealPrice, formulaUsed.getIdealPriceFormulaId(), Long.parseLong(productId), product)
       }
