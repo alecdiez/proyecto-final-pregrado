@@ -8,17 +8,20 @@ class Prices implements Serializable{
     Long pricesBarCode = 0L
     BigDecimal pricesPrice = new BigDecimal(0)
     String pricesNotes = ""    
-   
+
     static mapping = {
         id generator: 'increment', name: 'pricesId'
         version false
     }
-    static belongsTo = [pricesId:Product]
-    
+    static belongsTo = [pricesId: Product]
+
     def calculateData(params){
-        def data = this.executeQuery("select AVG(p.pricesPrice) as AVG, MAX(p.pricesPrice) as MAX, MIN(p.pricesPrice) as MIN, COUNT(*) as TOTAL " +
-                                                  " from Prices as p where p.pricesBarCode = :bc",
-            [bc:Long.parseLong(params.productBarCode)])
+        def query = StringBuilder.newInstance()
+        query << "SELECT AVG(p.pricesPrice) AS AVG,"
+        query << " MAX(p.pricesPrice) AS MAX,"
+        query << " MIN(p.pricesPrice) AS MIN, COUNT(*) AS TOTAL "
+        query << " FROM Prices AS p WHERE p.pricesBarCode = :bc"
+        def data = this.executeQuery(query.toString(),[bc: Long.parseLong(params.productBarCode)])
         return data
-    }
+    }    
 }

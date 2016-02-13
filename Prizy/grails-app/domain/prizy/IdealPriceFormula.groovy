@@ -6,6 +6,7 @@ class IdealPriceFormula implements Serializable {
     String formulaDescription = ""
     String formula = ""    
     String formulaIsUsed = ""
+    String formulaName = ""
     Date formulaDate = new Date()
 
     static mapping = {

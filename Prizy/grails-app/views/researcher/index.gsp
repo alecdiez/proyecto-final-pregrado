@@ -19,24 +19,23 @@
         <table width="70%"><tr><td><div align="right"><g:link uri="/">Go Back</g:link></div></td></tr></table><br>
             <h1 align="center">List of Prices UpLoaded</h1>
             <table width="70%"><tr><td></td><td align="right"><g:link controller="researcher" action="newprice">Add New Price</g:link></td></tr></table>
-            <span class="green">
-            <g:if test="${updateProduct}">
-                <g:if test="${updateProduct.resultOK}">
-                    ${updateProduct.resultOK}
-                </g:if>
-                <g:else test="${updateProduct.resultError}">
-                    ${updateProduct.resultError}
-                </g:else>                    
+                    <g:if test="${updateProduct}">
+                        <g:if test="${updateProduct.resultOK}">
+                <span class="green">${updateProduct.resultOK} </span>
             </g:if>
-        </span>
+            <g:else test="${updateProduct.resultError}">
+                <span class="red">${updateProduct.resultError} </span>
+            </g:else>                    
+        </g:if>
+
         <table id="products">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Bar Code</th>
-            <th>Price</th>
-            <th>Notes</th>
-            </tr>
+                    <th>Price</th>
+                    <th>Notes</th>
+                </tr>
             </thead>
             <tbody>
                 <g:each in="${prices}" var="price" status="i">

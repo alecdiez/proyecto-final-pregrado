@@ -18,19 +18,25 @@ class AdminController {
     }
 
     def newproduct() {
-        def code = params.code
-        def desc = params.desc
-        def barCode = params.barCode
+        def code = params.code ? params.code.trim() : params.code
+        def desc = params.desc ? params.desc.trim() : params.desc
+        def barCode = params.barCode             
 
         if(code && barCode){
-            def pro = new Product()
-            pro.setProductCode(code)
-            pro.setProductDesc(desc)
-            pro.setProductBarCode(Long.parseLong(barCode))
-            if(pro.save(flush: true, failOnError: false)){
-                redirect(controller: "admin", action: "index", params: [barCode: barCode])
+            def productByBarCode = Product.findWhere(productBarCode: Long.parseLong(barCode))
+            def productByCode = Product.findWhere(productCode: code)
+            if(!productByBarCode && !productByCode){
+                def pro = new Product()
+                pro.setProductCode(code)
+                pro.setProductDesc(desc)
+                pro.setProductBarCode(Long.parseLong(barCode))
+                if(pro.save(flush: true, failOnError: false)){
+                    redirect(controller: "admin", action: "index", params: [barCode: barCode])
+                }else{
+                    [error: "Error to Save new Product!"]
+                }
             }else{
-                [error: "Error to Save new Product!"]
+                [error: "Product Already Exists!"]
             }
         }
     }
@@ -39,8 +45,7 @@ class AdminController {
         def formulas = IdealPriceFormula.listOrderByFormulaIsUsed()
         def formulaUsed = IdealPriceFormula.findByFormulaIsUsed('Y')        
         def idPick = params.idPick
-        def error = ""
-        
+        def error = ""        
 
         if(idPick){
             IdealPriceFormula pick = IdealPriceFormula.findByFormulaId(Long.parseLong(idPick))
@@ -70,7 +75,7 @@ class AdminController {
         [ product: new Product().productsWithCriteria(params)]
     }
 
-   def idealPriceFormulaFirstId(params) {
+    def idealPriceFormulaFirstId(params) {
         [ original: IdealPriceFormula.findByIdealPriceFormulaId(params.idealPriceFormulaId)]
     }
 
