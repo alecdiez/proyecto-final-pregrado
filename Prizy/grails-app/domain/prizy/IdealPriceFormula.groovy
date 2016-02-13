@@ -9,8 +9,9 @@ class IdealPriceFormula implements Serializable {
     Date formulaDate = new Date()
 
     static mapping = {
-        id generator: 'increment', name: 'formulaId'
         version false
-        idealPriceFormulaDate defaultValue: 'now()'
+        id generator: 'increment', name: 'formulaId'        
+        formulaDate defaultValue: 'now()'
+        formula type: 'text', size: 1..5000
     }
 }

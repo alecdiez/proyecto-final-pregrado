@@ -57,7 +57,7 @@ class AdminController {
             }
         }
 
-        [formulas: formulas.results, formulaUsed: formulaUsed, error: error]
+        [formulas: formulas, formulaUsed: formulaUsed, error: error]
     }
 
     /*Next Methods are only for Integration Test*/
