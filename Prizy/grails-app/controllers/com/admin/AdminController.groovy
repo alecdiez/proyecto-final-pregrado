@@ -42,7 +42,7 @@ class AdminController {
     }
 
     def idealpriceformula(){
-        def formulas = IdealPriceFormula.listOrderByFormulaIsUsed()
+        def formulas = IdealPriceFormula.listOrderByFormulaIsUsed(order: "desc")
         def formulaUsed = IdealPriceFormula.findByFormulaIsUsed('Y')        
         def idPick = params.idPick
         def error = ""        

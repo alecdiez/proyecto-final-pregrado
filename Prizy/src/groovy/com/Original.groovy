@@ -13,13 +13,14 @@ import prizy.IdealPriceFormula
  *
  * @author Alejandro
  */
-class Original implements Strategy {      
+class Original implements Strategy {   
+    
     @Override
     public BigDecimal getFormula(Long barCode, String className, dataSource) {        
         def formula = IdealPriceFormula.findByFormulaName(className)
         def sql = new Sql(dataSource)        
         def idealPrice  = sql.rows(formula.getFormula(),[bc: barCode])
-        return new BigDecimal(idealPrice[0][0])
+        return idealPrice[0][0] ? new BigDecimal(idealPrice[0][0]) : new BigDecimal(0)
     }	
 }
 

@@ -27,17 +27,17 @@
                 <tr><td >
                         Formula Used to calculate the Ideal Price:
                         &nbsp;&nbsp;&nbsp;
-                        <span class="green">ID:&nbsp;${formulaUsed?.formulaId}</span>
+                        ID:<span class="green">&nbsp;${formulaUsed?.formulaId}</span>
                     </td>
-                    <td class="green">
+                    <td>
                         Date of Birth:&nbsp;
-                        <g:formatDate format="MM-dd-yyyy HH:mm" date="${formulaUsed?.formulaDate}"/>
+                        <span class="green"><g:formatDate format="MM-dd-yyyy HH:mm" date="${formulaUsed?.formulaDate}"/></span>
                     </td>
                 </tr>
                 <tr><td colspan="2"></td></tr>
                 <tr>
-                    <td class="green">
-                        Description:&nbsp;<span >${formulaUsed?.formulaDescription}</span>
+                    <td colspan="2">
+                        Description:&nbsp;<span class="green">${formulaUsed?.formulaDescription}</span>
                     </td>
 
                 </tr>
@@ -89,7 +89,7 @@
     </center>
     <script type="text/javascript"> 
         $( document ).ready(function() { 
-        
+
         });
     </script>
 </body>
