@@ -49,6 +49,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Date Of Birth</th>
+                    <th>Formula Name</th>
                     <th>Description</th>   
                     <th>Is Used</th>
                     <th>Select Formula</th>
@@ -59,6 +60,7 @@
                     <g:if test="${form.formulaIsUsed == 'Y'}">
                         <tr>
                             <td class="green">${form.formulaId}</td>
+                            <td class="green">${form.formulaName}</td>
                             <td class="green">
                                 <g:formatDate format="MM-dd-yyyy HH:mm" date="${form.formulaDate}"/>
                             </td>
@@ -70,6 +72,7 @@
                     <g:else>
                         <tr>
                             <td>${form.formulaId}</td>
+                            <td>${form.formulaName}</td>
                             <td>
                                 <g:formatDate format="MM-dd-yyyy HH:mm" date="${form.formulaDate}"/>
                             </td>

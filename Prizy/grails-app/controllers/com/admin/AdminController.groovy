@@ -76,7 +76,7 @@ class AdminController {
     }
 
     def idealPriceFormulaFirstId(params) {
-        [ original: IdealPriceFormula.findByIdealPriceFormulaId(params.idealPriceFormulaId)]
+        [ original: IdealPriceFormula.findByFormulaId(params.formulaId)]
     }
 
 }

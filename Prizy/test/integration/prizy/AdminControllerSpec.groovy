@@ -35,22 +35,48 @@ class AdminControllerSpec extends IntegrationSpec {
         p2.product.products.size() >= 3 //Here the result must have at least 3 rows!
     }
 
-   /*
-    * The first Id of IdealPriceFormula table must be the Original Formula
-    * This price is calculated by taking all the prices of this product,
-    * removing the 2 highest and 2 lowest, then doing an average
-    * with the rest and adding 20% to it.
-   */
+    /*
+     * The first Id of IdealPriceFormula table must be the Original Formula
+     * This price is calculated by taking all the prices of this product,
+     * removing the 2 highest and 2 lowest, then doing an average
+     * with the rest and adding 20% to it.
+     */
 
     @Test
     void "Ideal Price Formula Find First Id"() {
         when:'The Id == 1'
-        def params = [idealPriceFormulaId: 1L]
+        def params = [formulaId: 1L]
         def ipf = new AdminController().idealPriceFormulaFirstId(params)
 
         then:'The attributes of the result must be equals to the original formula'
-        ipf.original.idealPriceFormulaPercentage == '20'
-        ipf.original.idealPriceFormulaMax == '2'
-        ipf.original.idealPriceFormulaMin == '2'
-    }
+        ipf.original.formulaName == "Original"
+        
+        when:'The Id == 2'
+        params = [formulaId: 2L]
+        ipf = new AdminController().idealPriceFormulaFirstId(params)
+
+        then:'The attributes of the result must be equals to the original formula'
+        ipf.original.formulaName == "Simple"
+        
+        when:'The Id == 3'
+        params = [formulaId: 3L]
+        ipf = new AdminController().idealPriceFormulaFirstId(params)
+
+        then:'The attributes of the result must be equals to the original formula'
+        ipf.original.formulaName == "Newest"
+        
+        when:'The Id == 4'
+        params = [formulaId: 4L]
+        ipf = new AdminController().idealPriceFormulaFirstId(params)
+
+        then:'The attributes of the result must be equals to the original formula'
+        ipf.original.formulaName == "LargeProfit"
+        
+        when:'The Id == 5'
+        params = [formulaId: 5L]
+        ipf = new AdminController().idealPriceFormulaFirstId(params)
+
+        then:'The attributes of the result must be equals to the original formula'
+        ipf.original.formulaName == "MostRepeated"  
+    }        
 }

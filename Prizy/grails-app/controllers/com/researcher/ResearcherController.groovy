@@ -72,4 +72,13 @@ class ResearcherController {
     def pricesTestForCalculateData(params) {
         [ product:  new Prices().calculateData(params)]
     }
+    
+    def idealPriceStrategy(params) {
+        def idealPriceStored = Product.findByProductBarCode(Long.parseLong(params.barCode))
+        def idealPrice = new BigDecimal(0)
+        def formulaClassName = Class.forName(params.formulaUrl, true, Thread.currentThread().contextClassLoader).newInstance()            
+        Context context = new Context(formulaClassName)
+        idealPrice = context.executeStrategy(Long.parseLong(params.barCode), params.formulaName, dataSource)
+        [ ip:  idealPrice, ips: idealPriceStored.productIdealPrice]
+    }
 }
