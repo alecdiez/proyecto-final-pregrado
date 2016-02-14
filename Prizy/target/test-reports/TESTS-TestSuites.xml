@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="0" name="AdminControllerSpec" package="prizy" tests="3" time="1.312" timestamp="2016-02-14T16:11:58">
+  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="0" name="AdminControllerSpec" package="prizy" tests="3" time="1.25" timestamp="2016-02-14T18:44:30">
       <properties />
 
-      <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.672" />
+      <testcase classname="prizy.AdminControllerSpec" name="Product First Row" time="0.688" />
 
-      <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.438" />
+      <testcase classname="prizy.AdminControllerSpec" name="Product Find with criteria" time="0.375" />
 
       <testcase classname="prizy.AdminControllerSpec" name="Ideal Price Formula Find First Id" time="0.062" />
 
@@ -20,18 +20,12 @@
 ]]></system-err>
 
   </testsuite>
-  <testsuite errors="1" failures="0" hostname="Ale-Esc-PC" id="1" name="ResearcherControllerSpec" package="prizy" tests="2" time="0.641" timestamp="2016-02-14T16:12:00">
+  <testsuite errors="0" failures="0" hostname="Ale-Esc-PC" id="1" name="ResearcherControllerSpec" package="prizy" tests="2" time="0.61" timestamp="2016-02-14T18:44:31">
       <properties />
 
-      <testcase classname="prizy.ResearcherControllerSpec" name="We must get the calculated data for the first product" time="0.11" />
+      <testcase classname="prizy.ResearcherControllerSpec" name="We must get the calculated data for the first product" time="0.078" />
 
-      <testcase classname="prizy.ResearcherControllerSpec" name="Ideal Price Strategy" time="0.531">
-          <error message="No signature of method: java.math.BigDecimal.round() is applicable for argument types: (java.lang.Integer) values: [2]&#xa;Possible solutions: round(java.math.MathContext), find(), pow(int), power(java.lang.Integer), and(java.lang.Number), find(groovy.lang.Closure)" type="groovy.lang.MissingMethodException">groovy.lang.MissingMethodException: No signature of method: java.math.BigDecimal.round() is applicable for argument types: (java.lang.Integer) values: [2]
-Possible solutions: round(java.math.MathContext), find(), pow(int), power(java.lang.Integer), and(java.lang.Number), find(groovy.lang.Closure)
-	at prizy.ResearcherControllerSpec.Ideal Price Strategy(ResearcherControllerSpec.groovy:56)
-</error>
-
-      </testcase>
+      <testcase classname="prizy.ResearcherControllerSpec" name="Ideal Price Strategy" time="0.532" />
 
       <system-out><![CDATA[--Output from We must get the calculated data for the first product--
 --Output from Ideal Price Strategy--

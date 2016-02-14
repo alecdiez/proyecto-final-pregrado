@@ -20,7 +20,7 @@ class ResearcherControllerSpec extends IntegrationSpec {
         p.product[0][3] != null
     }
     
-    // This will test ideal price formula strategy
+    // This will test ideal price formula strategy only for the first test!! after you some changes this test will fail.
     @Test
     void "Ideal Price Strategy"() {
         
@@ -52,8 +52,8 @@ class ResearcherControllerSpec extends IntegrationSpec {
         params = [formulaUrl: 'com.LargeProfit', barCode: '989898787878', formulaName: 'LargeProfit']
         idealPrice = new ResearcherController().idealPriceStrategy(params)
 
-        then:'Ideal Price Calculated is equal to Ideal Price Stored'
-        assert (new BigDecimal(idealPrice.ip).round(2)) == (new BigDecimal(idealPrice.ips))        
+        then:'Ideal Price Calculated is equal to Ideal Price Stored'        
+        idealPrice.ip == idealPrice.ips
         
         
         when:'Formula = MostRepeated'

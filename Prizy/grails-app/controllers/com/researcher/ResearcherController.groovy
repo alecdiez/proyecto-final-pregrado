@@ -79,6 +79,6 @@ class ResearcherController {
         def formulaClassName = Class.forName(params.formulaUrl, true, Thread.currentThread().contextClassLoader).newInstance()            
         Context context = new Context(formulaClassName)
         idealPrice = context.executeStrategy(Long.parseLong(params.barCode), params.formulaName, dataSource)
-        [ ip:  idealPrice, ips: idealPriceStored.productIdealPrice]
+        [ ip: idealPrice.setScale(2, BigDecimal.ROUND_FLOOR), ips: idealPriceStored.productIdealPrice]
     }
 }
