@@ -21,6 +21,13 @@
 <script src="js/DefaultGeneral.js"></script>
 <!DOCTYPE html>
 
+<style>
+    body {
+        background-image: url("images/fondo_uno.jpg");
+        background-color: #cccccc;
+    }
+</style>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

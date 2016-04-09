@@ -55,7 +55,7 @@ $(document).ready(function () {
 
 
 function cierraMapa(mapaId) {
-    jConfirm("Rescuerde que si cierra un Mapa ya no lo podrá Editar ¿Desea Cerrarr este Mapa?", "Cierra Mapa", function (r) {
+    jConfirm("Recuerde que si cierra un Mapa ya no lo podrá Editar ¿Desea Cerrarr este Mapa?", "Cierra Mapa", function (r) {
 
         if (r) {
             $.get('com.ServletUtil', {mapaId: mapaId, cierraMapa: true}, function (responseText) {

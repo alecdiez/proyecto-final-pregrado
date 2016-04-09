@@ -12,7 +12,7 @@
 <link href="css/main.css" rel="stylesheet"/>
 <!DOCTYPE html>
 <%
-    String perNom = TextFormat.toStringNeverNull(session.getAttribute("perNom"));    
+    String perNom = TextFormat.toStringNeverNull(session.getAttribute("perNom"));
 %>
 <c:set var="perNom" value="<%=perNom%>" />
 <html>
@@ -21,24 +21,20 @@
 
     </head>
     <body style="background-color:  #3f3939">
-        <div align="right">
-            <table>
-                <tr>
-                    <td class="texto">
-                        <c:out value="Bienvenido ${perNom}" />
-                    </td>
-                    <td style=" vertical-align: bottom ">
-                        <form name="form1" action="com.genericQuery">
+        <form name="form1" action="com.genericQuery">
+            <div align="right">
+                <table>
+                    <tr>
+                        <td class="TextoLogin">
+                            <c:out value="Bienvenido ${perNom}" />
+                        </td>
+                        <td style="vertical-align: middle">
                             <input type="button" id="closeSession" value="Cerrar Sesion" class="BotonCerrarSession" onmouseover="this.style.color = 'blue'"
-                                   onMouseOut="this.style.color = '#c40606'"/>                           
-                        </form>
-
-                    </td>
-                </tr>
-
-            </table>
-
-        </div>
-
+                                   onMouseOut="this.style.color = '#c40606'"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
     </body>
 </html>

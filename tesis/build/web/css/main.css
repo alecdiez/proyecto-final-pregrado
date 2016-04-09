@@ -60,6 +60,16 @@ root {
    color:  aliceblue;
    FONT-FAMILY: Verdana, Tahoma
 }
+
+.TextoLogin
+{
+   PADDING-RIGHT: 5px;
+   PADDING-LEFT: 5px;
+   FONT-SIZE: 20px;
+   color:  aliceblue;
+   FONT-FAMILY: Verdana, Tahoma
+}
+
 .Texto1
 {
    PADDING-RIGHT: 5px;
