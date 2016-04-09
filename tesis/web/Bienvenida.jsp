@@ -17,7 +17,7 @@
       </div>
       <br>
       <div align="center">
-         <img src="images/Logo.jpg" width="300" height="400" alt="Logo"/>
+         <img src="images/logo.png" width="300" height="400" alt="Logo"/>
       </div>
 
    </body>
